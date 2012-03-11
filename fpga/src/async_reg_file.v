@@ -13,8 +13,7 @@ module async_reg_file(
                       be,
                       clk,
                       as,
-                      rst_n,
-							 led_out
+                      rst_n
                       );
    // Inputs
    input [23:0] address;        // Arm address

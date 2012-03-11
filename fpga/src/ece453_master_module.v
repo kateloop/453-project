@@ -126,7 +126,6 @@ module ece453_master_module(
                              .be(ARM_BE_B),
                              .clk(FPGA_CLK1),
                              .as(CPLD_AS),
-                             .led_out(LED),
                              .rst_n(SYS_RST_N));
 
 
