@@ -1,0 +1,2 @@
+#define LEDREG1 0xd3000000
+

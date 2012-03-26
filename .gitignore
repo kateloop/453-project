@@ -1,0 +1,4 @@
+# Files from running make
+*.d
+*.o
+demo
