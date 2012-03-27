@@ -36,7 +36,7 @@ LD_FLAGS = --section-start=.init=0xC0200000
 ##############################################################################
 # Board build stuff...
 ##############################################################################
-OUTPUT_FILE = demo
+OUTPUT_FILE = dakProj
 VPATH = ./lwip
 INCLUDES = -I. -I./lwip
 S_FILES = board_asm.S
