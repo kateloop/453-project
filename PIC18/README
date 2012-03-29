@@ -1,0 +1,8 @@
+TODO :
+
+1. Find PIC sample code for configuration
+	Any available PIC header files to include to enable interrupts, etc...
+
+2. What is each interrupt doing?
+
+3. Communication with FPGA - UART (when new data available, LED value may change)

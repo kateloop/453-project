@@ -1,3 +1,5 @@
+#ifndef REGADDR_H
+#define REGADDR_H
 
 /* Registers for sensors and LEDs in fpga logic */
 #define SENSREGA 0xd3000000
@@ -11,3 +13,6 @@
 #define LED2REG  0xd3000020
 #define LED3REG  0xd3000024
 
+
+
+#endif
