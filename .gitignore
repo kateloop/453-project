@@ -2,3 +2,6 @@
 *.d
 *.o
 demo
+
+# MPLABX Projects
+*.X
