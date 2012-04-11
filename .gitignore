@@ -1,0 +1,7 @@
+# Files from running make
+*.d
+*.o
+demo
+
+# MPLABX Projects
+*.X
