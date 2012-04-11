@@ -1,0 +1,343 @@
+*this func "sine" will be in the ethISR function of eth.c in the FreeRTOS files*
+
+
+//create a lut(array) with correct sine values 
+//index thru lut - incrementing counter(ie only one outputed value per func call)
+//speed at which you call func will determine note played
+//need to have global variable i for index...therefore we know where in sine wave we have to output. This will be the 
+interrupt handling code..
+
+int sine()
+{
+
+value = sine_lut[i];
+i = i+1;
+if (i == 16) i=0;
+int sine_lut[17] = {0, 6424, 12785, 19024, 25079, 30893, 36409, 41575, 46340, 50659, 
+  54490, 57797, 60546, 62713, 64276, 65219, 65535};
+return value
+}
+
+-------------------------------------------------------------------------------------------------------------
+/*
+
+*right now I'm not sure where this code goes...but we need to set up the timer interrupt somewhere in the FreeRTOS code*
+
+//define addresses for GPT1 that are needed
+#define TCTL1 0x10003000
+#define TCMP1 0x10003008
+
+31-16 = reserved
+15 = 0 (no SW RST)
+14-11 = reserved
+10 - 1 (ctr reset when ten disabled)
+9 - 0 (output mode = active low pulse for one clk period)
+8 - 0 (restart mode - we want to restart once it hit the compare
+7-6 - 00 (capture event disabled - we don't care about capturing, we want the compare event)
+5 - 00 (to disable the capture interrupt)
+4 - 1 (enable compare interrupt)
+3-1 = 1xx(use 32kHz clk) -- have TEN = 0 when you set this!
+0 = timer enable, 1 if enabled
+*/
+
+//Loads the value, then sets the GPT Control Reg (TCTL1) to its correct values described above
+uint32 TCTL1_value = *(TCTL1);
+TCTL1_value = (TCTL1_value && 0xFFFF7800);
+TCTL1 = (TCTL1_value || 0x00000418);
+
+
+------------------------------------------------------------------------------------------------------
+Function that calls the sine wave func at the correct speed given the note
+
+*This func "play" can just reside in its own .c file and be included in whatever file will call it
+//define counter values for all notes 
+
+#define B3_sharp 251
+#define C3 251
+#define C3_sharp 236
+#define D3_flat 236
+#define D3 223
+#define D3_sharp 211
+#define E3_flat 211
+#define E3 199
+#define F3_flat 199
+#define F3 188
+#define F3_sharp 177
+#define G3_flat 177
+#define G3 167
+#define G3_sharp 158
+#define A3_flat 158
+#define A3 149
+#define A3_sharp 141
+#define B3_flat 141
+#define B3 133
+#define C3_flat 133
+
+#define B4_sharp 125
+#define C4 125
+#define C4_sharp 118
+#define D4_flat 118
+#define D4 112
+#define D4_sharp 105
+#define E4_flat 105
+#define E4 99
+#define F4_flat 99
+#define F4 94
+#define F4_sharp 89
+#define G4_flat 89
+#define G4 84
+#define G4_sharp 79
+#define A4_flat 79
+#define A4 74
+#define A4_sharp 70
+#define B4_flat 70
+#define B4 66
+#define C4_flat 66
+
+
+#define B5_sharp 63
+#define C5 63
+#define C5_sharp 59
+#define D5_flat 59
+#define D5 56
+#define D5_sharp 53
+#define E5_flat 53
+#define E5 50
+
+#define F5_flat 50
+#define F5 47
+#define F5_sharp 44
+#define G5_flat 44
+#define G5 42
+#define G5_sharp 39
+#define A5_flat 39
+#define A5 37
+#define A5_sharp 35
+#define B5_flat 35
+#define B5 33
+#define C5_flat 33
+
+
+play(int a)
+
+switch (note)
+{
+    case B3_sharp:
+        TCMP1 = C3;
+	break;
+    case C3:
+	TCMP1 = C3
+        break;
+    case C3_sharp:
+        TCMP1 = C3_sharp;
+	break;
+
+    case D3_flat:
+        TCMP1 = D3_flat;
+	break;
+    case D3:
+	TCMP1 = D3
+        break;
+    case D3_sharp:
+        TCMP1 = D3_sharp;
+	break;
+
+    case E3_flat:
+        TCMP1 = E3_flat;
+	break;
+    case E3:
+	TCMP1 = E3
+        break;
+    case F3_flat:
+        TCMP1 = F3_flat;
+	break;
+
+    case F3:
+        TCMP1 = F3;
+	break;
+
+    case F3_sharp:
+        TCMP1 = F3_sharp;
+	break;
+
+    case G3_flat:
+        TCMP1 = G3_flat;
+	break;
+    case G3:
+	TCMP1 = G3
+        break;
+    case G3_sharp:
+        TCMP1 = G3_sharp;
+	break;
+
+    case A3_flat:
+        TCMP1 = A3_flat;
+	break;
+    case A3:
+	TCMP1 = A3
+        break;
+    case A3_sharp:
+        TCMP1 = A3_sharp;
+	break;
+
+    case B3_flat:
+        TCMP1 = B3_flat;
+	break;
+    case B3:
+	TCMP1 = B3
+        break;
+    case C3_flat:
+        TCMP1 = C3_flat;
+	break;
+///----------------//END OF OCTAVE #3//---------------------------------------------
+
+    case B4_sharp:
+        TCMP1 = C4;
+	break;
+    case C4:
+	TCMP1 = C4
+        break;
+    case C4_sharp:
+        TCMP1 = C4_sharp;
+	break;
+
+    case D4_flat:
+        TCMP1 = D4_flat;
+	break;
+    case D4:
+	TCMP1 = D4
+        break;
+    case D4_sharp:
+        TCMP1 = D4_sharp;
+	break;
+
+    case E4_flat:
+        TCMP1 = E4_flat;
+	break;
+    case E4:
+	TCMP1 = E4
+        break;
+    case F4_flat:
+        TCMP1 = F4_flat;
+	break;
+
+    case F4:
+        TCMP1 = F4;
+	break;
+
+    case F4_sharp:
+        TCMP1 = F4_sharp;
+	break;
+
+    case G4_flat:
+        TCMP1 = G4_flat;
+	break;
+    case G4:
+	TCMP1 = G4
+        break;
+    case G4_sharp:
+        TCMP1 = G4_sharp;
+	break;
+
+    case A4_flat:
+        TCMP1 = A4_flat;
+	break;
+    case A4:
+	TCMP1 = A4
+        break;
+    case A4_sharp:
+        TCMP1 = A4_sharp;
+	break;
+
+    case B4_flat:
+        TCMP1 = B4_flat;
+	break;
+    case B4:
+	TCMP1 = B4
+        break;
+    case C4_flat:
+        TCMP1 = C4_flat;
+	break;
+
+
+//end octave 4 case stmts------------------------------------------------------------
+
+    case B5_sharp:
+        TCMP1 = C5;
+	break;
+    case C5:
+	TCMP1 = C5
+        break;
+    case C5_sharp:
+        TCMP1 = C5_sharp;
+	break;
+
+    case D5_flat:
+        TCMP1 = D5_flat;
+	break;
+    case D5:
+	TCMP1 = D5
+        break;
+    case D5_sharp:
+        TCMP1 = D5_sharp;
+	break;
+
+    case E5_flat:
+        TCMP1 = E5_flat;
+	break;
+    case E5:
+	TCMP1 = E5
+        break;
+    case F5_flat:
+        TCMP1 = F5_flat;
+	break;
+
+    case F5:
+        TCMP1 = F5;
+	break;
+
+    case F5_sharp:
+        TCMP1 = F5_sharp;
+	break;
+
+    case G5_flat:
+        TCMP1 = G5_flat;
+	break;
+    case G5:
+	TCMP1 = G5
+        break;
+    case G5_sharp:
+        TCMP1 = G5_sharp;
+	break;
+
+    case A5_flat:
+        TCMP1 = A5_flat;
+	break;
+    case A5:
+	TCMP1 = A5
+        break;
+    case A5_sharp:
+        TCMP1 = A5_sharp;
+	break;
+
+    case B5_flat:
+        TCMP1 = B5_flat;
+	break;
+    case B5:
+	TCMP1 = B5
+        break;
+    case C5_flat:
+        TCMP1 = C5_flat;
+	break;
+
+    default:
+	break;
+}
+
+
+
+  
+}
+
+	
+ 
