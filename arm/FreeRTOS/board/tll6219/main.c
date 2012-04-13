@@ -34,7 +34,6 @@
 #include "regaddr.h"
 #include "noteFreq.h"
 
-
 // Notes
 
 #define O3BS	0
@@ -121,6 +120,8 @@ int freq;
 
 // <C> <D> <E> <F> <G> <A> <B> <L3> <R3> <L4> <R4> <L5> <R5>
 int uart_out;
+
+// sensor output, sensor number (ie A, B, C, D, E, F, G)
 int uart_in;
 
 /***************************************************************************
@@ -379,5 +380,16 @@ void play (int note)
  ****************************************************************************/
 void _main(void* parameter)
 {
-   printf("TODO");
+	// set up uart TODO look at dps
+	uartInit (UART1, UART_BAUD_115200, UART_DPS_KEEP);
+	// spin and wait for interrupts / poll uart
+	while (1) {
+		// poll receive register; once full receive
+		
+		// determine note to be played
+		// 	call play(note)
+		
+		uartTx(UART1, uart_out);
+
+	}
 }
