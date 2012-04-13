@@ -154,42 +154,82 @@ void play (int note)
 			break;
 		case O3DF :
 			freq = D3FLAT;
+			// D, L3
+			uart_out |= UD;
+			uart_out |= UL3;
 			break;
 		case O3D :
 			freq = D3;
+			// D, L3, R3
+			uart_out |= UD;
+			uart_out |= UL3;
+			uart_out |= UR3;
 			break;
 		case O3DS :
 			freq = D3SHARP;
+			// D, 3R
+			uart_out |= UD;
+			uart_out |= UR3;
 			break;
 		case O3EF :
 			freq = E3FLAT;
+			// E, L3
+			uart_out |= UE;
+			uart_out |= UL3;
 			break;
 		case O3E :
 			freq = E3;
+			// E, L3, R3
+			uart_out |= UE;
+			uart_out |= UL3;
+			uart_out |= UR3;
 			break;
 		case O3FF :
 			freq = F3FLAT;
+			// F, L3
+			uart_out |= UF;
+			uart_out |= UL3;
 			break;
 		case O3F :
 			freq = F3;
+			// F, L3, R3
+			uart_out |= UF;
+			uart_out |= UL3;
+			uart_out |= UR3;
 			break;
 		case O3FS :
 			freq = F3SHARP;
+			// F, R3
+			uart_out |= UF;
+			uart_out |= UR3;
 			break;	
 		case O3GF :
 			freq = G3FLAT;
+			// G, L3
+			uart_out |= UG;
+			uart_out |= UL3;
 			break;
 		case O3G :
 			freq = G3;
+			// G, L3, R3
+			uart_out |= UG;
+			uart_out |= UL3;
+			uart_out |= UR3;
 			break;
 		case O3GS :
 			freq = G3SHARP;
+			// G, R3
+			uart_out |= UG;
+			uart_out |= UR3;
 			break;
 		case O3AF :
 			freq = A3FLAT;
+			// A, L3
+			uart_out |= UA;
+			uart_out |= UL3;
 			break;
 		case O3A :
-			freq = A3FLAT;
+			freq = A3;
 			break;
 		case O3AS :
 			freq = A3SHARP;
