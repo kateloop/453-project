@@ -1,0 +1,41 @@
+Power Mode: Run (CPU on, peripherals on)
+	Oscillator Types: INTIO2 - Internal Oscillator with I/O on RA6 and RA7
+	Pg 29: OSCTUE: Oscillator Tuning Register
+	Pg. 31 OSCON: Oscillator Control Register
+
+Pg. 50: Reset State of Registers
+Pg. 78: Register File Summary
+	INTCON, INTCON2, INTCON3
+	TMR0H, TMR0L, T0CON, TMR1H, TMR1L, T1CON, TMR2, PR2, T2CON, TMR3H, TMR3L, T3CON
+	OSCCON
+	ADRESH, ADRESL, ADCON0, ADCON1, ADCON2
+	BAUDCON
+	SPBRGH, APBRG, RCREG, TXREG, TXSTA, RCSTA  -- UART
+
+
+
+A/D Conversion Process:
+The A/D process, taken from the datasheet
+	Configure the A/D module:
+		Configure analog pins, voltage reference and digital I/O (ADCON1)
+		Select A/D input channel (ADCON0)
+		Select A/D acquisition time (ADCON2)
+		Select A/D conversion clock (ADCON2)
+		Turn on A/D module (ADCON0)
+	Configure A/D interrupt (if desired):
+		Clear ADIF bit
+		Set ADIE bit
+		Set GIE bit
+		Wait the required acquisition time (if required).
+	Start conversion:
+		Set GO/DONE bit (ADCON0 register)
+		Wait for A/D conversion to complete, by either:
+		Polling for the GO/DONE bit to be cleared
+		OR
+		Waiting for the A/D interrupt
+		Read A/D Result registers (ADRESH:ADRESL);
+		clear bit ADIF, if required.i
+
+
+pg. 254: A/D Acquisition Requirements (for ADCON2 config)
+pg. 255: Selecting the A/D Conversion Clock (for ADCON2 config) 
