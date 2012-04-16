@@ -116,23 +116,24 @@ int cur_inputs[7];
 int prev_inputs[7];
 
 // Structure to hold ADC conversion information
-typedef struct ADC_conv {
- int result;        // result of ADC conversion
- int adc_channel;   // channel converted (ie what note was played)
-};
-ADC_conv conv_result;
-
-
-
+//typedef struct ADC_conv {
+// int result;        // result of ADC conversion
+// int adc_channel;   // channel converted (ie what note was played)
+//};
+//ADC_conv conv_result;
 
 /*
  * main
  */
 int main(int argc, char** argv) {
-    // initial setup
+    // initial setup'
+    OSCCON = OSC_IRCIO67;
+    OSCTUNE &= 0b11100000;
+    WDTCON = WDT_OFF;
+    
 
     // UART configuration  TODO
-    RCSTA |= 0b10000000;
+  //  RCSTA |= 0b10000000;
     
     // set up GPIO
     TRISA = PORTA_DIR;
@@ -140,22 +141,43 @@ int main(int argc, char** argv) {
     TRISC = PORTC_DIR;
 
     // configure ADC
+    // CONFIG3H??
     ADCON0 = ADCON0_INIT;
     ADCON1 = ADCON1_VAL;
     ADCON2 = ADCON2_VAL;
 
     // Turn on ADC and enable interrupts
-    ADON = 1;
-    ADC_INT_ENABLE();
+   // ADON = 1;
+   // ADC_INT_ENABLE();
 
     while (1) {    // spin
-        if (GODONE == 0) {
+//        if (GODONE == 0) {
             // ADC Conversion Complete; Toggle LEDs accordingly
-            ToggleLeds();
-        }
+  //          ToggleLeds();
+  //      }
 
         // TODO anything else ?
 
+        LATB = 0x00100000;
+        PORTB = 0x00100000;
+
+        for (int i = 0; i < 50000; i++) {
+            // spin
+            for (int j = 0; j < 50000; j++) {
+                // spin
+            }
+        }
+        
+        LATB = 0x00000000;
+        PORTB = 0x00000000;
+        
+        for (int i = 0; i < 50000; i++) {
+            // spin
+            for (int j = 0; j < 50000; j++) {
+                // spin
+            }
+        }
+        
     }
     return (EXIT_SUCCESS);
 }
@@ -227,7 +249,7 @@ void ToggleLeds () {
 /*
  * Does an ADC conversion
  */
-void adc_conversion (int adc_channel) {
+/*void adc_conversion (int adc_channel) {
 
     ADC_INT_DISABLE (); // disable interrupts
     ADON = 0;   // Turn of ADC
@@ -261,10 +283,10 @@ void adc_conversion (int adc_channel) {
     ADRESH = 0;
     ADRESL = 0;
 
-    /*
-     * ADIE = 0;  // Mask interrupt
-     * ADIF = 0;  // Reset ADC interrupt bit
-     */
+    
+    // ADIE = 0;  // Mask interrupt
+     //ADIF = 0;  // Reset ADC interrupt bit
+     
     ADON = 1;   // Turn on ADC
     GODONE = 1; // Starts conversion
 
@@ -278,5 +300,5 @@ void adc_conversion (int adc_channel) {
 
     // Reenable interrupts
     ADC_INT_ENABLE();
-}
+}*/
 
