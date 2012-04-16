@@ -126,10 +126,10 @@ int prev_inputs[7];
  * main
  */
 int main(int argc, char** argv) {
-    // initial setup'
+    // initial setup
     OSCCON = OSC_IRCIO67;
     OSCTUNE &= 0b11100000;
-    WDTCON = WDT_OFF;
+   // WDTCON = WDT_ON;
     
 
     // UART configuration  TODO
@@ -141,7 +141,6 @@ int main(int argc, char** argv) {
     TRISC = PORTC_DIR;
 
     // configure ADC
-    // CONFIG3H??
     ADCON0 = ADCON0_INIT;
     ADCON1 = ADCON1_VAL;
     ADCON2 = ADCON2_VAL;
@@ -149,6 +148,9 @@ int main(int argc, char** argv) {
     // Turn on ADC and enable interrupts
    // ADON = 1;
    // ADC_INT_ENABLE();
+
+    LATB = 0x00100000;
+    PORTB = 0x00100000;
 
     while (1) {    // spin
 //        if (GODONE == 0) {
@@ -161,7 +163,7 @@ int main(int argc, char** argv) {
         LATB = 0x00100000;
         PORTB = 0x00100000;
 
-        for (int i = 0; i < 50000; i++) {
+    /*    for (int i = 0; i < 50000; i++) {
             // spin
             for (int j = 0; j < 50000; j++) {
                 // spin
@@ -176,7 +178,7 @@ int main(int argc, char** argv) {
             for (int j = 0; j < 50000; j++) {
                 // spin
             }
-        }
+        }*/
         
     }
     return (EXIT_SUCCESS);
