@@ -12,6 +12,7 @@
 #include <peripheral/usart.h>
 #include <errno.h>
 #include <stddef.h>
+#include <../samples/std/delay/delay.h>
 
 /*
 / ADC /
@@ -134,21 +135,23 @@ int main(int argc, char** argv) {
 
     // UART configuration  TODO
   //  RCSTA |= 0b10000000;
-    
-    // set up GPIO
-    TRISA = PORTA_DIR;
-    TRISB = PORTB_DIR;
-    TRISC = PORTC_DIR;
 
     // configure ADC
     ADCON0 = ADCON0_INIT;
     ADCON1 = ADCON1_VAL;
     ADCON2 = ADCON2_VAL;
 
+    
+    // set up GPIO
+    TRISA = PORTA_DIR;
+    TRISB = PORTB_DIR;
+    TRISC = PORTC_DIR;
+
     // Turn on ADC and enable interrupts
    // ADON = 1;
    // ADC_INT_ENABLE();
 
+    // TEST: TURN ON 
     LATB = 0x00100000;
     PORTB = 0x00100000;
 
@@ -160,25 +163,18 @@ int main(int argc, char** argv) {
 
         // TODO anything else ?
 
+        /*
         LATB = 0x00100000;
         PORTB = 0x00100000;
 
-    /*    for (int i = 0; i < 50000; i++) {
-            // spin
-            for (int j = 0; j < 50000; j++) {
-                // spin
-            }
-        }
+        DelayMs (1000);
+
+
         
         LATB = 0x00000000;
         PORTB = 0x00000000;
         
-        for (int i = 0; i < 50000; i++) {
-            // spin
-            for (int j = 0; j < 50000; j++) {
-                // spin
-            }
-        }*/
+        DelayMs (1000);*/
         
     }
     return (EXIT_SUCCESS);
