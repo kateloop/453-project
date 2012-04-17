@@ -41,8 +41,6 @@
 //////////////////////////////////
 //  defines
 //////////////////////////////////
-#define EXIT_SUCCESS 1
-
 // ADC
 #define ADCCHANA 0 // pin 2, AN0
 #define ADCCHANB 1 // pin 3, AN1
