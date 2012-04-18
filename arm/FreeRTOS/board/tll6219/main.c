@@ -37,24 +37,24 @@
 // Notes
 
 #define O3BS    0
-#define O3C 1   
+#define O3C 	 1   
 #define O3CS    3
 #define O3DF    4
-#define O3D 5
+#define O3D 	 5
 #define O3DS    6
 #define O3EF    7
-#define O3E 8
+#define O3E 	 8
 #define O3FF    9
-#define O3F 10
+#define O3F 	 10
 #define O3FS    11
 #define O3GF    12
-#define O3G 13
+#define O3G 	 13
 #define O3GS    14
 #define O3AF    15
-#define O3A 16
+#define O3A 	 16
 #define O3AS    17
 #define O3BF    18
-#define O3B 19
+#define O3B		 19
 #define O3CF    20
 #define O4BS    21
 #define O4C     22     
@@ -232,144 +232,295 @@ void play (int note)
             break;
         case O3A :
             freq = A3;
+				// A, L3, R3
+				uart_out |= UA;
+			   uart_out |= UL3;
+			   uart_out |= UR3;	
             break;
         case O3AS :
             freq = A3SHARP;
+			  	// A, R3
+			  	uart_out |= UA;
+				uart_out |= UR3;
             break;
         case O3BF :
             freq = B3FLAT;
+				// B, L3
+				uart_out |= UB;
+				uart_out |= UL3;
             break;
         case O3B :
             freq = B3;
+				// B, L3, R3
+				uart_out |= UB;
+				uart_out |= UL3;
+				uart_out |= UR3;
             break;
         case O3CF :
             freq = C3FLAT;
+				// C, L3
+				uart_out |= UC;
+				uart_out |= UL3;
             break;
         ///////////////////////////////
         // Octave 4
         ///////////////////////////////
         case O4BS :
             freq = B4SHARP;
+				// B, R4
+				uart_out |= UB;
+				uart_out |= UR4;
             break;
         case O4C :
             freq = C4;
+				// C, L4, R4
+				uart_out |= UC;
+				uart_out |= UL4;
+				uart_out |= UR4;
             break;
         case O4CS :
             freq = C4SHARP;
+				// C, R4
+				uart_out |= UC;
+				uart_out |= UR4;
             break;
         case O4DF :
             freq = D4FLAT;
+				// D, L4
+				uart_out |= UD;
+				uart_out |= UL4;
             break;
         case O4D :
             freq = D4;
+				// D, L4, R4
+				uart_out |= UD;
+				uart_out |= UL4;
+				uart_out |= UR4;
             break;
         case O4DS :
             freq = D4SHARP;
+				// D, R4
+				uart_out |= UD;
+				uart_out |= UR4;
             break;
         case O4EF :
             freq = E4FLAT;
+				// E, L4
+				uart_out |= UE;
+				uart_out |= UL4;
             break;
         case O4E :
             freq = E4;
+				// E, L4, R4
+				uart_out |= UE;
+				uart_out |= UL4;
+				uart_out |= UR4;
             break;
         case O4FF :
             freq = F4FLAT;
+				// F, L4
+				uart_out |= UF;
+				uart_out |= UL4;
             break;
         case O4F :
             freq = F4;
+				// F, L4, R4
+				uart_out |= UF;
+				uart_out |= UL4;
+				uart_out |= UR4;
             break;
         case O4FS :
             freq = F4SHARP;
+				// F, R4
+				uart_out |= UF;
+				uart_out |= UR4;
             break;
         case O4GF :
             freq = G4FLAT;
+				// G, L4
+				uart_out |= UG;
+				uart_out |= UL4;
             break;
         case O4G :
             freq = G4;
+				// G, L4, R4
+				uart_out |= UG;
+				uart_out |= UL4;
+				uart_out |= UR4;
             break;
         case O4GS :
             freq = G4SHARP;
+				// G, R4
+				uart_out |= UG;
+				uart_out |= UR4;
             break;
         case O4AF :
             freq = A4FLAT;
+				// A, L4
+				uart_out |= UA;
+				uart_out |= UL4;
             break;
         case O4A :
             freq = A4;
+				// A, L4, R4
+				uart_out |= UA;
+				uart_out |= UL4;
+				uart_out |= UR4;
             break;
         case O4AS :
             freq = A4SHARP;
+				// A, R4
+				uart_out |= UA;
+				uart_out |= UR4;
             break;
         case O4BF :
             freq = B4FLAT;
+				// B, L4
+				uart_out |= UB;
+				uart_out |= UL4;
             break;
         case O4B :
             freq = B4;
+				// B, L4, R4
+				uart_out |= UB;
+				uart_out |= UL4;
+				uart_out |= UR4;
             break;
         case O4CF : 
             freq = C4FLAT;
+				// C, L4
+				uart_out |= UC;
+				uart_out |= UL4;
             break;
         ////////////////////////////////
         // Octave 5
         //////////////////////////////// 
         case O5BS :
             freq = B5SHARP;
+				// B, R5
+				uart_out |= UB;
+				uart_out |= UR5;
             break;
         case O5C :
             freq = C5;
+				// C, L5, R5
+				uart_out |= UC;
+				uart_out |= UL5;
+				uart_out |= UR5;
             break;
         case O5CS :
             freq = C5SHARP;
+				// C, R5
+				uart_out |= UC;
+				uart_out |= UR5;
             break;
         case O5DF :
             freq = D5FLAT;
+				// D, L5
+				uart_out |= UD;
+				uart_out |= UL5;
             break;
         case O5D :
             freq = D5;
+				// D, L5, R5
+				uart_out |= UD;
+				uart_out |= UL5;
+				uart_out |= UR5;
             break;
         case O5DS :
             freq = D5SHARP;
+				// D, R5
+				uart_out |= UD;
+				uart_out |= UR5;
             break;
         case O5EF :
             freq = E5FLAT;
+				// E, L5
+				uart_out |= UE;
+				uart_out |= UL5;
             break;
         case O5E :
             freq = E5;
+				// E, L5, R5
+				uart_out |= UE;
+				uart_out |= UL5;
+				uart_out |= UR5;
             break;
         case O5FF :
             freq = F5FLAT;
+				// F, L5
+				uart_out |= UF;
+				uart_out |= UL5;
             break;
         case O5F :
             freq = F5;
+				// F, L5, R5
+				uart_out |= UF;
+				uart_out |= UL5;
+				uart_out |= UR5;
             break;
         case O5FS :
             freq = F5SHARP;
+				// F, R5
+				uart_out |= UF;
+				uart_out |= UR5;
             break;
         case O5GF :
             freq = G5FLAT;
+				// G, L5
+				uart_out |= UG;
+				uart_out |= UL5;
             break;
         case O5G :
             freq = G5;
+				// G, L5, R5
+				uart_out |= UG;
+				uart_out |= UL5;
+				uart_out |= UR5;
             break;
         case O5GS :
             freq = G5SHARP;
+				// G, R5
+				uart_out |= UG;
+				uart_out |= UR5;
             break;
         case O5AF :
             freq = A5FLAT;
+				// A, L5
+				uart_out |= UA;
+				uart_out |= UL5;
             break;
         case O5A :
             freq = A5;
+				// A, L5, R5
+				uart_out |= UA;
+				uart_out |= UL5;
+				uart_out |= UR5;
             break;
         case O5AS :
             freq = A5SHARP;
+				// A, R5
+				uart_out |= UA;
+				uart_out |= UR5;
             break;
         case O5BF :
             freq = B5FLAT;
+				// B, L5
+				uart_out |= UB;
+				uart_out |= UL5;
             break;
         case O5B :
             freq = B5;
+				// B, L5, R5
+				uart_out |= UB;
+				uart_out |= UL5;
+				uart_out |= UR5;
             break;
         case O5CF :
             freq = C5FLAT;
+				// C, L5
+				uart_out |= UC;
+				uart_out |= UL5;
             break;  
     }
 
@@ -382,20 +533,24 @@ void play (int note)
 void _main(void* parameter)
 {
     int note = -1;
-    // set up uart TODO look at dps
+    // set up uart 
+	 /*printf("initializing UART1");*/
     uartInit (UART1, UART_BAUD_115200, UART_DPS_KEEP);
     // spin and wait for interrupts / poll uart
     while (1) {
-
+			/*printf("inside while loop");*/
         // poll receive register; once full receive
         uart_in1 = uartRx(UART1, true);
         uart_in2 = uartRx(UART1, true);
+			/*printf("we shouldn't see this if it functions as expected");*/
 
         // determine note to be played
-
+			/*note = O3C;*/
 
         //  call play(note)
         play(note);
+			/*printf("freq: %d", freq);
+			uart_out = freq;*/
         uartTx(UART1, uart_out);
 
     }
