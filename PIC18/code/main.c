@@ -12,7 +12,17 @@
 #include <peripheral/usart.h>
 #include <errno.h>
 #include <stddef.h>
-#include <../samples/std/delay/delay.h>
+#include <pic18f2682.h>
+#include <htc.h>
+#include "../PIC18.X/delay.h"
+
+__CONFIG (1, OSC_IRCIO67);
+__CONFIG (2, WDT_OFF);
+__CONFIG (3, MCLRE_OFF);
+__CONFIG (4, LVP_OFF & DEBUG_OFF);
+__CONFIG (5, UNPROTECT);
+__CONFIG (6, UNPROTECT);
+__CONFIG (7, UNPROTECT);
 
 /*
 / ADC /
@@ -121,13 +131,14 @@ int prev_inputs[7];
 //};
 //ADC_conv conv_result;
 
+
 /*
  * main
  */
 int main(int argc, char** argv) {
     // initial setup
-    OSCCON = OSC_IRCIO67;
-    OSCTUNE &= 0b11100000;
+   // OSCCON = OSC_IRCIO67;
+ //   OSCTUNE &= 0b11100000;
    // WDTCON = WDT_ON;
     
 
@@ -150,8 +161,6 @@ int main(int argc, char** argv) {
    // ADC_INT_ENABLE();
 
     // TEST: TURN ON 
-    LATB = 0x00100000;
-    PORTB = 0x00100000;
 
     while (1) {    // spin
 //        if (GODONE == 0) {
@@ -161,18 +170,15 @@ int main(int argc, char** argv) {
 
         // TODO anything else ?
 
-        /*
-        LATB = 0x00100000;
-        PORTB = 0x00100000;
+        LATB = 0b00100000;
+        PORTB = 0b00100000;
 
-        DelayMs (1000);
+        DelayMs (50);
 
-
+        LATB = 0b00000000;
+        PORTB = 0b00000000;
         
-        LATB = 0x00000000;
-        PORTB = 0x00000000;
-        
-        DelayMs (1000);*/
+        DelayMs (50);
         
     }
     return (EXIT_SUCCESS);
