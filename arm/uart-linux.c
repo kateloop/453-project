@@ -7,7 +7,7 @@
 #include <termios.h>
 #include <unistd.h>
 
-#define UART_DEV "/dev/ttyS0"
+#define UART_DEV "/dev/ttyS1"
 //#define RAW_DATA
 
 int main(int argc, char* argv[])
