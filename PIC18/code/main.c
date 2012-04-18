@@ -189,62 +189,62 @@ int main(int argc, char** argv) {
  */
 void ToggleLeds () {
     // Reset All Ports to 0 to turn off all LEDs
-    PORTA = 0;
-    PORTB = 0;
-    PORTC = 0;
+    LATA = 0;
+    LATB = 0;
+    LATC = 0;
 
     // Look at array containing LED Info and toggle LEDs accordingly
     if (led_array[0] == 1) {
         // Octtave 5 Right LED is on
-        PORTC |= R5_SEL_PORTC;
+        LATC |= R5_SEL_PORTC;
     }
     if (led_array[1] == 1) {
         // Octave 5 Left LED is on
-        PORTC |= L5_SEL_PORTC;
+        LATC |= L5_SEL_PORTC;
     }
     if (led_array[2] == 1) {
         // Octave 4 Right LED is on
-        PORTB |= R4_SEL_PORTB;
+        LATB |= R4_SEL_PORTB;
     }
     if (led_array[3] == 1) {
         // Octave 4 Left LED is on
-        PORTB |= L4_SEL_PORTB;
+        LATB |= L4_SEL_PORTB;
     }
     if (led_array[4] == 1) {
         // Octave 3 Right LED is on
-        PORTB |= R3_SEL_PORTB;
+        LATB |= R3_SEL_PORTB;
     }
     if (led_array[5] == 1) {
         // Octave 3 Left LED is on
-        PORTB |= L3_SEL_PORTB;
+        LATB |= L3_SEL_PORTB;
     }
     if (led_array[6] == 1) {
         // BSel LED is on
-        PORTC |= B_SEL_PORTC;
+        LATC |= B_SEL_PORTC;
     }
     if (led_array[7] == 1) {
         // ASel LED is on
-        PORTC |= A_SEL_PORTC;
+        LATC |= A_SEL_PORTC;
     }
     if (led_array[8] == 1) {
         // GSel LED is on
-        PORTB |= G_SEL_PORTB;
+        LATB |= G_SEL_PORTB;
     }
     if (led_array[9] == 1) {
         // FSel LED is on
-        PORTC |= F_SEL_PORTC;
+        LATC |= F_SEL_PORTC;
     }
     if (led_array[10] == 1) {
         // ESel LED is on
-        PORTC |= E_SEL_PORTC;
+        LATC |= E_SEL_PORTC;
     }
     if (led_array[11] == 1) {
         // DSel LED is on
-        PORTA |= D_SEL_PORTA;
+        LATA |= D_SEL_PORTA;
     }
     if (led_array[12] == 1) {
         // CSel LED is on
-        PORTA |= C_SEL_PORTA;
+        LATA |= C_SEL_PORTA;
     }
 }
 
