@@ -136,14 +136,28 @@ int prev_inputs[7];
  * main
  */
 int main(int argc, char** argv) {
-    // initial setup
+    // initial setup TODO 
    // OSCCON = OSC_IRCIO67;
  //   OSCTUNE &= 0b11100000;
    // WDTCON = WDT_ON;
     
+	 /*The baud rate of the arm transmission is B19200. Does it need to match with asynchronous?*/
 
-    // UART configuration  TODO
-  //  RCSTA |= 0b10000000;
+    // UART configuration  TODO check values
+    RCSTA |= 0b10010000; //serial port enabled, enables receiver
+	 TXSTA |= 0b00101100; //8-bit transmission, transmit enabled, send sync break, high speed baud rate
+	 BAUDCON = 0b00000000; //8-bit baud rate generator, no auto-baud detect
+	 INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
+	 INTCON2 = 0b00000000; //TODO no idea about this one
+	 INTCON3 = 0b00000000; //TODO no idea about this one
+	 RCON = 0b00000000; //TODO this might be important...
+
+	 /*TODO testing UART:  The UART pins on the TLL6219 are pins 13-16 on the GPIO connector Chris 		suggests taking these steps:
+			1. send a bunch of A's from the PIC and see if they print out on the screen; if they do, you have UART communication!
+			2. send relevant (non-character) data from the PIC and enable raw data part of uart code so it prints right 
+			3.send data from the Arm and either echo it back and have it print out or use scope
+			Chris said he is more than willing to reiterate these steps later.  Also, the scope should looks like it's going crazy when 				we send A's, so that's a good indication of whether or not we have it working. He also said to assume that the problem is 				with the PIC code.....let's hope he's right about that.
+	*/
 
     // configure ADC
     ADCON0 = ADCON0_INIT;
