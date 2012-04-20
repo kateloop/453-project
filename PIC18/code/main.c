@@ -110,9 +110,20 @@ __CONFIG (7, UNPROTECT);
 #define ADCON1_VAL 0b00000101
 
 // ADCON2 7   A/D Result Format, 1 Right Justified
-//        5-3 A/D Acquisition Time Select bits   TODO
-//        2-0 A/D Conversion Clock Select Bits   TODO
+//        5-3 A/D Acquisition Time Select bits   TODO 0TAD
+//        2-0 A/D Conversion Clock Select Bits   TODO Fosc/2
 #define ADCON2_VAL 0b10000000
+
+// UART Defines
+#define UART_RENABLE 0b10010000
+#define UART_TENABLE 0b00101100
+#define UART_BAUD 0b00000000 // TODO interrupt
+#define SPBRGH_SPBRG (((FREQ_OSC/19200UL)/64UL) - 1)
+#define BAUD_RATE (FREQ_OSC/(64UL* (SPBRGH_SPBRG + 1)))
+
+// Oscillator Frequency
+#define FREQ_OSC 8000000L // 8MHz
+#define CLK_8MHZ 0b01110000
 
 
 /******************************
@@ -123,6 +134,9 @@ int led_array[13];
 // Inputs from the sensors, if cur is not the same as prev, new sound to be played
 int cur_inputs[7];
 int prev_inputs[7];
+
+unsigned char uart_out;
+unsigned char uart_in;
 
 // Structure to hold ADC conversion information
 //typedef struct ADC_conv {
@@ -136,21 +150,19 @@ int prev_inputs[7];
  * main
  */
 int main(int argc, char** argv) {
-    // initial setup TODO 
-   // OSCCON = OSC_IRCIO67;
- //   OSCTUNE &= 0b11100000;
-   // WDTCON = WDT_ON;
+    // Init Config
+    OSCCON |= CLK_8MHZ;
     
-	 /*The baud rate of the arm transmission is B19200. Does it need to match with asynchronous?*/
-
     // UART configuration  TODO check values
-    RCSTA |= 0b10010000; //serial port enabled, enables receiver
-	 TXSTA |= 0b00101100; //8-bit transmission, transmit enabled, send sync break, high speed baud rate
-	 BAUDCON = 0b00000000; //8-bit baud rate generator, no auto-baud detect
-	 INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
-	 INTCON2 = 0b00000000; //TODO no idea about this one
-	 INTCON3 = 0b00000000; //TODO no idea about this one
-	 RCON = 0b00000000; //TODO this might be important...
+
+    RCSTA |= UART_RENABLE; //serial port enabled, enables receiver
+    TXSTA |= UART_TENABLE; //8-bit transmission, transmit enabled, send sync break, high speed baud rate
+    BAUDCON = UART_BAUD; //8-bit baud rate generator, no auto-baud detect
+    SPBRG = BAUD_RATE;
+//	INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
+//	INTCON2 = 0b00000000; //TODO no idea about this one
+//	INTCON3 = 0b00000000; //TODO no idea about this one
+//	RCON = 0b00000000; //TODO this might be important...
 
 	 /*TODO testing UART:  The UART pins on the TLL6219 are pins 13-16 on the GPIO connector Chris 		suggests taking these steps:
 			1. send a bunch of A's from the PIC and see if they print out on the screen; if they do, you have UART communication!
@@ -163,6 +175,7 @@ int main(int argc, char** argv) {
     ADCON0 = ADCON0_INIT;
     ADCON1 = ADCON1_VAL;
     ADCON2 = ADCON2_VAL;
+    ADCON2 = 10100000;  // Right Justified, 8TAD, Fosc/2
 
     
     // set up GPIO
@@ -173,6 +186,32 @@ int main(int argc, char** argv) {
     // Turn on ADC and enable interrupts
    // ADON = 1;
    // ADC_INT_ENABLE();
+    LATB = 0b00100000;
+    DelayMs (10000);
+    LATB = 0b00000000;
+
+
+
+    ADCON0 &= 00000011;
+    DelayMs (3000);
+    ADCON0 |= 00000011;
+
+    while (GODONE == 1) {
+        //spin
+        LATB = 0b00100000;
+        PORTB = 0b00100000;
+
+        DelayMs (200);
+
+        LATB = 0b00000000;
+        PORTB = 0b00000000;
+
+        DelayMs (200);
+    }
+    LATB = 0b00100000;
+    for (int i = 0; i < 25; i++) {
+        DelayMs(200);
+    }
 
     // TEST: TURN ON 
 
@@ -184,15 +223,27 @@ int main(int argc, char** argv) {
 
         // TODO anything else ?
 
+    // BLINK LED on RB5
         LATB = 0b00100000;
         PORTB = 0b00100000;
 
-        DelayMs (50);
+        DelayMs (200);
 
         LATB = 0b00000000;
         PORTB = 0b00000000;
         
-        DelayMs (50);
+        DelayMs (200);
+
+
+        // UART STUFF
+/*        while (!RCIF)
+            continue;
+        uart_in = RCREG;
+
+        uart_out = uart_in;
+        while (!TRMT)
+            continue;
+        TXREG = uart_out;*/
         
     }
     return (EXIT_SUCCESS);
