@@ -1,0 +1,25 @@
+NET "ac97_sdata_out" LOC = "E8";
+NET "ac97_sdata_in" LOC = "E9";
+NET "ac97_synch" LOC = "F7";
+NET "ac97_bit_clock" LOC = "F8";
+
+NET "audio_reset_b" LOC = "E6";
+
+NET "ac97_sdata_out" IOSTANDARD = LVTTL;
+NET "ac97_sdata_in" IOSTANDARD = LVTTL;
+NET "ac97_synch" IOSTANDARD = LVTTL;
+NET "ac97_bit_clock" IOSTANDARD = LVTTL;
+
+NET "audio_reset_b" IOSTANDARD = LVTTL;
+
+NET "ac97_sdata_out" DRIVE = 8; 
+NET "ac97_synch" DRIVE = 8;
+NET "audio_reset_b" DRIVE = 8; 
+
+NET "ac97_sdata_out" SLEW = SLOW;
+NET "ac97_synch" SLEW = SLOW;
+NET "audio_reset_b" SLEW = SLOW; 
+
+// clocks
+NET "SYSTEM_CLOCK" LOC = "AJ15";
+NET "SYSTEM_CLOCK" TNM_NET = "SYSTEM_CLOCK";

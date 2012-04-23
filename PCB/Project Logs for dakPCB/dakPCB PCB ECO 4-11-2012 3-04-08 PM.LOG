@@ -1,0 +1,108 @@
+Added Component: Designator=C1(RB7.6-15)
+Added Component: Designator=C2(RB7.6-15)
+Added Component: Designator=JI(HDR1X5)
+Added Component: Designator=PPIC1(HDR1X14)
+Added Component: Designator=PPIC2(HDR1X14)
+Added Component: Designator=R1(AXIAL-0.3)
+Added Component: Designator=R2(AXIAL-0.3)
+Added Component: Designator=R3(AXIAL-0.3)
+Added Component: Designator=R4(AXIAL-0.3)
+Added Component: Designator=R5(AXIAL-0.3)
+Added Component: Designator=R6(AXIAL-0.3)
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=JI-5
+Added Pin To Net: NetName=GND Pin=PPIC1-7
+Added Pin To Net: NetName=GND Pin=PPIC2-10
+Added Net: Name=GND
+Added Pin To Net: NetName=NetASel_1 Pin=PPIC1-2
+Added Net: Name=NetASel_1
+Added Net: Name=NetASel_2
+Added Pin To Net: NetName=NetBSel_1 Pin=PPIC1-1
+Added Net: Name=NetBSel_1
+Added Net: Name=NetBSel_2
+Added Pin To Net: NetName=NetCSel_1 Pin=PPIC1-9
+Added Net: Name=NetCSel_1
+Added Net: Name=NetCSel_2
+Added Pin To Net: NetName=NetDSel_1 Pin=PPIC1-5
+Added Net: Name=NetDSel_1
+Added Net: Name=NetDSel_2
+Added Pin To Net: NetName=NetESel_1 Pin=PPIC1-4
+Added Net: Name=NetESel_1
+Added Net: Name=NetESel_2
+Added Pin To Net: NetName=NetFSel_1 Pin=PPIC1-3
+Added Net: Name=NetFSel_1
+Added Net: Name=NetFSel_2
+Added Pin To Net: NetName=NetGSel_1 Pin=JI-3
+Added Pin To Net: NetName=NetGSel_1 Pin=PPIC2-1
+Added Net: Name=NetGSel_1
+Added Net: Name=NetGSel_2
+Added Pin To Net: NetName=NetJI_2 Pin=JI-2
+Added Pin To Net: NetName=NetJI_2 Pin=PPIC1-14
+Added Net: Name=NetJI_2
+Added Pin To Net: NetName=NetJI_4 Pin=JI-4
+Added Pin To Net: NetName=NetJI_4 Pin=PPIC2-2
+Added Net: Name=NetJI_4
+Added Pin To Net: NetName=NetL3Sel_2 Pin=R1-2
+Added Net: Name=NetL3Sel_2
+Added Pin To Net: NetName=NetL4Sel_1 Pin=PPIC2-5
+Added Net: Name=NetL4Sel_1
+Added Pin To Net: NetName=NetL4Sel_2 Pin=R3-2
+Added Net: Name=NetL4Sel_2
+Added Pin To Net: NetName=NetL5Sel_2 Pin=R5-2
+Added Net: Name=NetL5Sel_2
+Added Pin To Net: NetName=NetPIC18F2682_OSC1/CLKI/RA7 Pin=PPIC1-6
+Added Net: Name=NetPIC18F2682_OSC1/CLKI/RA7
+Added Pin To Net: NetName=NetPIC18F2682_RA0/AN0 Pin=PPIC1-13
+Added Net: Name=NetPIC18F2682_RA0/AN0
+Added Pin To Net: NetName=NetPIC18F2682_RA1/AN1 Pin=PPIC1-12
+Added Net: Name=NetPIC18F2682_RA1/AN1
+Added Pin To Net: NetName=NetPIC18F2682_RA2/AN2/Vref- Pin=PPIC1-11
+Added Net: Name=NetPIC18F2682_RA2/AN2/Vref-
+Added Pin To Net: NetName=NetPIC18F2682_RA3/AN3/Vref+ Pin=PPIC1-10
+Added Net: Name=NetPIC18F2682_RA3/AN3/Vref+
+Added Pin To Net: NetName=NetPIC18F2682_RA5/AN4/SS/HLVDIN Pin=PPIC1-8
+Added Net: Name=NetPIC18F2682_RA5/AN4/SS/HLVDIN
+Added Pin To Net: NetName=NetPIC18F2682_RB0/INT0/AN10 Pin=PPIC2-8
+Added Net: Name=NetPIC18F2682_RB0/INT0/AN10
+Added Pin To Net: NetName=NetPIC18F2682_RB1/INT1/AN8 Pin=PPIC2-7
+Added Net: Name=NetPIC18F2682_RB1/INT1/AN8
+Added Pin To Net: NetName=NetPIC18F2682_RB2/INT2/CANTX Pin=PPIC2-6
+Added Net: Name=NetPIC18F2682_RB2/INT2/CANTX
+Added Pin To Net: NetName=NetPIC18F2682_RB4/KBIO/AN9 Pin=PPIC2-4
+Added Net: Name=NetPIC18F2682_RB4/KBIO/AN9
+Added Pin To Net: NetName=NetPIC18F2682_RB5/KBI1/PGM Pin=PPIC2-3
+Added Net: Name=NetPIC18F2682_RB5/KBI1/PGM
+Added Pin To Net: NetName=NetPIC18F2682_RC4/SDI/SDA Pin=PPIC2-14
+Added Net: Name=NetPIC18F2682_RC4/SDI/SDA
+Added Pin To Net: NetName=NetPIC18F2682_RC5/SDO Pin=PPIC2-13
+Added Net: Name=NetPIC18F2682_RC5/SDO
+Added Pin To Net: NetName=NetPIC18F2682_RC6/TX/CK Pin=PPIC2-12
+Added Net: Name=NetPIC18F2682_RC6/TX/CK
+Added Pin To Net: NetName=NetPIC18F2682_RC7/RX/DT Pin=PPIC2-11
+Added Net: Name=NetPIC18F2682_RC7/RX/DT
+Added Pin To Net: NetName=NetPLED1_C3LG Pin=R1-1
+Added Net: Name=NetPLED1_C3LG
+Added Pin To Net: NetName=NetPLED1_C3RG Pin=R2-1
+Added Net: Name=NetPLED1_C3RG
+Added Pin To Net: NetName=NetPLED1_C4LG Pin=R3-1
+Added Net: Name=NetPLED1_C4LG
+Added Pin To Net: NetName=NetPLED1_C4RG Pin=R4-1
+Added Net: Name=NetPLED1_C4RG
+Added Pin To Net: NetName=NetPLED1_C5LG Pin=R5-1
+Added Net: Name=NetPLED1_C5LG
+Added Pin To Net: NetName=NetPLED1_C5RG Pin=R6-1
+Added Net: Name=NetPLED1_C5RG
+Added Pin To Net: NetName=NetR2_2 Pin=R2-2
+Added Net: Name=NetR2_2
+Added Pin To Net: NetName=NetR4_2 Pin=R4-2
+Added Net: Name=NetR4_2
+Added Pin To Net: NetName=NetR5Sel_2 Pin=R6-2
+Added Net: Name=NetR5Sel_2
+Added Pin To Net: NetName=VCC Pin=C1-1
+Added Pin To Net: NetName=VCC Pin=C2-1
+Added Pin To Net: NetName=VCC Pin=JI-1
+Added Pin To Net: NetName=VCC Pin=PPIC2-9
+Added Net: Name=VCC
+Added Class: Name=pcblayout
+Added Room: Name=pcblayout

@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [dakPCB.PrjPcb]
+   Generated File[dakPCBNew.TXT]
+   Generated File[dakPCBNew.LDP]
+   Generated File[dakPCBNew.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 3:30:43 PM On 4/17/2012
