@@ -67,8 +67,8 @@
     <property xil_pn:name="CLB Pack Factor Percentage" xil_pn:value="100" xil_pn:valueState="default"/>
     <property xil_pn:name="Case" xil_pn:value="Maintain" xil_pn:valueState="default"/>
     <property xil_pn:name="Case Implementation Style" xil_pn:value="None" xil_pn:valueState="default"/>
-    <property xil_pn:name="Change Device Speed To" xil_pn:value="-12" xil_pn:valueState="default"/>
-    <property xil_pn:name="Change Device Speed To Post Trace" xil_pn:value="-12" xil_pn:valueState="default"/>
+    <property xil_pn:name="Change Device Speed To" xil_pn:value="-5" xil_pn:valueState="default"/>
+    <property xil_pn:name="Change Device Speed To Post Trace" xil_pn:value="-5" xil_pn:valueState="default"/>
     <property xil_pn:name="Combinatorial Logic Optimization" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Compile EDK Simulation Library" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Compile SIMPRIM (Timing) Simulation Library" xil_pn:value="true" xil_pn:valueState="default"/>
@@ -105,9 +105,9 @@
     <property xil_pn:name="DSP Utilization Ratio" xil_pn:value="100" xil_pn:valueState="default"/>
     <property xil_pn:name="Decoder Extraction" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Delay Values To Be Read from SDF" xil_pn:value="Setup Time" xil_pn:valueState="default"/>
-    <property xil_pn:name="Device" xil_pn:value="xc4vlx80" xil_pn:valueState="non-default"/>
-    <property xil_pn:name="Device Family" xil_pn:value="Virtex4" xil_pn:valueState="non-default"/>
-    <property xil_pn:name="Device Speed Grade/Select ABS Minimum" xil_pn:value="-12" xil_pn:valueState="default"/>
+    <property xil_pn:name="Device" xil_pn:value="xc3s1500" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Device Family" xil_pn:value="Spartan3" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Device Speed Grade/Select ABS Minimum" xil_pn:value="-5" xil_pn:valueState="default"/>
     <property xil_pn:name="Disable Bandgap Generator for DCMs to save power" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Display Incremental Messages" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Do Not Escape Signal and Instance Names in Netlist" xil_pn:value="false" xil_pn:valueState="default"/>
@@ -237,7 +237,7 @@
     <property xil_pn:name="Overwrite Compiled Libraries" xil_pn:value="true" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Pack I/O Registers into IOBs" xil_pn:value="Auto" xil_pn:valueState="default"/>
     <property xil_pn:name="Pack I/O Registers/Latches into IOBs" xil_pn:value="For Inputs and Outputs" xil_pn:valueState="non-default"/>
-    <property xil_pn:name="Package" xil_pn:value="ff1148" xil_pn:valueState="default"/>
+    <property xil_pn:name="Package" xil_pn:value="fg676" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Perform Advanced Analysis" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Perform Advanced Analysis Post Trace" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Perform Timing-Driven Packing and Placement" xil_pn:value="false" xil_pn:valueState="default"/>
@@ -280,6 +280,7 @@
     <property xil_pn:name="Report Type Post Trace" xil_pn:value="Error Report" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Report Unconstrained Paths" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="Report Unconstrained Paths Post Trace" xil_pn:value="" xil_pn:valueState="default"/>
+    <property xil_pn:name="Reset DCM if SHUTDOWN &amp; AGHIGH performed" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Reset On Configuration Pulse Width" xil_pn:value="100" xil_pn:valueState="default"/>
     <property xil_pn:name="Resource Sharing" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Retain Hierarchy" xil_pn:value="true" xil_pn:valueState="default"/>
@@ -314,7 +315,7 @@
     <property xil_pn:name="Specify Top Level Instance Names Post-Map" xil_pn:value="Default" xil_pn:valueState="default"/>
     <property xil_pn:name="Specify Top Level Instance Names Post-Route" xil_pn:value="Default" xil_pn:valueState="default"/>
     <property xil_pn:name="Specify Top Level Instance Names Post-Translate" xil_pn:value="Default" xil_pn:valueState="default"/>
-    <property xil_pn:name="Speed Grade" xil_pn:value="-12" xil_pn:valueState="default"/>
+    <property xil_pn:name="Speed Grade" xil_pn:value="-5" xil_pn:valueState="default"/>
     <property xil_pn:name="Starting CBC Value (Hex)" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="Starting Key" xil_pn:value="None" xil_pn:valueState="default"/>
     <property xil_pn:name="Starting Placer Cost Table (1-100) Map" xil_pn:value="1" xil_pn:valueState="default"/>
@@ -330,7 +331,7 @@
     <property xil_pn:name="Tristate On Configuration Pulse Width" xil_pn:value="0" xil_pn:valueState="default"/>
     <property xil_pn:name="Unused IOB Pins" xil_pn:value="Pull Down" xil_pn:valueState="default"/>
     <property xil_pn:name="Update modelsim.ini File for Xilinx SmartModel Use" xil_pn:value="false" xil_pn:valueState="default"/>
-    <property xil_pn:name="Use Clock Enable" xil_pn:value="Yes" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Use Clock Enable" xil_pn:value="Yes" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Custom Project File Behavioral" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Custom Project File Post-Map" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Custom Project File Post-Route" xil_pn:value="false" xil_pn:valueState="default"/>
@@ -347,8 +348,8 @@
     <property xil_pn:name="Use LOC Constraints" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Use RLOC Constraints" xil_pn:value="Yes" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Smart Guide" xil_pn:value="false" xil_pn:valueState="default"/>
-    <property xil_pn:name="Use Synchronous Reset" xil_pn:value="Yes" xil_pn:valueState="non-default"/>
-    <property xil_pn:name="Use Synchronous Set" xil_pn:value="Yes" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Use Synchronous Reset" xil_pn:value="Yes" xil_pn:valueState="default"/>
+    <property xil_pn:name="Use Synchronous Set" xil_pn:value="Yes" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Synthesis Constraints File" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="User Browsed Strategy Files" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="UserID Code (8 Digit Hexadecimal)" xil_pn:value="0xFFFFFFFF" xil_pn:valueState="default"/>
@@ -367,7 +368,7 @@
     <!--                                                                                  -->
     <property xil_pn:name="PROP_BehavioralSimTop" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="PROP_DesignName" xil_pn:value="Audio" xil_pn:valueState="non-default"/>
-    <property xil_pn:name="PROP_DevFamilyPMName" xil_pn:value="virtex4" xil_pn:valueState="default"/>
+    <property xil_pn:name="PROP_DevFamilyPMName" xil_pn:value="spartan3" xil_pn:valueState="default"/>
     <property xil_pn:name="PROP_FPGAConfiguration" xil_pn:value="FPGAConfiguration" xil_pn:valueState="default"/>
     <property xil_pn:name="PROP_PostMapSimTop" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="PROP_PostParSimTop" xil_pn:value="" xil_pn:valueState="default"/>

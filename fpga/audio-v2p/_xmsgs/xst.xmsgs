@@ -5,589 +5,903 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SPI_MISO</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="1432" delta="old" >Contents of array &lt;<arg fmt="%s" index="1">l_cmd_addr</arg>&gt; may be accessed with a negative index, causing simulation mismatch.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;58&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="info" file="Xst" num="1433" delta="old" >Contents of array &lt;<arg fmt="%s" index="1">l_cmd_addr</arg>&gt; may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;63&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="info" file="Xst" num="1432" delta="old" >Contents of array &lt;<arg fmt="%s" index="1">l_cmd_data</arg>&gt; may be accessed with a negative index, causing simulation mismatch.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VD_NRESET</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="info" file="Xst" num="1433" delta="old" >Contents of array &lt;<arg fmt="%s" index="1">l_cmd_data</arg>&gt; may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;29&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="info" file="Xst" num="1432" delta="old" >Contents of array &lt;<arg fmt="%s" index="1">l_right_data</arg>&gt; may be accessed with a negative index, causing simulation mismatch.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;4&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="info" file="Xst" num="1433" delta="old" >Contents of array &lt;<arg fmt="%s" index="1">l_right_data</arg>&gt; may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_BE_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">right_out</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000000000000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;64&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">left_out&lt;19:16&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;59&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">left_out&lt;14:0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">000000000000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">ACC_PORT_PIN</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000000000000000000000000000000000</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">right_in</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CPLD_RS1_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">left_in</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;5&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ready</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_DIR0</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1780" delta="old" >Signal &lt;<arg fmt="%s" index="1">done</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;65&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SPI_MISO</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_CS5_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;58&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;6&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;63&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;66&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VD_NRESET</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_DIR8</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;29&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;7&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;4&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PS2_MOUSE_CLK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ARM_BE_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;67&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;64&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;8&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;59&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">LCD_DATA</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">ACC_PORT_PIN</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000000000000000000000000000000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">VE_FIELD_VSYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CPLD_RS1_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CPLD_AS</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;5&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">LCD_E</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_DIR0</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VD_HS</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;65&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">SPI_SS</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ARM_CS5_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;9&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;6&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PB&lt;0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;66&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VE_VSO</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_DIR8</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">FLASH_ADDR</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000000000000000000</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;7&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PB&lt;1&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PS2_MOUSE_CLK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VD_SFL</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;67&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RS232_RTS</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;8&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PB&lt;2&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">LCD_DATA</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PS2_ENABLED</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">VE_FIELD_VSYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PB&lt;3&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CPLD_AS</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">AC97_SYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">LCD_E</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CPLD_WS1_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VD_HS</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PB&lt;4&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">SPI_SS</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">RS232_CTS</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;9&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VE_DATA</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PB&lt;0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CPLD_NFIO4</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VE_VSO</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CPLD_NFIO5</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">FLASH_ADDR</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000000000000000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK_BANK_0</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PB&lt;1&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK_BANK_1</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VD_SFL</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">VE_BLANK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">RS232_RTS</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VGA_PIX_CLK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PB&lt;2&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK_BANK_5</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PS2_ENABLED</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">FLASH_NWE</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PB&lt;3&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">VE_HSYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CPLD_WS1_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VE_SCRESET_RTC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PB&lt;4&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SYS_RST_N</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">RS232_CTS</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_A</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VE_DATA</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">AC97_ID_0</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CPLD_NFIO4</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">AC97_BIT_CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CPLD_NFIO5</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VD_LLC</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK_BANK_0</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">AC97_ID_1</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK_BANK_1</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">FLASH_NWP</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">VE_BLANK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;10&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VGA_PIX_CLK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_CS0_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK_BANK_5</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VD_VS_FIELD</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">FLASH_NWE</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PS2_KEYB_DATA</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">VE_HSYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;11&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VE_SCRESET_RTC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_OE_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SYS_RST_N</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">LCD_RS</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ARM_A</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">LCD_BACK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">AC97_ID_0</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_RESET_OUT</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VD_LLC</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;12&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">AC97_ID_1</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">LCD_RW</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">FLASH_NWP</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VGA_BLANK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;10&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK1</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ARM_CS0_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK2</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VD_VS_FIELD</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;13&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PS2_KEYB_DATA</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK3</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;11&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VE_CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ARM_OE_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VGA_HSYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">LCD_RS</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">PIO_IN</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">LCD_BACK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;14&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ARM_RESET_OUT</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VGA_PSAVE</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;12&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VD_DATA_DEC</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">LCD_RW</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;15&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VGA_BLANK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_CS1_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK1</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VE_CLAMP</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK2</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CPLD_RS5_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;13&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_DIR16</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FPGA_CLK3</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">RS232_RX</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VE_CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_DIR24</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VGA_HSYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">AC97_RESET_N</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">PIO_IN</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VE_CSO_HSO</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;14&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VE_TTXREQ</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VGA_PSAVE</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_DIR32</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VD_DATA_DEC</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_DIR40</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;15&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">AC97_SDATA_IN</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ARM_CS1_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">RS232_TX</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VE_CLAMP</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PS2_MOUSE_DATA</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CPLD_RS5_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;10&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_DIR16</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VD_NPWRDWN</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">RS232_RX</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_DIR24</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_CS2_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VE_CSO_HSO</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;11&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VE_TTXREQ</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">FLASH_NRESET</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_DIR32</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B0</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_DIR40</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;1&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">RS232_TX</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">SPI_SCK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PS2_MOUSE_DATA</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;12&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;10&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VGA_B</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VD_NPWRDWN</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;2&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;13&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ARM_CS2_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B8</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;11&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VGA_G</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">FLASH_NRESET</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VE_RESET</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B0</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;3&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;1&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">CPLD_WS5_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">SPI_SCK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;14&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;12&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">SPI_MOSI</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VGA_B</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B16</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;2&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_RW</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;13&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B24</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B8</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VGA_G</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;4&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VE_RESET</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;20&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;3&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;15&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CPLD_WS5_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B32</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;14&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VGA_R</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">SPI_MOSI</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;5&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B16</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;1&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ARM_RW</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">AC97_SDATA_OUT</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B24</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;50&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B40</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;4&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_CS3_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;20&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;16&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;15&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;21&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B32</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">FLASH_NBYTE</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VGA_R</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">FLASH_NRYBY</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;5&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">FLASH_NCE</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;1&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;6&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;50&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;2&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_OE_B40</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;51&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ARM_CS3_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;22&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;16&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;17&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;21&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VGA_VSYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">FLASH_NBYTE</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;7&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FLASH_NRYBY</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;3&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">FLASH_NCE</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;52&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;6&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;23&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;2&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;18&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;51&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;8&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;22&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;4&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;17&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;53&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VGA_VSYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;48&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;7&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;24&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;3&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;19&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;52&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VE_PAL_NTSC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;23&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;5&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;18&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;9&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;8&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;54&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;4&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;49&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;53&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">ARM_IRQ</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;48&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;25&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;24&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;30&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;19&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">PIO_OUT</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">000000000000000000000000000000000000000000000000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VE_PAL_NTSC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">I2C_SDA</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;5&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">VD_INTRQ</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">FLASH_DATA&lt;9&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;54&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;6&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;49&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">FLASH_NOE_E</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">ARM_IRQ</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;55&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;25&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;60&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;30&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PS2_KEYB_CLK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">PIO_OUT</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">000000000000000000000000000000000000000000000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;31&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">I2C_SDA</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;26&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">VD_INTRQ</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">I2C_SCL</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;1&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;6&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;7&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">FLASH_NOE_E</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;61&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;55&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;56&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;60&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;27&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PS2_KEYB_CLK</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ARM_CLK0</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;31&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;2&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;26&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SYS_CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">I2C_SCL</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VE_TTX</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;1&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;62&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">DIP_SW&lt;7&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;57&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;61&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">LED</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;56&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;28&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;27&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">VGA_SYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;2&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2563" delta="new" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;3&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">SYS_CLK</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">data1</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VE_TTX</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">addr1</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;62&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">WS1</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;57&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">RS1</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">LED</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">BE1</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;28&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">AS1</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">VGA_SYNC</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;3&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ac97</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">15 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;l_cmd_addr_1&gt; &lt;l_cmd_addr_2&gt; &lt;l_cmd_addr_3&gt; &lt;l_cmd_addr_4&gt; &lt;l_cmd_addr_5&gt; &lt;l_cmd_addr_6&gt; &lt;l_cmd_addr_7&gt; &lt;l_cmd_addr_8&gt; &lt;l_cmd_addr_9&gt; &lt;l_cmd_addr_10&gt; &lt;l_cmd_addr_11&gt; &lt;l_cmd_data_0&gt; &lt;l_cmd_data_1&gt; &lt;l_cmd_data_2&gt; &lt;l_cmd_data_3&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1426" delta="old" >The value init of the FF/Latch <arg fmt="%s" index="1">command_valid</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">cmds</arg>.
+You should achieve better results by setting this init to <arg fmt="%i" index="3">1</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="3034" delta="old" >In order to maximize performance and save block RAM resources, the small ROM &lt;<arg fmt="%s" index="1">Mrom_command_mux0000</arg>&gt; will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_data_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_data_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_data_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_data_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">l_cmd_addr_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1426" delta="old" >The value init of the FF/Latch <arg fmt="%s" index="1">command_valid</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">ac97commands</arg>.
+You should achieve better results by setting this init to <arg fmt="%i" index="3">1</arg>.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ac97</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">19 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;l_right_data_1&gt; &lt;l_right_data_2&gt; &lt;l_right_data_3&gt; &lt;l_right_data_4&gt; &lt;l_right_data_5&gt; &lt;l_right_data_6&gt; &lt;l_right_data_7&gt; &lt;l_right_data_8&gt; &lt;l_right_data_9&gt; &lt;l_right_data_10&gt; &lt;l_right_data_11&gt; &lt;l_right_data_12&gt; &lt;l_right_data_13&gt; &lt;l_right_data_14&gt; &lt;l_right_data_15&gt; &lt;l_right_data_16&gt; &lt;l_right_data_17&gt; &lt;l_right_data_18&gt; &lt;l_right_data_19&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">command_5</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97commands</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">command_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97commands</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">command_13</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97commands</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">command_14</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97commands</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">command_16</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97commands</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">command_22</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97commands</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">command_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ac97commands</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;command_12&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">command_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ac97commands</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;command_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">command_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ac97commands</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;command_8&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">command_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ac97commands</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;command_2&gt; &lt;command_9&gt; &lt;command_10&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_addr_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_addr_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_13&gt; &lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_6&gt; &lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_8&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_10&gt; </arg>
 </msg>
 
 </messages>

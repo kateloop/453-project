@@ -3,348 +3,490 @@ Xilinx Map Application Log File for Design 'ece453_top_level'
 
 Design Information
 ------------------
-Command Line   : map -intstyle ise -p xc4vlx80-ff1148-12 -global_opt off -cm
-area -ir off -pr b -c 100 -o ece453_top_level_map.ncd ece453_top_level.ngd
-ece453_top_level.pcf 
-Target Device  : xc4vlx80
-Target Package : ff1148
-Target Speed   : -12
-Mapper Version : virtex4 -- $Revision: 1.52.76.2 $
-Mapped Date    : Sat Apr 21 16:21:25 2012
+Command Line   : map -intstyle ise -p xc3s1500-fg676-5 -cm area -ir off -pr b -c
+100 -o ece453_top_level_map.ncd ece453_top_level.ngd ece453_top_level.pcf 
+Target Device  : xc3s1500
+Target Package : fg676
+Target Speed   : -5
+Mapper Version : spartan3 -- $Revision: 1.52.76.2 $
+Mapped Date    : Mon Apr 23 10:48:31 2012
 
 Mapping design into LUTs...
-ERROR:MapLib:30 - LOC constraint J23 on ACC_PORT_PIN<10> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint K23 on ACC_PORT_PIN<11> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint L22 on ACC_PORT_PIN<14> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint M24 on ACC_PORT_PIN<15> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint L23 on ACC_PORT_PIN<16> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint M22 on ACC_PORT_PIN<17> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint N24 on ACC_PORT_PIN<18> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint C26 on ACC_PORT_PIN<24> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint E25 on ACC_PORT_PIN<26> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint G26 on ACC_PORT_PIN<32> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint H26 on ACC_PORT_PIN<33> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint K25 on ACC_PORT_PIN<36> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint N26 on ACC_PORT_PIN<41> is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint Y10 on DIP_SW<2> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint W13 on DIP_SW<7> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint K7 on FLASH_ADDR<12> is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint L7 on FLASH_ADDR<13> is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint J3 on FLASH_ADDR<19> is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint K5 on FLASH_ADDR<5> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint L2 on FLASH_ADDR<6> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint H6 on FLASH_ADDR<9> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint F2 on FLASH_DATA<11> is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint H1 on FLASH_DATA<2> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint G4 on FLASH_DATA<7> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint L21 on LCD_DATA<0> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint K21 on LCD_DATA<1> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint K22 on LCD_DATA<2> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint J22 on LCD_DATA<3> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint M21 on LCD_E is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint N21 on LCD_RW is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AB7 on LED<0> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AB9 on LED<2> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AA10 on LED<4> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AD12 on LED<6> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AA19 on MZA_DIR16 is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AE24 on MZA_DIR8 is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint Y19 on MZA_OE16 is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AB19 on MZA_OE24 is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AD25 on MZA_OE8 is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AF22 on MZA_PIO<11> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AE22 on MZA_PIO<12> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AF23 on MZA_PIO<13> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AE23 on MZA_PIO<14> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AB20 on MZA_PIO<16> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AA20 on MZA_PIO<17> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint W15 on MZA_PIO<18> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint W16 on MZA_PIO<19> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AE15 on MZA_PIO<1> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint Y17 on MZA_PIO<21> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint Y18 on MZA_PIO<22> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AA18 on MZA_PIO<23> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AC22 on MZA_PIO<24> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AD23 on MZA_PIO<25> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AB21 on MZA_PIO<26> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AA16 on MZA_PIO<29> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AA17 on MZA_PIO<30> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AD22 on MZA_PIO<32> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AC21 on MZA_PIO<33> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AC20 on MZA_PIO<35> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AC18 on MZA_PIO<38> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AD18 on MZA_PIO<39> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AC16 on MZA_PIO<40> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AD15 on MZA_PIO<42> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AB14 on MZA_PIO<44> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AC11 on MZA_PIO<45> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AA7 on MZA_PIO<49> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AF17 on MZA_PIO<4> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AE12 on MZA_PIO<52> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AF12 on MZA_PIO<53> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AE10 on MZA_PIO<56> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AF7 on MZA_PIO<62> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AE5 on MZA_PIO<65> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AF19 on MZA_PIO<7> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AE20 on MZA_PIO<8> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint A12 on MZB_D<0> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint D13 on MZB_D<17> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint D8 on MZB_D<28> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint C6 on MZB_D<30> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint B9 on MZB_D<6> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint A7 on MZB_D<9> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AF13 on PB<1> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AA21 on PB<2> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AB24 on PB<3> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AA22 on PB<4> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint N8 on PS2_KEYB_CLK is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint N1 on RS232_CTS is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint L20 on SPI_SCK is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint H21 on SPI_SS is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AC1 on VD_NPWRDWN is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AA2 on VE_DATA<3> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint Y5 on VE_FIELD_VSYNC is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint U4 on VGA_B<4> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint T7 on VGA_G<7> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint R5 on VGA_PSAVE is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint P8 on VGA_R<0> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint T2 on VGA_R<5> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint V6 on VGA_SYNC is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint G19 on MZB_CPLD_RS5_B is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint B14 on FPGA_CLK_BANK_1 is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AD13 on FPGA_CLK_BANK_5 is invalid: No such
-   site on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AB11 on SYS_RST_N is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AE13 on VE_CLK is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint W3 on VE_CLAMP is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint B4 on MZB_CPLD_BE2_B is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint F19 on MZB_CPLD_CS0_B is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint E5 on MZB_CPLD_BE3_B is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint H16 on MZB_CPLD_AS is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AD8 on VD_INTRQ is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint E20 on MZB_CPLD_CS1_B is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AE14 on SYS_CLK is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AC6 on VD_DATA_DEC<6> is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint AB4 on VD_DATA_DEC<2> is invalid: No such site
-   on the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint H11 on MZB_A<22> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint G9 on MZB_A<19> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint F9 on MZB_A<18> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint F7 on MZB_A<15> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint E10 on MZB_A<11> is invalid: No such site on
-   the device. To bypass this error set the environment variable
-   'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint F12 on MZB_A<8> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint G14 on MZB_A<4> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint F15 on MZB_A<3> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-ERROR:MapLib:30 - LOC constraint F17 on MZB_A<1> is invalid: No such site on the
-   device. To bypass this error set the environment variable 'XIL_MAP_LOCWARN'.
-
-Error found in mapping process, exiting...
-Errors found during the mapping phase.  Please see map report file for more
-details.  Output files will not be written.
+WARNING:MapLib:701 - Signal PS2_MOUSE_CLK connected to top level port
+   PS2_MOUSE_CLK has been removed.
+WARNING:MapLib:701 - Signal VE_FIELD_VSYNC connected to top level port
+   VE_FIELD_VSYNC has been removed.
+WARNING:MapLib:701 - Signal VE_BLANK connected to top level port VE_BLANK has
+   been removed.
+WARNING:MapLib:701 - Signal VE_HSYNC connected to top level port VE_HSYNC has
+   been removed.
+WARNING:MapLib:701 - Signal PS2_KEYB_DATA connected to top level port
+   PS2_KEYB_DATA has been removed.
+WARNING:MapLib:701 - Signal PS2_MOUSE_DATA connected to top level port
+   PS2_MOUSE_DATA has been removed.
+WARNING:MapLib:701 - Signal PS2_KEYB_CLK connected to top level port
+   PS2_KEYB_CLK has been removed.
+WARNING:MapLib:701 - Signal MZB_D<31> connected to top level port MZB_D<31> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<30> connected to top level port MZB_D<30> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<29> connected to top level port MZB_D<29> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<28> connected to top level port MZB_D<28> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<27> connected to top level port MZB_D<27> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<26> connected to top level port MZB_D<26> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<25> connected to top level port MZB_D<25> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<24> connected to top level port MZB_D<24> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<23> connected to top level port MZB_D<23> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<22> connected to top level port MZB_D<22> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<21> connected to top level port MZB_D<21> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<20> connected to top level port MZB_D<20> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<19> connected to top level port MZB_D<19> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<18> connected to top level port MZB_D<18> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<17> connected to top level port MZB_D<17> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<16> connected to top level port MZB_D<16> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<15> connected to top level port MZB_D<15> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<14> connected to top level port MZB_D<14> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<13> connected to top level port MZB_D<13> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<12> connected to top level port MZB_D<12> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<11> connected to top level port MZB_D<11> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<10> connected to top level port MZB_D<10> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<9> connected to top level port MZB_D<9> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<8> connected to top level port MZB_D<8> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<7> connected to top level port MZB_D<7> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<6> connected to top level port MZB_D<6> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<5> connected to top level port MZB_D<5> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<4> connected to top level port MZB_D<4> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<3> connected to top level port MZB_D<3> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<2> connected to top level port MZB_D<2> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<1> connected to top level port MZB_D<1> has
+   been removed.
+WARNING:MapLib:701 - Signal MZB_D<0> connected to top level port MZB_D<0> has
+   been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<15> connected to top level port
+   FLASH_DATA<15> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<14> connected to top level port
+   FLASH_DATA<14> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<13> connected to top level port
+   FLASH_DATA<13> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<12> connected to top level port
+   FLASH_DATA<12> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<11> connected to top level port
+   FLASH_DATA<11> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<10> connected to top level port
+   FLASH_DATA<10> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<9> connected to top level port
+   FLASH_DATA<9> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<8> connected to top level port
+   FLASH_DATA<8> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<7> connected to top level port
+   FLASH_DATA<7> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<6> connected to top level port
+   FLASH_DATA<6> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<5> connected to top level port
+   FLASH_DATA<5> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<4> connected to top level port
+   FLASH_DATA<4> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<3> connected to top level port
+   FLASH_DATA<3> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<2> connected to top level port
+   FLASH_DATA<2> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<1> connected to top level port
+   FLASH_DATA<1> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<0> connected to top level port
+   FLASH_DATA<0> has been removed.
+WARNING:MapLib:701 - Signal DIP_SW<7> connected to top level port DIP_SW<7> has
+   been removed.
+WARNING:MapLib:701 - Signal DIP_SW<6> connected to top level port DIP_SW<6> has
+   been removed.
+WARNING:MapLib:701 - Signal DIP_SW<5> connected to top level port DIP_SW<5> has
+   been removed.
+WARNING:MapLib:701 - Signal DIP_SW<4> connected to top level port DIP_SW<4> has
+   been removed.
+WARNING:MapLib:701 - Signal DIP_SW<3> connected to top level port DIP_SW<3> has
+   been removed.
+WARNING:MapLib:701 - Signal DIP_SW<2> connected to top level port DIP_SW<2> has
+   been removed.
+WARNING:MapLib:701 - Signal DIP_SW<1> connected to top level port DIP_SW<1> has
+   been removed.
+WARNING:MapLib:701 - Signal DIP_SW<0> connected to top level port DIP_SW<0> has
+   been removed.
+WARNING:MapLib:701 - Signal PB<4> connected to top level port PB<4> has been
+   removed.
+WARNING:MapLib:701 - Signal PB<3> connected to top level port PB<3> has been
+   removed.
+WARNING:MapLib:701 - Signal PB<2> connected to top level port PB<2> has been
+   removed.
+WARNING:MapLib:701 - Signal PB<1> connected to top level port PB<1> has been
+   removed.
+WARNING:MapLib:701 - Signal PB<0> connected to top level port PB<0> has been
+   removed.
+WARNING:MapLib:701 - Signal MZA_PIO<67> connected to top level port MZA_PIO<67>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<66> connected to top level port MZA_PIO<66>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<65> connected to top level port MZA_PIO<65>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<64> connected to top level port MZA_PIO<64>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<63> connected to top level port MZA_PIO<63>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<62> connected to top level port MZA_PIO<62>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<61> connected to top level port MZA_PIO<61>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<60> connected to top level port MZA_PIO<60>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<59> connected to top level port MZA_PIO<59>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<58> connected to top level port MZA_PIO<58>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<57> connected to top level port MZA_PIO<57>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<56> connected to top level port MZA_PIO<56>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<55> connected to top level port MZA_PIO<55>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<54> connected to top level port MZA_PIO<54>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<53> connected to top level port MZA_PIO<53>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<52> connected to top level port MZA_PIO<52>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<51> connected to top level port MZA_PIO<51>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<50> connected to top level port MZA_PIO<50>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<49> connected to top level port MZA_PIO<49>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<48> connected to top level port MZA_PIO<48>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<47> connected to top level port MZA_PIO<47>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<46> connected to top level port MZA_PIO<46>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<45> connected to top level port MZA_PIO<45>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<44> connected to top level port MZA_PIO<44>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<43> connected to top level port MZA_PIO<43>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<42> connected to top level port MZA_PIO<42>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<41> connected to top level port MZA_PIO<41>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<40> connected to top level port MZA_PIO<40>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<39> connected to top level port MZA_PIO<39>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<38> connected to top level port MZA_PIO<38>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<37> connected to top level port MZA_PIO<37>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<36> connected to top level port MZA_PIO<36>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<35> connected to top level port MZA_PIO<35>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<34> connected to top level port MZA_PIO<34>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<33> connected to top level port MZA_PIO<33>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<32> connected to top level port MZA_PIO<32>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<31> connected to top level port MZA_PIO<31>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<30> connected to top level port MZA_PIO<30>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<29> connected to top level port MZA_PIO<29>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<28> connected to top level port MZA_PIO<28>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<27> connected to top level port MZA_PIO<27>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<26> connected to top level port MZA_PIO<26>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<25> connected to top level port MZA_PIO<25>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<24> connected to top level port MZA_PIO<24>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<23> connected to top level port MZA_PIO<23>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<22> connected to top level port MZA_PIO<22>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<21> connected to top level port MZA_PIO<21>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<20> connected to top level port MZA_PIO<20>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<19> connected to top level port MZA_PIO<19>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<18> connected to top level port MZA_PIO<18>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<17> connected to top level port MZA_PIO<17>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<16> connected to top level port MZA_PIO<16>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<15> connected to top level port MZA_PIO<15>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<14> connected to top level port MZA_PIO<14>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<13> connected to top level port MZA_PIO<13>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<12> connected to top level port MZA_PIO<12>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<11> connected to top level port MZA_PIO<11>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<10> connected to top level port MZA_PIO<10>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<9> connected to top level port MZA_PIO<9>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<8> connected to top level port MZA_PIO<8>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<7> connected to top level port MZA_PIO<7>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<6> connected to top level port MZA_PIO<6>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<5> connected to top level port MZA_PIO<5>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<4> connected to top level port MZA_PIO<4>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<3> connected to top level port MZA_PIO<3>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<2> connected to top level port MZA_PIO<2>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<1> connected to top level port MZA_PIO<1>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<0> connected to top level port MZA_PIO<0>
+   has been removed.
+Running directed packing...
+Running delay-based LUT packing...
+Running related packing...
+Updating timing models...
+WARNING:PhysDesignRules:367 - The signal <MZB_A<7>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<8>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<9>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_RESET_OUT_IBUF> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<10>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK1_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK2_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<11>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK3_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<12>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<20>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<13>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<21>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<14>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<22>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<15>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<23>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<16>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<17>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<18>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<19>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VE_CLK_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <AC97_SDATA_IN_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_LLC_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <RS232_RX_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_SFL_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VE_VSO_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SYS_RST_N_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_BE0_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_BE1_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_BE2_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_BE3_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_OE_B_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <RS232_RTS_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_VS_FIELD_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_CS0_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_CS1_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_CS2_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_CS3_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_CS5_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_NFIO4_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_NFIO5_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VE_CLAMP_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_HS_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_RS1_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SPI_MISO_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_RS5_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_INTRQ_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VE_CSO_HSO_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_WS1_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SYS_CLK_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_WS5_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FLASH_NRYBY_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_AS_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_RW_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK_BANK_0_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK_BANK_1_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK_BANK_5_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VE_TTXREQ_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<0>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<1>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<2>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<3>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<4>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<5>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<6>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<7>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<0>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<1>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<2>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<3>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<4>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<5>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_A<6>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
 
 Design Summary
 --------------
-Number of errors   : 121
-Number of warnings :   0
+
+Design Summary:
+Number of errors:      0
+Number of warnings:  210
+Logic Utilization:
+  Number of Slice Flip Flops:            86 out of  26,624    1%
+  Number of 4 input LUTs:                94 out of  26,624    1%
+Logic Distribution:
+  Number of occupied Slices:             79 out of  13,312    1%
+    Number of Slices containing only related logic:      79 out of      79 100%
+    Number of Slices containing unrelated logic:          0 out of      79   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:         120 out of  26,624    1%
+    Number used as logic:                93
+    Number used as a route-thru:         26
+    Number used as Shift registers:       1
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                226 out of     487   46%
+    IOB Flip Flops:                       2
+  Number of BUFGMUXs:                     2 out of       8   25%
+  Number of DCMs:                         1 out of       4   25%
+
+Average Fanout of Non-Clock Nets:                1.96
+
+Peak Memory Usage:  260 MB
+Total REAL time to MAP completion:  2 secs 
+Total CPU time to MAP completion:   1 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Mapping completed.
+See MAP report file "ece453_top_level_map.mrp" for details.
