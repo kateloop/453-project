@@ -15,6 +15,7 @@
 #include <pic18f2682.h>
 #include <htc.h>
 #include "../PIC18.X/delay.h"
+#include "../PIC18.X/usart.h"
 
 __CONFIG (1, OSC_IRCIO67);
 __CONFIG (2, WDT_OFF);
@@ -52,14 +53,14 @@ __CONFIG (7, UNPROTECT);
 //  defines
 //////////////////////////////////
 // ADC
-#define ADCCHANA 0 // pin 2, AN0
-#define ADCCHANB 1 // pin 3, AN1
-#define ADCCHANC 2 // pin 4, AN2
-#define ADCCHAND 3 // pin 5, AN3
-#define ADCCHANE 4 // pin 7, AN4
-#define ADCCHANF 5 // pin 25, AN9
-#define ADCCHANG 6 // pin 22, AN8
-
+#define ADCCHANA   0 // pin 2, AN0
+#define ADCCHANB   1 // pin 3, AN1
+#define ADCCHANC   2 // pin 4, AN2
+#define ADCCHAND   3 // pin 5, AN3
+#define ADCCHANE   4 // pin 7, AN4
+#define ADCCHANF   5 // pin 25, AN9
+#define ADCCHANG   6 // pin 22, AN8
+#define NUMADCCHAN 7 // total number of ADC channels being used
 // LEDS
 #define A_SEL_PORTC  0b00000100    // pin 13, RC2
 #define B_SEL_PORTC  0b00001000    // pin 14, RC3
@@ -116,14 +117,18 @@ __CONFIG (7, UNPROTECT);
 
 // UART Defines
 #define UART_RENABLE 0b10010000
-#define UART_TENABLE 0b00101100
-#define UART_BAUD 0b00000000 // TODO interrupt
-#define SPBRGH_SPBRG (((FREQ_OSC/19200UL)/64UL) - 1)
-#define BAUD_RATE (FREQ_OSC/(64UL* (SPBRGH_SPBRG + 1)))
+#define UART_TENABLE 0b00100100 // 3 - 1/0?
+#define UART_BAUD 0b00001000 // TODO interrupt
+#define SPBRGH_SPBRG (((FOSC/BAUDRATE)/4UL) - 1)
+#define BAUDRATE_ACT (FOSC/(4UL* (SPBRGH_SPBRG + 1)))
+#define BAUDRATE 19200UL
+#define openParam 0b00011000
+#define baudParam 0b0100
 
 // Oscillator Frequency
-#define FREQ_OSC 8000000L // 8MHz
-#define CLK_8MHZ 0b01110000
+//#define FOSC 8000000L // 8MHz
+#define FOSC 20000000L // 20 MHZ
+#define CLK_8MHZ 0b01110010
 
 
 /******************************
@@ -131,38 +136,59 @@ __CONFIG (7, UNPROTECT);
  *****************************/
 int led_array[13];
 
-// Inputs from the sensors, if cur is not the same as prev, new sound to be played
-int cur_inputs[7];
-int prev_inputs[7];
-
 unsigned char uart_out;
 unsigned char uart_in;
 
 // Structure to hold ADC conversion information
-//typedef struct ADC_conv {
-// int result;        // result of ADC conversion
-// int adc_channel;   // channel converted (ie what note was played)
-//};
-//ADC_conv conv_result;
+typedef struct _ADC_conv {
+ int result;        // result of ADC conversion
+ int adc_channel;   // channel converted (ie what note was played)
+}ADC_conv;
+ADC_conv conv_result;
 
+volatile char adc_num;  // Keeps track of which ADC channel is being used
+
+// Inputs from the sensors, if cur is not the same as prev, new sound to be played
+int cur_inputs[7];
+int prev_inputs[7];
 
 /*
  * main
  */
 int main(int argc, char** argv) {
     // Init Config
-    OSCCON |= CLK_8MHZ;
-    
-    // UART configuration  TODO check values
+    OSCCON |= 0b00000010;
 
-    RCSTA |= UART_RENABLE; //serial port enabled, enables receiver
+    // IRCF bits in OSCCON -- INTOSC
+    // configure ADC
+    ADCON0 = ADCON0_INIT;
+    ADCON1 = ADCON1_VAL;
+    ADCON2 = ADCON2_VAL;
+    ADCON2 = 10100000;  // Right Justified, 8TAD, Fosc/2
+    adc_num = ADCCHANA; // reset the current adc channel to 0
+
+
+    // set up GPIO
+    TRISA = PORTA_DIR;
+    TRISB = PORTB_DIR;
+    TRISC = PORTC_DIR;
+
+    OpenUSART (openParam ,SPBRGH_SPBRG);
+    baudUSART (baudParam);
+
+
+    // UART configuration  TODO check values
+  /*  BAUDCON = UART_BAUD; //16-bit baud rate generator, no auto-baud detect
+    SPBRGH:SPBRG = SPBRGH_SPBRG;
     TXSTA |= UART_TENABLE; //8-bit transmission, transmit enabled, send sync break, high speed baud rate
-    BAUDCON = UART_BAUD; //8-bit baud rate generator, no auto-baud detect
-    SPBRG = BAUD_RATE;
+    RCSTA |= UART_RENABLE; //serial port enabled, enables receiver
+    SPEN = 1;
+    */
+
+    
 //	INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
 //	INTCON2 = 0b00000000; //TODO no idea about this one
 //	INTCON3 = 0b00000000; //TODO no idea about this one
-//	RCON = 0b00000000; //TODO this might be important...
 
 	 /*TODO testing UART:  The UART pins on the TLL6219 are pins 13-16 on the GPIO connector Chris 		suggests taking these steps:
 			1. send a bunch of A's from the PIC and see if they print out on the screen; if they do, you have UART communication!
@@ -170,50 +196,12 @@ int main(int argc, char** argv) {
 			3.send data from the Arm and either echo it back and have it print out or use scope
 			Chris said he is more than willing to reiterate these steps later.  Also, the scope should looks like it's going crazy when 				we send A's, so that's a good indication of whether or not we have it working. He also said to assume that the problem is 				with the PIC code.....let's hope he's right about that.
 	*/
-
-    // configure ADC
-    ADCON0 = ADCON0_INIT;
-    ADCON1 = ADCON1_VAL;
-    ADCON2 = ADCON2_VAL;
-    ADCON2 = 10100000;  // Right Justified, 8TAD, Fosc/2
-
     
-    // set up GPIO
-    TRISA = PORTA_DIR;
-    TRISB = PORTB_DIR;
-    TRISC = PORTC_DIR;
 
     // Turn on ADC and enable interrupts
    // ADON = 1;
    // ADC_INT_ENABLE();
-    LATB = 0b00100000;
-    DelayMs (10000);
-    LATB = 0b00000000;
-
-
-
-    ADCON0 &= 00000011;
-    DelayMs (3000);
-    ADCON0 |= 00000011;
-
-    while (GODONE == 1) {
-        //spin
-        LATB = 0b00100000;
-        PORTB = 0b00100000;
-
-        DelayMs (200);
-
-        LATB = 0b00000000;
-        PORTB = 0b00000000;
-
-        DelayMs (200);
-    }
-    LATB = 0b00100000;
-    for (int i = 0; i < 25; i++) {
-        DelayMs(200);
-    }
-
-    // TEST: TURN ON 
+    
 
     while (1) {    // spin
 //        if (GODONE == 0) {
@@ -223,31 +211,30 @@ int main(int argc, char** argv) {
 
         // TODO anything else ?
 
-    // BLINK LED on RB5
-        LATB = 0b00100000;
-        PORTB = 0b00100000;
-
-        DelayMs (200);
-
-        LATB = 0b00000000;
-        PORTB = 0b00000000;
-        
-        DelayMs (200);
-
-
         // UART STUFF
-/*        while (!RCIF)
-            continue;
-        uart_in = RCREG;
+   //    while (!RCIF)
+     //       continue;
+     //   uart_in = RCREG;
 
-        uart_out = uart_in;
-        while (!TRMT)
-            continue;
-        TXREG = uart_out;*/
-        
+     //   uart_out = uart_in;
+      //  putch ('a');
+        WriteUSART('a');
+        DelayMs(200);
+        LATB = 0b00100000;
+        DelayMs(200);
+        LATB = 0b00000000;
     }
     return (EXIT_SUCCESS);
 }
+
+/*void putch (unsigned char byte) {
+   // LATB = 0b00100000;
+    while (!TXIF);
+    //while (!TRMT);
+        //continue;
+    TXREG = byte;
+    
+}*/
 
 /*
  * Toggles LEDs

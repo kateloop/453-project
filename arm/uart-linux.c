@@ -7,7 +7,7 @@
 #include <termios.h>
 #include <unistd.h>
 
-#define UART_DEV "/dev/ttyS1"
+#define UART_DEV "/dev/ttymxc1"
 //#define RAW_DATA
 
 int main(int argc, char* argv[])
@@ -22,8 +22,8 @@ int main(int argc, char* argv[])
       goto error;
 
    /* flow control */
-   //termInfo.c_cflag &= ~CRTSCTS;
-   termInfo.c_cflag |= CRTSCTS;
+   termInfo.c_cflag &= ~CRTSCTS;
+   //termInfo.c_cflag |= CRTSCTS;
 
    /* BAUD rate */
    cfsetispeed(&termInfo, B19200);

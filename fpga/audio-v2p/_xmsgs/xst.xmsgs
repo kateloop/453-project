@@ -23,13 +23,13 @@
 <msg type="info" file="Xst" num="1433" delta="old" >Contents of array &lt;<arg fmt="%s" index="1">l_right_data</arg>&gt; may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">right_out</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000000000000000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">right_out&lt;19:16&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">left_out&lt;19:16&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">right_out&lt;14:0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">000000000000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">left_out&lt;14:0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">000000000000000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">left_out</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000000000000000</arg>.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">right_in</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -612,9 +612,6 @@ You should achieve better results by setting this init to <arg fmt="%i" index="3
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
@@ -718,7 +715,7 @@ You should achieve better results by setting this init to <arg fmt="%i" index="3
 You should achieve better results by setting this init to <arg fmt="%i" index="3">1</arg>.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ac97</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">19 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;l_right_data_1&gt; &lt;l_right_data_2&gt; &lt;l_right_data_3&gt; &lt;l_right_data_4&gt; &lt;l_right_data_5&gt; &lt;l_right_data_6&gt; &lt;l_right_data_7&gt; &lt;l_right_data_8&gt; &lt;l_right_data_9&gt; &lt;l_right_data_10&gt; &lt;l_right_data_11&gt; &lt;l_right_data_12&gt; &lt;l_right_data_13&gt; &lt;l_right_data_14&gt; &lt;l_right_data_15&gt; &lt;l_right_data_16&gt; &lt;l_right_data_17&gt; &lt;l_right_data_18&gt; &lt;l_right_data_19&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ac97</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">18 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;l_right_data_1&gt; &lt;l_right_data_2&gt; &lt;l_right_data_3&gt; &lt;l_right_data_4&gt; &lt;l_right_data_5&gt; &lt;l_right_data_6&gt; &lt;l_right_data_7&gt; &lt;l_right_data_8&gt; &lt;l_right_data_9&gt; &lt;l_right_data_10&gt; &lt;l_right_data_11&gt; &lt;l_right_data_12&gt; &lt;l_right_data_13&gt; &lt;l_right_data_14&gt; &lt;l_right_data_16&gt; &lt;l_right_data_17&gt; &lt;l_right_data_18&gt; &lt;l_right_data_19&gt; </arg>
 </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
