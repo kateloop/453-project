@@ -130,3 +130,13 @@ map -intstyle ise -p xc3s1500-fg676-5 -cm area -ir off -pr b -c 100 -o ece453_to
 par -w -intstyle ise -ol high -t 1 ece453_top_level_map.ncd ece453_top_level.ncd ece453_top_level.pcf 
 trce -intstyle ise -e 3 -s 5 -n 3 -xml ece453_top_level.twx ece453_top_level.ncd -o ece453_top_level.twr ece453_top_level.pcf -ucf ece453_TLL5000_spring2012.ucf 
 bitgen -intstyle ise -f ece453_top_level.ut ece453_top_level.ncd 
+xst -intstyle ise -ifn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.xst" -ofn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.syr" 
+xst -intstyle ise -ifn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.xst" -ofn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.syr" 
+xst -intstyle ise -ifn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.xst" -ofn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.syr" 
+xst -intstyle ise -ifn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.xst" -ofn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.syr" 
+xst -intstyle ise -ifn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.xst" -ofn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ece453_TLL5000_spring2012.ucf -p xc3s1500-fg676-5 ece453_top_level.ngc ece453_top_level.ngd  
+map -intstyle ise -p xc3s1500-fg676-5 -cm area -ir off -pr b -c 100 -o ece453_top_level_map.ncd ece453_top_level.ngd ece453_top_level.pcf 
+par -w -intstyle ise -ol high -t 1 ece453_top_level_map.ncd ece453_top_level.ncd ece453_top_level.pcf 
+trce -intstyle ise -e 3 -s 5 -n 3 -xml ece453_top_level.twx ece453_top_level.ncd -o ece453_top_level.twr ece453_top_level.pcf -ucf ece453_TLL5000_spring2012.ucf 
+bitgen -intstyle ise -f ece453_top_level.ut ece453_top_level.ncd 
