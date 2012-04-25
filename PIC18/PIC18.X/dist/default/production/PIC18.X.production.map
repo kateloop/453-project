@@ -1,0 +1,348 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+\
+  --edf=C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\dat\en_msgs.txt \
+  -cs -h+dist/default/production\PIC18.X.production.sym -z -Q18F2682 \
+  -ol.obj -Mdist/default/production/PIC18.X.production.map -E1 \
+  -ACODE=00h-013FFFh -ACONST=00h-013FFFh -ASMALLCONST=0D00h-0DFFhx51 \
+  -AMEDIUMCONST=0D00h-0FFFFh,010D00h-013FFFh -ARAM=00h-0FFhx12,0C00h-0C9Fh \
+  -ABIGRAM=00h-0C9Fh -ACOMRAM=00h-05Fh -AABS1=00h-0C9Fh -ABANK0=00h-0FFh \
+  -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ABANK3=0300h-03FFh \
+  -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh -ABANK6=0600h-06FFh \
+  -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh -ABANK9=0900h-09FFh \
+  -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh -ABANK12=0C00h-0C9Fh \
+  -ANVRAM=0C00h-0C9Fh \
+  -preset_vec=00h,intcode,intcodelo,powerup,init,end_init -pramtop=0D00h \
+  -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
+  -pparam1=BANK1 -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh \
+  -pconfig=CONFIG -AIDLOC=0200000h-0200007h -pidloc=IDLOC \
+  -AEEDATA=0F00000h-0F003FFh -peeprom_data=EEDATA \
+  -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
+  -pfarbss=FARRAM,fardata=FARRAM \
+  -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
+  C:\Users\CCS\AppData\Local\Temp\s7fk.obj \
+  dist/default/production\PIC18.X.production.obj 
+
+Object code version is 3.10
+
+Machine type is 18F2682
+
+Call graph: (short form)
+
+*_main size 4,4 offset 0
+*    _ToggleLeds size 0,0 offset 8
+
+Estimated maximum call depth: 1
+
+
+                Name          Link     Load   Length Selector Space Scale
+C:\Users\CCS\AppData\Local\Temp\s7fk.obj
+                end_init         C        C       12       0     0
+                init             0        0        C       0     0
+                config      300000   300000        E  300000     0
+dist/default/production\PIC18.X.production.obj
+                text0        13E78    13E78       76    9F3C     0
+                text1        13EEE    13EEE      112    9F77     0
+
+COMMON          param1         100      100        8     100     1
+
+TOTAL           Name          Link     Load   Length  Space
+        CLASS   CODE           
+                end_init         C        C       12     0
+                init             0        0        C     0
+                text0        13E78    13E78       76     0
+                text1        13EEE    13EEE      112     0
+
+        CLASS   CONST          
+
+        CLASS   SMALLCONST     
+
+        CLASS   MEDIUMCONST    
+
+        CLASS   RAM            
+
+        CLASS   BIGRAM         
+
+        CLASS   COMRAM         
+
+        CLASS   ABS1           
+                abs_s1           0        0       41     1
+
+        CLASS   BANK0          
+
+        CLASS   BANK1          
+                param1         100      100        8     1
+
+        CLASS   BANK2          
+
+        CLASS   BANK3          
+
+        CLASS   BANK4          
+
+        CLASS   BANK5          
+
+        CLASS   BANK6          
+
+        CLASS   BANK7          
+
+        CLASS   BANK8          
+
+        CLASS   BANK9          
+
+        CLASS   BANK10         
+
+        CLASS   BANK11         
+
+        CLASS   BANK12         
+
+        CLASS   NVRAM          
+
+        CLASS   FARRAM         
+
+        CLASS   CONFIG         
+                config      300000   300000        E     0
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name           Load    Length   Top     Selector    Space Class
+
+                reset_vec       000000  00001E  00001E         0       0  CODE    
+                param1          000100  000008  000108       100       1  BANK1   
+                text0           013E78  000076  013EEE      9F3C       0  CODE    
+                text1           013EEE  000112  014000      9F77       0  CODE    
+                config          300000  00000E  30000E    300000       0  CONFIG  
+
+
+UNUSED ADDRESS RANGES
+
+        BANK0            000041-0000FF
+        BANK1            000108-0001FF
+        BANK10           000A00-000AFF
+        BANK11           000B00-000BFF
+        BANK12           000C00-000C9F
+        BANK2            000200-0002FF
+        BANK3            000300-0003FF
+        BANK4            000400-0004FF
+        BANK5            000500-0005FF
+        BANK6            000600-0006FF
+        BANK7            000700-0007FF
+        BANK8            000800-0008FF
+        BANK9            000900-0009FF
+        BIGRAM           000041-0000FF
+                         000108-000C9F
+        CODE             00001E-013E77
+        COMRAM           000041-00005F
+        CONST            00001E-013E77
+        EEDATA           F00000-F003FF
+        IDLOC            200000-200007
+        MEDIUMCONST      000D00-00FFFF
+                         010D00-013E77
+        NVRAM            000C00-000C9F
+        RAM              000041-0000FF
+                         000108-000C9F
+        SMALLCONST       000D00-003FFF
+
+                                  Symbol Table
+
+??_ToggleLeds       param1       000108
+??_main             param1       000104
+?_ToggleLeds        param1       000108
+?_main              param1       000100
+_ADCON0             (abs)        000FC2
+_ADON               (abs)        007E10
+_ADRES              (abs)        000FC3
+_ADRESH             (abs)        000FC4
+_ADRESL             (abs)        000FC3
+_BAUDCON            (abs)        000FB8
+_BRGH_x             (abs)        007D62
+_CREN_x             (abs)        007D5C
+_CSRC_x             (abs)        007D67
+_FERR               (abs)        007D5A
+_GODONE             (abs)        007E11
+_LATA               (abs)        000F89
+_LATB               (abs)        000F8A
+_LATC               (abs)        000F8B
+_OERR               (abs)        007D59
+_OSCCON             (abs)        000FD3
+_PIR1               (abs)        000F9E
+_RCIE_x             (abs)        007CED
+_RCIF               (abs)        007CF5
+_RCREG              (abs)        000FAE
+_RCSTA              (abs)        000FAB
+_RX9D               (abs)        007D58
+_RX9_x              (abs)        007D5E
+_SENDB_x            (abs)        007D63
+_SPBRG              (abs)        000FAF
+_SPBRGH             (abs)        000FB0
+_SPEN_x             (abs)        007D5F
+_SREN_x             (abs)        007D5D
+_SYNC_x             (abs)        007D64
+_TRISB              (abs)        000F93
+_TRISC              (abs)        000F94
+_TRISC6             (abs)        007CA6
+_TRISC7             (abs)        007CA7
+_TRMT_x             (abs)        007D61
+_TX9D               (abs)        007D60
+_TX9_x              (abs)        007D66
+_TXEN_x             (abs)        007D65
+_TXIE_x             (abs)        007CEC
+_TXIF               (abs)        007CF4
+_TXREG              (abs)        000FAD
+_TXSTA              (abs)        000FAC
+_ToggleLeds         text1        013EEE
+_USART_Status       (abs)        000030
+__Bnvbit            nvbit        000041
+__Brbit             rbit         000041
+__HRAM              (abs)        000000
+__Habsbss0          (abs)        000041
+__Hbigbss           bigbss       000108
+__Hbigdata          bigdata      000108
+__Hbss              bss          000041
+__Hclrtext          clrtext      00001E
+__Hconfig           config       30000E
+__Hconst            const        00001E
+__Hdata             data         00001E
+__Heeprom_data      eeprom_data  F00000
+__Hend_init         end_init     00001E
+__Hfarbss           farbss       000000
+__Hfardata          fardata      000000
+__Hibigdata         ibigdata     00001E
+__Hidata            idata        00001E
+__Hidloc            idloc        200000
+__Hifardata         ifardata     00001E
+__Hinit             init         00000C
+__Hintcode          intcode      000000
+__Hintcodelo        intcodelo    000000
+__Hintentry         intentry     00001E
+__Hintret           intret       00001E
+__Hintsave_regs     intsave_regs 000108
+__Hirdata           irdata       00001E
+__Hmediumconst      mediumconst  000D00
+__Hnvbit            nvbit        000208
+__Hnvram            nvram        00001E
+__Hnvrram           nvrram       000041
+__Hparam            param1       000108
+__Hparam0           param0       00001E
+__Hparam1           param1       000108
+__Hparam10          param10      00001E
+__Hparam11          param11      00001E
+__Hparam12          param12      00001E
+__Hparam2           param2       00001E
+__Hparam3           param3       00001E
+__Hparam4           param4       00001E
+__Hparam5           param5       00001E
+__Hparam6           param6       00001E
+__Hparam7           param7       00001E
+__Hparam8           param8       00001E
+__Hparam9           param9       00001E
+__Hpowerup          powerup      000000
+__Hramtop           ramtop       000D00
+__Hrbit             rbit         000208
+__Hrbss             rbss         000041
+__Hrdata            rdata        000041
+__Hreset_vec        reset_vec    000000
+__Hrparam           rparam       00001E
+__Hsmallconst       smallconst   000D00
+__Hstruct           struct       000041
+__Htemp             temp         000041
+__Htext             text         00001E
+__Htext0            text0        00001E
+__Htext1            text1        00001E
+__LRAM              (abs)        000001
+__Labsbss0          (abs)        000000
+__Lbigbss           bigbss       000108
+__Lbigdata          bigdata      000108
+__Lbss              bss          000041
+__Lclrtext          clrtext      00001E
+__Lconfig           config       300000
+__Lconst            const        00001E
+__Ldata             (abs)        000000
+__Leeprom_data      eeprom_data  F00000
+__Lend_init         end_init     00000C
+__Lfarbss           farbss       000000
+__Lfardata          fardata      000000
+__Libigdata         ibigdata     00001E
+__Lidata            idata        00001E
+__Lidloc            idloc        200000
+__Lifardata         ifardata     00001E
+__Linit             init         000000
+__Lintcode          intcode      000000
+__Lintcodelo        intcodelo    000000
+__Lintentry         intentry     00001E
+__Lintret           intret       00001E
+__Lintsave_regs     intsave_regs 000108
+__Lirdata           irdata       00001E
+__Lmediumconst      mediumconst  000D00
+__Lnvbit            nvbit        000208
+__Lnvram            nvram        00001E
+__Lnvrram           nvrram       000041
+__Lparam            param1       000100
+__Lparam0           param0       00001E
+__Lparam1           param1       000100
+__Lparam10          param10      00001E
+__Lparam11          param11      00001E
+__Lparam12          param12      00001E
+__Lparam2           param2       00001E
+__Lparam3           param3       00001E
+__Lparam4           param4       00001E
+__Lparam5           param5       00001E
+__Lparam6           param6       00001E
+__Lparam7           param7       00001E
+__Lparam8           param8       00001E
+__Lparam9           param9       00001E
+__Lpowerup          powerup      000000
+__Lramtop           ramtop       000D00
+__Lrbit             rbit         000208
+__Lrbss             rbss         000041
+__Lrdata            rdata        000041
+__Lreset_vec        reset_vec    000000
+__Lrparam           rparam       00001E
+__Lsmallconst       smallconst   000D00
+__Lstruct           struct       000041
+__Ltemp             temp         000041
+__Ltext             text         00001E
+__Ltext0            text0        00001E
+__Ltext1            text1        00001E
+__S0                (abs)        F00000
+__S1                (abs)        000C00
+__accesstop         (abs)        000060
+__activetblptr      (abs)        000000
+__config1           (abs)        00F0FF
+__config2           (abs)        00FEFF
+__config3           (abs)        007FFF
+__config4           (abs)        00FFFB
+__config5           (abs)        00FFFF
+__config6           (abs)        00FFFF
+__config7           (abs)        00FFFF
+__end_of_ToggleLeds text1        014000
+__end_of_main       text0        013EEE
+__mediumconst       mediumconst  000D00
+__ramtop            ramtop       000D00
+__smallconst        smallconst   000D00
+_adc_num            (abs)        00002E
+_change_val         (abs)        00002F
+_conv_result        (abs)        00002A
+_cur_inputs         (abs)        00001A
+_exit               init         000000
+_index              (abs)        000028
+_led_array          (abs)        000000
+_main               text0        013E78
+_prev_inputs        (abs)        000033
+_uart_in            (abs)        000032
+_uart_out           (abs)        000031
+intlevel0           text         00001E
+intlevel1           text         00001E
+intlevel2           text         00001E
+intlevel3           text         00001E
+main@argc           param1       000100
+main@argv           param1       000102
+main@channel        param1       000104
+main@result         param1       000105
+start               init         000000

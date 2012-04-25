@@ -5,3 +5,37 @@ demo
 
 # MPLABX Projects
 *.X
+
+
+#other
+*.xmsg
+*.xml
+*.html
+*.tmr
+*.tmw
+*.par
+*.pad
+*.ncd
+*.drc
+*.ptwx
+*.prj
+*.bgn
+*.bit
+*.twx
+*.twr
+*.*~
+*.ut
+*.stx
+*.xst
+*.pcf
+*.unroutes
+*.xpi
+*.xwbt
+*.xrpt
+*.csv
+*.xrpt
+*.xreport
+*.log
+*.xmsgs
+*.lso
+*~

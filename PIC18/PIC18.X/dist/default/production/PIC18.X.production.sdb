@@ -1,0 +1,151 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F2682 ]
+"139 ../code/main.c
+[s S24 _ADC_conv 4 `i 1 result 2 0 `i 1 adc_channel 2 2 ]
+[s S66 . 1 `uc 1 RX_NINE 1 0 :1:0 
+`uc 1 TX_NINE 1 0 :1:1 
+`uc 1 FRAME_ERROR 1 0 :1:2 
+`uc 1 OVERRUN_ERROR 1 0 :1:3 
+`uc 1 fill 1 0 :4:4 
+]
+[u S72 USART 1 `uc 1 val 1 0 `S66 1 . 1 0 ]
+[s S110 . 1 `uc 1 RX_NINE 1 0 :1:0 
+`uc 1 TX_NINE 1 0 :1:1 
+`uc 1 FRAME_ERROR 1 0 :1:2 
+`uc 1 OVERRUN_ERROR 1 0 :1:3 
+`uc 1 fill 1 0 :4:4 
+]
+[u S116 USART 1 `uc 1 val 1 0 `S66 1 . 1 0 ]
+"8641 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
+[s S128 . 1 `uc 1 RX_NINE 1 0 :1:0 
+`uc 1 TX_NINE 1 0 :1:1 
+`uc 1 FRAME_ERROR 1 0 :1:2 
+`uc 1 OVERRUN_ERROR 1 0 :1:3 
+`uc 1 fill 1 0 :4:4 
+]
+[u S134 USART 1 `uc 1 val 1 0 `S66 1 . 1 0 ]
+"162 ../code/main.c
+[v _main `(i  1 e 2 0 ]
+"306
+[v _ToggleLeds `(v  1 e 0 0 ]
+"136
+[v _led_array `[13]i  1 e 26 @0 ]
+"138
+[v _uart_out `uc  1 e 1 @49 ]
+"139
+[v _uart_in `uc  1 e 1 @50 ]
+"146
+[v _conv_result `S24  1 e 4 @42 ]
+"148
+[v _adc_num `Vuc  1 e 1 @46 ]
+"151
+[v _cur_inputs `[7]i  1 e 14 @26 ]
+"152
+[v _prev_inputs `[7]i  1 e 14 @51 ]
+"154
+[v _change_val `uc  1 e 1 @47 ]
+"156
+[v _index `i  1 e 2 @40 ]
+"20 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\legacy/ppic18f2682.h
+[v _GODONE `VNb  1 e 0 @32273 ]
+"89 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\peripheral/psupport.h
+[v _TRMT_x `Vb  1 e 0 @32097 ]
+"90
+[v _BRGH_x `Vb  1 e 0 @32098 ]
+"91
+[v _SENDB_x `Vb  1 e 0 @32099 ]
+"92
+[v _SYNC_x `Vb  1 e 0 @32100 ]
+"93
+[v _TXEN_x `Vb  1 e 0 @32101 ]
+"94
+[v _TX9_x `Vb  1 e 0 @32102 ]
+"95
+[v _CSRC_x `Vb  1 e 0 @32103 ]
+"102
+[v _CREN_x `Vb  1 e 0 @32092 ]
+"103
+[v _SREN_x `Vb  1 e 0 @32093 ]
+"104
+[v _RX9_x `Vb  1 e 0 @32094 ]
+"105
+[v _SPEN_x `Vb  1 e 0 @32095 ]
+"107
+[v _TXIE_x `Vb  1 e 0 @31980 ]
+"108
+[v _RCIE_x `Vb  1 e 0 @31981 ]
+"8079 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
+[v _LATA `Vuc  1 e 1 @3977 ]
+"8103
+[v _LATB `Vuc  1 e 1 @3978 ]
+"8127
+[v _LATC `Vuc  1 e 1 @3979 ]
+"8194
+[v _TRISB `Vuc  1 e 1 @3987 ]
+"8237
+[v _TRISC `Vuc  1 e 1 @3988 ]
+"8246
+[v _TRISC6 `Vb  1 e 0 @31910 ]
+"8247
+[v _TRISC7 `Vb  1 e 0 @31911 ]
+"8331
+[v _PIR1 `Vuc  1 e 1 @3998 ]
+"8337
+[v _TXIF `Vb  1 e 0 @31988 ]
+"8338
+[v _RCIF `Vb  1 e 0 @31989 ]
+"8610
+[v _RCSTA `Vuc  1 e 1 @4011 ]
+"8612
+[v _RX9D `Vb  1 e 0 @32088 ]
+"8613
+[v _OERR `Vb  1 e 0 @32089 ]
+"8614
+[v _FERR `Vb  1 e 0 @32090 ]
+"8639
+[v _TXSTA `Vuc  1 e 1 @4012 ]
+"8641
+[v _TX9D `Vb  1 e 0 @32096 ]
+"8663
+[v _TXREG `Vuc  1 e 1 @4013 ]
+"8667
+[v _RCREG `Vuc  1 e 1 @4014 ]
+"8671
+[v _SPBRG `Vuc  1 e 1 @4015 ]
+"8675
+[v _SPBRGH `Vuc  1 e 1 @4016 ]
+"8766
+[v _BAUDCON `Vuc  1 e 1 @4024 ]
+"8882
+[v _ADCON0 `Vuc  1 e 1 @4034 ]
+"8884
+[v _ADON `Vb  1 e 0 @32272 ]
+"8929
+[v _ADRESL `Vuc  1 e 1 @4035 ]
+"8933
+[v _ADRESH `Vuc  1 e 1 @4036 ]
+"8937
+[v _ADRES `Vui  1 e 2 @4035 ]
+"9270
+[v _OSCCON `Vuc  1 e 1 @4051 ]
+"6 udefs.c
+[v _USART_Status `S72  1 e 1 @48 ]
+"162 ../code/main.c
+[v _main `(i  1 e 2 0 ]
+{
+"289
+[v _channel `uc  1 a 1 0 ]
+"288
+[v _result `i  1 a 2 1 ]
+"162
+[v _argc `i  1 p 2 0 ]
+[v _argv `*.M*.Muc  1 p 2 2 ]
+"298
+} 3
+"306
+[v _ToggleLeds `(v  1 e 0 0 ]
+{
+"365
+} 0

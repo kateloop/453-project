@@ -1,0 +1,885 @@
+
+
+HI-TECH Software LITE Macro Assembler (PIC18) V9.66 build 8870 
+                                                       Wed Apr 25 15:40:29 2012
+
+HI-TECH Software Omniscient Code Generator build 8870
+     1  000000                     opt subtitle "HI-TECH Software Omniscient Code G
+                                 enerator build 8870"
+     2                           
+     3                           	processor	18F2682
+     4  000000                     porta	equ	0F80h
+     5  000000                     portb	equ	0F81h
+     6  000000                     portc	equ	0F82h
+     7  000000                     portd	equ	0F83h
+     8  000000                     porte	equ	0F84h
+     9  000000                     lata	equ	0F89h
+    10  000000                     latb	equ	0F8Ah
+    11  000000                     latc	equ	0F8Bh
+    12  000000                     latd	equ	0F8Ch
+    13  000000                     late	equ	0F8Dh
+    14  000000                     trisa	equ	0F92h
+    15  000000                     trisb	equ	0F93h
+    16  000000                     trisc	equ	0F94h
+    17  000000                     trisd	equ	0F95h
+    18  000000                     trise	equ	0F96h
+    19  000000                     pie1	equ	0F9Dh
+    20  000000                     pir1	equ	0F9Eh
+    21  000000                     ipr1	equ	0F9Fh
+    22  000000                     pie2	equ	0FA0h
+    23  000000                     pir2	equ	0FA1h
+    24  000000                     ipr2	equ	0FA2h
+    25  000000                     t3con	equ	0FB1h
+    26  000000                     tmr3l	equ	0FB2h
+    27  000000                     tmr3h	equ	0FB3h
+    28  000000                     ccp1con	equ	0FBDh
+    29  000000                     ccpr1l	equ	0FBEh
+    30  000000                     ccpr1h	equ	0FBFh
+    31  000000                     adcon1	equ	0FC1h
+    32  000000                     adcon0	equ	0FC2h
+    33  000000                     adresl	equ	0FC3h
+    34  000000                     adresh	equ	0FC4h
+    35  000000                     sspcon2	equ	0FC5h
+    36  000000                     sspcon1	equ	0FC6h
+    37  000000                     sspstat	equ	0FC7h
+    38  000000                     sspadd	equ	0FC8h
+    39  000000                     sspbuf	equ	0FC9h
+    40  000000                     t2con	equ	0FCAh
+    41  000000                     pr2	equ	0FCBh
+    42  000000                     tmr2	equ	0FCCh
+    43  000000                     t1con	equ	0FCDh
+    44  000000                     tmr1l	equ	0FCEh
+    45  000000                     tmr1h	equ	0FCFh
+    46  000000                     rcon	equ	0FD0h
+    47  000000                     wdtcon	equ	0FD1h
+    48  000000                     lvdcon	equ	0FD2h
+    49  000000                     osccon	equ	0FD3h
+    50  000000                     t0con	equ	0FD5h
+    51  000000                     tmr0l	equ	0FD6h
+    52  000000                     tmr0h	equ	0FD7h
+    53  000000                     status	equ	0FD8h
+    54  000000                     fsr2	equ	0FD9h
+    55  000000                     fsr2l	equ	0FD9h
+    56  000000                     fsr2h	equ	0FDAh
+    57  000000                     plusw2	equ	0FDBh
+    58  000000                     preinc2	equ	0FDCh
+    59  000000                     postdec2	equ	0FDDh
+    60  000000                     postinc2	equ	0FDEh
+    61  000000                     indf2	equ	0FDFh
+    62  000000                     bsr	equ	0FE0h
+    63  000000                     fsr1	equ	0FE1h
+    64  000000                     fsr1l	equ	0FE1h
+    65  000000                     fsr1h	equ	0FE2h
+    66  000000                     plusw1	equ	0FE3h
+    67  000000                     preinc1	equ	0FE4h
+    68  000000                     postdec1	equ	0FE5h
+    69  000000                     postinc1	equ	0FE6h
+    70  000000                     indf1	equ	0FE7h
+    71  000000                     wreg	equ	0FE8h
+    72  000000                     fsr0	equ	0FE9h
+    73  000000                     fsr0l	equ	0FE9h
+    74  000000                     fsr0h	equ	0FEAh
+    75  000000                     plusw0	equ	0FEBh
+    76  000000                     preinc0	equ	0FECh
+    77  000000                     postdec0	equ	0FEDh
+    78  000000                     postinc0	equ	0FEEh
+    79  000000                     indf0	equ	0FEFh
+    80  000000                     intcon3	equ	0FF0h
+    81  000000                     intcon2	equ	0FF1h
+    82  000000                     intcon	equ	0FF2h
+    83  000000                     prod	equ	0FF3h
+    84  000000                     prodl	equ	0FF3h
+    85  000000                     prodh	equ	0FF4h
+    86  000000                     tablat	equ	0FF5h
+    87  000000                     tblptr	equ	0FF6h
+    88  000000                     tblptrl	equ	0FF6h
+    89  000000                     tblptrh	equ	0FF7h
+    90  000000                     tblptru	equ	0FF8h
+    91  000000                     pcl	equ	0FF9h
+    92  000000                     pclat	equ	0FFAh
+    93  000000                     pclath	equ	0FFAh
+    94  000000                     pclatu	equ	0FFBh
+    95  000000                     stkptr	equ	0FFCh
+    96  000000                     tosl	equ	0FFDh
+    97  000000                     tosh	equ	0FFEh
+    98  000000                     tosu	equ	0FFFh
+    99                           	global	__ramtop
+   100                           	global	__accesstop
+   101                           # 20 "../code/main.c"
+   102                           	global __config1 ;#
+   103                           # 20 "../code/main.c"
+   104  000000                     	__config1 equ 0xF0FF ;#
+   105                           # 21 "../code/main.c"
+   106                           	global __config2 ;#
+   107                           # 21 "../code/main.c"
+   108  000000                     	__config2 equ 0xFEFF ;#
+   109                           # 22 "../code/main.c"
+   110                           	global __config3 ;#
+   111                           # 22 "../code/main.c"
+   112  000000                     	__config3 equ 0x7FFF ;#
+   113                           # 23 "../code/main.c"
+   114                           	global __config4 ;#
+   115                           # 23 "../code/main.c"
+   116  000000                     	__config4 equ 0xFFFB & 0xFFFF ;#
+   117                           # 24 "../code/main.c"
+   118                           	global __config5 ;#
+   119                           # 24 "../code/main.c"
+   120  000000                     	__config5 equ 0xFFFF ;#
+   121                           # 25 "../code/main.c"
+   122                           	global __config6 ;#
+   123                           # 25 "../code/main.c"
+   124  000000                     	__config6 equ 0xFFFF ;#
+   125                           # 26 "../code/main.c"
+   126                           	global __config7 ;#
+   127                           # 26 "../code/main.c"
+   128  000000                     	__config7 equ 0xFFFF ;#
+   129                           	GLOBAL	__activetblptr
+   130  000000                     __activetblptr	EQU	0
+   131                           	GLOBAL	__smallconst,__Lsmallconst
+   132  000000                     __smallconst	EQU	__Lsmallconst
+   133                           	GLOBAL	__mediumconst,__Lmediumconst
+   134  000000                     __mediumconst	EQU	__Lmediumconst
+   135                           	GLOBAL	__Ldata
+   136  000000                     __Ldata	EQU	0
+   137  000000                     main@channel	equ	??_main+0
+   138                           	global	main@channel
+   139  000000                     main@result	equ	??_main+1
+   140                           	global	main@result
+   141  000000                     main@argc	equ	?_main+0
+   142                           	global	main@argc
+   143  000000                     main@argv	equ	?_main+2
+   144                           	global	main@argv
+   145                           ;Data sizes: Strings 0, constant 0, data 0, bss 
+                                 0, persistent 0 stack 8
+   146                           	global	_main
+   147                           	global	??_main
+   148                           	global	?_main
+   149                           
+   150                           ; *************** function _main ***************
+                                 **
+   151                           ; Defined at:
+   152                           ;		line 162 in file "../code/main.c"
+   153                           ; Parameters:
+   154                           ;		argc           size:   2offs:   0	type: int 
+   155                           ;		argv           size:   2offs:   2	type: PTR P
+                                 TR unsigned char 
+   156                           ; Auto variables:
+   157                           ;		channel     	       	type: unsigned char 
+   158                           ;		result      	       	type: int 
+   159                           ; Return value:
+   160                           ;		type: int 
+   161                           ;		size: 2
+   162                           ; Registers used:
+   163                           ;		wreg, fsr0l, fsr0h, status,2, status,0
+   164                           ; Tracked objects:
+   165                           ;		On entry : 0/0
+   166                           ;		On exit  : 0/0
+   167                           ;		Unchanged: 0/0
+   168                           ; Data sizes:
+   169                           ;		Autos:    3
+   170                           ;		Params:   4
+   171                           ;		Temp:     1
+   172                           ;		Total:    8
+   173                           ; This function calls:
+   174                           ;		_ToggleLeds
+   175                           ; This function is called by:
+   176                           ;		Startup code after reset
+   177                           ; This function uses a non-reentrant model
+   178                           ; 
+   179                                   psect   text0,class=CODE,space=0,reloc=2
+   180                           
+   181                           	opt lm
+   182                           	file	"../code/main.c"
+   183                           	line	162
+   184  000000                     	__size_of_main	equ	__end_of_main-_main
+   185                                   psect   text0
+   186                           ;main.c: 20: asm("\tglobal __config" "1"); asm("
+                                 \t__config" "1" " equ " "0xF0FF");
+   187                           ;main.c: 21: asm("\tglobal __config" "2"); asm("
+                                 \t__config" "2" " equ " "0xFEFF");
+   188                           ;main.c: 22: asm("\tglobal __config" "3"); asm("
+                                 \t__config" "3" " equ " "0x7FFF");
+   189                           ;main.c: 23: asm("\tglobal __config" "4"); asm("
+                                 \t__config" "4" " equ " "0xFFFB & 0xFFFF");
+   190                           ;main.c: 24: asm("\tglobal __config" "5"); asm("
+                                 \t__config" "5" " equ " "0xFFFF");
+   191                           ;main.c: 25: asm("\tglobal __config" "6"); asm("
+                                 \t__config" "6" " equ " "0xFFFF");
+   192                           ;main.c: 26: asm("\tglobal __config" "7"); asm("
+                                 \t__config" "7" " equ " "0xFFFF");
+   193                           	
+   194  013E78                     _main:		; BSR set to: ?
+   195                           
+   196                           	opt stack 31
+   197                           	line	164
+   198                           ;main.c: 164: OSCCON |= 0b00000010;
+   199  013E78  82D3               	bsf	(0+(1/8)+(c:4051)),c,(1)&7	;volatile
+   200                           	line	175
+   201                           ;main.c: 175: TRISB = 0b00010010;
+   202  013E7A  0E12               	movlw	low(012h)
+   203  013E7C  6E93               	movwf	((c:3987)),c	;volatile
+   204                           	line	178
+   205                           ;main.c: 178: TRISC = 0b10000000;
+   206  013E7E  0E80               	movlw	low(080h)
+   207  013E80  6E94               	movwf	((c:3988)),c	;volatile
+   208                           	line	220
+   209                           ;main.c: 220: SPBRGH = (((20000000L/19200UL)/16)
+                                  - 1) >> 8;
+   210  013E82  0E00               	movlw	low(0)
+   211  013E84  6EB0               	movwf	((c:4016)),c	;volatile
+   212                           	line	223
+   213                           ;main.c: 223: SPBRG = (((20000000L/19200UL)/16) 
+                                 - 1);
+   214  013E86  0E40               	movlw	low(040h)
+   215  013E88  6EAF               	movwf	((c:4015)),c	;volatile
+   216                           	line	225
+   217                           ;main.c: 225: BAUDCON = 0b00001000;
+   218  013E8A  0E08               	movlw	low(08h)
+   219  013E8C  6EB8               	movwf	((c:4024)),c	;volatile
+   220                           	line	227
+   221                           ;main.c: 227: RCSTA = 0b10010000;
+   222  013E8E  0E90               	movlw	low(090h)
+   223  013E90  6EAB               	movwf	((c:4011)),c	;volatile
+   224                           	line	228
+   225                           ;main.c: 228: TXSTA = 0b00100000;
+   226  013E92  0E20               	movlw	low(020h)
+   227  013E94  6EAC               	movwf	((c:4012)),c	;volatile
+   228                           	line	240
+   229                           ;main.c: 240: while (1)
+   230                           	
+   231  013E96                     l869:		; BSR set to: ?
+   232                           
+   233                           	line	244
+   234                           ;main.c: 241: {
+   235                           ;main.c: 244: TXREG = 'a';
+   236  013E96  0E61               	movlw	low(061h)
+   237  013E98  6EAD               	movwf	((c:4013)),c	;volatile
+   238                           	line	245
+   239                           ;main.c: 245: while ((PIR1 & 0b00010000) ==0);
+   240  013E9A  EF4F  F09F         	goto	l871
+   241                           	
+   242  013E9E                     l871:		; BSR set to: ?
+   243                           
+   244                           	
+   245  013E9E  A89E               	btfss	((c:3998)),c,(4)&7	;volatile
+   246  013EA0  EF54  F09F         	goto	u1171
+   247  013EA4  EF56  F09F         	goto	u1170
+   248  013EA8                     u1171:
+   249  013EA8  EF4F  F09F         	goto	l871
+   250  013EAC                     u1170:
+   251                           	
+   252  013EAC                     l873:		; BSR set to: ?
+   253                           
+   254                           	line	248
+   255                           	
+   256  013EAC                     l868:		; BSR set to: ?
+   257                           
+   258                           	line	240
+   259  013EAC  EF4B  F09F         	goto	l869
+   260                           	line	284
+   261                           	
+   262  013EB0                     l878:		; BSR set to: ?
+   263                           
+   264                           	line	286
+   265                           ;main.c: 286: continue;
+   266  013EB0  EF5A  F09F         	goto	l877
+   267                           	line	287
+   268                           	
+   269  013EB4                     l877:		; BSR set to: ?
+   270                           
+   271                           	line	284
+   272  013EB4  502F               	movf	((c:47)),c,w
+   273  013EB6  B4D8               	btfsc	status,2
+   274  013EB8  EF60  F09F         	goto	u1181
+   275  013EBC  EF62  F09F         	goto	u1180
+   276  013EC0                     u1181:
+   277  013EC0  EF58  F09F         	goto	l878
+   278  013EC4                     u1180:
+   279                           	
+   280  013EC4                     l879:		; BSR set to: ?
+   281                           
+   282                           	line	288
+   283                           ;main.c: 287: }
+   284                           ;main.c: 288: int result = cur_inputs[index];
+   285  013EC4  90D8               	bcf	status,0
+   286  013EC6  3428               	rlcf	((c:40)),c,w
+   287  013EC8  0101               	movlb	1	; () banked
+   288  013ECA  6F07               	movwf	(??_main+3+0)&0ffh
+   289  013ECC  0E1A               	movlw	low((c:26))
+   290  013ECE  0101               	movlb	1	; () banked
+   291  013ED0  2507               	addwf	(??_main+3+0)&0ffh,w
+   292  013ED2  6EE9               	movwf	c:fsr0l
+   293  013ED4  6AEA               	clrf	1+c:fsr0l
+   294  013ED6  0E00               	movlw	high((c:26))
+   295  013ED8  22EA               	addwfc	1+c:fsr0l
+   296  013EDA  0101               	movlb	1	; () banked
+   297  013EDC  CFEE F105          	movff	postinc0,(main@result)
+   298  013EE0  0101               	movlb	1	; () banked
+   299  013EE2  CFED F106          	movff	postdec0,(main@result+1)
+   300                           	line	289
+   301                           ;main.c: 289: char channel = index;
+   302  013EE6  C028 F104          	movff	(c:40),(main@channel)
+   303                           	line	292
+   304                           	
+   305  013EEA                     l874:		; BSR set to: ?
+   306                           
+   307                           	line	279
+   308                           	
+   309  013EEA                     l876:		; BSR set to: ?
+   310                           
+   311                           	line	298
+   312                           ;main.c: 292: }
+   313                           ;main.c: 298: }
+   314  013EEA                     l867:
+   315                           			; BSR set to: ?
+   316                           
+   317                           	global	start
+   318  013EEA  EF00  F000         	goto	start
+   319                           	opt stack 0
+   320                           GLOBAL __end_of_main
+   321  013EEE                     	__end_of_main:
+   322                           	FNSIZE	_main,4,4
+   323                           ; =============== function _main ends ==========
+                                 ==
+   324                           
+   325                           	signat	_main,8314
+   326                           	global	_ToggleLeds
+   327                           	global	??_ToggleLeds
+   328                           	global	?_ToggleLeds
+   329                           
+   330                           ; *************** function _ToggleLeds *********
+                                 ********
+   331                           ; Defined at:
+   332                           ;		line 306 in file "../code/main.c"
+   333                           ; Parameters:
+   334                           ;		None
+   335                           ; Auto variables:
+   336                           ;		None
+   337                           ; Return value:
+   338                           ;		type: void 
+   339                           ;		size: 0
+   340                           ; Registers used:
+   341                           ;		wreg, status,2, status,0
+   342                           ; Tracked objects:
+   343                           ;		On entry : 0/0
+   344                           ;		On exit  : 0/0
+   345                           ;		Unchanged: 0/0
+   346                           ; Data sizes:
+   347                           ;		Autos:    0
+   348                           ;		Params:   0
+   349                           ;		Temp:     0
+   350                           ;		Total:    0
+   351                           ; This function calls:
+   352                           ;		Nothing
+   353                           ; This function is called by:
+   354                           ;		_main
+   355                           ; This function uses a non-reentrant model
+   356                           ; 
+   357                                   psect   text1,class=CODE,space=0,reloc=2
+   358                           
+   359                           	opt lm
+   360                           	file	"../code/main.c"
+   361                           	line	306
+   362  000000                     	__size_of_ToggleLeds	equ	__end_of_ToggleLeds-_T
+                                 oggleLeds
+   363                           ;main.c: 306: void ToggleLeds () {
+   364                           	
+   365  013EEE                     _ToggleLeds:		; BSR set to: ?
+   366                           
+   367                           	opt stack 30
+   368                           	line	308
+   369  013EEE  0E00               	movlw	low(0)
+   370  013EF0  6E89               	movwf	((c:3977)),c	;volatile
+   371                           	line	309
+   372                           ;main.c: 309: LATB = 0;
+   373  013EF2  0E00               	movlw	low(0)
+   374  013EF4  6E8A               	movwf	((c:3978)),c	;volatile
+   375                           	line	310
+   376                           ;main.c: 310: LATC = 0;
+   377  013EF6  0E00               	movlw	low(0)
+   378  013EF8  6E8B               	movwf	((c:3979)),c	;volatile
+   379                           	line	313
+   380                           ;main.c: 313: if (led_array[0] == 1) {
+   381  013EFA  0400               	decf	((c:0)),c,w
+   382  013EFC  1001               	iorwf ((c:0+1)),c,w
+   383                           
+   384  013EFE  A4D8               	btfss	status,2
+   385  013F00  EF84  F09F         	goto	u1041
+   386  013F04  EF86  F09F         	goto	u1040
+   387  013F08                     u1041:
+   388  013F08  EF87  F09F         	goto	l881
+   389  013F0C                     u1040:
+   390                           	line	315
+   391                           ;main.c: 315: LATC |= 0b00010000;
+   392  013F0C  888B               	bsf	(0+(4/8)+(c:3979)),c,(4)&7	;volatile
+   393                           	line	316
+   394                           	
+   395  013F0E                     l881:		; BSR set to: ?
+   396                           
+   397                           	line	317
+   398                           ;main.c: 316: }
+   399                           ;main.c: 317: if (led_array[1] == 1) {
+   400  013F0E  0402               	decf	(0+((c:0)+02h)),c,w
+   401  013F10  1003               	iorwf (1+((c:0)+02h)),c,w
+   402                           
+   403  013F12  A4D8               	btfss	status,2
+   404  013F14  EF8E  F09F         	goto	u1051
+   405  013F18  EF90  F09F         	goto	u1050
+   406  013F1C                     u1051:
+   407  013F1C  EF91  F09F         	goto	l882
+   408  013F20                     u1050:
+   409                           	line	319
+   410                           ;main.c: 319: LATC |= 0b00100000;
+   411  013F20  8A8B               	bsf	(0+(5/8)+(c:3979)),c,(5)&7	;volatile
+   412                           	line	320
+   413                           	
+   414  013F22                     l882:		; BSR set to: ?
+   415                           
+   416                           	line	321
+   417                           ;main.c: 320: }
+   418                           ;main.c: 321: if (led_array[2] == 1) {
+   419  013F22  0404               	decf	(0+((c:0)+04h)),c,w
+   420  013F24  1005               	iorwf (1+((c:0)+04h)),c,w
+   421                           
+   422  013F26  A4D8               	btfss	status,2
+   423+ 013F28  EF98  F09F         	goto	u1061
+   424+ 013F2C  EF9A  F09F         	goto	u1060
+   425  013F30                     u1061:
+   426  013F30  EF9B  F09F         	goto	l883
+   427  013F34                     u1060:
+   428                           	line	323
+   429                           ;main.c: 323: LATB |= 0b00000001;
+   430  013F34  808A               	bsf	(0+(0/8)+(c:3978)),c,(0)&7	;volatile
+   431                           	line	324
+   432                           	
+   433  013F36                     l883:		; BSR set to: ?
+   434                           
+   435                           	line	325
+   436                           ;main.c: 324: }
+   437                           ;main.c: 325: if (led_array[3] == 1) {
+   438  013F36  0406               	decf	(0+((c:0)+06h)),c,w
+   439  013F38  1007               	iorwf (1+((c:0)+06h)),c,w
+   440                           
+   441  013F3A  A4D8               	btfss	status,2
+   442  013F3C  EFA2  F09F         	goto	u1071
+   443  013F40  EFA4  F09F         	goto	u1070
+   444  013F44                     u1071:
+   445  013F44  EFA5  F09F         	goto	l884
+   446  013F48                     u1070:
+   447                           	line	327
+   448                           ;main.c: 327: LATB |= 0b00001000;
+   449  013F48  868A               	bsf	(0+(3/8)+(c:3978)),c,(3)&7	;volatile
+   450                           	line	328
+   451                           	
+   452  013F4A                     l884:		; BSR set to: ?
+   453                           
+   454                           	line	329
+   455                           ;main.c: 328: }
+   456                           ;main.c: 329: if (led_array[4] == 1) {
+   457  013F4A  0408               	decf	(0+((c:0)+08h)),c,w
+   458  013F4C  1009               	iorwf (1+((c:0)+08h)),c,w
+   459                           
+   460  013F4E  A4D8               	btfss	status,2
+   461  013F50  EFAC  F09F         	goto	u1081
+   462  013F54  EFAE  F09F         	goto	u1080
+   463  013F58                     u1081:
+   464  013F58  EFAF  F09F         	goto	l885
+   465  013F5C                     u1080:
+   466                           	line	331
+   467                           ;main.c: 331: LATB |= 0b00100000;
+   468  013F5C  8A8A               	bsf	(0+(5/8)+(c:3978)),c,(5)&7	;volatile
+   469                           	line	332
+   470                           	
+   471  013F5E                     l885:		; BSR set to: ?
+   472                           
+   473                           	line	333
+   474                           ;main.c: 332: }
+   475                           ;main.c: 333: if (led_array[5] == 1) {
+   476  013F5E  040A               	decf	(0+((c:0)+0Ah)),c,w
+   477  013F60  100B               	iorwf (1+((c:0)+0Ah)),c,w
+   478                           
+   479  013F62  A4D8               	btfss	status,2
+   480  013F64  EFB6  F09F         	goto	u1091
+   481  013F68  EFB8  F09F         	goto	u1090
+   482  013F6C                     u1091:
+   483  013F6C  EFB9  F09F         	goto	l886
+   484  013F70                     u1090:
+   485                           	line	335
+   486                           ;main.c: 335: LATB |= 0b01000000;
+   487  013F70  8C8A               	bsf	(0+(6/8)+(c:3978)),c,(6)&7	;volatile
+   488                           	line	336
+   489                           	
+   490  013F72                     l886:		; BSR set to: ?
+   491                           
+   492                           	line	337
+   493                           ;main.c: 336: }
+   494                           ;main.c: 337: if (led_array[6] == 1) {
+   495  013F72  040C               	decf	(0+((c:0)+0Ch)),c,w
+   496  013F74  100D               	iorwf (1+((c:0)+0Ch)),c,w
+   497                           
+   498  013F76  A4D8               	btfss	status,2
+   499  013F78  EFC0  F09F         	goto	u1101
+   500  013F7C  EFC2  F09F         	goto	u1100
+   501  013F80                     u1101:
+   502  013F80  EFC3  F09F         	goto	l887
+   503  013F84                     u1100:
+   504                           	line	339
+   505                           ;main.c: 339: LATC |= 0b00001000;
+   506  013F84  868B               	bsf	(0+(3/8)+(c:3979)),c,(3)&7	;volatile
+   507                           	line	340
+   508                           	
+   509  013F86                     l887:		; BSR set to: ?
+   510                           
+   511                           	line	341
+   512                           ;main.c: 340: }
+   513                           ;main.c: 341: if (led_array[7] == 1) {
+   514  013F86  040E               	decf	(0+((c:0)+0Eh)),c,w
+   515  013F88  100F               	iorwf (1+((c:0)+0Eh)),c,w
+   516                           
+   517  013F8A  A4D8               	btfss	status,2
+   518  013F8C  EFCA  F09F         	goto	u1111
+   519  013F90  EFCC  F09F         	goto	u1110
+   520  013F94                     u1111:
+   521  013F94  EFCD  F09F         	goto	l888
+   522  013F98                     u1110:
+   523                           	line	343
+   524                           ;main.c: 343: LATC |= 0b00000100;
+   525  013F98  848B               	bsf	(0+(2/8)+(c:3979)),c,(2)&7	;volatile
+   526                           	line	344
+   527                           	
+   528  013F9A                     l888:		; BSR set to: ?
+   529                           
+   530                           	line	345
+   531                           ;main.c: 344: }
+   532                           ;main.c: 345: if (led_array[8] == 1) {
+   533  013F9A  0410               	decf	(0+((c:0)+010h)),c,w
+   534  013F9C  1011               	iorwf (1+((c:0)+010h)),c,w
+   535                           
+   536  013F9E  A4D8               	btfss	status,2
+   537  013FA0  EFD4  F09F         	goto	u1121
+   538  013FA4  EFD6  F09F         	goto	u1120
+   539  013FA8                     u1121:
+   540  013FA8  EFD7  F09F         	goto	l889
+   541  013FAC                     u1120:
+   542                           	line	347
+   543                           ;main.c: 347: LATB |= 0b10000000;
+   544  013FAC  8E8A               	bsf	(0+(7/8)+(c:3978)),c,(7)&7	;volatile
+   545                           	line	348
+   546                           	
+   547  013FAE                     l889:		; BSR set to: ?
+   548                           
+   549                           	line	349
+   550                           ;main.c: 348: }
+   551                           ;main.c: 349: if (led_array[9] == 1) {
+   552  013FAE  0412               	decf	(0+((c:0)+012h)),c,w
+   553  013FB0  1013               	iorwf (1+((c:0)+012h)),c,w
+   554                           
+   555  013FB2  A4D8               	btfss	status,2
+   556  013FB4  EFDE  F09F         	goto	u1131
+   557  013FB8  EFE0  F09F         	goto	u1130
+   558  013FBC                     u1131:
+   559  013FBC  EFE1  F09F         	goto	l890
+   560  013FC0                     u1130:
+   561                           	line	351
+   562                           ;main.c: 351: LATC |= 0b00000010;
+   563  013FC0  828B               	bsf	(0+(1/8)+(c:3979)),c,(1)&7	;volatile
+   564                           	line	352
+   565                           	
+   566  013FC2                     l890:		; BSR set to: ?
+   567                           
+   568                           	line	353
+   569                           ;main.c: 352: }
+   570                           ;main.c: 353: if (led_array[10] == 1) {
+   571  013FC2  0414               	decf	(0+((c:0)+014h)),c,w
+   572  013FC4  1015               	iorwf (1+((c:0)+014h)),c,w
+   573                           
+   574  013FC6  A4D8               	btfss	status,2
+   575  013FC8  EFE8  F09F         	goto	u1141
+   576  013FCC  EFEA  F09F         	goto	u1140
+   577  013FD0                     u1141:
+   578  013FD0  EFEB  F09F         	goto	l891
+   579  013FD4                     u1140:
+   580                           	line	355
+   581                           ;main.c: 355: LATC |= 0b00000001;
+   582  013FD4  808B               	bsf	(0+(0/8)+(c:3979)),c,(0)&7	;volatile
+   583                           	line	356
+   584                           	
+   585  013FD6                     l891:		; BSR set to: ?
+   586                           
+   587                           	line	357
+   588                           ;main.c: 356: }
+   589                           ;main.c: 357: if (led_array[11] == 1) {
+   590  013FD6  0416               	decf	(0+((c:0)+016h)),c,w
+   591  013FD8  1017               	iorwf (1+((c:0)+016h)),c,w
+   592                           
+   593  013FDA  A4D8               	btfss	status,2
+   594  013FDC  EFF2  F09F         	goto	u1151
+   595  013FE0  EFF4  F09F         	goto	u1150
+   596  013FE4                     u1151:
+   597  013FE4  EFF5  F09F         	goto	l892
+   598  013FE8                     u1150:
+   599                           	line	359
+   600                           ;main.c: 359: LATA |= 0b01000000;
+   601  013FE8  8C89               	bsf	(0+(6/8)+(c:3977)),c,(6)&7	;volatile
+   602                           	line	360
+   603                           	
+   604  013FEA                     l892:		; BSR set to: ?
+   605                           
+   606                           	line	361
+   607                           ;main.c: 360: }
+   608                           ;main.c: 361: if (led_array[12] == 1) {
+   609  013FEA  0418               	decf	(0+((c:0)+018h)),c,w
+   610  013FEC  1019               	iorwf (1+((c:0)+018h)),c,w
+   611                           
+   612  013FEE  A4D8               	btfss	status,2
+   613  013FF0  EFFC  F09F         	goto	u1161
+   614  013FF4  EFFE  F09F         	goto	u1160
+   615  013FF8                     u1161:
+   616  013FF8  EFFF  F09F         	goto	l893
+   617  013FFC                     u1160:
+   618                           	line	363
+   619                           ;main.c: 363: LATA |= 0b00010000;
+   620  013FFC  8889               	bsf	(0+(4/8)+(c:3977)),c,(4)&7	;volatile
+   621                           	line	364
+   622                           	
+   623  013FFE                     l893:		; BSR set to: ?
+   624                           
+   625                           	line	365
+   626                           ;main.c: 364: }
+   627                           ;main.c: 365: }
+   628  013FFE                     l880:
+   629                           			; BSR set to: ?
+   630                           
+   631  013FFE  0012               	return
+   632                           	opt stack 0
+   633                           GLOBAL __end_of_ToggleLeds
+   634  014000                     	__end_of_ToggleLeds:
+   635                           	FNSIZE	_ToggleLeds,0,0
+   636                           ; =============== function _ToggleLeds ends ====
+                                 ========
+   637                           
+   638                           	signat	_ToggleLeds,88
+   639                           	FNCALL	_main,_ToggleLeds
+   640                           	FNROOT	_main
+   641                                   psect   const,class=CODE,space=0,reloc=2
+   642                           	global	_led_array
+   643                           	global	_led_array
+   644  000000                     _led_array  equ     0
+   645                           
+   646                           	DABS	1,0,26	;_led_array
+   647                           	global	_cur_inputs
+   648                           	global	_cur_inputs
+   649  000000                     _cur_inputs  equ     26
+   650                           
+   651                           	DABS	1,26,14	;_cur_inputs
+   652                           	global	_prev_inputs
+   653                           	global	_prev_inputs
+   654  000000                     _prev_inputs  equ     51
+   655                           
+   656                           	DABS	1,51,14	;_prev_inputs
+   657                           	global	_conv_result
+   658                           	global	_conv_result
+   659  000000                     _conv_result  equ     42
+   660                           
+   661                           	DABS	1,42,4	;_conv_result
+   662                           	global	_index
+   663                           	global	_index
+   664  000000                     _index  equ     40
+   665                           
+   666                           	DABS	1,40,2	;_index
+   667                           	global	_USART_Status
+   668                           	global	_USART_Status
+   669  000000                     _USART_Status  equ     48
+   670                           
+   671                           	DABS	1,48,1	;_USART_Status
+   672                           	global	_adc_num
+   673                           	global	_adc_num
+   674  000000                     _adc_num  equ     46
+   675                           
+   676                           	DABS	1,46,1	;_adc_num
+   677                           	global	_change_val
+   678                           	global	_change_val
+   679  000000                     _change_val  equ     47
+   680                           
+   681                           	DABS	1,47,1	;_change_val
+   682                           	global	_uart_in
+   683                           	global	_uart_in
+   684  000000                     _uart_in  equ     50
+   685                           
+   686                           	DABS	1,50,1	;_uart_in
+   687                           	global	_uart_out
+   688                           	global	_uart_out
+   689  000000                     _uart_out  equ     49
+   690                           
+   691                           	DABS	1,49,1	;_uart_out
+   692                           	global	_ADRES
+   693  000000                     _ADRES	equ	0xFC3
+   694                           	global	_ADCON0
+   695  000000                     _ADCON0	equ	0xFC2
+   696                           	global	_ADRESH
+   697  000000                     _ADRESH	equ	0xFC4
+   698                           	global	_ADRESL
+   699  000000                     _ADRESL	equ	0xFC3
+   700                           	global	_BAUDCON
+   701  000000                     _BAUDCON	equ	0xFB8
+   702                           	global	_LATA
+   703  000000                     _LATA	equ	0xF89
+   704                           	global	_LATB
+   705  000000                     _LATB	equ	0xF8A
+   706                           	global	_LATC
+   707  000000                     _LATC	equ	0xF8B
+   708                           	global	_OSCCON
+   709  000000                     _OSCCON	equ	0xFD3
+   710                           	global	_PIR1
+   711  000000                     _PIR1	equ	0xF9E
+   712                           	global	_RCREG
+   713  000000                     _RCREG	equ	0xFAE
+   714                           	global	_RCSTA
+   715  000000                     _RCSTA	equ	0xFAB
+   716                           	global	_SPBRG
+   717  000000                     _SPBRG	equ	0xFAF
+   718                           	global	_SPBRGH
+   719  000000                     _SPBRGH	equ	0xFB0
+   720                           	global	_TRISB
+   721  000000                     _TRISB	equ	0xF93
+   722                           	global	_TRISC
+   723  000000                     _TRISC	equ	0xF94
+   724                           	global	_TXREG
+   725  000000                     _TXREG	equ	0xFAD
+   726                           	global	_TXSTA
+   727  000000                     _TXSTA	equ	0xFAC
+   728                           	global	_ADON
+   729  000000                     _ADON	equ	0x7E10
+   730                           	global	_BRGH_x
+   731  000000                     _BRGH_x	equ	0x7D62
+   732                           	global	_CREN_x
+   733  000000                     _CREN_x	equ	0x7D5C
+   734                           	global	_CSRC_x
+   735  000000                     _CSRC_x	equ	0x7D67
+   736                           	global	_FERR
+   737  000000                     _FERR	equ	0x7D5A
+   738                           	global	_GODONE
+   739  000000                     _GODONE	equ	0x7E11
+   740                           	global	_OERR
+   741  000000                     _OERR	equ	0x7D59
+   742                           	global	_RCIE_x
+   743  000000                     _RCIE_x	equ	0x7CED
+   744                           	global	_RCIF
+   745  000000                     _RCIF	equ	0x7CF5
+   746                           	global	_RX9D
+   747  000000                     _RX9D	equ	0x7D58
+   748                           	global	_RX9_x
+   749  000000                     _RX9_x	equ	0x7D5E
+   750                           	global	_SENDB_x
+   751  000000                     _SENDB_x	equ	0x7D63
+   752                           	global	_SPEN_x
+   753  000000                     _SPEN_x	equ	0x7D5F
+   754                           	global	_SREN_x
+   755  000000                     _SREN_x	equ	0x7D5D
+   756                           	global	_SYNC_x
+   757  000000                     _SYNC_x	equ	0x7D64
+   758                           	global	_TRISC6
+   759  000000                     _TRISC6	equ	0x7CA6
+   760                           	global	_TRISC7
+   761  000000                     _TRISC7	equ	0x7CA7
+   762                           	global	_TRMT_x
+   763  000000                     _TRMT_x	equ	0x7D61
+   764                           	global	_TX9D
+   765  000000                     _TX9D	equ	0x7D60
+   766                           	global	_TX9_x
+   767  000000                     _TX9_x	equ	0x7D66
+   768                           	global	_TXEN_x
+   769  000000                     _TXEN_x	equ	0x7D65
+   770                           	global	_TXIE_x
+   771  000000                     _TXIE_x	equ	0x7CEC
+   772                           	global	_TXIF
+   773  000000                     _TXIF	equ	0x7CF4
+   774                           	psect	intsave_regs,class=BIGRAM,space=1
+   775                           	PSECT	param1,class=BANK1,space=1
+   776                           	GLOBAL	__Lparam1
+   777                           	FNCONF	param1,??,?
+   778                           	GLOBAL	__Labsbss0
+   779  000000                     __Labsbss0	EQU	0
+   780                           	GLOBAL	__Habsbss0
+   781  000000                     __Habsbss0	EQU	65
+   782                           GLOBAL	__Lparam, __Hparam
+   783                           GLOBAL	__Lparam1, __Hparam1
+   784  000000                     __Lparam	EQU	__Lparam1
+   785  000000                     __Hparam	EQU	__Hparam1
+
+
+HI-TECH Software PICC-18 Macro Assembler V9.66 build 8870 
+Symbol Table                                           Wed Apr 25 15:40:29 2012
+
+                l871 3E9E                  l880 3FFE  
+                l881 3F0E                  l873 3EAC  
+                l890 3FC2                  l882 3F22  
+                l874 3EEA                  l891 3FD6  
+                l883 3F36                  l867 3EEA  
+                l892 3FEA                  l884 3F4A  
+                l876 3EEA                  l868 3EAC  
+                l893 3FFE                  l885 3F5E  
+                l877 3EB4                  l869 3E96  
+                l886 3F72                  l878 3EB0  
+                l887 3F86                  l879 3EC4  
+                l888 3F9A                  l889 3FAE  
+        main@channel 0104                 _ADON 007E10  
+               _FERR 007D5A                 u1100 3F84  
+               u1101 3F80                 u1110 3F98  
+               u1111 3F94                 u1120 3FAC  
+               u1040 3F0C                 u1121 3FA8  
+               u1041 3F08                 u1130 3FC0  
+               u1050 3F20                 u1131 3FBC  
+               u1051 3F1C                 u1140 3FD4  
+               u1060 3F34                 u1141 3FD0  
+               u1061 3F30                 u1150 3FE8  
+               u1070 3F48                 u1151 3FE4  
+               u1071 3F44                 u1160 3FFC  
+               u1080 3F5C                 u1161 3FF8  
+               u1081 3F58                 u1090 3F70  
+               u1170 3EAC                 u1091 3F6C  
+               u1171 3EA8                 u1180 3EC4  
+               _LATA 000F89                 u1181 3EC0  
+               _LATB 000F8A                 _LATC 000F8B  
+               _RCIF 007CF5                 _PIR1 000F9E  
+               _OERR 007D59                 _RX9D 007D58  
+               _TX9D 007D60                 _TXIF 007CF4  
+               _main 3E78                 fsr0l 000FE9  
+               start 0000                ?_main 0100  
+              _ADRES 000FC3                _RCREG 000FAE  
+              _RCSTA 000FAB                _SPBRG 000FAF  
+              _TRISB 000F93                _TRISC 000F94  
+              _RX9_x 007D5E                _TXREG 000FAD  
+              _TX9_x 007D66                _TXSTA 000FAC  
+              _index 000028                status 000FD8  
+       __end_of_main 3EEE               ??_main 0104  
+      __activetblptr 000000               _ADCON0 000FC2  
+             _ADRESH 000FC4               _ADRESL 000FC3  
+             _BRGH_x 007D62               _GODONE 007E11  
+             _CREN_x 007D5C               _CSRC_x 007D67  
+             _RCIE_x 007CED               _OSCCON 000FD3  
+             _SPBRGH 000FB0               _TRISC6 007CA6  
+             _TRISC7 007CA7               _SPEN_x 007D5F  
+             _SREN_x 007D5D               _TRMT_x 007D61  
+             _TXIE_x 007CEC               _TXEN_x 007D65  
+             _SYNC_x 007D64               __Ldata 000000  
+         _ToggleLeds 3EEE         __mediumconst 0D00  
+         __accesstop 0060           _change_val 00002F  
+            _BAUDCON 000FB8          ?_ToggleLeds 0108  
+            _SENDB_x 007D63              __Hparam 0108  
+         _cur_inputs 00001A              __Lparam 0100  
+            _adc_num 00002E              __ramtop 0D00  
+            _uart_in 000032        __Lmediumconst 0D00  
+            postdec0 000FED              postinc0 000FEE  
+         main@result 0105            __Habsbss0 000041  
+          __Labsbss0 000000         ??_ToggleLeds 0108  
+ __end_of_ToggleLeds 4000            _led_array 000000  
+        __smallconst 0D00          _conv_result 00002A  
+           __Hparam1 0108             __Lparam1 0100  
+       __Lsmallconst 0D00             __config1 00F0FF  
+           __config2 00FEFF             __config3 007FFF  
+           __config4 00FFFB             __config5 00FFFF  
+           __config6 00FFFF             __config7 00FFFF  
+           _uart_out 000031             main@argc 0100  
+           main@argv 0102          _prev_inputs 000033  
+       _USART_Status 000030  

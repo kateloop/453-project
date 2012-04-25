@@ -1,0 +1,51 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[; ;delay.h: 50: extern void DelayMs(unsigned char);
+"12 delay.c
+[v _DelayMs `(v 1 ef1`uc ]
+{
+[; ;delay.c: 10: void
+[; ;delay.c: 11: DelayMs(unsigned char cnt)
+[; ;delay.c: 12: {
+[e :U _DelayMs ]
+[v _cnt `uc 1 r1 ]
+[f ]
+"20
+[v _i `uc 1 a ]
+[; ;delay.c: 20: unsigned char i;
+[; ;delay.c: 21: do {
+"21
+[e :U 4 ]
+{
+[; ;delay.c: 22: i = 4;
+"22
+[e = _i -> -> 4 `i `uc ]
+[; ;delay.c: 23: do {
+"23
+[e :U 7 ]
+{
+[; ;delay.c: 24: { unsigned char _dcnt; _dcnt = (250)*((20*1000L)/(12*1000L)); while(--_dcnt != 0) continue; };
+"24
+{
+[v __dcnt `uc 1 a ]
+[e = __dcnt -> * -> -> 250 `i `l / * -> -> 20 `i `l -> 1000 `l * -> -> 12 `i `l -> 1000 `l `uc ]
+[e $U 8  ]
+[e :U 9 ]
+[e $U 8  ]
+[e :U 8 ]
+[e $ != -> =- __dcnt -> -> 1 `i `uc `i -> 0 `i 9  ]
+[e :U 10 ]
+}
+"25
+}
+[; ;delay.c: 25: } while(--i);
+[e $ != -> =- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 7  ]
+[e :U 6 ]
+"26
+}
+[; ;delay.c: 26: } while(--cnt);
+[e $ != -> =- _cnt -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 4  ]
+[e :U 3 ]
+[; ;delay.c: 28: }
+"28
+[e :UE 1 ]
+}
