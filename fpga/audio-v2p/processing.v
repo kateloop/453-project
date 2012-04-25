@@ -10,6 +10,7 @@ module processing(clock, ready, left_in, right_in, left_out, right_out);
 	reg [19:0] left_out;
 	reg [19:0] right_out;
 	
+	assign right_out = left_out2;
 	
 	// Produce annoying square wave
 	reg [10:0] counter = 0;
@@ -26,6 +27,7 @@ module processing(clock, ready, left_in, right_in, left_out, right_out);
    		// just received new data from the AC97
 	 		left_out <= left_in;
 			right_out <= left_in;
+			
    end
 	*/
 

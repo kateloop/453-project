@@ -4,13 +4,13 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: ece453_top_level.prj
 
@@ -212,17 +212,17 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <processing>.
     Related source file is "processing.v".
-WARNING:Xst:1305 - Output <right_out> is never assigned. Tied to value 00000000000000000000.
-WARNING:Xst:1305 - Output <left_out<19:16>> is never assigned. Tied to value 0000.
-WARNING:Xst:1305 - Output <left_out<14:0>> is never assigned. Tied to value 000000000000000.
+WARNING:Xst:1305 - Output <left_out> is never assigned. Tied to value 00000000000000000000.
 WARNING:Xst:647 - Input <right_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <left_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <ready> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit register for signal <left_out<15>>.
+WARNING:Xst:1780 - Signal <right_out2<19:16>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <right_out2<15>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <right_out2<14:0>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <left_out2> is used but never assigned. This sourceless signal will be automatically connected to value 00000000000000000000.
     Found 11-bit up counter for signal <counter>.
     Summary:
 	inferred   1 Counter(s).
-	inferred   1 D-type flip-flop(s).
 Unit <processing> synthesized.
 
 
@@ -603,13 +603,12 @@ Macro Statistics
  16x24-bit ROM                                         : 1
 # Adders/Subtractors                                   : 3
  9-bit adder                                           : 3
-# Counters                                             : 4
+# Counters                                             : 3
  10-bit up counter                                     : 1
- 11-bit up counter                                     : 1
  4-bit up counter                                      : 1
  8-bit up counter                                      : 1
-# Registers                                            : 16
- 1-bit register                                        : 9
+# Registers                                            : 15
+ 1-bit register                                        : 8
  20-bit register                                       : 6
  24-bit register                                       : 1
 # Comparators                                          : 19
@@ -652,6 +651,8 @@ WARNING:Xst:1710 - FF/Latch <l_right_data_2> (without init value) has a constant
 WARNING:Xst:1710 - FF/Latch <l_right_data_1> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <l_right_data_0> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <l_cmd_addr_0> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1290 - Hierarchical block <processing0> is unconnected in block <FPGAaudio>.
+   It will be removed from the design.
 
 Synthesizing (advanced) Unit <ac97commands>.
 INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_command_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
@@ -665,13 +666,12 @@ Macro Statistics
  16x24-bit ROM                                         : 1
 # Adders/Subtractors                                   : 3
  5-bit adder                                           : 3
-# Counters                                             : 4
+# Counters                                             : 3
  10-bit up counter                                     : 1
- 11-bit up counter                                     : 1
  4-bit up counter                                      : 1
  8-bit up counter                                      : 1
-# Registers                                            : 153
- Flip-Flops                                            : 153
+# Registers                                            : 152
+ Flip-Flops                                            : 152
 # Comparators                                          : 19
  8-bit comparator greatequal                           : 5
  8-bit comparator greater                              : 4
@@ -775,8 +775,6 @@ INFO:Xst:2261 - The FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_14> in Uni
 INFO:Xst:2261 - The FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_16> in Unit <ece453_top_level> is equivalent to the following FF/Latch, which will be removed : <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_8> 
 INFO:Xst:2261 - The FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_19> in Unit <ece453_top_level> is equivalent to the following FF/Latch, which will be removed : <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_10> 
 Found area constraint ratio of 100 (+ 5) on block ece453_top_level, actual ratio is 0.
-FlipFlop MASTER/FPGAaudio/audio0/ac97/bit_count_2 has been replicated 1 time(s)
-FlipFlop MASTER/FPGAaudio/audio0/ac97/bit_count_3 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -784,8 +782,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 88
- Flip-Flops                                            : 88
+# Registers                                            : 74
+ Flip-Flops                                            : 74
 
 =========================================================================
 
@@ -814,29 +812,27 @@ Design Statistics
 # IOs                              : 362
 
 Cell Usage :
-# BELS                             : 194
+# BELS                             : 154
 #      GND                         : 1
-#      INV                         : 7
-#      LUT1                        : 26
-#      LUT2                        : 30
-#      LUT2_D                      : 1
-#      LUT2_L                      : 1
-#      LUT3                        : 16
+#      INV                         : 6
+#      LUT1                        : 16
+#      LUT2                        : 31
+#      LUT3                        : 17
 #      LUT3_D                      : 1
 #      LUT3_L                      : 1
-#      LUT4                        : 33
+#      LUT4                        : 28
 #      LUT4_D                      : 3
-#      LUT4_L                      : 3
-#      MUXCY                       : 26
-#      MUXF5                       : 11
+#      LUT4_L                      : 1
+#      MUXCY                       : 16
+#      MUXF5                       : 10
 #      MUXF6                       : 3
 #      MUXF7                       : 1
 #      VCC                         : 1
-#      XORCY                       : 29
-# FlipFlops/Latches                : 88
-#      FD                          : 20
+#      XORCY                       : 18
+# FlipFlops/Latches                : 74
+#      FD                          : 8
 #      FDE                         : 37
-#      FDR                         : 15
+#      FDR                         : 13
 #      FDRE                        : 13
 #      FDRS                        : 3
 # Shift Registers                  : 1
@@ -857,10 +853,10 @@ Device utilization summary:
 
 Selected Device : 3s1500fg676-5 
 
- Number of Slices:                       72  out of  13312     0%  
- Number of Slice Flip Flops:             88  out of  26624     0%  
- Number of 4 input LUTs:                123  out of  26624     0%  
-    Number used as logic:               122
+ Number of Slices:                       60  out of  13312     0%  
+ Number of Slice Flip Flops:             74  out of  26624     0%  
+ Number of 4 input LUTs:                105  out of  26624     0%  
+    Number used as logic:               104
     Number used as Shift registers:       1
  Number of IOs:                         362
  Number of bonded IOBs:                 288  out of    487    59%  
@@ -888,8 +884,8 @@ Clock Information:
 -----------------------------------+-------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                     | Load  |
 -----------------------------------+-------------------------------------------+-------+
-FPGA_CLK1                          | MASTER/FPGAaudio/CLOCK_GEN/SYSTEM_DCM:CLK0| 42    |
-AC97_BIT_CLK                       | BUFGP                                     | 47    |
+FPGA_CLK1                          | MASTER/FPGAaudio/CLOCK_GEN/SYSTEM_DCM:CLK0| 30    |
+AC97_BIT_CLK                       | BUFGP                                     | 45    |
 -----------------------------------+-------------------------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -912,7 +908,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'FPGA_CLK1'
   Clock period: 4.816ns (frequency: 207.633MHz)
-  Total number of paths / destination ports: 295 / 59
+  Total number of paths / destination ports: 228 / 47
 -------------------------------------------------------------------------
 Delay:               4.816ns (Levels of Logic = 2)
   Source:            MASTER/FPGAaudio/audio0/reset_count_6 (FF)
@@ -925,7 +921,7 @@ Delay:               4.816ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDRE:C->Q             2   0.626   1.040  MASTER/FPGAaudio/audio0/reset_count_6 (MASTER/FPGAaudio/audio0/reset_count_6)
-     LUT4_D:I0->O          1   0.479   0.704  MASTER/FPGAaudio/audio0/audio_reset_b_cmp_eq000017_SW0 (N159)
+     LUT4_D:I0->O          1   0.479   0.704  MASTER/FPGAaudio/audio0/audio_reset_b_cmp_eq000017_SW0 (N155)
      LUT4:I3->O           10   0.479   0.964  MASTER/FPGAaudio/audio0/audio_reset_b_cmp_eq0000_inv1 (MASTER/FPGAaudio/audio0/audio_reset_b_cmp_eq0000_inv)
      FDRE:CE                   0.524          MASTER/FPGAaudio/audio0/reset_count_0
     ----------------------------------------
@@ -935,7 +931,7 @@ Delay:               4.816ns (Levels of Logic = 2)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'AC97_BIT_CLK'
   Clock period: 7.937ns (frequency: 125.999MHz)
-  Total number of paths / destination ports: 929 / 70
+  Total number of paths / destination ports: 868 / 68
 -------------------------------------------------------------------------
 Delay:               7.937ns (Levels of Logic = 7)
   Source:            MASTER/FPGAaudio/audio0/ac97/bit_count_0 (FF)
@@ -951,9 +947,9 @@ Delay:               7.937ns (Levels of Logic = 7)
      INV:I->O              4   0.479   0.779  MASTER/FPGAaudio/audio0/ac97/Mcount_bit_count_lut<0>_INV_0 (MASTER/FPGAaudio/audio0/ac97/Mcount_bit_count_lut<0>)
      MUXF5:S->O            1   0.540   0.000  MASTER/FPGAaudio/audio0/ac97/Mmux__varindex0000_6_f5 (MASTER/FPGAaudio/audio0/ac97/Mmux__varindex0000_6_f5)
      MUXF6:I1->O           2   0.298   0.768  MASTER/FPGAaudio/audio0/ac97/Mmux__varindex0000_5_f6 (MASTER/FPGAaudio/audio0/ac97/Mmux__varindex0000_5_f6)
-     LUT4:I3->O            1   0.479   0.000  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000125_SW0_G (N154)
-     MUXF5:I1->O           2   0.314   0.745  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000125_SW0 (N145)
-     MUXF5:S->O            1   0.540   0.740  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000153_SW1 (N148)
+     LUT4:I3->O            1   0.479   0.000  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000125_SW0_G (N150)
+     MUXF5:I1->O           2   0.314   0.745  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000125_SW0 (N144)
+     MUXF5:S->O            1   0.540   0.740  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000153_SW1 (N147)
      LUT4:I2->O            1   0.479   0.000  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux00002531 (MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000253)
      FDRS:D                    0.176          MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out
     ----------------------------------------
@@ -1002,13 +998,13 @@ Offset:              6.216ns (Levels of Logic = 1)
 
 
 Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.43 secs
+Total CPU time to Xst completion: 6.52 secs
  
 --> 
 
-Total memory usage is 251984 kilobytes
+Total memory usage is 252048 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  282 (   0 filtered)
+Number of warnings :  285 (   0 filtered)
 Number of infos    :   17 (   0 filtered)
 

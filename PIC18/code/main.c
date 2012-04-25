@@ -172,7 +172,7 @@ int main(int argc, char** argv) {
 
     // set up GPIO
 //    TRISA = PORTA_DIR;
-//    TRISB = PORTB_DIR;
+    TRISB = PORTB_DIR;
 //    TRISC = PORTC_DIR;
 
     TRISC = 0b10000000;
@@ -216,16 +216,17 @@ int main(int argc, char** argv) {
         // UART STUFF
 
         // UART config
-  //      SPBRG = SPBRGH_SPBRG;
- //     SPBRGH  = SPBRGH_SPBRG >> 8;
-        SPBRGH = 0b00000000;
-        SPBRG = 0b100000011;  //d259
+ 
+        SPBRGH  = SPBRGH_SPBRG >> 8;
+      //  SPBRGH = 0b00000000;
+      //  SPBRG = 0b100000011;  //d259
+        SPBRG =  SPBRGH_SPBRG;
    //     RCSTA   = 0b10010000;
    //     TXSTA   = 0b00101000;
-    //    BAUDCON = 0b00001000;
+        BAUDCON = 0b00001000;
        
-        BAUDCON = 0b00000000;
-        RCSTA = 0b10000000;
+     //   BAUDCON = 0b00000000;
+        RCSTA = 0b10010000;
         TXSTA = 0b00100000;
 
        // TXREG = 0;
@@ -240,11 +241,12 @@ int main(int argc, char** argv) {
  */
         while (1)
         {
-            //LATB = 0b00000000;
-            //DelayMs(200);
+           // LATB = 0b00000000;
+          //  DelayMs(20);
             TXREG = 'a';
             while ((PIR1 & 0b00010000) ==0);
-            //LATB = 0b00100000;
+           // LATB = 0b00100000;
+          //  DelayMs(20);
         }
         /*while (1) {
             unsigned char tx = 'a';
