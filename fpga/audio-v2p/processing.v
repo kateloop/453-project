@@ -1,10 +1,19 @@
 `timescale 1ns / 1ps
 
-module processing(clock, ready, left_in, right_in, left_out, right_out, LED);
-   input clock;              // system clock
+module processing(
+      // inputs
+      clock, ready, 
+      left_in, 
+      right_in, 
+      // Outputs
+      left_out, 
+      right_out, 
+      LED);
 
+   input clock;              // system clock
    input ready;                  // 1 when AC'97 is stable and ready
    input [19:0] left_in, right_in;		// PCM data in from AC'97
+
    output [19:0] left_out, right_out;	// PCM data out to AC'97
 	output reg [7:0] LED;
 

@@ -9,6 +9,23 @@
 
 <messages>
 <msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/main.v\&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/CLOCK_GEN.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ac97.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_master_module.v\&quot; into library work</arg>
+>>>>>>> 19fb5dc0f64a214f31740594e0234604b9948709
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/ece453_top_level.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/main.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/processing.v\&quot; into library work</arg>
 </msg>
 
 </messages>

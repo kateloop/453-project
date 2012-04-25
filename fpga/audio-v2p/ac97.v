@@ -1,24 +1,38 @@
 `timescale 1ns / 1ps
 
 
-module audio (system_clock, reset, left_in_data, left_out_data, right_in_data, right_out_data, ready,
-	      audio_reset_b, ac97_sdata_out, ac97_sdata_in,
-         ac97_synch, ac97_bit_clock 
-			);
+module audio (
+      // inputs
+      system_clock, 
+      reset, 
+      left_out_data,
+      right_out_data, 
+      ac97_bit_clock, 
+      // outputs
+      left_in_data,  
+      right_in_data, 
+      ready,
+	   audio_reset_b, 
+      ac97_sdata_out, 
+      ac97_sdata_in,
+      ac97_synch 
+		);
 
    input system_clock;
    input reset;
-	output [19:0] left_in_data, right_in_data;
    input [19:0] left_out_data, right_out_data;
+   
    output ready;
-
+   output [19:0] left_in_data, right_in_data;
+   
    //ac97 interface signals
+   input ac97_bit_clock;
+   
    output audio_reset_b;
    output ac97_sdata_out;
    input ac97_sdata_in;
    output ac97_synch;
-   input ac97_bit_clock;
-	
+   	
    wire [7:0] command_address;
    wire [15:0] command_data;
    wire command_valid;
@@ -28,7 +42,12 @@ module audio (system_clock, reset, left_in_data, left_out_data, right_in_data, r
 	
 	//headphone volume
 	wire [4:0] volume_hp;
+   
+   // assigns
    assign volume_hp = 4'd22;
+   //Call the data good
+	assign left_valid = 1;
+	assign right_valid = 1;
 
    //wait a little before enabling the AC97 codec
    always @(posedge system_clock) begin
@@ -41,41 +60,71 @@ module audio (system_clock, reset, left_in_data, left_out_data, right_in_data, r
         reset_count = reset_count+1;
    end
 
-   ac97 ac97(ready, command_address, command_data, command_valid,
-             left_out_data, left_valid,
-             right_out_data, right_valid, 
-				 left_in_data, right_in_data, 
-				 ac97_sdata_out, ac97_sdata_in, ac97_synch, ac97_bit_clock, reset
-				 );
-
-   ac97commands cmds(system_clock, ready, command_address, command_data,
-                     command_valid, volume_hp);
-
-   //Call the data good
-	assign left_valid = 1;
-	assign right_valid = 1;
+   ac97 ac97(
+         // Inputs
+         .command_address(command_address), 
+         .command_data(command_data), 
+         .command_valid(command_valid),
+         .left_data(left_out_data), 
+         .left_valid(left_valid),
+         .right_data(right_out_data), 
+         .right_valid(right_valid), 
+         .ac97_sdata_in(ac97_sdata_in), 
+         .ac97_bit_clock(ac97_bit_clock), 
+         .reset(reset),
+         // outputs
+			.left_in_data(left_in_data), 
+         .right_in_data(right_in_data), 
+			.ac97_sdata_out(ac97_sdata_out), 
+         .ac97_synch(ac97_synch),
+         .ready(ready)         
+			);
+         
+   ac97commands cmds(
+         // Inputs
+         .clock(system_clock), 
+         .ready(ready), 
+         .volume(volume_hp),
+         // Outputs
+         .command_address(command_address), 
+         .command_data(command_data),
+         .command_valid(command_valid) 
+         );
 
 endmodule
 
 // assemble/disassemble AC97 serial frames
-module ac97 (ready,
-             command_address, command_data, command_valid,
-             left_data, left_valid,
-             right_data, right_valid,
-             left_in_data, right_in_data,
-             ac97_sdata_out, ac97_sdata_in, ac97_synch, ac97_bit_clock, reset
-				 );
+module ac97 (
+      // inputs
+      command_address, 
+      command_data, 
+      command_valid,
+      left_data, 
+      left_valid,
+      right_data, 
+      right_valid,
+      ac97_sdata_in,
+      ac97_bit_clock, 
+      reset,
+      // outputs
+      left_in_data, 
+      right_in_data,
+      ac97_sdata_out,  
+      ac97_synch,  
+      ready
+		);
 
-   output ready;
+   
    input [7:0] command_address;
    input [15:0] command_data;
    input command_valid;
    input [19:0] left_data, right_data;
    input left_valid, right_valid;
-   output [19:0] left_in_data, right_in_data;
-
    input ac97_sdata_in;
    input ac97_bit_clock, reset;
+   
+   output [19:0] left_in_data, right_in_data;
+   output ready; 
    output ac97_sdata_out;
    output ac97_synch;
 	
@@ -187,15 +236,24 @@ module ac97 (ready,
 endmodule
 
 // issue initialization commands to AC97
-module ac97commands (clock, ready, command_address, command_data,
-                     command_valid, volume);
+module ac97commands (
+      // Inputs
+      clock, 
+      ready, 
+      volume, 
+      // Outputs
+      command_address, 
+      command_data,
+      command_valid
+      );
 
    input clock;
    input ready;
+   input [4:0] volume;
    output [7:0] command_address;
    output [15:0] command_data;
    output command_valid;
-	input [4:0] volume;
+	
 
    reg [23:0] command = 0;
    reg command_valid = 0;
