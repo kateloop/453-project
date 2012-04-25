@@ -17,16 +17,15 @@
 </TR>
 <TR ALIGN=LEFT>
 <TD BGCOLOR='#FFFF99'><B>Target Device:</B></TD>
-<TD>xc4vlx80-12ff1148</TD>
+<TD>xc3s1500-5fg676</TD>
 <TD BGCOLOR='#FFFF99'><UL><LI><B>Errors:</B></LI></UL></TD>
 <TD>
-<font color="red"; face="Arial"><b>X </b></font>
-<A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\_xmsgs/*.xmsgs?&DataKey=Error'>121 Errors (0 new)</A></TD>
+No Errors</TD>
 </TR>
 <TR ALIGN=LEFT>
 <TD BGCOLOR='#FFFF99'><B>Product Version:</B></TD><TD>ISE 12.4</TD>
 <TD BGCOLOR='#FFFF99'><UL><LI><B>Warnings:</B></LI></UL></TD>
-<TD ALIGN=LEFT><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\_xmsgs/*.xmsgs?&DataKey=Warning'>195 Warnings (195 new)</A></TD>
+<TD ALIGN=LEFT><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\_xmsgs/*.xmsgs?&DataKey=Warning'>508 Warnings (1 new)</A></TD>
 </TR>
 <TR ALIGN=LEFT>
 <TD BGCOLOR='#FFFF99'><B>Design Goal:</B></dif></TD>
@@ -56,6 +55,87 @@ System Settings</A>
 
 &nbsp;<BR><TABLE BORDER CELLSPACING=0 CELLPADDING=3 WIDTH='100%'>
 <TR ALIGN=CENTER BGCOLOR='#99CCFF'><TD ALIGN=CENTER COLSPAN='5'><B>Device Utilization Summary</B></TD><TD ALIGN=RIGHT WIDTH='10%'COLSPAN=1> <A HREF_DISABLED="?&ExpandedTable=DeviceUtilizationSummary"><B>[-]</B></a></TD></TR>
+<TR ALIGN=CENTER BGCOLOR='#FFFF99'>
+<TD ALIGN=LEFT><B>Logic Utilization</B></TD><TD><B>Used</B></TD><TD><B>Available</B></TD><TD><B>Utilization</B></TD><TD COLSPAN='2'><B>Note(s)</B></TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of Slice Flip Flops</TD>
+<TD ALIGN=RIGHT>97</TD>
+<TD ALIGN=RIGHT>26,624</TD>
+<TD ALIGN=RIGHT>1%</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of 4 input LUTs</TD>
+<TD ALIGN=RIGHT>112</TD>
+<TD ALIGN=RIGHT>26,624</TD>
+<TD ALIGN=RIGHT>1%</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of occupied Slices</TD>
+<TD ALIGN=RIGHT>95</TD>
+<TD ALIGN=RIGHT>13,312</TD>
+<TD ALIGN=RIGHT>1%</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>&nbsp;&nbsp;&nbsp;&nbsp;Number of Slices containing only related logic</TD>
+<TD ALIGN=RIGHT>95</TD>
+<TD ALIGN=RIGHT>95</TD>
+<TD ALIGN=RIGHT>100%</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>&nbsp;&nbsp;&nbsp;&nbsp;Number of Slices containing unrelated logic</TD>
+<TD ALIGN=RIGHT>0</TD>
+<TD ALIGN=RIGHT>95</TD>
+<TD ALIGN=RIGHT>0%</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Total Number of 4 input LUTs</TD>
+<TD ALIGN=RIGHT>138</TD>
+<TD ALIGN=RIGHT>26,624</TD>
+<TD ALIGN=RIGHT>1%</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>&nbsp;&nbsp;&nbsp;&nbsp;Number used as logic</TD>
+<TD ALIGN=RIGHT>111</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>&nbsp;&nbsp;&nbsp;&nbsp;Number used as a route-thru</TD>
+<TD ALIGN=RIGHT>26</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>&nbsp;&nbsp;&nbsp;&nbsp;Number used as Shift registers</TD>
+<TD ALIGN=RIGHT>1</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of bonded <A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\ece453_top_level_map.xrpt?&DataKey=IOBProperties'>IOBs</A></TD>
+<TD ALIGN=RIGHT>226</TD>
+<TD ALIGN=RIGHT>487</TD>
+<TD ALIGN=RIGHT>46%</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of BUFGMUXs</TD>
+<TD ALIGN=RIGHT>2</TD>
+<TD ALIGN=RIGHT>8</TD>
+<TD ALIGN=RIGHT>25%</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of DCMs</TD>
+<TD ALIGN=RIGHT>1</TD>
+<TD ALIGN=RIGHT>4</TD>
+<TD ALIGN=RIGHT>25%</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Average Fanout of Non-Clock Nets</TD>
+<TD ALIGN=RIGHT>2.09</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD COLSPAN='2'>&nbsp;</TD>
+</TR>
 </TABLE>
 
 
@@ -68,9 +148,9 @@ System Settings</A>
 <TR ALIGN=CENTER BGCOLOR='#99CCFF'><TD ALIGN=CENTER COLSPAN='6'><B>Detailed Reports</B></TD><TD ALIGN=RIGHT WIDTH='10%'COLSPAN=1> <A HREF_DISABLED="?&ExpandedTable=DetailedReports"><B>[-]</B></a></TD></TR>
 <TR BGCOLOR='#FFFF99'><TD><B>Report Name</B></TD><TD><B>Status</B></TD><TD><B>Generated</B></TD>
 <TD ALIGN=LEFT><B>Errors</B></TD><TD ALIGN=LEFT><B>Warnings</B></TD><TD ALIGN=LEFT COLSPAN='2'><B>Infos</B></TD></TR>
-<TR ALIGN=LEFT><TD><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\ece453_top_level.syr'>Synthesis Report</A></TD><TD>Current</TD><TD>Sat Apr 21 15:46:47 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\_xmsgs/xst.xmsgs?&DataKey=Warning'>195 Warnings (195 new)</A></TD><TD ALIGN=LEFT COLSPAN='2'>0</TD></TR>
-<TR ALIGN=LEFT><TD><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\ece453_top_level.bld'>Translation Report</A></TD><TD>Current</TD><TD>Sat Apr 21 15:55:02 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT COLSPAN='2'>0</TD></TR>
-<TR ALIGN=LEFT><TD><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\ece453_top_level_map.mrp'>Map Report</A></TD><TD>Current</TD><TD>Sat Apr 21 16:21:30 2012</TD><TD ALIGN=LEFT><font color="red"; face="Arial"><b>X </b></font><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\_xmsgs/map.xmsgs?&DataKey=Error'>121 Errors (0 new)</A></TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\_xmsgs/map.xmsgs?&DataKey=Info'>3 Infos (0 new)</A></TD></TR>
+<TR ALIGN=LEFT><TD><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\ece453_top_level.syr'>Synthesis Report</A></TD><TD>Current</TD><TD>Wed Apr 25 16:48:15 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\_xmsgs/xst.xmsgs?&DataKey=Warning'>299 Warnings (1 new)</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\_xmsgs/xst.xmsgs?&DataKey=Info'>16 Infos (4 new)</A></TD></TR>
+<TR ALIGN=LEFT><TD><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\ece453_top_level.bld'>Translation Report</A></TD><TD>Current</TD><TD>Wed Apr 25 16:48:15 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT COLSPAN='2'>0</TD></TR>
+<TR ALIGN=LEFT><TD><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\ece453_top_level_map.mrp'>Map Report</A></TD><TD>Current</TD><TD>Wed Apr 25 16:48:15 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\_xmsgs/map.xmsgs?&DataKey=Warning'>209 Warnings (0 new)</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='C:/vmware-shared/dak-project/453-project/fpga/audio-v2p\_xmsgs/map.xmsgs?&DataKey=Info'>4 Infos (1 new)</A></TD></TR>
 <TR ALIGN=LEFT><TD>Place and Route Report</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD COLSPAN='2'>&nbsp;</TD></TR>
 <TR ALIGN=LEFT><TD>Power Report</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD COLSPAN='2'>&nbsp;</TD></TR>
 <TR ALIGN=LEFT><TD>Post-PAR Static Timing Report</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD COLSPAN='2'>&nbsp;</TD></TR>
@@ -82,5 +162,5 @@ System Settings</A>
 </TABLE>
 
 
-<br><center><b>Date Generated:</b> 04/23/2012 - 09:30:14</center>
+<br><center><b>Date Generated:</b> 04/25/2012 - 16:53:56</center>
 </BODY></HTML>

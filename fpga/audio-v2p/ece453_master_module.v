@@ -112,9 +112,11 @@ module ece453_master_module(
 	 assign ARM_DTACK = 1'b1;
 	 
 	 main FPGAaudio(
+            // inputs
 				.SYSTEM_CLOCK(FPGA_CLK1),  //should this be the FPGA clock instead?
 				.ac97_bit_clock(AC97_BIT_CLK),	
-				.ac97_sdata_in(AC97_SDATA_IN),		
+				.ac97_sdata_in(AC97_SDATA_IN),
+            // outputs
 				.ac97_sdata_out(AC97_SDATA_OUT),	
 				.ac97_synch(AC97_SYNC),			// Defines boundries of AC'97 frames, controls warm reset
 				.audio_reset_b(AC97_RESET_N),		// AC'97 codec cold reset
