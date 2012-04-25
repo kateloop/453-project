@@ -1,0 +1,3 @@
+MO audio NULL ../audio-v2p/ac97.v vlg32/audio.bin 1335391604
+MO ac97commands NULL ../audio-v2p/ac97.v vlg5A/ac97commands.bin 1335391604
+MO ac97 NULL ../audio-v2p/ac97.v vlg5C/ac97.bin 1335391604
