@@ -112,7 +112,7 @@ module ece453_master_module(
 	 assign ARM_DTACK = 1'b1;
 	 
 	 main FPGAaudio(
-				.SYSTEM_CLOCK(ARM_CLK0),  //should this be the FPGA clock instead?
+				.SYSTEM_CLOCK(FPGA_CLK1),  //should this be the FPGA clock instead?
 				.ac97_bit_clock(AC97_BIT_CLK),	
 				.ac97_sdata_in(AC97_SDATA_IN),		
 				.ac97_sdata_out(AC97_SDATA_OUT),	

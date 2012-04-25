@@ -34,12 +34,6 @@ __CONFIG (7, UNPROTECT);
 #define _PWM_V1
 / USART /
 #define _EAUSART_V4
-/ SPI /
-#define _SPI_V1
-/ I2C /
-#define _I2C_V1
-/ CAN /
-#define _ECAN_V2
 / TIMERS /
 #define _TMR_V2
 / EEPROM /
@@ -49,8 +43,15 @@ __CONFIG (7, UNPROTECT);
 */
 
 
+////////////////////////////////
+//  Function Declarations     //
+////////////////////////////////
+
+void ToggleLeds();
+void adc_conversion();
+
 //////////////////////////////////
-//  defines
+//  defines                     //
 //////////////////////////////////
 // ADC
 #define ADCCHANA   0 // pin 2, AN0
@@ -76,18 +77,16 @@ __CONFIG (7, UNPROTECT);
 #define L5_SEL_PORTC 0b00100000    // pin 16, RC5
 #define R5_SEL_PORTC 0b00010000    // pin 15, RC4
 
-// 1 -> INPUT, 0 -> OUTPUT
-// PORT A Directions
+// PORT A Directions : Input == 1; Output == 0
     // RA7(ONLY INPUT) RA6(ONLY OUTPUT)  AN4 RA4 AN3 AN2 AN1 AN0
 #define PORTA_DIR 0b10101111
-// PORT B Directions
+// PORT B Directions : Input == 1; Output == 0
     // RB7 RB6 RB5 AN9 RB3 RB2 AN8 RB0
 #define PORTB_DIR 0b00010010
-// PORT C Directions
+// PORT C Directions : Input == 1; Output == 0
     // RX TX RC5 RC4 RC3 RC2 RC1 RC0
 #define PORTC_DIR 0b10000000
 
-// TODO convert one more GPIO to output??
 
 // ADC Config, result in ADRESH and ADRESL registers
 // when A/D conversion is complete ADCON0 bit 1 = 0 and ADIF (A/D interrupt flag) is set
@@ -96,13 +95,13 @@ __CONFIG (7, UNPROTECT);
 //        1   A/D Conversion Status Bit: 1 A/D conversion in progress, 0 A/D idle
 //        0   A/D on bit: 1 enabled, 0 disabled
 #define ADCON0_INIT  0b00000000 // Initial settings; ADC off and not converting
-#define ADCON0_CHANA 0b00000000 // Channel 0 conversion
-#define ADCON0_CHANB 0b00000100 // Channel 1 conversion
-#define ADCON0_CHANC 0b00001000 // Channel 2 conversion
-#define ADCON0_CHAND 0b00001100 // Channel 3 conversion
-#define ADCON0_CHANE 0b00100000 // Channel 8 conversion
-#define ADCON0_CHANF 0b00100100 // Channel 9 conversion
-#define ADCON0_CHANG 0b00101000 // Channel 10 conversion
+#define ADCON0_CHANA 0b00100100 // Channel 9 conversion
+#define ADCON0_CHANB 0b00100000 // Channel 8 conversion
+#define ADCON0_CHANC 0b00000000 // Channel 0 conversion
+#define ADCON0_CHAND 0b00000100 // Channel 1 conversion
+#define ADCON0_CHANE 0b00001000 // Channel 2 conversion
+#define ADCON0_CHANF 0b00001100 // Channel 3 conversion
+#define ADCON0_CHANG 0b00010000 // Channel 4 conversion
 
 // ADCON1 5   Voltage Reference Config bit, 0 for AVss
 //        4   Voltage Reference Config bit, 0 for AVdd
@@ -119,8 +118,8 @@ __CONFIG (7, UNPROTECT);
 #define UART_RENABLE 0b10010000
 #define UART_TENABLE 0b00100100 // 3 - 1/0?
 #define UART_BAUD 0b00001000 // TODO interrupt
-#define SPBRGH_SPBRG (((FOSC/BAUDRATE)/4UL) - 1)
-#define BAUDRATE_ACT (FOSC/(4UL* (SPBRGH_SPBRG + 1)))
+#define SPBRGH_SPBRG (((FOSC/BAUDRATE)/16) - 1) // SYNC = 0, BRG16 = 1, BRGH = 0
+#define BAUDRATE_ACT (FOSC/(16* (SPBRGH_SPBRG + 1)))
 #define BAUDRATE 19200UL
 #define openParam 0b00011000
 #define baudParam 0b0100
@@ -131,9 +130,9 @@ __CONFIG (7, UNPROTECT);
 #define CLK_8MHZ 0b01110010
 
 
-/******************************
- * Global Variables
- *****************************/
+////////////////////////////////////
+//      Global Variables          //
+////////////////////////////////////
 int led_array[13];
 
 unsigned char uart_out;
@@ -152,30 +151,33 @@ volatile char adc_num;  // Keeps track of which ADC channel is being used
 int cur_inputs[7];
 int prev_inputs[7];
 
+char change_val = 0;
+
+int index;
+
 /*
  * main
  */
+
 int main(int argc, char** argv) {
     // Init Config
     OSCCON |= 0b00000010;
 
-    // IRCF bits in OSCCON -- INTOSC
     // configure ADC
-    ADCON0 = ADCON0_INIT;
-    ADCON1 = ADCON1_VAL;
-    ADCON2 = ADCON2_VAL;
-    ADCON2 = 10100000;  // Right Justified, 8TAD, Fosc/2
-    adc_num = ADCCHANA; // reset the current adc channel to 0
-
+//    ADCON0 = ADCON0_INIT;
+//    ADCON1 = ADCON1_VAL;
+//    ADCON2 = ADCON2_VAL;
+//    ADCON2 = 0b10100000;  // Right Justified, 8TAD, Fosc/2
+//    adc_num = ADCCHANA; // reset the current adc channel to 0
 
     // set up GPIO
-    TRISA = PORTA_DIR;
-    TRISB = PORTB_DIR;
-    TRISC = PORTC_DIR;
+//    TRISA = PORTA_DIR;
+//    TRISB = PORTB_DIR;
+//    TRISC = PORTC_DIR;
 
-    OpenUSART (openParam ,SPBRGH_SPBRG);
-    baudUSART (baudParam);
+    TRISC = 0b10000000;
 
+    // configure interrupt
 
     // UART configuration  TODO check values
   /*  BAUDCON = UART_BAUD; //16-bit baud rate generator, no auto-baud detect
@@ -203,7 +205,7 @@ int main(int argc, char** argv) {
    // ADC_INT_ENABLE();
     
 
-    while (1) {    // spin
+      // spin
 //        if (GODONE == 0) {
             // ADC Conversion Complete; Toggle LEDs accordingly
   //          ToggleLeds();
@@ -212,33 +214,95 @@ int main(int argc, char** argv) {
         // TODO anything else ?
 
         // UART STUFF
-   //    while (!RCIF)
-     //       continue;
-     //   uart_in = RCREG;
 
-     //   uart_out = uart_in;
-      //  putch ('a');
-        WriteUSART('a');
-        DelayMs(200);
-        LATB = 0b00100000;
-        DelayMs(200);
-        LATB = 0b00000000;
+        // UART config
+  //      SPBRG = SPBRGH_SPBRG;
+ //     SPBRGH  = SPBRGH_SPBRG >> 8;
+        SPBRGH = 0b00000000;
+        SPBRG = 0b100000011;  //d259
+   //     RCSTA   = 0b10010000;
+   //     TXSTA   = 0b00101000;
+    //    BAUDCON = 0b00001000;
+       
+        BAUDCON = 0b00000000;
+        RCSTA = 0b10000000;
+        TXSTA = 0b00100000;
+
+       // TXREG = 0;
+           /*
+           while (TRMT == 0) {
+                LATB = 0b00000000;
+                DelayMs(20);
+                LATB = 0b00100000;
+                DelayMs(20);
+                continue;
+            }
+ */
+        while (1)
+        {
+            //LATB = 0b00000000;
+            //DelayMs(200);
+            TXREG = 'a';
+            while ((PIR1 & 0b00010000) ==0);
+            //LATB = 0b00100000;
+        }
+        /*while (1) {
+            unsigned char tx = 'a';
+             WriteUSART(tx);
+        }*/
+
+          /*   while (1) {
+                LATC = 0b01000000;
+                DelayMs(20);
+                LATC = 0b00000000;
+                DelayMs(20);
+             }*/
+    
+
+        
+
+      /*  while (!RCIF) {
+            LATB = 0b00000000;
+             DelayMs(20);
+             LATB = 0b00100000;
+             DelayMs(20);
+        }
+        unsigned char rv;
+        rv = ReadUSART();
+*/
+      //  while (rv == tx) {
+      //      continue;
+      //  }
+    
+
+
+    while (0) {
+        // once receive data on the uart, stuff into led array
+        ToggleLeds();
+
+        // wait until sensor value changes and send out on uart
+        while (change_val == 0) {
+            // spin
+            continue;
+        }
+        int result = cur_inputs[index];
+        char channel = index; // 0 == A, 6 == G
+        // TODO send result and channel across UART
+        
     }
-    return (EXIT_SUCCESS);
+
+
+
+
+  //  return (EXIT_SUCCESS);
 }
 
-/*void putch (unsigned char byte) {
-   // LATB = 0b00100000;
-    while (!TXIF);
-    //while (!TRMT);
-        //continue;
-    TXREG = byte;
-    
-}*/
 
-/*
- * Toggles LEDs
- */
+//////////////////////////////////////////////
+//  Function to Toggle LEDs according to    //
+//  notes being played.                     //
+//////////////////////////////////////////////
+
 void ToggleLeds () {
     // Reset All Ports to 0 to turn off all LEDs
     LATA = 0;
@@ -306,41 +370,76 @@ void ToggleLeds () {
 /*void adc_conversion (int adc_channel) {
 
     ADC_INT_DISABLE (); // disable interrupts
-    ADON = 0;   // Turn of ADC
-
-    // determine ADC_channel to do conversion on and configure ADCON0 Register
-    switch (adc_channel) {
-        case ADCCHANA:
-            ADCON0 |= ADCON0_CHANA;
-            break;
-        case ADCCHANB:
-            ADCON0 |= ADCON0_CHANB;
-            break;
-        case ADCCHANC :
-            ADCON0 |= ADCON0_CHANC;
-            break;
-        case ADCCHAND :
-            ADCON0 |= ADCON0_CHAND;
-            break;
-        case ADCCHANE :
-            ADCON0 |= ADCON0_CHANE;
-            break;
-        case ADCCHANF :
-            ADCON0 |= ADCON0_CHANF;
-            break;
-        case ADCCHANG :
-            ADCON0 |= ADCON0_CHANG;
-            break;
-    }
-
-    // reset result registers
-    ADRESH = 0;
-    ADRESL = 0;
-
     
     // ADIE = 0;  // Mask interrupt
      //ADIF = 0;  // Reset ADC interrupt bit
-     
+    
+    // Reenable interrupts
+    ADC_INT_ENABLE();
+}*/
+
+
+// ISR that processes ADC data from 7 inputs in a sequential fashion
+
+ISR () {
+    // TODO Disable Interrupts
+
+    adc_conversion ();
+
+    cur_inputs[conv_result.adc_channel] = conv_result.result;
+
+    if (cur_inputs[conv_result.adc_channel] != prev_inputs[conv_result.adc_channel]) {
+        change_val = 1;
+        prev_inputs[conv_result.adc_channel] = cur_inputs[conv_result.adc_channel];
+        index = conv_result.adc_channel;
+    } else {
+        change_val = 0;
+    }
+
+    // TODO Reenable Interrupts
+    
+}
+
+
+//////////////////////////////////////////////
+// Function that processes ADC data from    //
+// 7 inputs in a sequential fashion         //
+//////////////////////////////////////////////
+
+void adc_conversion() {
+
+    ADON = 0;   // Turn off ADC
+
+    ADRESH = 0; // reset result registers
+    ADRESL = 0;
+
+    // set ADCON0 register, start conversion, write result in new
+    switch (adc_num) {
+        case ADCCHANA :
+            ADCON0 = ADCON0_CHANA;
+            break;
+        case ADCCHANB :
+            ADCON0 = ADCON0_CHANB;
+            break;
+        case ADCCHANC :
+            ADCON0 = ADCON0_CHANC;
+            break;
+        case ADCCHAND :
+            ADCON0 = ADCON0_CHAND;
+            break;
+        case ADCCHANE :
+            ADCON0 = ADCON0_CHANE;
+            break;
+        case ADCCHANF :
+            ADCON0 = ADCON0_CHANF;
+            break;
+        case ADCCHANG :
+            ADCON0 = ADCON0_CHANG;
+            break;
+    }
+
+
+    // Start conversion and wait for result
     ADON = 1;   // Turn on ADC
     GODONE = 1; // Starts conversion
 
@@ -349,10 +448,14 @@ void ToggleLeds () {
         ADON = 0;
     }
 
+    // store conversion result
     conv_result.result = ADRES;
-    conv_result.adc_channel = adc_channel;
+    conv_result.adc_channel = adc_num;
 
-    // Reenable interrupts
-    ADC_INT_ENABLE();
-}*/
+    // Increase the number of the ADC for next conversion
+    adc_num++;
+    if (adc_num >= NUMADCCHAN) {
+        adc_num = ADCCHANA;
+    }
+}
 
