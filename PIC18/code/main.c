@@ -221,10 +221,8 @@ int main(int argc, char** argv) {
       //  SPBRGH = 0b00000000;
       //  SPBRG = 0b100000011;  //d259
         SPBRG =  SPBRGH_SPBRG;
-   //     RCSTA   = 0b10010000;
    //     TXSTA   = 0b00101000;
         BAUDCON = 0b00001000;
-       
      //   BAUDCON = 0b00000000;
         RCSTA = 0b10010000;
         TXSTA = 0b00100000;

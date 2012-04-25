@@ -8,11 +8,12 @@ ac97_sdata_in,		// Serial data from AC'97
 
 ac97_sdata_out,	// Serial data to AC'97
 ac97_synch,			// Defines boundries of AC'97 frames, controls warm reset
-audio_reset_b		// AC'97 codec cold reset
+audio_reset_b,		// AC'97 codec cold reset
+LED
 );
 
 input SYSTEM_CLOCK, ac97_bit_clock, ac97_sdata_in;
-output ac97_sdata_out, ac97_synch, audio_reset_b;
+output ac97_sdata_out, ac97_synch, audio_reset_b, LED;
 
 wire [19:0] left_in_data, right_in_data, left_out_data, right_out_data;
 
@@ -31,7 +32,7 @@ audio audio0 (system_clock_buffered, reset, left_in_data, left_out_data, right_i
 			);
 
 // Processing module: takes input, does something, sends output				  
-processing processing0 (system_clock_buffered, ready, left_in_data, right_in_data, left_out_data, right_out_data);
+processing processing0 (system_clock_buffered, ready, left_in_data, right_in_data, left_out_data, right_out_data, LED);
 
 
 endmodule
