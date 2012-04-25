@@ -1,12 +1,13 @@
 `timescale 1ns / 1ps
 
+
 module audio (system_clock, reset, left_in_data, left_out_data, right_in_data, right_out_data, ready,
 	      audio_reset_b, ac97_sdata_out, ac97_sdata_in,
          ac97_synch, ac97_bit_clock 
 			);
 
    input system_clock;
-   input reset; 
+   input reset;
 	output [19:0] left_in_data, right_in_data;
    input [19:0] left_out_data, right_out_data;
    output ready;

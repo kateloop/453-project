@@ -6,7 +6,7 @@ module processing(clock, ready, left_in, right_in, left_out, right_out, LED);
    input ready;                  // 1 when AC'97 is stable and ready
    input [19:0] left_in, right_in;		// PCM data in from AC'97
    output [19:0] left_out, right_out;	// PCM data out to AC'97
-	output reg LED;
+	output reg [7:0] LED;
 
 	reg [19:0] left_out;
 	reg [19:0] right_out;
@@ -20,9 +20,10 @@ module processing(clock, ready, left_in, right_in, left_out, right_out, LED);
 	// square wave on left channel
 	always @ (posedge clock) begin
 		counter <= counter + 1;
-		left_out[15] <= counter[10];
+		right_out[15] <= counter[10];
       if (counter == 1023)
-		LED <= 1;
+		LED <= LED << 1;
+		if (LED == 8'b0) LED <= 8'b1;
 	end
 	
 	

@@ -209,21 +209,21 @@ Module <processing> is correct for synthesis.
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <LED> in unit <processing> has a constant value of 1 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <processing>.
     Related source file is "processing.v".
-WARNING:Xst:1305 - Output <right_out> is never assigned. Tied to value 00000000000000000000.
-WARNING:Xst:1305 - Output <left_out<19:16>> is never assigned. Tied to value 0000.
-WARNING:Xst:1305 - Output <left_out<14:0>> is never assigned. Tied to value 000000000000000.
+WARNING:Xst:1305 - Output <right_out<19:16>> is never assigned. Tied to value 0000.
+WARNING:Xst:1305 - Output <right_out<14:0>> is never assigned. Tied to value 000000000000000.
+WARNING:Xst:1305 - Output <left_out> is never assigned. Tied to value 00000000000000000000.
 WARNING:Xst:647 - Input <right_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <left_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <ready> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit register for signal <left_out<15>>.
+    Found 1-bit register for signal <right_out<15>>.
+    Found 8-bit register for signal <LED>.
     Found 11-bit up counter for signal <counter>.
     Summary:
 	inferred   1 Counter(s).
-	inferred   1 D-type flip-flop(s).
+	inferred   9 D-type flip-flop(s).
 Unit <processing> synthesized.
 
 
@@ -235,35 +235,35 @@ Synthesizing Unit <ac97>.
     Found 1-bit register for signal <ac97_sdata_out>.
     Found 20-bit register for signal <right_in_data>.
     Found 1-bit register for signal <ready>.
-    Found 1-bit 20-to-1 multiplexer for signal <$varindex0000> created at line 155.
-    Found 1-bit 20-to-1 multiplexer for signal <$varindex0001> created at line 159.
-    Found 1-bit 20-to-1 multiplexer for signal <$varindex0002> created at line 169.
-    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0000> created at line 153.
-    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0001> created at line 157.
-    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0002> created at line 161.
-    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0003> created at line 167.
-    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0000> created at line 142.
-    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0001> created at line 153.
-    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0002> created at line 157.
-    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0003> created at line 161.
-    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0004> created at line 167.
+    Found 1-bit 20-to-1 multiplexer for signal <$varindex0000> created at line 156.
+    Found 1-bit 20-to-1 multiplexer for signal <$varindex0001> created at line 160.
+    Found 1-bit 20-to-1 multiplexer for signal <$varindex0002> created at line 170.
+    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0000> created at line 154.
+    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0001> created at line 158.
+    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0002> created at line 162.
+    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0003> created at line 168.
+    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0000> created at line 143.
+    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0001> created at line 154.
+    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0002> created at line 158.
+    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0003> created at line 162.
+    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0004> created at line 168.
     Found 8-bit up counter for signal <bit_count>.
     Found 20-bit register for signal <l_cmd_addr>.
     Found 20-bit register for signal <l_cmd_data>.
     Found 1-bit register for signal <l_cmd_v>.
     Found 20-bit register for signal <l_left_data>.
-    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0000> created at line 161.
-    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0001> created at line 157.
-    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0002> created at line 153.
-    Found 8-bit comparator less for signal <l_left_data$cmp_lt0000> created at line 161.
-    Found 8-bit comparator less for signal <l_left_data$cmp_lt0001> created at line 157.
-    Found 8-bit comparator less for signal <l_left_data$cmp_lt0002> created at line 153.
+    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0000> created at line 162.
+    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0001> created at line 158.
+    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0002> created at line 154.
+    Found 8-bit comparator less for signal <l_left_data$cmp_lt0000> created at line 162.
+    Found 8-bit comparator less for signal <l_left_data$cmp_lt0001> created at line 158.
+    Found 8-bit comparator less for signal <l_left_data$cmp_lt0002> created at line 154.
     Found 1-bit register for signal <l_left_v>.
     Found 20-bit register for signal <l_right_data>.
-    Found 8-bit comparator greatequal for signal <left_in_data$cmp_ge0000> created at line 178.
-    Found 8-bit comparator lessequal for signal <left_in_data$cmp_le0000> created at line 178.
-    Found 8-bit comparator greater for signal <right_in_data$cmp_gt0000> created at line 181.
-    Found 8-bit comparator less for signal <right_in_data$cmp_lt0000> created at line 181.
+    Found 8-bit comparator greatequal for signal <left_in_data$cmp_ge0000> created at line 179.
+    Found 8-bit comparator lessequal for signal <left_in_data$cmp_le0000> created at line 179.
+    Found 8-bit comparator greater for signal <right_in_data$cmp_gt0000> created at line 182.
+    Found 8-bit comparator less for signal <right_in_data$cmp_lt0000> created at line 182.
     Summary:
 	inferred   1 Counter(s).
 	inferred 125 D-type flip-flop(s).
@@ -276,7 +276,7 @@ Unit <ac97> synthesized.
 Synthesizing Unit <ac97commands>.
     Related source file is "ac97.v".
 WARNING:Xst:1780 - Signal <done> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-    Found 16x24-bit ROM for signal <command$mux0000> created at line 215.
+    Found 16x24-bit ROM for signal <command$mux0000> created at line 216.
     Found 1-bit register for signal <command_valid>.
     Found 24-bit register for signal <command>.
     Found 1-bit register for signal <old_ready>.
@@ -319,7 +319,8 @@ WARNING:Xst:2563 - Inout <ARM_D<4>> is never assigned. Tied to value Z.
 WARNING:Xst:647 - Input <ARM_BE_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2563 - Inout <PIO<64>> is never assigned. Tied to value Z.
 WARNING:Xst:2563 - Inout <PIO<59>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <ACC_PORT_PIN> is never assigned. Tied to value 0000000000000000000000000000000000.
+WARNING:Xst:1305 - Output <ACC_PORT_PIN<42:15>> is never assigned. Tied to value 0000000000000000000000000000.
+WARNING:Xst:1305 - Output <ACC_PORT_PIN<9>> is never assigned. Tied to value 0.
 WARNING:Xst:647 - Input <CPLD_RS1_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2563 - Inout <ARM_D<5>> is never assigned. Tied to value Z.
 WARNING:Xst:1305 - Output <PIO_DIR0> is never assigned. Tied to value 0.
@@ -489,7 +490,6 @@ WARNING:Xst:647 - Input <SYS_CLK> is never used. This port will be preserved and
 WARNING:Xst:1305 - Output <VE_TTX> is never assigned. Tied to value 0.
 WARNING:Xst:2563 - Inout <PIO<62>> is never assigned. Tied to value Z.
 WARNING:Xst:2563 - Inout <PIO<57>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <LED<7:1>> is never assigned. Tied to value 0000000.
 WARNING:Xst:2563 - Inout <ARM_D<28>> is never assigned. Tied to value Z.
 WARNING:Xst:1305 - Output <VGA_SYNC> is never assigned. Tied to value 0.
 WARNING:Xst:2563 - Inout <ARM_D<3>> is never assigned. Tied to value Z.
@@ -609,10 +609,11 @@ Macro Statistics
  11-bit up counter                                     : 1
  4-bit up counter                                      : 1
  8-bit up counter                                      : 1
-# Registers                                            : 16
+# Registers                                            : 17
  1-bit register                                        : 9
  20-bit register                                       : 6
  24-bit register                                       : 1
+ 8-bit register                                        : 1
 # Comparators                                          : 19
  8-bit comparator greatequal                           : 5
  8-bit comparator greater                              : 4
@@ -636,7 +637,6 @@ WARNING:Xst:1710 - FF/Latch <l_right_data_19> (without init value) has a constan
 WARNING:Xst:1710 - FF/Latch <l_right_data_18> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <l_right_data_17> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <l_right_data_16> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <l_right_data_15> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <l_right_data_14> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <l_right_data_13> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <l_right_data_12> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
@@ -671,8 +671,8 @@ Macro Statistics
  11-bit up counter                                     : 1
  4-bit up counter                                      : 1
  8-bit up counter                                      : 1
-# Registers                                            : 153
- Flip-Flops                                            : 153
+# Registers                                            : 161
+ Flip-Flops                                            : 161
 # Comparators                                          : 19
  8-bit comparator greatequal                           : 5
  8-bit comparator greater                              : 4
@@ -704,8 +704,6 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <l_cmd_addr_10> (wit
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <l_cmd_addr_11> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1426 - The value init of the FF/Latch command_valid hinder the constant cleaning in the block ac97commands.
    You should achieve better results by setting this init to 1.
-INFO:Xst:2261 - The FF/Latch <l_right_data_0> in Unit <ac97> is equivalent to the following 19 FFs/Latches, which will be removed : <l_right_data_1> <l_right_data_2> <l_right_data_3> <l_right_data_4> <l_right_data_5> <l_right_data_6> <l_right_data_7> <l_right_data_8> <l_right_data_9> <l_right_data_10> <l_right_data_11> <l_right_data_12> <l_right_data_13> <l_right_data_14> <l_right_data_15> <l_right_data_16> <l_right_data_17> <l_right_data_18> <l_right_data_19> 
-WARNING:Xst:1710 - FF/Latch <l_right_data_0> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <command_5> has a constant value of 0 in block <ac97commands>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <command_7> has a constant value of 0 in block <ac97commands>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <command_13> has a constant value of 0 in block <ac97commands>. This FF/Latch will be trimmed during the optimization process.
@@ -719,15 +717,36 @@ INFO:Xst:2261 - The FF/Latch <command_1> in Unit <ac97commands> is equivalent to
 
 Optimizing unit <ece453_top_level> ...
 
+Optimizing unit <processing> ...
+
 Optimizing unit <ac97> ...
 
 Optimizing unit <ac97commands> ...
-WARNING:Xst:1710 - FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_addr_18> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_addr_12> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_18> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_17> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_9> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_11> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_9> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_17> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_18> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_addr_12> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_addr_18> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_0> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_1> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_2> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_3> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_4> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_5> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_6> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_7> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_8> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_9> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_10> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_11> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_12> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_13> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_14> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_16> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_17> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_18> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_right_data_19> (without init value) has a constant value of 0 in block <ece453_top_level>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <MASTER/FPGAaudio/audio0/ac97/right_in_data_19> of sequential type is unconnected in block <ece453_top_level>.
 WARNING:Xst:2677 - Node <MASTER/FPGAaudio/audio0/ac97/right_in_data_18> of sequential type is unconnected in block <ece453_top_level>.
 WARNING:Xst:2677 - Node <MASTER/FPGAaudio/audio0/ac97/right_in_data_17> of sequential type is unconnected in block <ece453_top_level>.
@@ -785,8 +804,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 88
- Flip-Flops                                            : 88
+# Registers                                            : 97
+ Flip-Flops                                            : 97
 
 =========================================================================
 
@@ -815,37 +834,37 @@ Design Statistics
 # IOs                              : 362
 
 Cell Usage :
-# BELS                             : 194
+# BELS                             : 210
 #      GND                         : 1
 #      INV                         : 7
 #      LUT1                        : 26
-#      LUT2                        : 30
-#      LUT2_D                      : 1
-#      LUT2_L                      : 1
-#      LUT3                        : 16
+#      LUT2                        : 37
+#      LUT2_L                      : 3
+#      LUT3                        : 18
 #      LUT3_D                      : 1
-#      LUT3_L                      : 1
+#      LUT3_L                      : 2
 #      LUT4                        : 33
-#      LUT4_D                      : 3
-#      LUT4_L                      : 3
+#      LUT4_D                      : 5
+#      LUT4_L                      : 8
 #      MUXCY                       : 26
-#      MUXF5                       : 11
+#      MUXF5                       : 9
 #      MUXF6                       : 3
 #      MUXF7                       : 1
 #      VCC                         : 1
 #      XORCY                       : 29
-# FlipFlops/Latches                : 88
+# FlipFlops/Latches                : 97
 #      FD                          : 20
-#      FDE                         : 37
-#      FDR                         : 15
-#      FDRE                        : 13
-#      FDRS                        : 3
+#      FDE                         : 38
+#      FDR                         : 16
+#      FDRE                        : 20
+#      FDRS                        : 2
+#      FDSE                        : 1
 # Shift Registers                  : 1
 #      SRL16                       : 1
 # Clock Buffers                    : 2
-#      BUFG                        : 1
-#      BUFGP                       : 1
-# IO Buffers                       : 287
+#      BUFG                        : 2
+# IO Buffers                       : 289
+#      IBUF                        : 2
 #      IBUFG                       : 1
 #      OBUF                        : 148
 #      OBUFT                       : 138
@@ -858,13 +877,13 @@ Device utilization summary:
 
 Selected Device : 3s1500fg676-5 
 
- Number of Slices:                       72  out of  13312     0%  
- Number of Slice Flip Flops:             88  out of  26624     0%  
- Number of 4 input LUTs:                123  out of  26624     0%  
-    Number used as logic:               122
+ Number of Slices:                       83  out of  13312     0%  
+ Number of Slice Flip Flops:             97  out of  26624     0%  
+ Number of 4 input LUTs:                141  out of  26624     0%  
+    Number used as logic:               140
     Number used as Shift registers:       1
  Number of IOs:                         362
- Number of bonded IOBs:                 288  out of    487    59%  
+ Number of bonded IOBs:                 289  out of    487    59%  
  Number of GCLKs:                         2  out of      8    25%  
  Number of DCMs:                          1  out of      4    25%  
 
@@ -889,8 +908,8 @@ Clock Information:
 -----------------------------------+-------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                     | Load  |
 -----------------------------------+-------------------------------------------+-------+
-FPGA_CLK1                          | MASTER/FPGAaudio/CLOCK_GEN/SYSTEM_DCM:CLK0| 42    |
-AC97_BIT_CLK                       | BUFGP                                     | 47    |
+FPGA_CLK1                          | MASTER/FPGAaudio/CLOCK_GEN/SYSTEM_DCM:CLK0| 50    |
+AC97_BIT_CLK                       | IBUF+BUFG                                 | 48    |
 -----------------------------------+-------------------------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -901,10 +920,10 @@ Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 7.937ns (Maximum Frequency: 125.999MHz)
+   Minimum period: 7.874ns (Maximum Frequency: 126.999MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 6.280ns
-   Maximum combinational path delay: No path found
+   Maximum output required time after clock: 6.306ns
+   Maximum combinational path delay: 6.369ns
 
 Timing Detail:
 --------------
@@ -912,60 +931,57 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'FPGA_CLK1'
-  Clock period: 4.816ns (frequency: 207.633MHz)
-  Total number of paths / destination ports: 295 / 59
+  Clock period: 5.288ns (frequency: 189.113MHz)
+  Total number of paths / destination ports: 454 / 82
 -------------------------------------------------------------------------
-Delay:               4.816ns (Levels of Logic = 2)
-  Source:            MASTER/FPGAaudio/audio0/reset_count_6 (FF)
-  Destination:       MASTER/FPGAaudio/audio0/reset_count_9 (FF)
+Delay:               5.288ns (Levels of Logic = 2)
+  Source:            MASTER/FPGAaudio/processing0/LED_7 (FF)
+  Destination:       MASTER/FPGAaudio/processing0/LED_7 (FF)
   Source Clock:      FPGA_CLK1 rising
   Destination Clock: FPGA_CLK1 rising
 
-  Data Path: MASTER/FPGAaudio/audio0/reset_count_6 to MASTER/FPGAaudio/audio0/reset_count_9
+  Data Path: MASTER/FPGAaudio/processing0/LED_7 to MASTER/FPGAaudio/processing0/LED_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             2   0.626   1.040  MASTER/FPGAaudio/audio0/reset_count_6 (MASTER/FPGAaudio/audio0/reset_count_6)
-     LUT4_D:I0->O          1   0.479   0.704  MASTER/FPGAaudio/audio0/audio_reset_b_cmp_eq000017_SW0 (N159)
-     LUT4:I3->O           10   0.479   0.964  MASTER/FPGAaudio/audio0/audio_reset_b_cmp_eq0000_inv1 (MASTER/FPGAaudio/audio0/audio_reset_b_cmp_eq0000_inv)
-     FDRE:CE                   0.524          MASTER/FPGAaudio/audio0/reset_count_0
+     FDRE:C->Q             2   0.626   1.040  MASTER/FPGAaudio/processing0/LED_7 (MASTER/FPGAaudio/processing0/LED_7)
+     LUT4:I0->O            1   0.479   0.851  MASTER/FPGAaudio/processing0/LED_cmp_eq000125 (MASTER/FPGAaudio/processing0/LED_cmp_eq000125)
+     LUT2:I1->O            8   0.479   0.921  MASTER/FPGAaudio/processing0/LED_cmp_eq000126 (MASTER/FPGAaudio/processing0/LED_not0001_inv)
+     FDSE:S                    0.892          MASTER/FPGAaudio/processing0/LED_0
     ----------------------------------------
-    Total                      4.816ns (2.108ns logic, 2.708ns route)
-                                       (43.8% logic, 56.2% route)
+    Total                      5.288ns (2.476ns logic, 2.812ns route)
+                                       (46.8% logic, 53.2% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'AC97_BIT_CLK'
-  Clock period: 7.937ns (frequency: 125.999MHz)
-  Total number of paths / destination ports: 929 / 70
+  Clock period: 7.874ns (frequency: 126.999MHz)
+  Total number of paths / destination ports: 1396 / 70
 -------------------------------------------------------------------------
-Delay:               7.937ns (Levels of Logic = 7)
-  Source:            MASTER/FPGAaudio/audio0/ac97/bit_count_0 (FF)
-  Destination:       MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out (FF)
+Delay:               7.874ns (Levels of Logic = 4)
+  Source:            MASTER/FPGAaudio/audio0/ac97/bit_count_1 (FF)
+  Destination:       MASTER/FPGAaudio/audio0/ac97/l_left_data_19 (FF)
   Source Clock:      AC97_BIT_CLK rising
   Destination Clock: AC97_BIT_CLK rising
 
-  Data Path: MASTER/FPGAaudio/audio0/ac97/bit_count_0 to MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out
+  Data Path: MASTER/FPGAaudio/audio0/ac97/bit_count_1 to MASTER/FPGAaudio/audio0/ac97/l_left_data_19
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             11   0.626   0.972  MASTER/FPGAaudio/audio0/ac97/bit_count_0 (MASTER/FPGAaudio/audio0/ac97/bit_count_0)
-     INV:I->O              4   0.479   0.779  MASTER/FPGAaudio/audio0/ac97/Mcount_bit_count_lut<0>_INV_0 (MASTER/FPGAaudio/audio0/ac97/Mcount_bit_count_lut<0>)
-     MUXF5:S->O            1   0.540   0.000  MASTER/FPGAaudio/audio0/ac97/Mmux__varindex0000_6_f5 (MASTER/FPGAaudio/audio0/ac97/Mmux__varindex0000_6_f5)
-     MUXF6:I1->O           2   0.298   0.768  MASTER/FPGAaudio/audio0/ac97/Mmux__varindex0000_5_f6 (MASTER/FPGAaudio/audio0/ac97/Mmux__varindex0000_5_f6)
-     LUT4:I3->O            1   0.479   0.000  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000125_SW0_G (N154)
-     MUXF5:I1->O           2   0.314   0.745  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000125_SW0 (N145)
-     MUXF5:S->O            1   0.540   0.740  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000153_SW1 (N148)
-     LUT4:I2->O            1   0.479   0.000  MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux00002531 (MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out_mux0000253)
-     FDRS:D                    0.176          MASTER/FPGAaudio/audio0/ac97/ac97_sdata_out
+     FDR:C->Q             12   0.626   1.245  MASTER/FPGAaudio/audio0/ac97/bit_count_1 (MASTER/FPGAaudio/audio0/ac97/bit_count_1)
+     LUT3:I0->O            1   0.479   0.704  MASTER/FPGAaudio/audio0/ac97/l_left_data_not00012_SW0 (N0)
+     LUT4:I3->O            5   0.479   0.806  MASTER/FPGAaudio/audio0/ac97/l_left_data_not00012 (MASTER/FPGAaudio/audio0/ac97/l_cmd_v_cmp_eq0000)
+     LUT4:I3->O            1   0.479   0.740  MASTER/FPGAaudio/audio0/ac97/l_left_data_not00018 (MASTER/FPGAaudio/audio0/ac97/l_left_data_not00018)
+     LUT4:I2->O           20   0.479   1.313  MASTER/FPGAaudio/audio0/ac97/l_left_data_not000168 (MASTER/FPGAaudio/audio0/ac97/l_left_data_not0001)
+     FDE:CE                    0.524          MASTER/FPGAaudio/audio0/ac97/l_left_data_0
     ----------------------------------------
-    Total                      7.937ns (3.931ns logic, 4.006ns route)
-                                       (49.5% logic, 50.5% route)
+    Total                      7.874ns (3.066ns logic, 4.808ns route)
+                                       (38.9% logic, 61.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'AC97_BIT_CLK'
-  Total number of paths / destination ports: 2 / 2
+  Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              6.280ns (Levels of Logic = 1)
+Offset:              6.306ns (Levels of Logic = 1)
   Source:            MASTER/FPGAaudio/audio0/ac97/ac97_synch (FF)
   Destination:       AC97_SYNC (PAD)
   Source Clock:      AC97_BIT_CLK rising
@@ -974,42 +990,60 @@ Offset:              6.280ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRS:C->Q             2   0.626   0.745  MASTER/FPGAaudio/audio0/ac97/ac97_synch (MASTER/FPGAaudio/audio0/ac97/ac97_synch)
+     FDRS:C->Q             3   0.626   0.771  MASTER/FPGAaudio/audio0/ac97/ac97_synch (MASTER/FPGAaudio/audio0/ac97/ac97_synch)
      OBUF:I->O                 4.909          AC97_SYNC_OBUF (AC97_SYNC)
     ----------------------------------------
-    Total                      6.280ns (5.535ns logic, 0.745ns route)
-                                       (88.1% logic, 11.9% route)
+    Total                      6.306ns (5.535ns logic, 0.771ns route)
+                                       (87.8% logic, 12.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'FPGA_CLK1'
-  Total number of paths / destination ports: 1 / 1
+  Total number of paths / destination ports: 10 / 10
 -------------------------------------------------------------------------
-Offset:              6.216ns (Levels of Logic = 1)
-  Source:            MASTER/FPGAaudio/audio0/audio_reset_b (FF)
-  Destination:       AC97_RESET_N (PAD)
+Offset:              6.306ns (Levels of Logic = 1)
+  Source:            MASTER/FPGAaudio/processing0/LED_6 (FF)
+  Destination:       LED<6> (PAD)
   Source Clock:      FPGA_CLK1 rising
 
-  Data Path: MASTER/FPGAaudio/audio0/audio_reset_b to AC97_RESET_N
+  Data Path: MASTER/FPGAaudio/processing0/LED_6 to LED<6>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             1   0.626   0.681  MASTER/FPGAaudio/audio0/audio_reset_b (MASTER/FPGAaudio/audio0/audio_reset_b)
-     OBUF:I->O                 4.909          AC97_RESET_N_OBUF (AC97_RESET_N)
+     FDRE:C->Q             3   0.626   0.771  MASTER/FPGAaudio/processing0/LED_6 (MASTER/FPGAaudio/processing0/LED_6)
+     OBUF:I->O                 4.909          LED_6_OBUF (LED<6>)
     ----------------------------------------
-    Total                      6.216ns (5.535ns logic, 0.681ns route)
-                                       (89.0% logic, 11.0% route)
+    Total                      6.306ns (5.535ns logic, 0.771ns route)
+                                       (87.8% logic, 12.2% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Delay:               6.369ns (Levels of Logic = 2)
+  Source:            AC97_BIT_CLK (PAD)
+  Destination:       ACC_PORT_PIN<10> (PAD)
+
+  Data Path: AC97_BIT_CLK to ACC_PORT_PIN<10>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.715   0.745  AC97_BIT_CLK_IBUF (AC97_BIT_CLK_IBUF1)
+     OBUF:I->O                 4.909          ACC_PORT_PIN_10_OBUF (ACC_PORT_PIN<10>)
+    ----------------------------------------
+    Total                      6.369ns (5.624ns logic, 0.745ns route)
+                                       (88.3% logic, 11.7% route)
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.78 secs
+Total CPU time to Xst completion: 6.69 secs
  
 --> 
 
-Total memory usage is 252048 kilobytes
+Total memory usage is 252816 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  282 (   0 filtered)
-Number of infos    :   18 (   0 filtered)
+Number of warnings :  299 (   0 filtered)
+Number of infos    :   16 (   0 filtered)
 

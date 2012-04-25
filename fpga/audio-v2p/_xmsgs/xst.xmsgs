@@ -23,16 +23,13 @@
 <msg type="info" file="Xst" num="1433" delta="old" >Contents of array &lt;<arg fmt="%s" index="1">l_right_data</arg>&gt; may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
 </msg>
 
-<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">LED</arg>&gt; in unit &lt;<arg fmt="%s" index="2">processing</arg>&gt; has a constant value of <arg fmt="%s" index="3">1</arg> during circuit operation. The register is replaced by logic.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">right_out&lt;19:16&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">right_out</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000000000000000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">right_out&lt;14:0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">000000000000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">left_out&lt;19:16&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">left_out&lt;14:0&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">000000000000000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">left_out</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">00000000000000000000</arg>.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">right_in</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -74,7 +71,10 @@
 <msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;59&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">ACC_PORT_PIN</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000000000000000000000000000000000</arg>.
+<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">ACC_PORT_PIN&lt;42:15&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000000000000000000000000000</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1305" delta="new" >Output &lt;<arg fmt="%s" index="1">ACC_PORT_PIN&lt;9&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CPLD_RS1_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -584,9 +584,6 @@
 <msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">PIO&lt;57&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">LED&lt;7:1&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000000</arg>.
-</msg>
-
 <msg type="warning" file="Xst" num="2563" delta="old" >Inout &lt;<arg fmt="%s" index="1">ARM_D&lt;28&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">Z</arg>.
 </msg>
 
@@ -613,9 +610,6 @@ You should achieve better results by setting this init to <arg fmt="%i" index="3
 </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -721,12 +715,6 @@ You should achieve better results by setting this init to <arg fmt="%i" index="3
 You should achieve better results by setting this init to <arg fmt="%i" index="3">1</arg>.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ac97</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">19 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;l_right_data_1&gt; &lt;l_right_data_2&gt; &lt;l_right_data_3&gt; &lt;l_right_data_4&gt; &lt;l_right_data_5&gt; &lt;l_right_data_6&gt; &lt;l_right_data_7&gt; &lt;l_right_data_8&gt; &lt;l_right_data_9&gt; &lt;l_right_data_10&gt; &lt;l_right_data_11&gt; &lt;l_right_data_12&gt; &lt;l_right_data_13&gt; &lt;l_right_data_14&gt; &lt;l_right_data_15&gt; &lt;l_right_data_16&gt; &lt;l_right_data_17&gt; &lt;l_right_data_18&gt; &lt;l_right_data_19&gt; </arg>
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">l_right_data_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
 <msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">command_5</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ac97commands</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
@@ -757,22 +745,79 @@ You should achieve better results by setting this init to <arg fmt="%i" index="3
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">command_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ac97commands</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;command_2&gt; &lt;command_9&gt; &lt;command_10&gt; </arg>
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_addr_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_addr_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_addr_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_addr_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_right_data_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ece453_top_level</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/right_in_data_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
@@ -895,16 +940,16 @@ You should achieve better results by setting this init to <arg fmt="%i" index="3
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_4&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_4&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_13&gt; &lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_6&gt; &lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_5&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_13&gt; &lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_6&gt; &lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_5&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_8&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_8&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_10&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_10&gt; </arg>
 </msg>
 
 </messages>

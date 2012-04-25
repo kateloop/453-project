@@ -9,22 +9,22 @@ Target Device  : xc3s1500
 Target Package : fg676
 Target Speed   : -5
 Mapper Version : spartan3 -- $Revision: 1.52.76.2 $
-Mapped Date    : Wed Apr 25 15:16:38 2012
+Mapped Date    : Wed Apr 25 16:00:52 2012
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:  210
+Number of warnings:  209
 Logic Utilization:
-  Number of Slice Flip Flops:            86 out of  26,624    1%
-  Number of 4 input LUTs:                94 out of  26,624    1%
+  Number of Slice Flip Flops:            97 out of  26,624    1%
+  Number of 4 input LUTs:               112 out of  26,624    1%
 Logic Distribution:
-  Number of occupied Slices:             79 out of  13,312    1%
-    Number of Slices containing only related logic:      79 out of      79 100%
-    Number of Slices containing unrelated logic:          0 out of      79   0%
+  Number of occupied Slices:             95 out of  13,312    1%
+    Number of Slices containing only related logic:      95 out of      95 100%
+    Number of Slices containing unrelated logic:          0 out of      95   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         120 out of  26,624    1%
-    Number used as logic:                93
+  Total Number of 4 input LUTs:         138 out of  26,624    1%
+    Number used as logic:               111
     Number used as a route-thru:         26
     Number used as Shift registers:       1
 
@@ -32,11 +32,10 @@ Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
   Number of bonded IOBs:                226 out of     487   46%
-    IOB Flip Flops:                       2
   Number of BUFGMUXs:                     2 out of       8   25%
   Number of DCMs:                         1 out of       4   25%
 
-Average Fanout of Non-Clock Nets:                1.96
+Average Fanout of Non-Clock Nets:                2.09
 
 Peak Memory Usage:  261 MB
 Total REAL time to MAP completion:  2 secs 
@@ -395,8 +394,6 @@ WARNING:PhysDesignRules:367 - The signal <MZB_A<19>_IBUF> is incomplete. The
    signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <VE_CLK_IBUF> is incomplete. The signal
    does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <AC97_SDATA_IN_IBUF> is incomplete. The
-   signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <VD_LLC_IBUF> is incomplete. The signal
    does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <RS232_RX_IBUF> is incomplete. The
@@ -505,7 +502,7 @@ WARNING:PhysDesignRules:367 - The signal <MZB_A<6>_IBUF> is incomplete. The
 Section 3 - Informational
 -------------------------
 INFO:LIT:243 - Logical network SPI_MISO_IBUF has no load.
-INFO:LIT:395 - The above info message is repeated 73 more times for the
+INFO:LIT:395 - The above info message is repeated 72 more times for the
    following (max. 5 shown):
    MZB_CPLD_RESET_OUT_IBUF,
    MZB_CPLD_RS5_B_IBUF,
@@ -959,9 +956,9 @@ Section 6 - IOB Properties
 | AC97_BIT_CLK                       | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | AC97_ID_0                          | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          |          |
 | AC97_ID_1                          | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          |          |
-| AC97_RESET_N                       | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW | OFF1         |          |          |
+| AC97_RESET_N                       | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          |          |
 | AC97_SDATA_IN                      | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
-| AC97_SDATA_OUT                     | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW | OFF1         |          |          |
+| AC97_SDATA_OUT                     | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          |          |
 | AC97_SYNC                          | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          |          |
 | ACC_PORT_PIN<9>                    | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | ACC_PORT_PIN<10>                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |

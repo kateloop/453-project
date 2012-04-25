@@ -8,7 +8,7 @@
 <msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">SPI_MISO_IBUF</arg> has no load.
 </msg>
 
-<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">73</arg> more times for the following (max. 5 shown):
+<msg type="info" file="LIT" num="395" delta="new" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">72</arg> more times for the following (max. 5 shown):
 <arg fmt="%s" index="3">MZB_CPLD_RESET_OUT_IBUF,
 MZB_CPLD_RS5_B_IBUF,
 MZB_CPLD_OE_B_IBUF,
@@ -492,9 +492,6 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 </msg>
 
 <msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">VE_CLK_IBUF</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">AC97_SDATA_IN_IBUF</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
 </msg>
 
 <msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">VD_LLC_IBUF</arg>&gt; is incomplete. The signal does not drive any load pins in the design.

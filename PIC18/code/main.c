@@ -217,15 +217,15 @@ int main(int argc, char** argv) {
 
         // UART config
  
-        SPBRGH  = SPBRGH_SPBRG >> 8;
-      //  SPBRGH = 0b00000000;
-      //  SPBRG = 0b100000011;  //d259
-        SPBRG =  SPBRGH_SPBRG;
+          SPBRGH  = SPBRGH_SPBRG >> 8;
+ //       SPBRGH = 0b00000000;
+ //       SPBRG = 0b100000011;  //d259
+          SPBRG =  SPBRGH_SPBRG;
    //     TXSTA   = 0b00101000;
-        BAUDCON = 0b00001000;
-     //   BAUDCON = 0b00000000;
-        RCSTA = 0b10010000;
-        TXSTA = 0b00100000;
+          BAUDCON = 0b00001000;
+ //       BAUDCON = 0b00000000;
+          RCSTA = 0b10010000;
+          TXSTA = 0b00100000;
 
        // TXREG = 0;
            /*

@@ -13,7 +13,8 @@ LED
 );
 
 input SYSTEM_CLOCK, ac97_bit_clock, ac97_sdata_in;
-output ac97_sdata_out, ac97_synch, audio_reset_b, LED;
+output ac97_sdata_out, ac97_synch, audio_reset_b;
+output [7:0] LED;
 
 wire [19:0] left_in_data, right_in_data, left_out_data, right_out_data;
 
