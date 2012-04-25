@@ -113,7 +113,6 @@ Module <audio> compiled
 Module <ac97> compiled
 Compiling verilog file "main.v" in library work
 Module <ac97commands> compiled
-WARNING:HDLCompilers:301 - "main.v" line 21 Too many digits specified in hex constant
 Compiling verilog file "ece453_master_module.v" in library work
 Module <main> compiled
 Compiling verilog file "ece453_top_level.v" in library work
@@ -236,35 +235,35 @@ Synthesizing Unit <ac97>.
     Found 1-bit register for signal <ac97_sdata_out>.
     Found 20-bit register for signal <right_in_data>.
     Found 1-bit register for signal <ready>.
-    Found 1-bit 20-to-1 multiplexer for signal <$varindex0000> created at line 156.
-    Found 1-bit 20-to-1 multiplexer for signal <$varindex0001> created at line 160.
-    Found 1-bit 20-to-1 multiplexer for signal <$varindex0002> created at line 170.
-    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0000> created at line 154.
-    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0001> created at line 158.
-    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0002> created at line 162.
-    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0003> created at line 168.
-    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0000> created at line 143.
-    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0001> created at line 154.
-    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0002> created at line 158.
-    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0003> created at line 162.
-    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0004> created at line 168.
+    Found 1-bit 20-to-1 multiplexer for signal <$varindex0000> created at line 202.
+    Found 1-bit 20-to-1 multiplexer for signal <$varindex0001> created at line 206.
+    Found 1-bit 20-to-1 multiplexer for signal <$varindex0002> created at line 216.
+    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0000> created at line 200.
+    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0001> created at line 204.
+    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0002> created at line 208.
+    Found 8-bit comparator greatequal for signal <ac97_sdata_out$cmp_ge0003> created at line 214.
+    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0000> created at line 189.
+    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0001> created at line 200.
+    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0002> created at line 204.
+    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0003> created at line 208.
+    Found 8-bit comparator lessequal for signal <ac97_sdata_out$cmp_le0004> created at line 214.
     Found 8-bit up counter for signal <bit_count>.
     Found 20-bit register for signal <l_cmd_addr>.
     Found 20-bit register for signal <l_cmd_data>.
     Found 1-bit register for signal <l_cmd_v>.
     Found 20-bit register for signal <l_left_data>.
-    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0000> created at line 162.
-    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0001> created at line 158.
-    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0002> created at line 154.
-    Found 8-bit comparator less for signal <l_left_data$cmp_lt0000> created at line 162.
-    Found 8-bit comparator less for signal <l_left_data$cmp_lt0001> created at line 158.
-    Found 8-bit comparator less for signal <l_left_data$cmp_lt0002> created at line 154.
+    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0000> created at line 208.
+    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0001> created at line 204.
+    Found 8-bit comparator greater for signal <l_left_data$cmp_gt0002> created at line 200.
+    Found 8-bit comparator less for signal <l_left_data$cmp_lt0000> created at line 208.
+    Found 8-bit comparator less for signal <l_left_data$cmp_lt0001> created at line 204.
+    Found 8-bit comparator less for signal <l_left_data$cmp_lt0002> created at line 200.
     Found 1-bit register for signal <l_left_v>.
     Found 20-bit register for signal <l_right_data>.
-    Found 8-bit comparator greatequal for signal <left_in_data$cmp_ge0000> created at line 179.
-    Found 8-bit comparator lessequal for signal <left_in_data$cmp_le0000> created at line 179.
-    Found 8-bit comparator greater for signal <right_in_data$cmp_gt0000> created at line 182.
-    Found 8-bit comparator less for signal <right_in_data$cmp_lt0000> created at line 182.
+    Found 8-bit comparator greatequal for signal <left_in_data$cmp_ge0000> created at line 225.
+    Found 8-bit comparator lessequal for signal <left_in_data$cmp_le0000> created at line 225.
+    Found 8-bit comparator greater for signal <right_in_data$cmp_gt0000> created at line 228.
+    Found 8-bit comparator less for signal <right_in_data$cmp_lt0000> created at line 228.
     Summary:
 	inferred   1 Counter(s).
 	inferred 125 D-type flip-flop(s).
@@ -277,7 +276,7 @@ Unit <ac97> synthesized.
 Synthesizing Unit <ac97commands>.
     Related source file is "ac97.v".
 WARNING:Xst:1780 - Signal <done> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-    Found 16x24-bit ROM for signal <command$mux0000> created at line 216.
+    Found 16x24-bit ROM for signal <command$mux0000> created at line 269.
     Found 1-bit register for signal <command_valid>.
     Found 24-bit register for signal <command>.
     Found 1-bit register for signal <old_ready>.
@@ -494,7 +493,6 @@ WARNING:Xst:2563 - Inout <PIO<57>> is never assigned. Tied to value Z.
 WARNING:Xst:2563 - Inout <ARM_D<28>> is never assigned. Tied to value Z.
 WARNING:Xst:1305 - Output <VGA_SYNC> is never assigned. Tied to value 0.
 WARNING:Xst:2563 - Inout <ARM_D<3>> is never assigned. Tied to value Z.
-WARNING:Xst:646 - Signal <SACNT1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 1-bit tristate buffer for signal <PS2_MOUSE_CLK>.
     Found 1-bit tristate buffer for signal <VE_FIELD_VSYNC>.
     Found 1-bit tristate buffer for signal <VE_BLANK>.
@@ -1038,14 +1036,14 @@ Delay:               6.369ns (Levels of Logic = 2)
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 6.66 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.63 secs
  
 --> 
 
-Total memory usage is 252880 kilobytes
+Total memory usage is 253648 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  302 (   0 filtered)
+Number of warnings :  299 (   0 filtered)
 Number of infos    :   16 (   0 filtered)
 

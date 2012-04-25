@@ -126,12 +126,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1335391298" xil_pn:in_ck="-7112860768942030754" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-2411384092551594213" xil_pn:start_ts="1335391290">
+    <transform xil_pn:end_ts="1335397881" xil_pn:in_ck="-7112860768942030754" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="-2411384092551594213" xil_pn:start_ts="1335397872">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="ece453_top_level.lso"/>
@@ -153,6 +151,8 @@
     <transform xil_pn:end_ts="1335391303" xil_pn:in_ck="-6231410655099352385" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-6443096131216379771" xil_pn:start_ts="1335391298">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="ece453_top_level.bld"/>
@@ -163,6 +163,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="ece453_top_level.pcf"/>
       <outfile xil_pn:name="ece453_top_level_map.map"/>
@@ -178,6 +179,7 @@
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
       <outfile xil_pn:name="ece453_top_level.ncd"/>
       <outfile xil_pn:name="ece453_top_level.pad"/>
@@ -194,6 +196,8 @@
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="ece453_top_level.bgn"/>
       <outfile xil_pn:name="ece453_top_level.bit"/>
