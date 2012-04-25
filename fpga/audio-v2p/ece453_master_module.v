@@ -121,7 +121,9 @@ module ece453_master_module(
 				.ac97_synch(AC97_SYNC),			// Defines boundries of AC'97 frames, controls warm reset
 				.audio_reset_b(AC97_RESET_N),		// AC'97 codec cold reset
 				.LED(LED[7:0]),
-				.SACNT1(SACNT1)
+				.SACNT1(SACNT1),
+				.SRCCR1(SRCCR1),
+				.SCR1(SCR1)
 		);
 		
 		//assign ACC_PORT_PIN[9] = FPGA_CLK1;

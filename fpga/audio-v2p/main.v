@@ -10,16 +10,23 @@ ac97_sdata_out,	// Serial data to AC'97
 ac97_synch,			// Defines boundries of AC'97 frames, controls warm reset
 audio_reset_b,		// AC'97 codec cold reset
 LED,
-SACNT1
+SACNT1,
+SRCCR1,
+SCR
 );
 
 input SYSTEM_CLOCK, ac97_bit_clock, ac97_sdata_in;
 output ac97_sdata_out, ac97_synch, audio_reset_b;
 output [7:0] LED; 
 output [31:0] SACNT1;
+output [31:0] SRCCR1;
+output [31:0] SCR1;
+
 
 assign SACNT1 = 8'h0000000D;
-assign SRCCR  = 8'h00007000;
+assign SRCCR1 = 8'h00007000;
+assign SCR1 = 8'h00000085;
+//STCR pg 565;
 
 wire [19:0] left_in_data, right_in_data, left_out_data, right_out_data;
 
