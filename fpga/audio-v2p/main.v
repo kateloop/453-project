@@ -31,12 +31,13 @@ assign SCR1 = 8'h00000085;
 wire [19:0] left_in_data, right_in_data, left_out_data, right_out_data;
 
 // instantiate the clock generation module
-CLOCK_GEN CLOCK_GEN 
-(
-SYSTEM_CLOCK,
-system_clock_buffered,
-reset
-);
+CLOCK_GEN CLOCK_GEN (
+      // Inputs
+      .SYSTEM_CLOCK(SYSTEM_CLOCK),
+      // Outputs
+      .system_clock_buffered(system_clock_buffered),
+      .reset(reset)
+      );
 
 // Audio module
 audio audio0 (

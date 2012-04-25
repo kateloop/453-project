@@ -1,10 +1,10 @@
-module CLOCK_GEN 
-(
-SYSTEM_CLOCK,
-
-system_clock_buffered,
-reset
-);
+module CLOCK_GEN (
+      // inputs
+      SYSTEM_CLOCK,
+      // outputs
+      system_clock_buffered,
+      reset
+      );
 
 input			SYSTEM_CLOCK;			// 100MHz LVTTL SYSTEM CLOCK
 

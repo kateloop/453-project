@@ -1,0 +1,1 @@
+xst -intstyle ise -filter "C:/vmware-shared/dak-project/453-project/fpga/Audio/iseconfig/filter.filter" -ifn "C:/vmware-shared/dak-project/453-project/fpga/Audio/audio.xst" -ofn "C:/vmware-shared/dak-project/453-project/fpga/Audio/audio.syr" 

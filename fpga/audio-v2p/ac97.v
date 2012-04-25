@@ -113,7 +113,6 @@ module ac97 (
       ac97_synch,  
       ready
 		);
-
    
    input [7:0] command_address;
    input [15:0] command_data;
@@ -141,8 +140,6 @@ module ac97 (
    reg l_cmd_v, l_left_v, l_right_v;
    reg [19:0] left_in_data, right_in_data;
 
-
-
    always @(posedge ac97_bit_clock) begin
       // Generate the sync signal
 		if (reset)
@@ -165,20 +162,20 @@ module ac97 (
 		end
 		else
 			begin
-	      if (bit_count == 255)
+	      if (bit_count == 8'd255)
 	        ac97_synch <= 1'b1;
-	      if (bit_count == 15)
+	      if (bit_count == 8'd15)
 	        ac97_synch <= 1'b0;
 
 	      // Generate the ready signal
-	      if (bit_count == 128)
+	      if (bit_count == 8'd128)
 	        ready <= 1'b1;
-	      if (bit_count == 2)
+	      if (bit_count == 8'd2)
 	        ready <= 1'b0;
 
 	      // Latch user data at the end of each frame. This ensures that the
 	      // first frame after reset will be empty.
-	      if (bit_count == 255)
+	      if (bit_count == 8'd255)
 	        begin
 	           l_cmd_addr <= {command_address, 12'h000};
 	           l_cmd_data <= {command_data, 4'h0};
@@ -189,32 +186,32 @@ module ac97 (
 	           l_right_v <= right_valid;
 	        end
 
-	      if ((bit_count >= 0) && (bit_count <= 15))
+	      if ((bit_count >= 8'd0) && (bit_count <= 8'd15))
 	        // Slot 0: Tags
 	        case (bit_count[3:0])
 	          4'h0: ac97_sdata_out <= 1'b1;      // Frame valid
 	          4'h1: ac97_sdata_out <= l_cmd_v;   // Command address valid
 	          4'h2: ac97_sdata_out <= l_cmd_v;   // Command data valid
 	          4'h3: ac97_sdata_out <= l_left_v;  // Left data valid
-		  4'h4: ac97_sdata_out <= l_right_v; // Right data valid
+             4'h4: ac97_sdata_out <= l_right_v; // Right data valid
 	          default: ac97_sdata_out <= 1'b0;
 	        endcase
 
-	      else if ((bit_count >= 16) && (bit_count <= 35))
+	      else if ((bit_count >= 8'd16) && (bit_count <= 8'd35))
 	        // Slot 1: Command address (8-bits, left justified)
 	        ac97_sdata_out <= l_cmd_v ? l_cmd_addr[35-bit_count] : 1'b0;
 
-	      else if ((bit_count >= 36) && (bit_count <= 55))
+	      else if ((bit_count >= 8'd36) && (bit_count <= 8'd55))
 	        // Slot 2: Command data (16-bits, left justified)
 	        ac97_sdata_out <= l_cmd_v ? l_cmd_data[55-bit_count] : 1'b0;
 
-	      else if ((bit_count >= 56) && (bit_count <= 75))
+	      else if ((bit_count >= 8'd56) && (bit_count <= 8'd75))
 	        begin
 	           // Slot 3: Left channel
 	           ac97_sdata_out <= l_left_v ? l_left_data[19] : 1'b0;
 	           l_left_data <= { l_left_data[18:0], l_left_data[19] };
 	        end
-	      else if ((bit_count >= 76) && (bit_count <= 95))
+	      else if ((bit_count >= 8'd76) && (bit_count <= 8'd95))
 	        // Slot 4: Right channel
 	           ac97_sdata_out <= l_right_v ? l_right_data[95-bit_count] : 1'b0;
 	      else
@@ -225,14 +222,13 @@ module ac97 (
    end // always @ (posedge ac97_bit_clock)
 
    always @(negedge ac97_bit_clock) begin
-      if ((bit_count >= 57) && (bit_count <= 76))
+      if ((bit_count >= 8'd57) && (bit_count <= 8'd76))
         // Slot 3: Left channel
         left_in_data <= { left_in_data[18:0], ac97_sdata_in };
-      else if ((bit_count >= 77) && (bit_count <= 96))
+      else if ((bit_count >= 8'd77) && (bit_count <= 8'd96))
         // Slot 4: Right channel
         right_in_data <= { right_in_data[18:0], ac97_sdata_in };
    end
-
 endmodule
 
 // issue initialization commands to AC97
@@ -254,7 +250,6 @@ module ac97commands (
    output [15:0] command_data;
    output command_valid;
 	
-
    reg [23:0] command = 0;
    reg command_valid = 0;
 
