@@ -11,7 +11,7 @@
 #define SRX0   *(volatile unsigned long*) 0x10010008  // SSI Receive Data Reg 0
 #define SRX1   *(volatile unsigned long*) 0x1001000c  // SSI Receive Data Reg 1
 #define SCR    *(volatile unsigned long*) 0x10010010  // SSI Control Reg
-#define SISR   *(volatile unsigned long*) 0x10010014  // SSI Interrupt Status Reg	
+#define SISR   *(volatile unsigned long*) 0x10010014  // SSI Interrupt Status Reg; read-only	
 #define SIER   *(volatile unsigned long*) 0x10010018  // SSI Interrupt Enable Reg
 #define STCR   *(volatile unsigned long*) 0x1001001c  // SSI Transmit Config Reg
 #define SRCR   *(volatile unsigned long*) 0x10010020  // SSI Receive Config Reg
