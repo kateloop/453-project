@@ -74,9 +74,6 @@
 <msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">ACC_PORT_PIN&lt;42:15&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0000000000000000000000000000</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1305" delta="old" >Output &lt;<arg fmt="%s" index="1">ACC_PORT_PIN&lt;9&gt;</arg>&gt; is never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
-</msg>
-
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">CPLD_RS1_B</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
@@ -940,16 +937,7 @@ You should achieve better results by setting this init to <arg fmt="%i" index="3
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/left_in_data_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt;.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_4&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_13&gt; &lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_6&gt; &lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_5&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_8&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MASTER/FPGAaudio/audio0/ac97/l_cmd_data_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ece453_top_level</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MASTER/FPGAaudio/audio0/ac97/l_cmd_data_10&gt; </arg>
+<msg type="error" file="Xst" num="2035" delta="new" >Port &lt;<arg fmt="%s" index="1">FPGA_CLK1</arg>&gt; has illegal connections. This port is connected to an input buffer and other components.
 </msg>
 
 </messages>

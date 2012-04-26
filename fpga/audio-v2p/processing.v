@@ -29,7 +29,7 @@ module processing(
 	// square wave on left channel
 	always @ (posedge clock) begin
 		counter <= counter + 1;
-		right_out[15] <= counter[10];
+		left_out[15] <= counter[10];
       if (counter == 1023)
 		LED <= LED << 1;
 		if (LED == 8'b0) LED <= 8'b1;

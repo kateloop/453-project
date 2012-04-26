@@ -113,8 +113,8 @@ module ece453_master_module(
 	 
 	 main FPGAaudio(
             // inputs
-				.SYSTEM_CLOCK(FPGA_CLK1),  //should this be the FPGA clock instead?
-				.ac97_bit_clock(AC97_BIT_CLK),	
+				.SYSTEM_CLOCK(FPGA_CLK1),  
+				.ac97_bit_clock(AC97_BIT_CLK),	// Inputing the AC97_BIT_CLK -- SET??
 				.ac97_sdata_in(AC97_SDATA_IN),
             // outputs
 				.ac97_sdata_out(AC97_SDATA_OUT),	
@@ -123,7 +123,7 @@ module ece453_master_module(
 				.LED(LED[7:0])
 				);
 		
-		//assign ACC_PORT_PIN[9] = FPGA_CLK1;
+	//	assign ACC_PORT_PIN[9] = FPGA_CLK1;
 		assign ACC_PORT_PIN[10] = AC97_BIT_CLK;
 		assign ACC_PORT_PIN[11] = AC97_SDATA_IN;
 		assign ACC_PORT_PIN[12] = AC97_SDATA_OUT;

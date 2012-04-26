@@ -4,13 +4,13 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Reading design: ece453_top_level.prj
 
@@ -320,7 +320,6 @@ WARNING:Xst:647 - Input <ARM_BE_B> is never used. This port will be preserved an
 WARNING:Xst:2563 - Inout <PIO<64>> is never assigned. Tied to value Z.
 WARNING:Xst:2563 - Inout <PIO<59>> is never assigned. Tied to value Z.
 WARNING:Xst:1305 - Output <ACC_PORT_PIN<42:15>> is never assigned. Tied to value 0000000000000000000000000000.
-WARNING:Xst:1305 - Output <ACC_PORT_PIN<9>> is never assigned. Tied to value 0.
 WARNING:Xst:647 - Input <CPLD_RS1_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2563 - Inout <ARM_D<5>> is never assigned. Tied to value Z.
 WARNING:Xst:1305 - Output <PIO_DIR0> is never assigned. Tied to value 0.
@@ -789,261 +788,21 @@ WARNING:Xst:2677 - Node <MASTER/FPGAaudio/audio0/ac97/left_in_data_1> of sequent
 WARNING:Xst:2677 - Node <MASTER/FPGAaudio/audio0/ac97/left_in_data_0> of sequential type is unconnected in block <ece453_top_level>.
 
 Mapping all equations...
-Building and optimizing final netlist ...
-INFO:Xst:2261 - The FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_12> in Unit <ece453_top_level> is equivalent to the following FF/Latch, which will be removed : <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_4> 
-INFO:Xst:2261 - The FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_14> in Unit <ece453_top_level> is equivalent to the following 3 FFs/Latches, which will be removed : <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_13> <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_6> <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_5> 
-INFO:Xst:2261 - The FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_16> in Unit <ece453_top_level> is equivalent to the following FF/Latch, which will be removed : <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_8> 
-INFO:Xst:2261 - The FF/Latch <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_19> in Unit <ece453_top_level> is equivalent to the following FF/Latch, which will be removed : <MASTER/FPGAaudio/audio0/ac97/l_cmd_data_10> 
-Found area constraint ratio of 100 (+ 5) on block ece453_top_level, actual ratio is 0.
-FlipFlop MASTER/FPGAaudio/audio0/ac97/bit_count_2 has been replicated 1 time(s)
-FlipFlop MASTER/FPGAaudio/audio0/ac97/bit_count_3 has been replicated 1 time(s)
-
-Final Macro Processing ...
-
-=========================================================================
-Final Register Report
-
-Macro Statistics
-# Registers                                            : 97
- Flip-Flops                                            : 97
-
-=========================================================================
-
-=========================================================================
-*                           Partition Report                            *
-=========================================================================
-
-Partition Implementation Status
--------------------------------
-
-  No Partitions were found in this design.
-
--------------------------------
-
-=========================================================================
-*                            Final Report                               *
-=========================================================================
-Final Results
-RTL Top Level Output File Name     : ece453_top_level.ngr
-Top Level Output File Name         : ece453_top_level
-Output Format                      : NGC
-Optimization Goal                  : Speed
-Keep Hierarchy                     : No
-
-Design Statistics
-# IOs                              : 362
-
-Cell Usage :
-# BELS                             : 210
-#      GND                         : 1
-#      INV                         : 7
-#      LUT1                        : 26
-#      LUT2                        : 37
-#      LUT2_L                      : 3
-#      LUT3                        : 18
-#      LUT3_D                      : 1
-#      LUT3_L                      : 2
-#      LUT4                        : 33
-#      LUT4_D                      : 5
-#      LUT4_L                      : 8
-#      MUXCY                       : 26
-#      MUXF5                       : 9
-#      MUXF6                       : 3
-#      MUXF7                       : 1
-#      VCC                         : 1
-#      XORCY                       : 29
-# FlipFlops/Latches                : 97
-#      FD                          : 20
-#      FDE                         : 38
-#      FDR                         : 16
-#      FDRE                        : 20
-#      FDRS                        : 2
-#      FDSE                        : 1
-# Shift Registers                  : 1
-#      SRL16                       : 1
-# Clock Buffers                    : 2
-#      BUFG                        : 2
-# IO Buffers                       : 289
-#      IBUF                        : 2
-#      IBUFG                       : 1
-#      OBUF                        : 148
-#      OBUFT                       : 138
-# DCMs                             : 1
-#      DCM                         : 1
-=========================================================================
-
-Device utilization summary:
----------------------------
-
-Selected Device : 3s1500fg676-5 
-
- Number of Slices:                       83  out of  13312     0%  
- Number of Slice Flip Flops:             97  out of  26624     0%  
- Number of 4 input LUTs:                141  out of  26624     0%  
-    Number used as logic:               140
-    Number used as Shift registers:       1
- Number of IOs:                         362
- Number of bonded IOBs:                 289  out of    487    59%  
- Number of GCLKs:                         2  out of      8    25%  
- Number of DCMs:                          1  out of      4    25%  
-
----------------------------
-Partition Resource Summary:
----------------------------
-
-  No Partitions were found in this design.
-
----------------------------
+ERROR:Xst:2035 - Port <FPGA_CLK1> has illegal connections. This port is connected to an input buffer and other components.
+Input Buffer:
+   Port <I> of node <MASTER/FPGAaudio/CLOCK_GEN/SYSTEM_CLOCK_BUF> (IBUFG) in unit <ece453_top_level>
+Other Components:
+   Port <ACC_PORT_PIN<9>> of unit <ece453_top_level> 
 
 
-=========================================================================
-TIMING REPORT
-
-NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
-      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
-      GENERATED AFTER PLACE-and-ROUTE.
-
-Clock Information:
-------------------
------------------------------------+-------------------------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)                     | Load  |
------------------------------------+-------------------------------------------+-------+
-FPGA_CLK1                          | MASTER/FPGAaudio/CLOCK_GEN/SYSTEM_DCM:CLK0| 50    |
-AC97_BIT_CLK                       | IBUF+BUFG                                 | 48    |
------------------------------------+-------------------------------------------+-------+
-
-Asynchronous Control Signals Information:
-----------------------------------------
-No asynchronous control signals found in this design
-
-Timing Summary:
----------------
-Speed Grade: -5
-
-   Minimum period: 7.874ns (Maximum Frequency: 126.999MHz)
-   Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 6.306ns
-   Maximum combinational path delay: 6.369ns
-
-Timing Detail:
---------------
-All values displayed in nanoseconds (ns)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'FPGA_CLK1'
-  Clock period: 5.288ns (frequency: 189.113MHz)
-  Total number of paths / destination ports: 454 / 82
--------------------------------------------------------------------------
-Delay:               5.288ns (Levels of Logic = 2)
-  Source:            MASTER/FPGAaudio/processing0/LED_7 (FF)
-  Destination:       MASTER/FPGAaudio/processing0/LED_7 (FF)
-  Source Clock:      FPGA_CLK1 rising
-  Destination Clock: FPGA_CLK1 rising
-
-  Data Path: MASTER/FPGAaudio/processing0/LED_7 to MASTER/FPGAaudio/processing0/LED_7
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDRE:C->Q             2   0.626   1.040  MASTER/FPGAaudio/processing0/LED_7 (MASTER/FPGAaudio/processing0/LED_7)
-     LUT4:I0->O            1   0.479   0.851  MASTER/FPGAaudio/processing0/LED_cmp_eq000125 (MASTER/FPGAaudio/processing0/LED_cmp_eq000125)
-     LUT2:I1->O            8   0.479   0.921  MASTER/FPGAaudio/processing0/LED_cmp_eq000126 (MASTER/FPGAaudio/processing0/LED_not0001_inv)
-     FDSE:S                    0.892          MASTER/FPGAaudio/processing0/LED_0
-    ----------------------------------------
-    Total                      5.288ns (2.476ns logic, 2.812ns route)
-                                       (46.8% logic, 53.2% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'AC97_BIT_CLK'
-  Clock period: 7.874ns (frequency: 126.999MHz)
-  Total number of paths / destination ports: 1396 / 70
--------------------------------------------------------------------------
-Delay:               7.874ns (Levels of Logic = 4)
-  Source:            MASTER/FPGAaudio/audio0/ac97/bit_count_1 (FF)
-  Destination:       MASTER/FPGAaudio/audio0/ac97/l_left_data_19 (FF)
-  Source Clock:      AC97_BIT_CLK rising
-  Destination Clock: AC97_BIT_CLK rising
-
-  Data Path: MASTER/FPGAaudio/audio0/ac97/bit_count_1 to MASTER/FPGAaudio/audio0/ac97/l_left_data_19
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDR:C->Q             12   0.626   1.245  MASTER/FPGAaudio/audio0/ac97/bit_count_1 (MASTER/FPGAaudio/audio0/ac97/bit_count_1)
-     LUT3:I0->O            1   0.479   0.704  MASTER/FPGAaudio/audio0/ac97/l_left_data_not00012_SW0 (N0)
-     LUT4:I3->O            5   0.479   0.806  MASTER/FPGAaudio/audio0/ac97/l_left_data_not00012 (MASTER/FPGAaudio/audio0/ac97/l_cmd_v_cmp_eq0000)
-     LUT4:I3->O            1   0.479   0.740  MASTER/FPGAaudio/audio0/ac97/l_left_data_not00018 (MASTER/FPGAaudio/audio0/ac97/l_left_data_not00018)
-     LUT4:I2->O           20   0.479   1.313  MASTER/FPGAaudio/audio0/ac97/l_left_data_not000168 (MASTER/FPGAaudio/audio0/ac97/l_left_data_not0001)
-     FDE:CE                    0.524          MASTER/FPGAaudio/audio0/ac97/l_left_data_0
-    ----------------------------------------
-    Total                      7.874ns (3.066ns logic, 4.808ns route)
-                                       (38.9% logic, 61.1% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'AC97_BIT_CLK'
-  Total number of paths / destination ports: 4 / 4
--------------------------------------------------------------------------
-Offset:              6.306ns (Levels of Logic = 1)
-  Source:            MASTER/FPGAaudio/audio0/ac97/ac97_synch (FF)
-  Destination:       AC97_SYNC (PAD)
-  Source Clock:      AC97_BIT_CLK rising
-
-  Data Path: MASTER/FPGAaudio/audio0/ac97/ac97_synch to AC97_SYNC
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDRS:C->Q             3   0.626   0.771  MASTER/FPGAaudio/audio0/ac97/ac97_synch (MASTER/FPGAaudio/audio0/ac97/ac97_synch)
-     OBUF:I->O                 4.909          AC97_SYNC_OBUF (AC97_SYNC)
-    ----------------------------------------
-    Total                      6.306ns (5.535ns logic, 0.771ns route)
-                                       (87.8% logic, 12.2% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'FPGA_CLK1'
-  Total number of paths / destination ports: 10 / 10
--------------------------------------------------------------------------
-Offset:              6.306ns (Levels of Logic = 1)
-  Source:            MASTER/FPGAaudio/processing0/LED_6 (FF)
-  Destination:       LED<6> (PAD)
-  Source Clock:      FPGA_CLK1 rising
-
-  Data Path: MASTER/FPGAaudio/processing0/LED_6 to LED<6>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDRE:C->Q             3   0.626   0.771  MASTER/FPGAaudio/processing0/LED_6 (MASTER/FPGAaudio/processing0/LED_6)
-     OBUF:I->O                 4.909          LED_6_OBUF (LED<6>)
-    ----------------------------------------
-    Total                      6.306ns (5.535ns logic, 0.771ns route)
-                                       (87.8% logic, 12.2% route)
-
-=========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Delay:               6.369ns (Levels of Logic = 2)
-  Source:            AC97_BIT_CLK (PAD)
-  Destination:       ACC_PORT_PIN<10> (PAD)
-
-  Data Path: AC97_BIT_CLK to ACC_PORT_PIN<10>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             2   0.715   0.745  AC97_BIT_CLK_IBUF (AC97_BIT_CLK_IBUF1)
-     OBUF:I->O                 4.909          ACC_PORT_PIN_10_OBUF (ACC_PORT_PIN<10>)
-    ----------------------------------------
-    Total                      6.369ns (5.624ns logic, 0.745ns route)
-                                       (88.3% logic, 11.7% route)
-
-=========================================================================
-
-
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.63 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.73 secs
  
 --> 
 
-Total memory usage is 253648 kilobytes
+Total memory usage is 252496 kilobytes
 
-Number of errors   :    0 (   0 filtered)
-Number of warnings :  299 (   0 filtered)
-Number of infos    :   16 (   0 filtered)
+Number of errors   :    1 (   0 filtered)
+Number of warnings :  298 (   0 filtered)
+Number of infos    :   12 (   0 filtered)
 
