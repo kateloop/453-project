@@ -1,14 +1,14 @@
-PROGRAM_NAME = my_ssi
-SRC_FILES = testProg.c
+PROGRAM_NAME = my_program
+SRC_FILES = uart-linux.c
 
 CROSS_COMPILE ?= arm-none-linux-gnueabi-
-OBJ_FILES = my_ssi.o
+OBJ_FILES = $(SRC_FILES:%.c=%.o)
 DEP_FILES = $(SRC_FILES:%.c=%.d)
 
 $(PROGRAM_NAME): $(OBJ_FILES)
 	$(CROSS_COMPILE)gcc -o $@ $?
 
-my_ssi.o: testProg.c ssiAddr.h
+%.o: %.c
 	$(CROSS_COMPILE)gcc -M -c -o $*.d $<
 	$(CROSS_COMPILE)gcc -c -o $@ $<
 
