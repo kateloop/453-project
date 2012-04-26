@@ -18,6 +18,9 @@
 #define FVOP_ANDMASK   0x0010		 // AND with SACNT Reg to set up fixed variable mode
 
 // pg 596 -- VERY IMPORTANT
+// configure SSI as SSI synchronous slave, AC97 provides serial bit clock
+
+
 
 void main (int argc, char** argv) {
 	// NOTE: We are ONLY writing data for transmission
@@ -43,6 +46,9 @@ void main (int argc, char** argv) {
 	SACNT &= FVOP_ANDMASK;
 	
 	// Update SACADD, SACDAT, SATAG - I don't think we need to worry about these...they might be for interrupts
+	// For Fixed Mode: (pg 596) 
+	// TODO: To transmit, select frame rate (SACNT[10:5]
+	// 	At start of appropriate frames, tag(slot #0), command addr(slot #1), command data(slot #2), and two data samples from TxFIFO are transmitted(slots #3, #4)
 	// SACADD - command address
 	// SACDAT - command data 
 	// SATAG - 	AC97 Tag Register
