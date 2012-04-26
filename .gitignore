@@ -39,3 +39,5 @@ demo
 *.xmsgs
 *.lso
 *~
+*.swp
+*.tcl
