@@ -126,7 +126,7 @@ void adc_conversion();
 
 // Oscillator Frequency
 //#define FOSC 8000000L // 8MHz
-#define FOSC 20000000L // 20 MHZ
+#define FOSC 8000000L // 8 MHZ
 #define CLK_8MHZ 0b01110010
 
 
@@ -164,28 +164,18 @@ int main(int argc, char** argv) {
     OSCCON |= 0b00000010;
 
     // configure ADC
-//    ADCON0 = ADCON0_INIT;
-//    ADCON1 = ADCON1_VAL;
-//    ADCON2 = ADCON2_VAL;
-//    ADCON2 = 0b10100000;  // Right Justified, 8TAD, Fosc/2
-//    adc_num = ADCCHANA; // reset the current adc channel to 0
+    ADCON0 = ADCON0_INIT;
+    ADCON1 = ADCON1_VAL;
+    ADCON2 = ADCON2_VAL;
+    ADCON2 = 0b10100000;  // Right Justified, 8TAD, Fosc/2
+    adc_num = ADCCHANA; // reset the current adc channel to 0
 
     // set up GPIO
-//    TRISA = PORTA_DIR;
+    TRISA = PORTA_DIR;
     TRISB = PORTB_DIR;
-//    TRISC = PORTC_DIR;
-
-    TRISC = 0b10000000;
+    TRISC = PORTC_DIR;
 
     // configure interrupt
-
-    // UART configuration  TODO check values
-  /*  BAUDCON = UART_BAUD; //16-bit baud rate generator, no auto-baud detect
-    SPBRGH:SPBRG = SPBRGH_SPBRG;
-    TXSTA |= UART_TENABLE; //8-bit transmission, transmit enabled, send sync break, high speed baud rate
-    RCSTA |= UART_RENABLE; //serial port enabled, enables receiver
-    SPEN = 1;
-    */
 
     
 //	INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
@@ -204,47 +194,33 @@ int main(int argc, char** argv) {
    // ADON = 1;
    // ADC_INT_ENABLE();
     
-
-      // spin
-//        if (GODONE == 0) {
-            // ADC Conversion Complete; Toggle LEDs accordingly
-  //          ToggleLeds();
-  //      }
-
-        // TODO anything else ?
-
-        // UART STUFF
-
         // UART config
- 
-          SPBRGH  = SPBRGH_SPBRG >> 8;
- //       SPBRGH = 0b00000000;
- //       SPBRG = 0b100000011;  //d259
-          SPBRG =  SPBRGH_SPBRG;
-   //     TXSTA   = 0b00101000;
-          BAUDCON = 0b00001000;
- //       BAUDCON = 0b00000000;
-          RCSTA = 0b10010000;
-          TXSTA = 0b00100000;
+        SPBRGH  = SPBRGH_SPBRG >> 8;
+        SPBRG =  SPBRGH_SPBRG;
+        BAUDCON = 0b00001000;
+        RCSTA = 0b10010000;
+        TXSTA = 0b00100000;
 
-       // TXREG = 0;
-           /*
-           while (TRMT == 0) {
-                LATB = 0b00000000;
-                DelayMs(20);
-                LATB = 0b00100000;
-                DelayMs(20);
-                continue;
-            }
- */
         while (1)
         {
+            
            // LATB = 0b00000000;
           //  DelayMs(20);
             TXREG = 'a';
             while ((PIR1 & 0b00010000) ==0);
            // LATB = 0b00100000;
           //  DelayMs(20);
+
+            while ((PIR1 & 0b00100000) == 0) {
+                LATB = 0b00100000;
+                DelayMs(20);
+                LATB = 0b00000000;
+                DelayMs(20);
+            }
+
+        //    if (RCREG == 'a') {
+        //
+        //    }
         }
         /*while (1) {
             unsigned char tx = 'a';

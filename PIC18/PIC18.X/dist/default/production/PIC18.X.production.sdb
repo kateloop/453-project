@@ -4,33 +4,35 @@
 [d chip 18F2682 ]
 "139 ../code/main.c
 [s S24 _ADC_conv 4 `i 1 result 2 0 `i 1 adc_channel 2 2 ]
-[s S66 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[s S71 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S72 USART 1 `uc 1 val 1 0 `S66 1 . 1 0 ]
-[s S110 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[u S77 USART 1 `uc 1 val 1 0 `S71 1 . 1 0 ]
+[s S115 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S116 USART 1 `uc 1 val 1 0 `S66 1 . 1 0 ]
+[u S121 USART 1 `uc 1 val 1 0 `S71 1 . 1 0 ]
 "8641 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
-[s S128 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[s S133 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S134 USART 1 `uc 1 val 1 0 `S66 1 . 1 0 ]
+[u S139 USART 1 `uc 1 val 1 0 `S71 1 . 1 0 ]
 "162 ../code/main.c
 [v _main `(i  1 e 2 0 ]
-"306
+"282
 [v _ToggleLeds `(v  1 e 0 0 ]
-"136
+"12 delay.c
+[v _DelayMs `(v  1 e 0 0 ]
+"136 ../code/main.c
 [v _led_array `[13]i  1 e 26 @0 ]
 "138
 [v _uart_out `uc  1 e 1 @49 ]
@@ -82,6 +84,8 @@
 [v _LATB `Vuc  1 e 1 @3978 ]
 "8127
 [v _LATC `Vuc  1 e 1 @3979 ]
+"8151
+[v _TRISA `Vuc  1 e 1 @3986 ]
 "8194
 [v _TRISB `Vuc  1 e 1 @3987 ]
 "8237
@@ -118,6 +122,10 @@
 [v _SPBRGH `Vuc  1 e 1 @4016 ]
 "8766
 [v _BAUDCON `Vuc  1 e 1 @4024 ]
+"8831
+[v _ADCON2 `Vuc  1 e 1 @4032 ]
+"8858
+[v _ADCON1 `Vuc  1 e 1 @4033 ]
 "8882
 [v _ADCON0 `Vuc  1 e 1 @4034 ]
 "8884
@@ -131,21 +139,32 @@
 "9270
 [v _OSCCON `Vuc  1 e 1 @4051 ]
 "6 udefs.c
-[v _USART_Status `S72  1 e 1 @48 ]
+[v _USART_Status `S77  1 e 1 @48 ]
 "162 ../code/main.c
 [v _main `(i  1 e 2 0 ]
 {
-"289
+"265
 [v _channel `uc  1 a 1 0 ]
-"288
+"264
 [v _result `i  1 a 2 1 ]
 "162
 [v _argc `i  1 p 2 0 ]
 [v _argv `*.M*.Muc  1 p 2 2 ]
-"298
+"274
 } 3
-"306
+"282
 [v _ToggleLeds `(v  1 e 0 0 ]
 {
-"365
+"341
 } 0
+"12 delay.c
+[v _DelayMs `(v  1 e 0 0 ]
+{
+"20
+[v _i `uc  1 a 1 0 ]
+"24
+[v __dcnt `uc  1 a 1 1 ]
+"12
+[v _cnt `uc  1 p 1 0 ]
+"28
+} 2

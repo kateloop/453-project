@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\CCS\AppData\Local\Temp\s7fk.obj \
+  C:\Users\CCS\AppData\Local\Temp\s9f8.obj \
   dist/default/production\PIC18.X.production.obj 
 
 Object code version is 3.10
@@ -33,27 +33,30 @@ Machine type is 18F2682
 Call graph: (short form)
 
 *_main size 4,4 offset 0
-*    _ToggleLeds size 0,0 offset 8
+*    _DelayMs size 1,3 offset 8
+     _ToggleLeds size 0,0 offset 8
 
 Estimated maximum call depth: 1
 
 
                 Name          Link     Load   Length Selector Space Scale
-C:\Users\CCS\AppData\Local\Temp\s7fk.obj
+C:\Users\CCS\AppData\Local\Temp\s9f8.obj
                 end_init         C        C       12       0     0
                 init             0        0        C       0     0
                 config      300000   300000        E  300000     0
 dist/default/production\PIC18.X.production.obj
-                text0        13E78    13E78       76    9F3C     0
+                text2        13DD6    13DD6       48    9EEB     0
+                text0        13E1E    13E1E       D0    9F0F     0
                 text1        13EEE    13EEE      112    9F77     0
 
-COMMON          param1         100      100        8     100     1
+COMMON          param1         100      100        C     100     1
 
 TOTAL           Name          Link     Load   Length  Space
         CLASS   CODE           
                 end_init         C        C       12     0
                 init             0        0        C     0
-                text0        13E78    13E78       76     0
+                text2        13DD6    13DD6       48     0
+                text0        13E1E    13E1E       D0     0
                 text1        13EEE    13EEE      112     0
 
         CLASS   CONST          
@@ -74,7 +77,7 @@ TOTAL           Name          Link     Load   Length  Space
         CLASS   BANK0          
 
         CLASS   BANK1          
-                param1         100      100        8     1
+                param1         100      100        C     1
 
         CLASS   BANK2          
 
@@ -114,8 +117,9 @@ TOTAL           Name          Link     Load   Length  Space
 SEGMENTS        Name           Load    Length   Top     Selector    Space Class
 
                 reset_vec       000000  00001E  00001E         0       0  CODE    
-                param1          000100  000008  000108       100       1  BANK1   
-                text0           013E78  000076  013EEE      9F3C       0  CODE    
+                param1          000100  00000C  00010C       100       1  BANK1   
+                text2           013DD6  000048  013E1E      9EEB       0  CODE    
+                text0           013E1E  0000D0  013EEE      9F0F       0  CODE    
                 text1           013EEE  000112  014000      9F77       0  CODE    
                 config          300000  00000E  30000E    300000       0  CONFIG  
 
@@ -123,7 +127,7 @@ SEGMENTS        Name           Load    Length   Top     Selector    Space Class
 UNUSED ADDRESS RANGES
 
         BANK0            000041-0000FF
-        BANK1            000108-0001FF
+        BANK1            00010C-0001FF
         BANK10           000A00-000AFF
         BANK11           000B00-000BFF
         BANK12           000C00-000C9F
@@ -136,26 +140,33 @@ UNUSED ADDRESS RANGES
         BANK8            000800-0008FF
         BANK9            000900-0009FF
         BIGRAM           000041-0000FF
-                         000108-000C9F
-        CODE             00001E-013E77
+                         00010C-000C9F
+        CODE             00001E-013DD5
         COMRAM           000041-00005F
-        CONST            00001E-013E77
+        CONST            00001E-013DD5
         EEDATA           F00000-F003FF
         IDLOC            200000-200007
         MEDIUMCONST      000D00-00FFFF
-                         010D00-013E77
+                         010D00-013DD5
         NVRAM            000C00-000C9F
         RAM              000041-0000FF
-                         000108-000C9F
+                         00010C-000C9F
         SMALLCONST       000D00-003FFF
 
                                   Symbol Table
 
+??_DelayMs          param1       000109
 ??_ToggleLeds       param1       000108
 ??_main             param1       000104
+?_DelayMs           param1       000108
 ?_ToggleLeds        param1       000108
 ?_main              param1       000100
+DelayMs@_dcnt       param1       00010A
+DelayMs@cnt         param1       000108
+DelayMs@i           param1       000109
 _ADCON0             (abs)        000FC2
+_ADCON1             (abs)        000FC1
+_ADCON2             (abs)        000FC0
 _ADON               (abs)        007E10
 _ADRES              (abs)        000FC3
 _ADRESH             (abs)        000FC4
@@ -164,6 +175,7 @@ _BAUDCON            (abs)        000FB8
 _BRGH_x             (abs)        007D62
 _CREN_x             (abs)        007D5C
 _CSRC_x             (abs)        007D67
+_DelayMs            text2        013DD6
 _FERR               (abs)        007D5A
 _GODONE             (abs)        007E11
 _LATA               (abs)        000F89
@@ -184,6 +196,7 @@ _SPBRGH             (abs)        000FB0
 _SPEN_x             (abs)        007D5F
 _SREN_x             (abs)        007D5D
 _SYNC_x             (abs)        007D64
+_TRISA              (abs)        000F92
 _TRISB              (abs)        000F93
 _TRISC              (abs)        000F94
 _TRISC6             (abs)        007CA6
@@ -202,8 +215,8 @@ __Bnvbit            nvbit        000041
 __Brbit             rbit         000041
 __HRAM              (abs)        000000
 __Habsbss0          (abs)        000041
-__Hbigbss           bigbss       000108
-__Hbigdata          bigdata      000108
+__Hbigbss           bigbss       00010C
+__Hbigdata          bigdata      00010C
 __Hbss              bss          000041
 __Hclrtext          clrtext      00001E
 __Hconfig           config       30000E
@@ -222,15 +235,15 @@ __Hintcode          intcode      000000
 __Hintcodelo        intcodelo    000000
 __Hintentry         intentry     00001E
 __Hintret           intret       00001E
-__Hintsave_regs     intsave_regs 000108
+__Hintsave_regs     intsave_regs 00010C
 __Hirdata           irdata       00001E
 __Hmediumconst      mediumconst  000D00
 __Hnvbit            nvbit        000208
 __Hnvram            nvram        00001E
 __Hnvrram           nvrram       000041
-__Hparam            param1       000108
+__Hparam            param1       00010C
 __Hparam0           param0       00001E
-__Hparam1           param1       000108
+__Hparam1           param1       00010C
 __Hparam10          param10      00001E
 __Hparam11          param11      00001E
 __Hparam12          param12      00001E
@@ -255,10 +268,11 @@ __Htemp             temp         000041
 __Htext             text         00001E
 __Htext0            text0        00001E
 __Htext1            text1        00001E
+__Htext2            text2        00001E
 __LRAM              (abs)        000001
 __Labsbss0          (abs)        000000
-__Lbigbss           bigbss       000108
-__Lbigdata          bigdata      000108
+__Lbigbss           bigbss       00010C
+__Lbigdata          bigdata      00010C
 __Lbss              bss          000041
 __Lclrtext          clrtext      00001E
 __Lconfig           config       300000
@@ -277,7 +291,7 @@ __Lintcode          intcode      000000
 __Lintcodelo        intcodelo    000000
 __Lintentry         intentry     00001E
 __Lintret           intret       00001E
-__Lintsave_regs     intsave_regs 000108
+__Lintsave_regs     intsave_regs 00010C
 __Lirdata           irdata       00001E
 __Lmediumconst      mediumconst  000D00
 __Lnvbit            nvbit        000208
@@ -310,6 +324,7 @@ __Ltemp             temp         000041
 __Ltext             text         00001E
 __Ltext0            text0        00001E
 __Ltext1            text1        00001E
+__Ltext2            text2        00001E
 __S0                (abs)        F00000
 __S1                (abs)        000C00
 __accesstop         (abs)        000060
@@ -321,6 +336,7 @@ __config4           (abs)        00FFFB
 __config5           (abs)        00FFFF
 __config6           (abs)        00FFFF
 __config7           (abs)        00FFFF
+__end_of_DelayMs    text2        013E1E
 __end_of_ToggleLeds text1        014000
 __end_of_main       text0        013EEE
 __mediumconst       mediumconst  000D00
@@ -333,7 +349,7 @@ _cur_inputs         (abs)        00001A
 _exit               init         000000
 _index              (abs)        000028
 _led_array          (abs)        000000
-_main               text0        013E78
+_main               text0        013E1E
 _prev_inputs        (abs)        000033
 _uart_in            (abs)        000032
 _uart_out           (abs)        000031

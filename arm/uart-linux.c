@@ -41,12 +41,12 @@ int main(int argc, char* argv[])
       goto error;
 
    /* read "man select" for more advanced/event driven reading */
-while (1)  {
+while (1)  
    write(fd, "a", 1);
    char buffer[64];
    read(fd, buffer, 64);
    printf(buffer);
-}
+
    close(fd);
 
    return 0;

@@ -9955,35 +9955,48 @@ int main(int argc, char** argv) {
 
 OSCCON |= 0b00000010;
 
-# 175
+
+ADCON0 = 0b00000000;
+ADCON1 = 0b00000101;
+ADCON2 = 0b10000000;
+ADCON2 = 0b10100000;
+adc_num = 0;
+
+
+TRISA = 0b10101111;
 TRISB = 0b00010010;
-
-
 TRISC = 0b10000000;
 
-# 220
-SPBRGH = (((20000000L/19200UL)/16) - 1) >> 8;
-
-
-SPBRG = (((20000000L/19200UL)/16) - 1);
-
+# 198
+SPBRGH = (((8000000L/19200UL)/16) - 1) >> 8;
+SPBRG = (((8000000L/19200UL)/16) - 1);
 BAUDCON = 0b00001000;
-
 RCSTA = 0b10010000;
 TXSTA = 0b00100000;
 
-# 240
 while (1)
 {
+
 
 
 TXREG = 'a';
 while ((PIR1 & 0b00010000) ==0);
 
 
+
+while ((PIR1 & 0b00100000) == 0) {
+LATB = 0b00100000;
+DelayMs(20);
+LATB = 0b00000000;
+DelayMs(20);
 }
 
-# 279
+
+
+
+}
+
+# 255
 while (0) {
 
 ToggleLeds();
@@ -9999,10 +10012,10 @@ char channel = index;
 
 }
 
-# 298
+# 274
 }
 
-# 306
+# 282
 void ToggleLeds () {
 
 LATA = 0;
@@ -10064,7 +10077,7 @@ LATA |= 0b00010000;
 }
 }
 
-# 384
+# 360
 ISR () {
 
 
@@ -10084,7 +10097,7 @@ change_val = 0;
 
 }
 
-# 409
+# 385
 void adc_conversion() {
 
 ADON = 0;
