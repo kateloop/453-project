@@ -1,6 +1,6 @@
-/* 
+/*
  * File:   main.c
- * Author: Katelyn
+ * Author: Katelyn <-Loser
  *
  * Created on March 29, 2012, 2:00 PM
  */
@@ -69,13 +69,14 @@ void adc_conversion();
 #define D_SEL_PORTA  0b01000000    // pin 10, RA6
 #define E_SEL_PORTC  0b00000001    // pin 11, RC0
 #define F_SEL_PORTC  0b00000010    // pin 12, RC1
-#define G_SEL_PORTB  0b10000000    // pin 28, RB7
-#define L3_SEL_PORTB 0b01000000    // pin 27, RB6
-#define R3_SEL_PORTB 0b00100000    // pin 26, RB5
-#define L4_SEL_PORTB 0b00001000    // pin 24, RB3
-#define R4_SEL_PORTB 0b00000001    // pin 21, RB0
-#define L5_SEL_PORTC 0b00100000    // pin 16, RC5
-#define R5_SEL_PORTC 0b00010000    // pin 15, RC4
+#define G_SEL_PORTB  0b11101001    // pin 28, RB7
+
+#define L3_SEL_PORTB 0b00111111    // pin 27, RB6
+#define R3_SEL_PORTB 0b01011111    // pin 26, RB5
+#define L4_SEL_PORTB 0b01110111    // pin 24, RB3
+#define R4_SEL_PORTB 0b01111110    // pin 21, RB0
+#define L5_SEL_PORTC 0b11011111    // pin 16, RC5
+#define R5_SEL_PORTC 0b11101111    // pin 15, RC4
 
 // PORT A Directions : Input == 1; Output == 0
     // RA7(ONLY INPUT) RA6(ONLY OUTPUT)  AN4 RA4 AN3 AN2 AN1 AN0
@@ -161,7 +162,8 @@ int index;
 
 int main(int argc, char** argv) {
     // Init Config
-    OSCCON |= 0b00000010;
+    //OSCCON |= 0b00000010;
+    OSCCON |= 0b01110010;  //internal oscillator, 8MHz
 
     // configure ADC
     ADCON0 = ADCON0_INIT;
@@ -178,22 +180,22 @@ int main(int argc, char** argv) {
     // configure interrupt
 
     
-//	INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
-//	INTCON2 = 0b00000000; //TODO no idea about this one
-//	INTCON3 = 0b00000000; //TODO no idea about this one
+//  INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
+//  INTCON2 = 0b00000000; //TODO no idea about this one
+//  INTCON3 = 0b00000000; //TODO no idea about this one
 
-	 /*TODO testing UART:  The UART pins on the TLL6219 are pins 13-16 on the GPIO connector Chris 		suggests taking these steps:
-			1. send a bunch of A's from the PIC and see if they print out on the screen; if they do, you have UART communication!
-			2. send relevant (non-character) data from the PIC and enable raw data part of uart code so it prints right 
-			3.send data from the Arm and either echo it back and have it print out or use scope
-			Chris said he is more than willing to reiterate these steps later.  Also, the scope should looks like it's going crazy when 				we send A's, so that's a good indication of whether or not we have it working. He also said to assume that the problem is 				with the PIC code.....let's hope he's right about that.
-	*/
-    
+     /*TODO testing UART:  The UART pins on the TLL6219 are pins 13-16 on the GPIO connector Chris      suggests taking these steps:
+            1. send a bunch of A's from the PIC and see if they print out on the screen; if they do, you have UART communication!
+            2. send relevant (non-character) data from the PIC and enable raw data part of uart code so it prints right
+            3.send data from the Arm and either echo it back and have it print out or use scope
+            Chris said he is more than willing to reiterate these steps later.  Also, the scope should looks like it's going crazy when                 we send A's, so that's a good indication of whether or not we have it working. He also said to assume that the problem is               with the PIC code.....let's hope he's right about that.
+    */
+
 
     // Turn on ADC and enable interrupts
    // ADON = 1;
    // ADC_INT_ENABLE();
-    
+
         // UART config
         SPBRGH  = SPBRGH_SPBRG >> 8;
         SPBRG =  SPBRGH_SPBRG;
@@ -201,27 +203,34 @@ int main(int argc, char** argv) {
         RCSTA = 0b10010000;
         TXSTA = 0b00100000;
 
-        while (1)
-        {
-            
-           // LATB = 0b00000000;
-          //  DelayMs(20);
-            TXREG = 'a';
-            while ((PIR1 & 0b00010000) ==0);
-           // LATB = 0b00100000;
-          //  DelayMs(20);
+        LATB = 0b00000000;
 
-            while ((PIR1 & 0b00100000) == 0) {
+     //   while (1)
+     //   {
+     //       ToggleLeds();
+   //      LATB = 0b00000000;
+   //       DelayMs(20);
+  //         TXREG = 'a';
+   //        while ((PIR1 & 0b00010000) ==0);
+        //  LATB = 0b00100000;
+        //   DelayMs(20);
+
+         /*   while ((PIR1 & 0b00100000) == 0) {
                 LATB = 0b00100000;
                 DelayMs(20);
                 LATB = 0b00000000;
                 DelayMs(20);
             }
-
-        //    if (RCREG == 'a') {
-        //
-        //    }
-        }
+*/
+           //while ((PIR1 & 0b00100000) == 0);
+      //    if (RCREG == 'a') {
+      //          LATB = 0b00100000;
+      //          DelayMs(20);
+      //          LATB = 0b00000000;
+      //          DelayMs(20);
+      //      }
+            
+  //      }
         /*while (1) {
             unsigned char tx = 'a';
              WriteUSART(tx);
@@ -266,6 +275,25 @@ int main(int argc, char** argv) {
         // TODO send result and channel across UART
         
     }
+        
+        ToggleLeds();
+        /*
+// Enabled by 0
+#define A_SEL_PORTC  0b00000100    // pin 13, RC2
+#define B_SEL_PORTC  0b00001000    // pin 14, RC3
+#define C_SEL_PORTA  0b00010000    // pin 6, RA4
+#define D_SEL_PORTA  0b01000000    // pin 10, RA6
+#define E_SEL_PORTC  0b00000001    // pin 11, RC0
+#define F_SEL_PORTC  0b00000010    // pin 12, RC1
+#define G_SEL_PORTB  0b11101001    // pin 28, RB7
+
+// Enabled by 1
+#define L3_SEL_PORTB 0b00111111    // pin 27, RB6
+#define R3_SEL_PORTB 0b01011111    // pin 26, RB5
+#define L4_SEL_PORTB 0b01110111    // pin 24, RB3
+#define R4_SEL_PORTB 0b01111110    // pin 21, RB2
+#define L5_SEL_PORTC 0b11011111    // pin 16, RC5
+#define R5_SEL_PORTC 0b11101111    // pin 15, RC4*/
 
 
 
@@ -279,65 +307,573 @@ int main(int argc, char** argv) {
 //  notes being played.                     //
 //////////////////////////////////////////////
 
+// N channels enabled by 1
+// P channels enabled by 0
 void ToggleLeds () {
-    // Reset All Ports to 0 to turn off all LEDs
-    LATA = 0;
-    LATB = 0;
-    LATC = 0;
 
     // Look at array containing LED Info and toggle LEDs accordingly
-    if (led_array[0] == 1) {
-        // Octtave 5 Right LED is on
-        LATC |= R5_SEL_PORTC;
+
+    // Octave 3
+    if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
+        // Octave 3 L & R LED on; C
+        //FIXME 3G L&R also turns on...
+        //LATA   -P-P----
+        LATA = 0b11101111;
+        //LATB   PNN-NN--
+        LATB = 0b1110000;
+        //LATB   --NNPPPP
+        LATC = 0b00000111;
+    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
+        // Octave 3 L & R LED on; D
+        //LATA   -P-P----
+        LATA = 0b10111111;
+        //LATB   PNN-NN--
+        LATB = 0b11100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[8] == 1) {
+        // Octave 3 L & R LED on; E
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b11100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001110;     
+    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[9] == 1) {
+        // Octave 3 L & R LED on; F
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b11100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001101;
+    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[10] == 1) {
+        // Octave 3 L & R LED on; G
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b01100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[11] == 1) {
+        // Octave 3 L & R LED on; A
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b11100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001011;
+    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[12] == 1) {
+       // Octave 5 3 & R LED on; B
+       //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b11100000;
+        //LATB   --NNPPPP
+        LATC = 0b00000111;
+
+    } else if (led_array[4] == 1 && led_array[6] == 1) {
+        // Octave 3 Right LED is on; C
+        //LATA   -P-P----
+        LATA = 0b11101111;
+        //LATB   PNN-NN--
+        LATB = 0b1100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+    } else if (led_array[4] == 1 && led_array[7] == 1) {
+        // Octave 3 Right LED is on; D
+        //LATA   -P-P----
+        LATA = 0b10111111;
+        //LATB   PNN-NN--
+        LATB = 0b1100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+    } else if (led_array[4] == 1 && led_array[8] == 1) {
+        // Octave 3 Right LED is on; E
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b1100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001110;
+    } else if (led_array[4] == 1 && led_array[9] == 1) {
+        // Octave 3 Right LED is on; F
+        //LATA   -P-P----
+        LATA = 0b11111101;
+        //LATB   PNN-NN--
+        LATB = 0b1100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001101;
+        
+    } else if (led_array[4] == 1 && led_array[10] == 1) {
+        // Octave 3 Right LED is on; G
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b0100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+        
+    } else if (led_array[4] == 1 && led_array[11] == 1) {
+        // Octave 3 Right LED is on; A
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b1100000;
+        //LATB   --NNPPPP
+        LATC = 0b00001011;
+        
+    } else if (led_array[4] == 1 && led_array[12] == 1) {
+        // Octave 3 Right LED is on; B
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b1100000;
+        //LATB   --NNPPPP
+        LATC = 0b00000111;
+        
+    } else if (led_array[5] == 1 && led_array[6] == 1) {
+        // Octave 3 Left LED is on; C
+        //LATA   -P-P----
+        LATA = 0b11101111;
+        //LATB   PNN-NN--
+        LATB = 0b1010000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+        
+    } else if (led_array[5] == 1 && led_array[7] == 1) {
+        // Octave 3 Left LED is on; D
+        //LATA   -P-P----
+        LATA = 0b10111111;
+        //LATB   PNN-NN--
+        LATB = 0b1010000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+
+    } else if (led_array[5] == 1 && led_array[8] == 1) {
+        // Octave 3 Left LED is on; E
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b1010000;
+        //LATB   --NNPPPP
+        LATC = 0b00001110;
+
+    } else if (led_array[5] == 1 && led_array[9] == 1) {
+        // Octave 3 Left LED is on; F
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b1010000;
+        //LATB   --NNPPPP
+        LATC = 0b00001101;
+
+    } else if (led_array[5] == 1 && led_array[10] == 1) {
+        // Octave 3 Left LED is on; G
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b0010000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+
+    } else if (led_array[5] == 1 && led_array[11] == 1) {
+        // Octave 3 Left LED is on; A
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b1010000;
+        //LATB   --NNPPPP
+        LATC = 0b00001011;
+
+    } else if (led_array[5] == 1 && led_array[12] == 1) {
+        // Octave 3 Left LED is on; B
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b1010000;
+        //LATB   --NNPPPP
+        LATC = 0b00000111;
     }
-    if (led_array[1] == 1) {
-        // Octave 5 Left LED is on
-        LATC |= L5_SEL_PORTC;
+    
+    // Octave 4
+    else if (led_array[2] == 1 && led_array[3] == 1 && led_array[6] == 1) {
+        // Octave 4 L & R LED on; C
+        //LATA   -P-P----
+        LATA = 0b11101111;
+        //LATB   PNN-NN--
+        LATB = 0b10001100;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+
+    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[7] == 1) {
+        // Octave 4 L & R LED on; D
+        //LATA   -P-P----
+        LATA = 0b10111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001100;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+
+    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[8] == 1) {
+        // Octave 4 L & R LED on; E
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001100;
+        //LATB   --NNPPPP
+        LATC = 0b00001110;
+
+    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[9] == 1) {
+        // Octave 4 L & R LED on; F
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001100;
+        //LATB   --NNPPPP
+        LATC = 0b00001101;
+    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[10] == 1) {
+        // Octave 4 L & R LED on; G
+        //LATA   -P-P----
+        LATA = 0b01111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001100;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[11] == 1) {
+        // Octave 4 L & R LED on; A
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001100;
+        //LATB   --NNPPPP
+        LATC = 0b00001011;
+    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[12] == 1) {
+       // Octave 4 L & R LED on; B
+       //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001100;
+        //LATB   --NNPPPP
+        LATC = 0b00000111;
+    } else if (led_array[2] == 1 && led_array[6] == 1) {
+        // Octave 4 Right LED is on; C
+        //LATA   -P-P----
+        LATA = 0b11101111;
+        //LATB   PNN-NN--
+        LATB = 0b10000100;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+        
+    } else if (led_array[2] == 1 && led_array[7] == 1) {
+        // Octave 4 Right LED is on; D
+        //LATA   -P-P----
+        LATA = 0b10111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000100;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+        
+    } else if (led_array[2] == 1 && led_array[8] == 1) {
+        // Octave 4 Right LED is on; E
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000100;
+        //LATB   --NNPPPP
+        LATC = 0b00001110;
+        
+    } else if (led_array[2] == 1 && led_array[9] == 1) {
+        // Octave 4 Right LED is on; F
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000100;
+        //LATB   --NNPPPP
+        LATC = 0b00001101;
+        
+    } else if (led_array[2] == 1 && led_array[10] == 1) {
+        // Octave 4 Right LED is on; G
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b00000100;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+        
+    } else if (led_array[2] == 1 && led_array[11] == 1) {
+        // Octave 4 Right LED is on; A
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000100;
+        //LATB   --NNPPPP
+        LATC = 0b00001011;
+        
+    } else if (led_array[2] == 1 && led_array[12] == 1) {
+        // Octave 4 Right LED is on; B
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000100;
+        //LATB   --NNPPPP
+        LATC = 0b00000111;
+        
+    } else if (led_array[3] == 1 && led_array[6] == 1) {
+        // Octave 4 Left LED is on; C
+        //LATA   -P-P----
+        LATA = 0b11101111;
+        //LATB   PNN-NN--
+        LATB = 0b10001000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+        
+    } else if (led_array[3] == 1 && led_array[7] == 1) {
+        // Octave 4 Left LED is on; D
+        //LATA   -P-P----
+        LATA = 0b10111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+
+    } else if (led_array[3] == 1 && led_array[8] == 1) {
+        // Octave 4 Left LED is on; E
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001000;
+        //LATB   --NNPPPP
+        LATC = 0b00001110;
+
+    } else if (led_array[3] == 1 && led_array[9] == 1) {
+        // Octave 4 Left LED is on; F
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001000;
+        //LATB   --NNPPPP
+        LATC = 0b00001110;
+
+    } else if (led_array[3] == 1 && led_array[10] == 1) {
+        // Octave 4 Left LED is on; G
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b00001000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
+
+    } else if (led_array[3] == 1 && led_array[11] == 1) {
+        // Octave 4 Left LED is on; A
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001000;
+        //LATB   --NNPPPP
+        LATC = 0b00001011;
+
+    } else if (led_array[3] == 1 && led_array[12] == 1) {
+        // Octave 4 Left LED is on; B
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10001000;
+        //LATB   --NNPPPP
+        LATC = 0b00000111;
     }
-    if (led_array[2] == 1) {
-        // Octave 4 Right LED is on
-        LATB |= R4_SEL_PORTB;
+    
+    // Octave 5
+    else if (led_array[0] == 1 && led_array[1] == 1 && led_array[6] == 1) {
+        // Octave 5 L & R LED on; C
+        //LATA   -P-P----
+        LATA = 0b11101111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00111111;
+ 
+    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[7] == 1) {
+        // Octave 5 L & R LED on; D
+        //LATA   -P-P----
+        LATA = 0b10111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00111111;
+
+    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[8] == 1) {
+        // Octave 5 L & R LED on; E
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00111110;
+
+    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[9] == 1) {
+        // Octave 5 L & R LED on; F
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00111101;
+    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[10] == 1) {
+        // Octave 5 L & R LED on; G
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b00000000;
+        //LATB   --NNPPPP
+        LATC = 0b00111111;
+    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[11] == 1) {
+        // Octave 5 L & R LED on; A
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00111011;
+    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[12] == 1) {
+       // Octave 5 L & R LED on; B
+       //LATA   -P-P----
+       LATA = 0b11111111;
+       //LATB   PNN-NN--
+       LATB = 0b10000000;
+       //LATB   --NNPPPP
+       LATC = 0b00110111;
+       
+    } else if (led_array[0] == 1 && led_array[6] == 1) {
+        // Octave 5 Right LED is on; C
+        //LATA   -P-P----
+        LATA = 0b11101111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00011111;
+
+    } else if (led_array[0] == 1 && led_array[7] == 1) {
+        // Octave 5 Right LED is on; D
+        //LATA   -P-P----
+        LATA = 0b10111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00011111;
+
+    } else if (led_array[0] == 1 && led_array[8] == 1) {
+        // Octave 5 Right LED is on; E
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00011110;
+
+    } else if (led_array[0] == 1 && led_array[9] == 1) {
+        // Octave 5 Right LED is on; F
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00011101;
+
+    } else if (led_array[0] == 1 && led_array[10] == 1) {
+        // Octave 5 Right LED is on; G
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b00000000;
+        //LATB   --NNPPPP
+        LATC = 0b00011111;
+
+    } else if (led_array[0] == 1 && led_array[11] == 1) {
+        // Octave 5 Right LED is on; A
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00011011;
+
+    } else if (led_array[0] == 1 && led_array[12] == 1) {
+        // Octave 5 Right LED is on; B
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00010111;
+
+    } else if (led_array[1] == 1 && led_array[6] == 1) {
+        // Octave 5 Left LED is on; C
+        //LATA   -P-P----
+        LATA = 0b11101111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00101111;
+
+    } else if (led_array[1] == 1 && led_array[7] == 1) {
+        // Octave 5 Left LED is on; D
+        //LATA   -P-P----
+        LATA = 0b10111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00101111;
+
+    } else if (led_array[1] == 1 && led_array[8] == 1) {
+        // Octave 5 Left LED is on; E
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00101110;
+
+    } else if (led_array[1] == 1 && led_array[9] == 1) {
+        // Octave 5 Left LED is on; F
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00101101;
+
+    } else if (led_array[1] == 1 && led_array[10] == 1) {
+        // Octave 5 Left LED is on; G
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b00000000;
+        //LATB   --NNPPPP
+        LATC = 0b00101111;
+
+    } else if (led_array[1] == 1 && led_array[11] == 1) {
+        // Octave 5 Left LED is on; A
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00101011;
+
+    } else if (led_array[1] == 1 && led_array[12] == 1) {
+        // Octave 5 Left LED is on; B
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00100111;
     }
-    if (led_array[3] == 1) {
-        // Octave 4 Left LED is on
-        LATB |= L4_SEL_PORTB;
-    }
-    if (led_array[4] == 1) {
-        // Octave 3 Right LED is on
-        LATB |= R3_SEL_PORTB;
-    }
-    if (led_array[5] == 1) {
-        // Octave 3 Left LED is on
-        LATB |= L3_SEL_PORTB;
-    }
-    if (led_array[6] == 1) {
-        // BSel LED is on
-        LATC |= B_SEL_PORTC;
-    }
-    if (led_array[7] == 1) {
-        // ASel LED is on
-        LATC |= A_SEL_PORTC;
-    }
-    if (led_array[8] == 1) {
-        // GSel LED is on
-        LATB |= G_SEL_PORTB;
-    }
-    if (led_array[9] == 1) {
-        // FSel LED is on
-        LATC |= F_SEL_PORTC;
-    }
-    if (led_array[10] == 1) {
-        // ESel LED is on
-        LATC |= E_SEL_PORTC;
-    }
-    if (led_array[11] == 1) {
-        // DSel LED is on
-        LATA |= D_SEL_PORTA;
-    }
-    if (led_array[12] == 1) {
-        // CSel LED is on
-        LATA |= C_SEL_PORTA;
-    }
+
+
+
+    
 }
 
 /*

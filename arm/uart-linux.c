@@ -13,7 +13,7 @@
 int main(int argc, char* argv[])
 {
    /* read "man 2 open" to learn about O_NONBLOCK and O_NOCTTY */
-   int fd = open(UART_DEV, O_RDWR, 0);
+   int fd = open(UART_DEV, O_RDWR, O_NONBLOCK);
    if (fd == -1)
       goto error;
 
@@ -41,12 +41,12 @@ int main(int argc, char* argv[])
       goto error;
 
    /* read "man select" for more advanced/event driven reading */
-while (1)  
+while (1) {
    write(fd, "a", 1);
    char buffer[64];
-   read(fd, buffer, 64);
+   read(fd, buffer, 1);
    printf(buffer);
-
+}
    close(fd);
 
    return 0;

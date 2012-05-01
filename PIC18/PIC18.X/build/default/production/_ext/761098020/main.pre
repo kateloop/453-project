@@ -9927,7 +9927,7 @@ asm("\tglobal __config" "7"); asm("\t__config" "7" " equ " "0xFFFF");
 void ToggleLeds();
 void adc_conversion();
 
-# 136
+# 137
 int led_array[13];
 
 unsigned char uart_out;
@@ -9950,10 +9950,11 @@ char change_val = 0;
 
 int index;
 
-# 162
+# 163
 int main(int argc, char** argv) {
 
-OSCCON |= 0b00000010;
+
+OSCCON |= 0b01110010;
 
 
 ADCON0 = 0b00000000;
@@ -9967,36 +9968,16 @@ TRISA = 0b10101111;
 TRISB = 0b00010010;
 TRISC = 0b10000000;
 
-# 198
+# 200
 SPBRGH = (((8000000L/19200UL)/16) - 1) >> 8;
 SPBRG = (((8000000L/19200UL)/16) - 1);
 BAUDCON = 0b00001000;
 RCSTA = 0b10010000;
 TXSTA = 0b00100000;
 
-while (1)
-{
-
-
-
-TXREG = 'a';
-while ((PIR1 & 0b00010000) ==0);
-
-
-
-while ((PIR1 & 0b00100000) == 0) {
-LATB = 0b00100000;
-DelayMs(20);
 LATB = 0b00000000;
-DelayMs(20);
-}
 
-
-
-
-}
-
-# 255
+# 264
 while (0) {
 
 ToggleLeds();
@@ -10012,72 +9993,583 @@ char channel = index;
 
 }
 
-# 274
+ToggleLeds();
+
+# 302
 }
 
-# 282
+# 312
 void ToggleLeds () {
 
-LATA = 0;
-LATB = 0;
-LATC = 0;
 
 
-if (led_array[0] == 1) {
 
-LATC |= 0b00010000;
+led_array[4] = 1;
+led_array[5] = 0;
+led_array[7] = 1;
+if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
+
+
+
+LATA = 0b11101111;
+
+LATB = 0b1110000;
+
+LATC = 0b00000111;
+} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
+
+
+LATA = 0b10111111;
+
+LATB = 0b11100000;
+
+LATC = 0b00001111;
+} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[8] == 1) {
+
+
+LATA = 0b11111111;
+
+LATB = 0b11100000;
+
+LATC = 0b00001110;
+} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[9] == 1) {
+
+
+LATA = 0b11111111;
+
+LATB = 0b11100000;
+
+LATC = 0b00001101;
+} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[10] == 1) {
+
+
+LATA = 0b11111111;
+
+LATB = 0b01100000;
+
+LATC = 0b00001111;
+} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[11] == 1) {
+
+
+LATA = 0b11111111;
+
+LATB = 0b11100000;
+
+LATC = 0b00001011;
+} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[12] == 1) {
+
+
+LATA = 0b11111111;
+
+LATB = 0b11100000;
+
+LATC = 0b00000111;
+
+} else if (led_array[4] == 1 && led_array[6] == 1) {
+
+
+LATA = 0b10111111;
+
+LATB = 0b1100000;
+
+LATC = 0b00000111;
+} else if (led_array[4] == 1 && led_array[7] == 1) {
+
+
+LATA = 0b10111111;
+
+LATB = 0b1100000;
+
+LATC = 0b00000111;
+} else if (led_array[4] == 1 && led_array[8] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[4] == 1 && led_array[9] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[4] == 1 && led_array[10] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[4] == 1 && led_array[11] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[4] == 1 && led_array[12] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[5] == 1 && led_array[6] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[5] == 1 && led_array[7] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[5] == 1 && led_array[8] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[5] == 1 && led_array[9] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[5] == 1 && led_array[10] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[5] == 1 && led_array[11] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[5] == 1 && led_array[12] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
 }
-if (led_array[1] == 1) {
 
-LATC |= 0b00100000;
-}
-if (led_array[2] == 1) {
 
-LATB |= 0b00000001;
-}
-if (led_array[3] == 1) {
+else if (led_array[2] == 1 && led_array[3] == 1 && led_array[6] == 1) {
 
-LATB |= 0b00001000;
-}
-if (led_array[4] == 1) {
 
-LATB |= 0b00100000;
-}
-if (led_array[5] == 1) {
+LATA = 0b11101111;
 
-LATB |= 0b01000000;
-}
-if (led_array[6] == 1) {
+LATB = 0b10000100;
 
-LATC |= 0b00001000;
-}
-if (led_array[7] == 1) {
+LATC = 0b00001111;
 
-LATC |= 0b00000100;
-}
-if (led_array[8] == 1) {
+} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[7] == 1) {
 
-LATB |= 0b10000000;
-}
-if (led_array[9] == 1) {
 
-LATC |= 0b00000010;
-}
-if (led_array[10] == 1) {
+LATA = 0b11101111;
 
-LATC |= 0b00000001;
-}
-if (led_array[11] == 1) {
+LATB = 0b10000100;
 
-LATA |= 0b01000000;
-}
-if (led_array[12] == 1) {
+LATC = 0b00001111;
 
-LATA |= 0b00010000;
-}
+} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[8] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[9] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[10] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[11] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[12] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+} else if (led_array[2] == 1 && led_array[6] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[2] == 1 && led_array[7] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[2] == 1 && led_array[8] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[2] == 1 && led_array[9] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[2] == 1 && led_array[10] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[2] == 1 && led_array[11] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[2] == 1 && led_array[12] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[3] == 1 && led_array[6] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[3] == 1 && led_array[7] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[3] == 1 && led_array[8] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[3] == 1 && led_array[9] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[3] == 1 && led_array[10] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[3] == 1 && led_array[11] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[3] == 1 && led_array[12] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
 }
 
-# 360
+
+else if (led_array[0] == 1 && led_array[1] == 1 && led_array[6] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[7] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[8] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[9] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[10] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[11] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[12] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+} else if (led_array[0] == 1 && led_array[6] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[0] == 1 && led_array[7] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[0] == 1 && led_array[8] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[0] == 1 && led_array[9] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[0] == 1 && led_array[10] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[0] == 1 && led_array[11] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[0] == 1 && led_array[12] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[1] == 1 && led_array[6] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[1] == 1 && led_array[7] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[1] == 1 && led_array[8] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[1] == 1 && led_array[9] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[1] == 1 && led_array[10] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[1] == 1 && led_array[11] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+
+} else if (led_array[1] == 1 && led_array[12] == 1) {
+
+
+LATA = 0b11101111;
+
+LATB = 0b10000100;
+
+LATC = 0b00001111;
+}
+
+
+
+
+}
+
+# 899
 ISR () {
 
 
@@ -10097,7 +10589,7 @@ change_val = 0;
 
 }
 
-# 385
+# 924
 void adc_conversion() {
 
 ADON = 0;
