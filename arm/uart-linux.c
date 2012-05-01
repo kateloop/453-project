@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
    printf("entered main\n");
    fflush(stdout);
    /* read "man 2 open" to learn about O_NONBLOCK and O_NOCTTY */
-   int fd = open(UART_DEV, O_RDWR, O_NOCTTY);
+   int fd = open(UART_DEV, O_RDWR, 0);
    if (fd == -1) {
       printf("fd == -1\n");
       fflush(stdout);
@@ -66,7 +66,8 @@ while (1) {
    char buffer[64];
    size_t i = read(fd, buffer, 1);
 
-   printf("%02x\n", buffer[0]);
+   printf("%d: %02x\n", i, buffer[0]);
+   fflush(stdout);
 #if 0
    printf("done writing, attempt read\n");
    fflush(stdout);

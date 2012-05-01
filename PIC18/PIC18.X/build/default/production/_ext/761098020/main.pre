@@ -9976,9 +9976,13 @@ BAUDCON = 0b00001000;
 RCSTA = 0b10010000;
 TXSTA = 0b00100000;
 
-LATB = 0b00000000;
 
-# 265
+while (1) {
+TXREG = 'a';
+while ((PIR1 & 0b00010000) ==0);
+}
+
+
 while (0) {
 
 ToggleLeds();
@@ -9994,27 +9998,16 @@ char channel = index;
 
 }
 
-for (int i = 0; i < 13; i++) {
-led_array[i] = 0;
-}
-led_array[4] = 1;
-led_array[5] = 1;
-led_array[6] = 1;
-ToggleLeds();
-
-testToggle();
-
-# 311
+# 235
 }
 
-# 321
+# 245
 void ToggleLeds () {
 
 
 
 
 if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
-
 
 
 LATA = 0b11101111;
@@ -10574,7 +10567,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 891
+# 814
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10694,7 +10687,7 @@ DelayMs(5000);
 }
 }
 
-# 1027
+# 950
 ISR () {
 
 
@@ -10714,7 +10707,7 @@ change_val = 0;
 
 }
 
-# 1052
+# 975
 void adc_conversion() {
 
 ADON = 0;
@@ -10767,4 +10760,3 @@ if (adc_num >= 7) {
 adc_num = 0;
 }
 }
-

@@ -1,6 +1,6 @@
 /*
  * File:   main.c
- * Author: Katelyn <-Loser
+ * Author: Katelyn
  *
  * Created on March 29, 2012, 2:00 PM
  */
@@ -180,7 +180,7 @@ int main(int argc, char** argv) {
 
     // configure interrupt
 
-    
+
 //  INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
 //  INTCON2 = 0b00000000; //TODO no idea about this one
 //  INTCON3 = 0b00000000; //TODO no idea about this one
@@ -204,62 +204,11 @@ int main(int argc, char** argv) {
         RCSTA = 0b10010000;
         TXSTA = 0b00100000;
 
-        LATB = 0b00000000;
-
-     //   while (1)
-     //   {
-     //       ToggleLeds();
-   //      LATB = 0b00000000;
-   //       DelayMs(20);
-  //         TXREG = 'a';
-   //        while ((PIR1 & 0b00010000) ==0);
-        //  LATB = 0b00100000;
-        //   DelayMs(20);
-
-         /*   while ((PIR1 & 0b00100000) == 0) {
-                LATB = 0b00100000;
-                DelayMs(20);
-                LATB = 0b00000000;
-                DelayMs(20);
-            }
-*/
-           //while ((PIR1 & 0b00100000) == 0);
-      //    if (RCREG == 'a') {
-      //          LATB = 0b00100000;
-      //          DelayMs(20);
-      //          LATB = 0b00000000;
-      //          DelayMs(20);
-      //      }
-            
-  //      }
-   //     while (1) {
-   //        unsigned char tx = 'a';
-   //          WriteUSART(tx);
-   //     }
-
-          /*   while (1) {
-                LATC = 0b01000000;
-                DelayMs(20);
-                LATC = 0b00000000;
-                DelayMs(20);
-             }*/
-    
-
-        
-
-      /*  while (!RCIF) {
-            LATB = 0b00000000;
-             DelayMs(20);
-             LATB = 0b00100000;
-             DelayMs(20);
+        // FIXME WRITE TO ARM
+        while (1) {
+          TXREG = 'a';
+          while ((PIR1 & 0b00010000) ==0);
         }
-        unsigned char rv;
-        rv = ReadUSART();
-*/
-      //  while (rv == tx) {
-      //      continue;
-      //  }
-    
 
 
     while (0) {
@@ -274,36 +223,14 @@ int main(int argc, char** argv) {
         int result = cur_inputs[index];
         char channel = index; // 0 == A, 6 == G
         // TODO send result and channel across UART
-        
+
     }
-        
-      /*  for (int i = 0; i < 13; i++) {
+
+  /*      for (int i = 0; i < 13; i++) {
             led_array[i] = 0;
         }
 
         testToggle(); */
-
-/*
-// Enabled by 0
-#define A_SEL_PORTC  0b00000100    // pin 13, RC2
-#define B_SEL_PORTC  0b00001000    // pin 14, RC3
-#define C_SEL_PORTA  0b00010000    // pin 6, RA4
-#define D_SEL_PORTA  0b01000000    // pin 10, RA6
-#define E_SEL_PORTC  0b00000001    // pin 11, RC0
-#define F_SEL_PORTC  0b00000010    // pin 12, RC1
-#define G_SEL_PORTB  0b11101001    // pin 28, RB7
-
-// Enabled by 1
-#define L3_SEL_PORTB 0b00111111    // pin 27, RB6
-#define R3_SEL_PORTB 0b01011111    // pin 26, RB5
-#define L4_SEL_PORTB 0b01110111    // pin 24, RB3
-#define R4_SEL_PORTB 0b01111110    // pin 21, RB2
-#define L5_SEL_PORTC 0b11011111    // pin 16, RC5
-#define R5_SEL_PORTC 0b11101111    // pin 15, RC4*/
-
-
-
-
   //  return (EXIT_SUCCESS);
 }
 
@@ -322,7 +249,6 @@ void ToggleLeds () {
     // Octave 3
     if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
         // Octave 3 L & R LED on; C
-        //FIXME 3G L&R also turns on...
         //LATA   -P-P----
         LATA = 0b11101111;
         //LATB   PNN-NN--
@@ -344,7 +270,7 @@ void ToggleLeds () {
         //LATB   PNN-NN--
         LATB = 0b11100000;
         //LATB   --NNPPPP
-        LATC = 0b00001110;     
+        LATC = 0b00001110;
     } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[9] == 1) {
         // Octave 3 L & R LED on; F
         //LATA   -P-P----
@@ -410,7 +336,7 @@ void ToggleLeds () {
         LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001101;
-        
+
     } else if (led_array[4] == 1 && led_array[10] == 1) {
         // Octave 3 Right LED is on; G
         //LATA   -P-P----
@@ -419,7 +345,7 @@ void ToggleLeds () {
         LATB = 0b01000000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-        
+
     } else if (led_array[4] == 1 && led_array[11] == 1) {
         // Octave 3 Right LED is on; A
         //LATA   -P-P----
@@ -428,7 +354,7 @@ void ToggleLeds () {
         LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001011;
-        
+
     } else if (led_array[4] == 1 && led_array[12] == 1) {
         // Octave 3 Right LED is on; B
         //LATA   -P-P----
@@ -437,7 +363,7 @@ void ToggleLeds () {
         LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00000111;
-        
+
     } else if (led_array[5] == 1 && led_array[6] == 1) {
         // Octave 3 Left LED is on; C
         //LATA   -P-P----
@@ -446,7 +372,7 @@ void ToggleLeds () {
         LATB = 0b10100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-        
+
     } else if (led_array[5] == 1 && led_array[7] == 1) {
         // Octave 3 Left LED is on; D
         //LATA   -P-P----
@@ -501,7 +427,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00000111;
     }
-    
+
     // Octave 4
     else if (led_array[2] == 1 && led_array[3] == 1 && led_array[6] == 1) {
         // Octave 4 L & R LED on; C
@@ -570,7 +496,7 @@ void ToggleLeds () {
         LATB = 0b10000100;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-        
+
     } else if (led_array[2] == 1 && led_array[7] == 1) {
         // Octave 4 Right LED is on; D
         //LATA   -P-P----
@@ -579,7 +505,7 @@ void ToggleLeds () {
         LATB = 0b10000100;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-        
+
     } else if (led_array[2] == 1 && led_array[8] == 1) {
         // Octave 4 Right LED is on; E
         //LATA   -P-P----
@@ -588,7 +514,7 @@ void ToggleLeds () {
         LATB = 0b10000100;
         //LATB   --NNPPPP
         LATC = 0b00001110;
-        
+
     } else if (led_array[2] == 1 && led_array[9] == 1) {
         // Octave 4 Right LED is on; F
         //LATA   -P-P----
@@ -597,7 +523,7 @@ void ToggleLeds () {
         LATB = 0b10000100;
         //LATB   --NNPPPP
         LATC = 0b00001101;
-        
+
     } else if (led_array[2] == 1 && led_array[10] == 1) {
         // Octave 4 Right LED is on; G
         //LATA   -P-P----
@@ -606,7 +532,7 @@ void ToggleLeds () {
         LATB = 0b00000100;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-        
+
     } else if (led_array[2] == 1 && led_array[11] == 1) {
         // Octave 4 Right LED is on; A
         //LATA   -P-P----
@@ -615,7 +541,7 @@ void ToggleLeds () {
         LATB = 0b10000100;
         //LATB   --NNPPPP
         LATC = 0b00001011;
-        
+
     } else if (led_array[2] == 1 && led_array[12] == 1) {
         // Octave 4 Right LED is on; B
         //LATA   -P-P----
@@ -624,7 +550,7 @@ void ToggleLeds () {
         LATB = 0b10000100;
         //LATB   --NNPPPP
         LATC = 0b00000111;
-        
+
     } else if (led_array[3] == 1 && led_array[6] == 1) {
         // Octave 4 Left LED is on; C
         //LATA   -P-P----
@@ -633,7 +559,7 @@ void ToggleLeds () {
         LATB = 0b10001000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-        
+
     } else if (led_array[3] == 1 && led_array[7] == 1) {
         // Octave 4 Left LED is on; D
         //LATA   -P-P----
@@ -688,7 +614,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00000111;
     }
-    
+
     // Octave 5
     else if (led_array[0] == 1 && led_array[1] == 1 && led_array[6] == 1) {
         // Octave 5 L & R LED on; C
@@ -698,7 +624,7 @@ void ToggleLeds () {
         LATB = 0b10000000;
         //LATB   --NNPPPP
         LATC = 0b00111111;
- 
+
     } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[7] == 1) {
         // Octave 5 L & R LED on; D
         //LATA   -P-P----
@@ -749,7 +675,7 @@ void ToggleLeds () {
        LATB = 0b10000000;
        //LATB   --NNPPPP
        LATC = 0b00110111;
-       
+
     } else if (led_array[0] == 1 && led_array[6] == 1) {
         // Octave 5 Right LED is on; C
         //LATA   -P-P----
@@ -875,7 +801,7 @@ void ToggleLeds () {
         LATB = 0b10000000;
         //LATB   --NNPPPP
         LATC = 0b00100111;
-    }   
+    }
 }
 
 
@@ -1010,10 +936,10 @@ void testToggle () {
 /*void adc_conversion (int adc_channel) {
 
     ADC_INT_DISABLE (); // disable interrupts
-    
+
     // ADIE = 0;  // Mask interrupt
      //ADIF = 0;  // Reset ADC interrupt bit
-    
+
     // Reenable interrupts
     ADC_INT_ENABLE();
 }*/
@@ -1037,7 +963,7 @@ ISR () {
     }
 
     // TODO Reenable Interrupts
-    
+
 }
 
 
@@ -1098,4 +1024,3 @@ void adc_conversion() {
         adc_num = ADCCHANA;
     }
 }
-
