@@ -1,23 +1,23 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"137 ../code/main.c
+"138 ../code/main.c
 [v _led_array `i -> 13 `i e ]
-"139 ../code/main.c
-[v _uart_out `uc 1 e ]
 "140 ../code/main.c
+[v _uart_out `uc 1 e ]
+"141 ../code/main.c
 [v _uart_in `uc 1 e ]
 [s S866 `i 1 `i 1 ]
 [n S866 _ADC_conv result adc_channel ]
-"147 ../code/main.c
+"148 ../code/main.c
 [v _conv_result `S866 1 e ]
-"149 ../code/main.c
+"150 ../code/main.c
 [v _adc_num `Vuc 1 e ]
-"152 ../code/main.c
-[v _cur_inputs `i -> 7 `i e ]
 "153 ../code/main.c
+[v _cur_inputs `i -> 7 `i e ]
+"154 ../code/main.c
 [v _prev_inputs `i -> 7 `i e ]
-"155 ../code/main.c
+"156 ../code/main.c
 [v _change_val `uc 1 e ]
-"157 ../code/main.c
+"158 ../code/main.c
 [v _index `i 1 e ]
 [p mainexit ]
 "9270 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
@@ -46,12 +46,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXSTA `Vuc 0 e@4012 ]
 "8103 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
 [v _LATB `Vuc 0 e@3978 ]
+"236 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\peripheral/usart.h
+[v _WriteUSART `(v 0 ef1`uc ]
 "50 ../code/main.c
 [v _ToggleLeds `(v 0 ef ]
 "8079 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
 [v _LATA `Vuc 0 e@3977 ]
 "8127 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
 [v _LATC `Vuc 0 e@3979 ]
+"50 ../code/../PIC18.X/delay.h
+[v _DelayMs `(v 0 ef1`uc ]
 "51 ../code/main.c
 [v _adc_conversion `(v 0 ef ]
 "8884 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
@@ -8218,1149 +8222,1180 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; 	__config7 equ 0xFFFF ;#
 [; ;main.c: 50: void ToggleLeds();
 [; ;main.c: 51: void adc_conversion();
-[; ;main.c: 137: int led_array[13];
-[; ;main.c: 139: unsigned char uart_out;
-[; ;main.c: 140: unsigned char uart_in;
-[; ;main.c: 143: typedef struct _ADC_conv {
-[; ;main.c: 144: int result;
-[; ;main.c: 145: int adc_channel;
-[; ;main.c: 146: }ADC_conv;
-[; ;main.c: 147: ADC_conv conv_result;
-[; ;main.c: 149: volatile char adc_num;
-[; ;main.c: 152: int cur_inputs[7];
-[; ;main.c: 153: int prev_inputs[7];
+[; ;main.c: 52: void testToggle();
+[; ;main.c: 138: int led_array[13];
+[; ;main.c: 140: unsigned char uart_out;
+[; ;main.c: 141: unsigned char uart_in;
+[; ;main.c: 144: typedef struct _ADC_conv {
+[; ;main.c: 145: int result;
+[; ;main.c: 146: int adc_channel;
+[; ;main.c: 147: }ADC_conv;
+[; ;main.c: 148: ADC_conv conv_result;
+[; ;main.c: 150: volatile char adc_num;
+[; ;main.c: 153: int cur_inputs[7];
+[; ;main.c: 154: int prev_inputs[7];
 [i _change_val
-"155
+"156
 -> -> 0 `i `uc
 ]
-[; ;main.c: 155: char change_val = 0;
-[; ;main.c: 157: int index;
-"163
+[; ;main.c: 156: char change_val = 0;
+[; ;main.c: 158: int index;
+"164
 [v _main `(i 1 ef2`i`**uc ]
 {
-[; ;main.c: 163: int main(int argc, char** argv) {
+[; ;main.c: 164: int main(int argc, char** argv) {
 [e :U _main ]
 [v _argc `i 1 r1 ]
 [v _argv `**uc 1 r2 ]
 [f ]
-[; ;main.c: 166: OSCCON |= 0b01110010;
-"166
+[; ;main.c: 167: OSCCON |= 0b01110010;
+"167
 [e =| _OSCCON -> -> 114 `i `uc ]
-[; ;main.c: 169: ADCON0 = 0b00000000;
-"169
-[e = _ADCON0 -> -> 0 `i `uc ]
-[; ;main.c: 170: ADCON1 = 0b00000101;
+[; ;main.c: 170: ADCON0 = 0b00000000;
 "170
-[e = _ADCON1 -> -> 5 `i `uc ]
-[; ;main.c: 171: ADCON2 = 0b10000000;
+[e = _ADCON0 -> -> 0 `i `uc ]
+[; ;main.c: 171: ADCON1 = 0b00000101;
 "171
-[e = _ADCON2 -> -> 128 `i `uc ]
-[; ;main.c: 172: ADCON2 = 0b10100000;
+[e = _ADCON1 -> -> 5 `i `uc ]
+[; ;main.c: 172: ADCON2 = 0b10000000;
 "172
-[e = _ADCON2 -> -> 160 `i `uc ]
-[; ;main.c: 173: adc_num = 0;
+[e = _ADCON2 -> -> 128 `i `uc ]
+[; ;main.c: 173: ADCON2 = 0b10100000;
 "173
+[e = _ADCON2 -> -> 160 `i `uc ]
+[; ;main.c: 174: adc_num = 0;
+"174
 [e = _adc_num -> -> 0 `i `uc ]
-[; ;main.c: 176: TRISA = 0b10101111;
-"176
-[e = _TRISA -> -> 175 `i `uc ]
-[; ;main.c: 177: TRISB = 0b00010010;
+[; ;main.c: 177: TRISA = 0b10101111;
 "177
-[e = _TRISB -> -> 18 `i `uc ]
-[; ;main.c: 178: TRISC = 0b10000000;
+[e = _TRISA -> -> 175 `i `uc ]
+[; ;main.c: 178: TRISB = 0b00010010;
 "178
+[e = _TRISB -> -> 18 `i `uc ]
+[; ;main.c: 179: TRISC = 0b10000000;
+"179
 [e = _TRISC -> -> 128 `i `uc ]
-[; ;main.c: 200: SPBRGH = (((8000000L/19200UL)/16) - 1) >> 8;
-"200
-[e = _SPBRGH -> >> - / / -> -> 8000000 `l `ul -> 19200 `ul -> -> -> 16 `i `l `ul -> -> -> 1 `i `l `ul -> 8 `i `uc ]
-[; ;main.c: 201: SPBRG = (((8000000L/19200UL)/16) - 1);
+[; ;main.c: 201: SPBRGH = (((8000000L/19200UL)/16) - 1) >> 8;
 "201
-[e = _SPBRG -> - / / -> -> 8000000 `l `ul -> 19200 `ul -> -> -> 16 `i `l `ul -> -> -> 1 `i `l `ul `uc ]
-[; ;main.c: 202: BAUDCON = 0b00001000;
+[e = _SPBRGH -> >> - / / -> -> 8000000 `l `ul -> 19200 `ul -> -> -> 16 `i `l `ul -> -> -> 1 `i `l `ul -> 8 `i `uc ]
+[; ;main.c: 202: SPBRG = (((8000000L/19200UL)/16) - 1);
 "202
-[e = _BAUDCON -> -> 8 `i `uc ]
-[; ;main.c: 203: RCSTA = 0b10010000;
+[e = _SPBRG -> - / / -> -> 8000000 `l `ul -> 19200 `ul -> -> -> 16 `i `l `ul -> -> -> 1 `i `l `ul `uc ]
+[; ;main.c: 203: BAUDCON = 0b00001000;
 "203
-[e = _RCSTA -> -> 144 `i `uc ]
-[; ;main.c: 204: TXSTA = 0b00100000;
+[e = _BAUDCON -> -> 8 `i `uc ]
+[; ;main.c: 204: RCSTA = 0b10010000;
 "204
+[e = _RCSTA -> -> 144 `i `uc ]
+[; ;main.c: 205: TXSTA = 0b00100000;
+"205
 [e = _TXSTA -> -> 32 `i `uc ]
-[; ;main.c: 206: LATB = 0b00000000;
-"206
+[; ;main.c: 207: LATB = 0b00000000;
+"207
 [e = _LATB -> -> 0 `i `uc ]
-[; ;main.c: 264: while (0) {
-"264
-[e $U 868  ]
+[; ;main.c: 235: while (1) {
+"235
 [e :U 869 ]
 {
-[; ;main.c: 266: ToggleLeds();
-"266
-[e ( _ToggleLeds ..  ]
-[; ;main.c: 269: while (change_val == 0) {
-"269
+"236
+[v _tx `uc 1 a ]
+[; ;main.c: 236: unsigned char tx = 'a';
+[e = _tx -> -> 97 `ui `uc ]
+[; ;main.c: 237: WriteUSART(tx);
+"237
+[e ( _WriteUSART (1 _tx ]
+"238
+}
+[e :U 868 ]
+"235
+[e $U 869  ]
+[e :U 870 ]
+[; ;main.c: 238: }
+[; ;main.c: 265: while (0) {
+"265
 [e $U 871  ]
 [e :U 872 ]
 {
-[; ;main.c: 271: continue;
-"271
-[e $U 871  ]
+[; ;main.c: 267: ToggleLeds();
+"267
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 270: while (change_val == 0) {
+"270
+[e $U 874  ]
+[e :U 875 ]
+{
+[; ;main.c: 272: continue;
 "272
+[e $U 874  ]
+"273
+}
+[e :U 874 ]
+"270
+[e $ == -> _change_val `i -> 0 `i 875  ]
+[e :U 876 ]
+"274
+[v _result `i 1 a ]
+[; ;main.c: 273: }
+[; ;main.c: 274: int result = cur_inputs[index];
+[e = _result *U + &U _cur_inputs * -> -> _index `ui `ux -> -> # *U &U _cur_inputs `ui `ux ]
+"275
+[v _channel `uc 1 a ]
+[; ;main.c: 275: char channel = index;
+[e = _channel -> _index `uc ]
+"278
 }
 [e :U 871 ]
-"269
-[e $ == -> _change_val `i -> 0 `i 872  ]
+"265
+[e $ != -> 0 `i -> 0 `i 872  ]
 [e :U 873 ]
-"273
-[v _result `i 1 a ]
-[; ;main.c: 272: }
-[; ;main.c: 273: int result = cur_inputs[index];
-[e = _result *U + &U _cur_inputs * -> -> _index `ui `ux -> -> # *U &U _cur_inputs `ui `ux ]
-"274
-[v _channel `uc 1 a ]
-[; ;main.c: 274: char channel = index;
-[e = _channel -> _index `uc ]
-"277
-}
-[e :U 868 ]
-"264
-[e $ != -> 0 `i -> 0 `i 869  ]
-[e :U 870 ]
-[; ;main.c: 277: }
-[; ;main.c: 279: ToggleLeds();
-"279
-[e ( _ToggleLeds ..  ]
-[; ;main.c: 302: }
-"302
-[e :UE 867 ]
-}
-"312
-[v _ToggleLeds `(v 1 ef ]
+[; ;main.c: 278: }
+[; ;main.c: 280: for (int i = 0; i < 13; i++) {
+"280
 {
-[; ;main.c: 312: void ToggleLeds () {
-[e :U _ToggleLeds ]
-[f ]
-[; ;main.c: 317: led_array[4] = 1;
-"317
-[e = *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
-[; ;main.c: 318: led_array[5] = 0;
-"318
-[e = *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
-[; ;main.c: 319: led_array[7] = 1;
-"319
-[e = *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
-[; ;main.c: 320: if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
-"320
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 875  ]
-{
-[; ;main.c: 324: LATA = 0b11101111;
-"324
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 326: LATB = 0b1110000;
-"326
-[e = _LATB -> -> 112 `i `uc ]
-[; ;main.c: 328: LATC = 0b00000111;
-"328
-[e = _LATC -> -> 7 `i `uc ]
-"329
-}
-[; ;main.c: 329: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
-[e $U 876  ]
-[e :U 875 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 877  ]
-{
-[; ;main.c: 332: LATA = 0b10111111;
-"332
-[e = _LATA -> -> 191 `i `uc ]
-[; ;main.c: 334: LATB = 0b11100000;
-"334
-[e = _LATB -> -> 224 `i `uc ]
-[; ;main.c: 336: LATC = 0b00001111;
-"336
-[e = _LATC -> -> 15 `i `uc ]
-"337
-}
-[; ;main.c: 337: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[8] == 1) {
+[v _i `i 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 13 `i 877  ]
 [e $U 878  ]
 [e :U 877 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 879  ]
 {
-[; ;main.c: 340: LATA = 0b11111111;
-"340
-[e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 342: LATB = 0b11100000;
-"342
-[e = _LATB -> -> 224 `i `uc ]
-[; ;main.c: 344: LATC = 0b00001110;
-"344
-[e = _LATC -> -> 14 `i `uc ]
-"345
+[; ;main.c: 281: led_array[i] = 0;
+"281
+[e = *U + &U _led_array * -> -> _i `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
+"282
 }
-[; ;main.c: 345: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[9] == 1) {
-[e $U 880  ]
-[e :U 879 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 881  ]
+"280
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 13 `i 877  ]
+[e :U 878 ]
+"282
+}
+[; ;main.c: 282: }
+[; ;main.c: 311: }
+"311
+[e :UE 867 ]
+}
+"321
+[v _ToggleLeds `(v 1 ef ]
 {
-[; ;main.c: 348: LATA = 0b11111111;
-"348
-[e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 350: LATB = 0b11100000;
-"350
-[e = _LATB -> -> 224 `i `uc ]
-[; ;main.c: 352: LATC = 0b00001101;
-"352
-[e = _LATC -> -> 13 `i `uc ]
-"353
+[; ;main.c: 321: void ToggleLeds () {
+[e :U _ToggleLeds ]
+[f ]
+[; ;main.c: 326: if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
+"326
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 881  ]
+{
+[; ;main.c: 330: LATA = 0b11101111;
+"330
+[e = _LATA -> -> 239 `i `uc ]
+[; ;main.c: 332: LATB = 0b1110000;
+"332
+[e = _LATB -> -> 112 `i `uc ]
+[; ;main.c: 334: LATC = 0b00001111;
+"334
+[e = _LATC -> -> 15 `i `uc ]
+"335
 }
-[; ;main.c: 353: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[10] == 1) {
+[; ;main.c: 335: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
 [e $U 882  ]
 [e :U 881 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 883  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 883  ]
 {
-[; ;main.c: 356: LATA = 0b11111111;
-"356
-[e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 358: LATB = 0b01100000;
-"358
-[e = _LATB -> -> 96 `i `uc ]
-[; ;main.c: 360: LATC = 0b00001111;
-"360
+[; ;main.c: 338: LATA = 0b10111111;
+"338
+[e = _LATA -> -> 191 `i `uc ]
+[; ;main.c: 340: LATB = 0b11100000;
+"340
+[e = _LATB -> -> 224 `i `uc ]
+[; ;main.c: 342: LATC = 0b00001111;
+"342
 [e = _LATC -> -> 15 `i `uc ]
-"361
+"343
 }
-[; ;main.c: 361: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[11] == 1) {
+[; ;main.c: 343: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[8] == 1) {
 [e $U 884  ]
 [e :U 883 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 885  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 885  ]
 {
-[; ;main.c: 364: LATA = 0b11111111;
-"364
+[; ;main.c: 346: LATA = 0b11111111;
+"346
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 366: LATB = 0b11100000;
-"366
+[; ;main.c: 348: LATB = 0b11100000;
+"348
 [e = _LATB -> -> 224 `i `uc ]
-[; ;main.c: 368: LATC = 0b00001011;
-"368
-[e = _LATC -> -> 11 `i `uc ]
-"369
+[; ;main.c: 350: LATC = 0b00001110;
+"350
+[e = _LATC -> -> 14 `i `uc ]
+"351
 }
-[; ;main.c: 369: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[12] == 1) {
+[; ;main.c: 351: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[9] == 1) {
 [e $U 886  ]
 [e :U 885 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 887  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 887  ]
 {
-[; ;main.c: 372: LATA = 0b11111111;
-"372
+[; ;main.c: 354: LATA = 0b11111111;
+"354
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 374: LATB = 0b11100000;
-"374
+[; ;main.c: 356: LATB = 0b11100000;
+"356
 [e = _LATB -> -> 224 `i `uc ]
-[; ;main.c: 376: LATC = 0b00000111;
-"376
-[e = _LATC -> -> 7 `i `uc ]
-"378
+[; ;main.c: 358: LATC = 0b00001101;
+"358
+[e = _LATC -> -> 13 `i `uc ]
+"359
 }
-[; ;main.c: 378: } else if (led_array[4] == 1 && led_array[6] == 1) {
+[; ;main.c: 359: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[10] == 1) {
 [e $U 888  ]
 [e :U 887 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 889  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 889  ]
 {
-[; ;main.c: 381: LATA = 0b10111111;
-"381
-[e = _LATA -> -> 191 `i `uc ]
-[; ;main.c: 383: LATB = 0b1100000;
-"383
+[; ;main.c: 362: LATA = 0b11111111;
+"362
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 364: LATB = 0b01100000;
+"364
 [e = _LATB -> -> 96 `i `uc ]
-[; ;main.c: 385: LATC = 0b00000111;
-"385
-[e = _LATC -> -> 7 `i `uc ]
-"386
+[; ;main.c: 366: LATC = 0b00001111;
+"366
+[e = _LATC -> -> 15 `i `uc ]
+"367
 }
-[; ;main.c: 386: } else if (led_array[4] == 1 && led_array[7] == 1) {
+[; ;main.c: 367: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[11] == 1) {
 [e $U 890  ]
 [e :U 889 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 891  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 891  ]
 {
-[; ;main.c: 389: LATA = 0b10111111;
-"389
-[e = _LATA -> -> 191 `i `uc ]
-[; ;main.c: 391: LATB = 0b1100000;
-"391
-[e = _LATB -> -> 96 `i `uc ]
-[; ;main.c: 393: LATC = 0b00000111;
-"393
-[e = _LATC -> -> 7 `i `uc ]
-"394
+[; ;main.c: 370: LATA = 0b11111111;
+"370
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 372: LATB = 0b11100000;
+"372
+[e = _LATB -> -> 224 `i `uc ]
+[; ;main.c: 374: LATC = 0b00001011;
+"374
+[e = _LATC -> -> 11 `i `uc ]
+"375
 }
-[; ;main.c: 394: } else if (led_array[4] == 1 && led_array[8] == 1) {
+[; ;main.c: 375: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[12] == 1) {
 [e $U 892  ]
 [e :U 891 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 893  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 893  ]
 {
-[; ;main.c: 397: LATA = 0b11101111;
-"397
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 399: LATB = 0b10000100;
-"399
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 401: LATC = 0b00001111;
-"401
-[e = _LATC -> -> 15 `i `uc ]
-"403
+[; ;main.c: 378: LATA = 0b11111111;
+"378
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 380: LATB = 0b11100000;
+"380
+[e = _LATB -> -> 224 `i `uc ]
+[; ;main.c: 382: LATC = 0b00000111;
+"382
+[e = _LATC -> -> 7 `i `uc ]
+"384
 }
-[; ;main.c: 403: } else if (led_array[4] == 1 && led_array[9] == 1) {
+[; ;main.c: 384: } else if (led_array[4] == 1 && led_array[6] == 1) {
 [e $U 894  ]
 [e :U 893 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 895  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 895  ]
 {
-[; ;main.c: 406: LATA = 0b11101111;
-"406
+[; ;main.c: 387: LATA = 0b11101111;
+"387
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 408: LATB = 0b10000100;
-"408
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 410: LATC = 0b00001111;
-"410
+[; ;main.c: 389: LATB = 0b1100000;
+"389
+[e = _LATB -> -> 96 `i `uc ]
+[; ;main.c: 391: LATC = 0b00001111;
+"391
 [e = _LATC -> -> 15 `i `uc ]
-"412
+"392
 }
-[; ;main.c: 412: } else if (led_array[4] == 1 && led_array[10] == 1) {
+[; ;main.c: 392: } else if (led_array[4] == 1 && led_array[7] == 1) {
 [e $U 896  ]
 [e :U 895 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 897  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 897  ]
 {
-[; ;main.c: 415: LATA = 0b11101111;
-"415
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 417: LATB = 0b10000100;
-"417
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 419: LATC = 0b00001111;
-"419
+[; ;main.c: 395: LATA = 0b10111111;
+"395
+[e = _LATA -> -> 191 `i `uc ]
+[; ;main.c: 397: LATB = 0b1100000;
+"397
+[e = _LATB -> -> 96 `i `uc ]
+[; ;main.c: 399: LATC = 0b00001111;
+"399
 [e = _LATC -> -> 15 `i `uc ]
-"421
+"400
 }
-[; ;main.c: 421: } else if (led_array[4] == 1 && led_array[11] == 1) {
+[; ;main.c: 400: } else if (led_array[4] == 1 && led_array[8] == 1) {
 [e $U 898  ]
 [e :U 897 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 899  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 899  ]
 {
-[; ;main.c: 424: LATA = 0b11101111;
-"424
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 426: LATB = 0b10000100;
-"426
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 428: LATC = 0b00001111;
-"428
-[e = _LATC -> -> 15 `i `uc ]
-"430
+[; ;main.c: 403: LATA = 0b11111111;
+"403
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 405: LATB = 0b1100000;
+"405
+[e = _LATB -> -> 96 `i `uc ]
+[; ;main.c: 407: LATC = 0b00001110;
+"407
+[e = _LATC -> -> 14 `i `uc ]
+"408
 }
-[; ;main.c: 430: } else if (led_array[4] == 1 && led_array[12] == 1) {
+[; ;main.c: 408: } else if (led_array[4] == 1 && led_array[9] == 1) {
 [e $U 900  ]
 [e :U 899 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 901  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 901  ]
 {
-[; ;main.c: 433: LATA = 0b11101111;
-"433
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 435: LATB = 0b10000100;
-"435
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 437: LATC = 0b00001111;
-"437
-[e = _LATC -> -> 15 `i `uc ]
-"439
+[; ;main.c: 411: LATA = 0b11111111;
+"411
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 413: LATB = 0b1100000;
+"413
+[e = _LATB -> -> 96 `i `uc ]
+[; ;main.c: 415: LATC = 0b00001101;
+"415
+[e = _LATC -> -> 13 `i `uc ]
+"417
 }
-[; ;main.c: 439: } else if (led_array[5] == 1 && led_array[6] == 1) {
+[; ;main.c: 417: } else if (led_array[4] == 1 && led_array[10] == 1) {
 [e $U 902  ]
 [e :U 901 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 903  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 903  ]
 {
-[; ;main.c: 442: LATA = 0b11101111;
-"442
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 444: LATB = 0b10000100;
-"444
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 446: LATC = 0b00001111;
-"446
+[; ;main.c: 420: LATA = 0b11111111;
+"420
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 422: LATB = 0b0100000;
+"422
+[e = _LATB -> -> 32 `i `uc ]
+[; ;main.c: 424: LATC = 0b00001111;
+"424
 [e = _LATC -> -> 15 `i `uc ]
-"448
+"426
 }
-[; ;main.c: 448: } else if (led_array[5] == 1 && led_array[7] == 1) {
+[; ;main.c: 426: } else if (led_array[4] == 1 && led_array[11] == 1) {
 [e $U 904  ]
 [e :U 903 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 905  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 905  ]
 {
-[; ;main.c: 451: LATA = 0b11101111;
-"451
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 453: LATB = 0b10000100;
-"453
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 455: LATC = 0b00001111;
-"455
-[e = _LATC -> -> 15 `i `uc ]
-"457
+[; ;main.c: 429: LATA = 0b11111111;
+"429
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 431: LATB = 0b1100000;
+"431
+[e = _LATB -> -> 96 `i `uc ]
+[; ;main.c: 433: LATC = 0b00001011;
+"433
+[e = _LATC -> -> 11 `i `uc ]
+"435
 }
-[; ;main.c: 457: } else if (led_array[5] == 1 && led_array[8] == 1) {
+[; ;main.c: 435: } else if (led_array[4] == 1 && led_array[12] == 1) {
 [e $U 906  ]
 [e :U 905 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 907  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 907  ]
 {
-[; ;main.c: 460: LATA = 0b11101111;
-"460
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 462: LATB = 0b10000100;
-"462
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 464: LATC = 0b00001111;
-"464
-[e = _LATC -> -> 15 `i `uc ]
-"466
+[; ;main.c: 438: LATA = 0b11111111;
+"438
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 440: LATB = 0b1100000;
+"440
+[e = _LATB -> -> 96 `i `uc ]
+[; ;main.c: 442: LATC = 0b00000111;
+"442
+[e = _LATC -> -> 7 `i `uc ]
+"444
 }
-[; ;main.c: 466: } else if (led_array[5] == 1 && led_array[9] == 1) {
+[; ;main.c: 444: } else if (led_array[5] == 1 && led_array[6] == 1) {
 [e $U 908  ]
 [e :U 907 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 909  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 909  ]
 {
-[; ;main.c: 469: LATA = 0b11101111;
-"469
+[; ;main.c: 447: LATA = 0b11101111;
+"447
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 471: LATB = 0b10000100;
-"471
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 473: LATC = 0b00001111;
-"473
+[; ;main.c: 449: LATB = 0b1010000;
+"449
+[e = _LATB -> -> 80 `i `uc ]
+[; ;main.c: 451: LATC = 0b00001111;
+"451
 [e = _LATC -> -> 15 `i `uc ]
-"475
+"453
 }
-[; ;main.c: 475: } else if (led_array[5] == 1 && led_array[10] == 1) {
+[; ;main.c: 453: } else if (led_array[5] == 1 && led_array[7] == 1) {
 [e $U 910  ]
 [e :U 909 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 911  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 911  ]
 {
-[; ;main.c: 478: LATA = 0b11101111;
-"478
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 480: LATB = 0b10000100;
-"480
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 482: LATC = 0b00001111;
-"482
+[; ;main.c: 456: LATA = 0b10111111;
+"456
+[e = _LATA -> -> 191 `i `uc ]
+[; ;main.c: 458: LATB = 0b1010000;
+"458
+[e = _LATB -> -> 80 `i `uc ]
+[; ;main.c: 460: LATC = 0b00001111;
+"460
 [e = _LATC -> -> 15 `i `uc ]
-"484
+"462
 }
-[; ;main.c: 484: } else if (led_array[5] == 1 && led_array[11] == 1) {
+[; ;main.c: 462: } else if (led_array[5] == 1 && led_array[8] == 1) {
 [e $U 912  ]
 [e :U 911 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 913  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 913  ]
 {
-[; ;main.c: 487: LATA = 0b11101111;
-"487
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 489: LATB = 0b10000100;
-"489
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 491: LATC = 0b00001111;
-"491
-[e = _LATC -> -> 15 `i `uc ]
-"493
+[; ;main.c: 465: LATA = 0b11111111;
+"465
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 467: LATB = 0b1010000;
+"467
+[e = _LATB -> -> 80 `i `uc ]
+[; ;main.c: 469: LATC = 0b00001110;
+"469
+[e = _LATC -> -> 14 `i `uc ]
+"471
 }
-[; ;main.c: 493: } else if (led_array[5] == 1 && led_array[12] == 1) {
+[; ;main.c: 471: } else if (led_array[5] == 1 && led_array[9] == 1) {
 [e $U 914  ]
 [e :U 913 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 915  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 915  ]
 {
-[; ;main.c: 496: LATA = 0b11101111;
-"496
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 498: LATB = 0b10000100;
-"498
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 500: LATC = 0b00001111;
-"500
-[e = _LATC -> -> 15 `i `uc ]
-"501
+[; ;main.c: 474: LATA = 0b11111111;
+"474
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 476: LATB = 0b1010000;
+"476
+[e = _LATB -> -> 80 `i `uc ]
+[; ;main.c: 478: LATC = 0b00001101;
+"478
+[e = _LATC -> -> 13 `i `uc ]
+"480
 }
-[; ;main.c: 501: }
+[; ;main.c: 480: } else if (led_array[5] == 1 && led_array[10] == 1) {
 [e $U 916  ]
-"504
 [e :U 915 ]
-[; ;main.c: 504: else if (led_array[2] == 1 && led_array[3] == 1 && led_array[6] == 1) {
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 917  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 917  ]
 {
-[; ;main.c: 507: LATA = 0b11101111;
-"507
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 509: LATB = 0b10000100;
-"509
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 511: LATC = 0b00001111;
-"511
+[; ;main.c: 483: LATA = 0b11111111;
+"483
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 485: LATB = 0b0010000;
+"485
+[e = _LATB -> -> 16 `i `uc ]
+[; ;main.c: 487: LATC = 0b00001111;
+"487
 [e = _LATC -> -> 15 `i `uc ]
-"513
+"489
 }
-[; ;main.c: 513: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[7] == 1) {
+[; ;main.c: 489: } else if (led_array[5] == 1 && led_array[11] == 1) {
 [e $U 918  ]
 [e :U 917 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 919  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 919  ]
 {
-[; ;main.c: 516: LATA = 0b11101111;
-"516
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 518: LATB = 0b10000100;
-"518
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 520: LATC = 0b00001111;
-"520
-[e = _LATC -> -> 15 `i `uc ]
-"522
+[; ;main.c: 492: LATA = 0b11111111;
+"492
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 494: LATB = 0b1010000;
+"494
+[e = _LATB -> -> 80 `i `uc ]
+[; ;main.c: 496: LATC = 0b00001011;
+"496
+[e = _LATC -> -> 11 `i `uc ]
+"498
 }
-[; ;main.c: 522: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[8] == 1) {
+[; ;main.c: 498: } else if (led_array[5] == 1 && led_array[12] == 1) {
 [e $U 920  ]
 [e :U 919 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 921  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 921  ]
 {
-[; ;main.c: 525: LATA = 0b11101111;
-"525
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 527: LATB = 0b10000100;
-"527
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 529: LATC = 0b00001111;
-"529
-[e = _LATC -> -> 15 `i `uc ]
-"531
+[; ;main.c: 501: LATA = 0b11111111;
+"501
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 503: LATB = 0b1010000;
+"503
+[e = _LATB -> -> 80 `i `uc ]
+[; ;main.c: 505: LATC = 0b00000111;
+"505
+[e = _LATC -> -> 7 `i `uc ]
+"506
 }
-[; ;main.c: 531: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[9] == 1) {
+[; ;main.c: 506: }
 [e $U 922  ]
+"509
 [e :U 921 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 923  ]
+[; ;main.c: 509: else if (led_array[2] == 1 && led_array[3] == 1 && led_array[6] == 1) {
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 923  ]
 {
-[; ;main.c: 534: LATA = 0b11101111;
-"534
+[; ;main.c: 512: LATA = 0b11101111;
+"512
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 536: LATB = 0b10000100;
-"536
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 538: LATC = 0b00001111;
-"538
+[; ;main.c: 514: LATB = 0b10001100;
+"514
+[e = _LATB -> -> 140 `i `uc ]
+[; ;main.c: 516: LATC = 0b00001111;
+"516
 [e = _LATC -> -> 15 `i `uc ]
-"539
+"518
 }
-[; ;main.c: 539: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[10] == 1) {
+[; ;main.c: 518: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[7] == 1) {
 [e $U 924  ]
 [e :U 923 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 925  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 925  ]
 {
-[; ;main.c: 542: LATA = 0b11101111;
-"542
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 544: LATB = 0b10000100;
-"544
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 546: LATC = 0b00001111;
-"546
+[; ;main.c: 521: LATA = 0b10111111;
+"521
+[e = _LATA -> -> 191 `i `uc ]
+[; ;main.c: 523: LATB = 0b10001100;
+"523
+[e = _LATB -> -> 140 `i `uc ]
+[; ;main.c: 525: LATC = 0b00001111;
+"525
 [e = _LATC -> -> 15 `i `uc ]
-"547
+"527
 }
-[; ;main.c: 547: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[11] == 1) {
+[; ;main.c: 527: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[8] == 1) {
 [e $U 926  ]
 [e :U 925 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 927  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 927  ]
 {
-[; ;main.c: 550: LATA = 0b11101111;
-"550
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 552: LATB = 0b10000100;
-"552
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 554: LATC = 0b00001111;
-"554
-[e = _LATC -> -> 15 `i `uc ]
-"555
+[; ;main.c: 530: LATA = 0b11111111;
+"530
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 532: LATB = 0b10001100;
+"532
+[e = _LATB -> -> 140 `i `uc ]
+[; ;main.c: 534: LATC = 0b00001110;
+"534
+[e = _LATC -> -> 14 `i `uc ]
+"536
 }
-[; ;main.c: 555: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[12] == 1) {
+[; ;main.c: 536: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[9] == 1) {
 [e $U 928  ]
 [e :U 927 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 929  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 929  ]
 {
-[; ;main.c: 558: LATA = 0b11101111;
-"558
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 560: LATB = 0b10000100;
-"560
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 562: LATC = 0b00001111;
-"562
-[e = _LATC -> -> 15 `i `uc ]
-"563
+[; ;main.c: 539: LATA = 0b11111111;
+"539
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 541: LATB = 0b10001100;
+"541
+[e = _LATB -> -> 140 `i `uc ]
+[; ;main.c: 543: LATC = 0b00001101;
+"543
+[e = _LATC -> -> 13 `i `uc ]
+"544
 }
-[; ;main.c: 563: } else if (led_array[2] == 1 && led_array[6] == 1) {
+[; ;main.c: 544: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[10] == 1) {
 [e $U 930  ]
 [e :U 929 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 931  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 931  ]
 {
-[; ;main.c: 566: LATA = 0b11101111;
-"566
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 568: LATB = 0b10000100;
-"568
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 570: LATC = 0b00001111;
-"570
+[; ;main.c: 547: LATA = 0b01111111;
+"547
+[e = _LATA -> -> 127 `i `uc ]
+[; ;main.c: 549: LATB = 0b10001100;
+"549
+[e = _LATB -> -> 140 `i `uc ]
+[; ;main.c: 551: LATC = 0b00001111;
+"551
 [e = _LATC -> -> 15 `i `uc ]
-"572
+"552
 }
-[; ;main.c: 572: } else if (led_array[2] == 1 && led_array[7] == 1) {
+[; ;main.c: 552: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[11] == 1) {
 [e $U 932  ]
 [e :U 931 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 933  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 933  ]
 {
-[; ;main.c: 575: LATA = 0b11101111;
-"575
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 577: LATB = 0b10000100;
-"577
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 579: LATC = 0b00001111;
-"579
-[e = _LATC -> -> 15 `i `uc ]
-"581
+[; ;main.c: 555: LATA = 0b11111111;
+"555
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 557: LATB = 0b10001100;
+"557
+[e = _LATB -> -> 140 `i `uc ]
+[; ;main.c: 559: LATC = 0b00001011;
+"559
+[e = _LATC -> -> 11 `i `uc ]
+"560
 }
-[; ;main.c: 581: } else if (led_array[2] == 1 && led_array[8] == 1) {
+[; ;main.c: 560: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[12] == 1) {
 [e $U 934  ]
 [e :U 933 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 935  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 935  ]
 {
-[; ;main.c: 584: LATA = 0b11101111;
-"584
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 586: LATB = 0b10000100;
-"586
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 588: LATC = 0b00001111;
-"588
-[e = _LATC -> -> 15 `i `uc ]
-"590
+[; ;main.c: 563: LATA = 0b11111111;
+"563
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 565: LATB = 0b10001100;
+"565
+[e = _LATB -> -> 140 `i `uc ]
+[; ;main.c: 567: LATC = 0b00000111;
+"567
+[e = _LATC -> -> 7 `i `uc ]
+"568
 }
-[; ;main.c: 590: } else if (led_array[2] == 1 && led_array[9] == 1) {
+[; ;main.c: 568: } else if (led_array[2] == 1 && led_array[6] == 1) {
 [e $U 936  ]
 [e :U 935 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 937  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 937  ]
 {
-[; ;main.c: 593: LATA = 0b11101111;
-"593
+[; ;main.c: 571: LATA = 0b11101111;
+"571
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 595: LATB = 0b10000100;
-"595
+[; ;main.c: 573: LATB = 0b10000100;
+"573
 [e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 597: LATC = 0b00001111;
-"597
+[; ;main.c: 575: LATC = 0b00001111;
+"575
 [e = _LATC -> -> 15 `i `uc ]
-"599
+"577
 }
-[; ;main.c: 599: } else if (led_array[2] == 1 && led_array[10] == 1) {
+[; ;main.c: 577: } else if (led_array[2] == 1 && led_array[7] == 1) {
 [e $U 938  ]
 [e :U 937 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 939  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 939  ]
 {
-[; ;main.c: 602: LATA = 0b11101111;
-"602
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 604: LATB = 0b10000100;
-"604
+[; ;main.c: 580: LATA = 0b10111111;
+"580
+[e = _LATA -> -> 191 `i `uc ]
+[; ;main.c: 582: LATB = 0b10000100;
+"582
 [e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 606: LATC = 0b00001111;
-"606
+[; ;main.c: 584: LATC = 0b00001111;
+"584
 [e = _LATC -> -> 15 `i `uc ]
-"608
+"586
 }
-[; ;main.c: 608: } else if (led_array[2] == 1 && led_array[11] == 1) {
+[; ;main.c: 586: } else if (led_array[2] == 1 && led_array[8] == 1) {
 [e $U 940  ]
 [e :U 939 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 941  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 941  ]
 {
-[; ;main.c: 611: LATA = 0b11101111;
-"611
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 613: LATB = 0b10000100;
-"613
+[; ;main.c: 589: LATA = 0b11111111;
+"589
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 591: LATB = 0b10000100;
+"591
 [e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 615: LATC = 0b00001111;
-"615
-[e = _LATC -> -> 15 `i `uc ]
-"617
+[; ;main.c: 593: LATC = 0b00001110;
+"593
+[e = _LATC -> -> 14 `i `uc ]
+"595
 }
-[; ;main.c: 617: } else if (led_array[2] == 1 && led_array[12] == 1) {
+[; ;main.c: 595: } else if (led_array[2] == 1 && led_array[9] == 1) {
 [e $U 942  ]
 [e :U 941 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 943  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 943  ]
 {
-[; ;main.c: 620: LATA = 0b11101111;
-"620
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 622: LATB = 0b10000100;
-"622
+[; ;main.c: 598: LATA = 0b11111111;
+"598
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 600: LATB = 0b10000100;
+"600
 [e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 624: LATC = 0b00001111;
-"624
-[e = _LATC -> -> 15 `i `uc ]
-"626
+[; ;main.c: 602: LATC = 0b00001101;
+"602
+[e = _LATC -> -> 13 `i `uc ]
+"604
 }
-[; ;main.c: 626: } else if (led_array[3] == 1 && led_array[6] == 1) {
+[; ;main.c: 604: } else if (led_array[2] == 1 && led_array[10] == 1) {
 [e $U 944  ]
 [e :U 943 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 945  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 945  ]
 {
-[; ;main.c: 629: LATA = 0b11101111;
-"629
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 631: LATB = 0b10000100;
-"631
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 633: LATC = 0b00001111;
-"633
+[; ;main.c: 607: LATA = 0b11111111;
+"607
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 609: LATB = 0b00000100;
+"609
+[e = _LATB -> -> 4 `i `uc ]
+[; ;main.c: 611: LATC = 0b00001111;
+"611
 [e = _LATC -> -> 15 `i `uc ]
-"635
+"613
 }
-[; ;main.c: 635: } else if (led_array[3] == 1 && led_array[7] == 1) {
+[; ;main.c: 613: } else if (led_array[2] == 1 && led_array[11] == 1) {
 [e $U 946  ]
 [e :U 945 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 947  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 947  ]
 {
-[; ;main.c: 638: LATA = 0b11101111;
-"638
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 640: LATB = 0b10000100;
-"640
+[; ;main.c: 616: LATA = 0b11111111;
+"616
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 618: LATB = 0b10000100;
+"618
 [e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 642: LATC = 0b00001111;
-"642
-[e = _LATC -> -> 15 `i `uc ]
-"644
+[; ;main.c: 620: LATC = 0b00001011;
+"620
+[e = _LATC -> -> 11 `i `uc ]
+"622
 }
-[; ;main.c: 644: } else if (led_array[3] == 1 && led_array[8] == 1) {
+[; ;main.c: 622: } else if (led_array[2] == 1 && led_array[12] == 1) {
 [e $U 948  ]
 [e :U 947 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 949  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 949  ]
 {
-[; ;main.c: 647: LATA = 0b11101111;
-"647
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 649: LATB = 0b10000100;
-"649
+[; ;main.c: 625: LATA = 0b11111111;
+"625
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 627: LATB = 0b10000100;
+"627
 [e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 651: LATC = 0b00001111;
-"651
-[e = _LATC -> -> 15 `i `uc ]
-"653
+[; ;main.c: 629: LATC = 0b00000111;
+"629
+[e = _LATC -> -> 7 `i `uc ]
+"631
 }
-[; ;main.c: 653: } else if (led_array[3] == 1 && led_array[9] == 1) {
+[; ;main.c: 631: } else if (led_array[3] == 1 && led_array[6] == 1) {
 [e $U 950  ]
 [e :U 949 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 951  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 951  ]
 {
-[; ;main.c: 656: LATA = 0b11101111;
-"656
+[; ;main.c: 634: LATA = 0b11101111;
+"634
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 658: LATB = 0b10000100;
-"658
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 660: LATC = 0b00001111;
-"660
+[; ;main.c: 636: LATB = 0b10001000;
+"636
+[e = _LATB -> -> 136 `i `uc ]
+[; ;main.c: 638: LATC = 0b00001111;
+"638
 [e = _LATC -> -> 15 `i `uc ]
-"662
+"640
 }
-[; ;main.c: 662: } else if (led_array[3] == 1 && led_array[10] == 1) {
+[; ;main.c: 640: } else if (led_array[3] == 1 && led_array[7] == 1) {
 [e $U 952  ]
 [e :U 951 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 953  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 953  ]
 {
-[; ;main.c: 665: LATA = 0b11101111;
-"665
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 667: LATB = 0b10000100;
-"667
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 669: LATC = 0b00001111;
-"669
+[; ;main.c: 643: LATA = 0b10111111;
+"643
+[e = _LATA -> -> 191 `i `uc ]
+[; ;main.c: 645: LATB = 0b10001000;
+"645
+[e = _LATB -> -> 136 `i `uc ]
+[; ;main.c: 647: LATC = 0b00001111;
+"647
 [e = _LATC -> -> 15 `i `uc ]
-"671
+"649
 }
-[; ;main.c: 671: } else if (led_array[3] == 1 && led_array[11] == 1) {
+[; ;main.c: 649: } else if (led_array[3] == 1 && led_array[8] == 1) {
 [e $U 954  ]
 [e :U 953 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 955  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 955  ]
 {
-[; ;main.c: 674: LATA = 0b11101111;
-"674
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 676: LATB = 0b10000100;
-"676
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 678: LATC = 0b00001111;
-"678
-[e = _LATC -> -> 15 `i `uc ]
-"680
+[; ;main.c: 652: LATA = 0b11111111;
+"652
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 654: LATB = 0b10001000;
+"654
+[e = _LATB -> -> 136 `i `uc ]
+[; ;main.c: 656: LATC = 0b00001110;
+"656
+[e = _LATC -> -> 14 `i `uc ]
+"658
 }
-[; ;main.c: 680: } else if (led_array[3] == 1 && led_array[12] == 1) {
+[; ;main.c: 658: } else if (led_array[3] == 1 && led_array[9] == 1) {
 [e $U 956  ]
 [e :U 955 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 957  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 957  ]
 {
-[; ;main.c: 683: LATA = 0b11101111;
-"683
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 685: LATB = 0b10000100;
-"685
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 687: LATC = 0b00001111;
-"687
-[e = _LATC -> -> 15 `i `uc ]
-"688
+[; ;main.c: 661: LATA = 0b11111111;
+"661
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 663: LATB = 0b10001000;
+"663
+[e = _LATB -> -> 136 `i `uc ]
+[; ;main.c: 665: LATC = 0b00001101;
+"665
+[e = _LATC -> -> 13 `i `uc ]
+"667
 }
-[; ;main.c: 688: }
+[; ;main.c: 667: } else if (led_array[3] == 1 && led_array[10] == 1) {
 [e $U 958  ]
-"691
 [e :U 957 ]
-[; ;main.c: 691: else if (led_array[0] == 1 && led_array[1] == 1 && led_array[6] == 1) {
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 959  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 959  ]
 {
-[; ;main.c: 694: LATA = 0b11101111;
-"694
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 696: LATB = 0b10000100;
-"696
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 698: LATC = 0b00001111;
-"698
+[; ;main.c: 670: LATA = 0b11111111;
+"670
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 672: LATB = 0b00001000;
+"672
+[e = _LATB -> -> 8 `i `uc ]
+[; ;main.c: 674: LATC = 0b00001111;
+"674
 [e = _LATC -> -> 15 `i `uc ]
-"700
+"676
 }
-[; ;main.c: 700: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[7] == 1) {
+[; ;main.c: 676: } else if (led_array[3] == 1 && led_array[11] == 1) {
 [e $U 960  ]
 [e :U 959 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 961  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 961  ]
 {
-[; ;main.c: 703: LATA = 0b11101111;
-"703
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 705: LATB = 0b10000100;
-"705
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 707: LATC = 0b00001111;
-"707
-[e = _LATC -> -> 15 `i `uc ]
-"709
+[; ;main.c: 679: LATA = 0b11111111;
+"679
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 681: LATB = 0b10001000;
+"681
+[e = _LATB -> -> 136 `i `uc ]
+[; ;main.c: 683: LATC = 0b00001011;
+"683
+[e = _LATC -> -> 11 `i `uc ]
+"685
 }
-[; ;main.c: 709: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[8] == 1) {
+[; ;main.c: 685: } else if (led_array[3] == 1 && led_array[12] == 1) {
 [e $U 962  ]
 [e :U 961 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 963  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 963  ]
 {
-[; ;main.c: 712: LATA = 0b11101111;
-"712
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 714: LATB = 0b10000100;
-"714
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 716: LATC = 0b00001111;
-"716
-[e = _LATC -> -> 15 `i `uc ]
-"718
+[; ;main.c: 688: LATA = 0b11111111;
+"688
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 690: LATB = 0b10001000;
+"690
+[e = _LATB -> -> 136 `i `uc ]
+[; ;main.c: 692: LATC = 0b00000111;
+"692
+[e = _LATC -> -> 7 `i `uc ]
+"693
 }
-[; ;main.c: 718: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[9] == 1) {
+[; ;main.c: 693: }
 [e $U 964  ]
+"696
 [e :U 963 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 965  ]
+[; ;main.c: 696: else if (led_array[0] == 1 && led_array[1] == 1 && led_array[6] == 1) {
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 965  ]
 {
-[; ;main.c: 721: LATA = 0b11101111;
-"721
+[; ;main.c: 699: LATA = 0b11101111;
+"699
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 723: LATB = 0b10000100;
-"723
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 725: LATC = 0b00001111;
-"725
-[e = _LATC -> -> 15 `i `uc ]
-"726
+[; ;main.c: 701: LATB = 0b10000000;
+"701
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 703: LATC = 0b00111111;
+"703
+[e = _LATC -> -> 63 `i `uc ]
+"705
 }
-[; ;main.c: 726: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[10] == 1) {
+[; ;main.c: 705: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[7] == 1) {
 [e $U 966  ]
 [e :U 965 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 967  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 967  ]
 {
-[; ;main.c: 729: LATA = 0b11101111;
-"729
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 731: LATB = 0b10000100;
-"731
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 733: LATC = 0b00001111;
-"733
-[e = _LATC -> -> 15 `i `uc ]
-"734
+[; ;main.c: 708: LATA = 0b10111111;
+"708
+[e = _LATA -> -> 191 `i `uc ]
+[; ;main.c: 710: LATB = 0b10000000;
+"710
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 712: LATC = 0b00111111;
+"712
+[e = _LATC -> -> 63 `i `uc ]
+"714
 }
-[; ;main.c: 734: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[11] == 1) {
+[; ;main.c: 714: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[8] == 1) {
 [e $U 968  ]
 [e :U 967 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 969  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 969  ]
 {
-[; ;main.c: 737: LATA = 0b11101111;
-"737
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 739: LATB = 0b10000100;
-"739
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 741: LATC = 0b00001111;
-"741
-[e = _LATC -> -> 15 `i `uc ]
-"742
+[; ;main.c: 717: LATA = 0b11111111;
+"717
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 719: LATB = 0b10000000;
+"719
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 721: LATC = 0b00111110;
+"721
+[e = _LATC -> -> 62 `i `uc ]
+"723
 }
-[; ;main.c: 742: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[12] == 1) {
+[; ;main.c: 723: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[9] == 1) {
 [e $U 970  ]
 [e :U 969 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 971  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 971  ]
 {
-[; ;main.c: 745: LATA = 0b11101111;
-"745
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 747: LATB = 0b10000100;
-"747
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 749: LATC = 0b00001111;
-"749
-[e = _LATC -> -> 15 `i `uc ]
-"750
+[; ;main.c: 726: LATA = 0b11111111;
+"726
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 728: LATB = 0b10000000;
+"728
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 730: LATC = 0b00111101;
+"730
+[e = _LATC -> -> 61 `i `uc ]
+"731
 }
-[; ;main.c: 750: } else if (led_array[0] == 1 && led_array[6] == 1) {
+[; ;main.c: 731: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[10] == 1) {
 [e $U 972  ]
 [e :U 971 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 973  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 973  ]
 {
-[; ;main.c: 753: LATA = 0b11101111;
-"753
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 755: LATB = 0b10000100;
-"755
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 757: LATC = 0b00001111;
-"757
-[e = _LATC -> -> 15 `i `uc ]
-"759
+[; ;main.c: 734: LATA = 0b11111111;
+"734
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 736: LATB = 0b00000000;
+"736
+[e = _LATB -> -> 0 `i `uc ]
+[; ;main.c: 738: LATC = 0b00111111;
+"738
+[e = _LATC -> -> 63 `i `uc ]
+"739
 }
-[; ;main.c: 759: } else if (led_array[0] == 1 && led_array[7] == 1) {
+[; ;main.c: 739: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[11] == 1) {
 [e $U 974  ]
 [e :U 973 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 975  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 975  ]
 {
-[; ;main.c: 762: LATA = 0b11101111;
-"762
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 764: LATB = 0b10000100;
-"764
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 766: LATC = 0b00001111;
-"766
-[e = _LATC -> -> 15 `i `uc ]
-"768
+[; ;main.c: 742: LATA = 0b11111111;
+"742
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 744: LATB = 0b10000000;
+"744
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 746: LATC = 0b00111011;
+"746
+[e = _LATC -> -> 59 `i `uc ]
+"747
 }
-[; ;main.c: 768: } else if (led_array[0] == 1 && led_array[8] == 1) {
+[; ;main.c: 747: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[12] == 1) {
 [e $U 976  ]
 [e :U 975 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 977  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 977  ]
 {
-[; ;main.c: 771: LATA = 0b11101111;
-"771
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 773: LATB = 0b10000100;
-"773
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 775: LATC = 0b00001111;
-"775
-[e = _LATC -> -> 15 `i `uc ]
-"777
+[; ;main.c: 750: LATA = 0b11111111;
+"750
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 752: LATB = 0b10000000;
+"752
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 754: LATC = 0b00110111;
+"754
+[e = _LATC -> -> 55 `i `uc ]
+"756
 }
-[; ;main.c: 777: } else if (led_array[0] == 1 && led_array[9] == 1) {
+[; ;main.c: 756: } else if (led_array[0] == 1 && led_array[6] == 1) {
 [e $U 978  ]
 [e :U 977 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 979  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 979  ]
 {
-[; ;main.c: 780: LATA = 0b11101111;
-"780
+[; ;main.c: 759: LATA = 0b11101111;
+"759
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 782: LATB = 0b10000100;
-"782
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 784: LATC = 0b00001111;
-"784
-[e = _LATC -> -> 15 `i `uc ]
-"786
+[; ;main.c: 761: LATB = 0b10000000;
+"761
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 763: LATC = 0b00011111;
+"763
+[e = _LATC -> -> 31 `i `uc ]
+"765
 }
-[; ;main.c: 786: } else if (led_array[0] == 1 && led_array[10] == 1) {
+[; ;main.c: 765: } else if (led_array[0] == 1 && led_array[7] == 1) {
 [e $U 980  ]
 [e :U 979 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 981  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 981  ]
 {
-[; ;main.c: 789: LATA = 0b11101111;
-"789
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 791: LATB = 0b10000100;
-"791
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 793: LATC = 0b00001111;
-"793
-[e = _LATC -> -> 15 `i `uc ]
-"795
+[; ;main.c: 768: LATA = 0b10111111;
+"768
+[e = _LATA -> -> 191 `i `uc ]
+[; ;main.c: 770: LATB = 0b10000000;
+"770
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 772: LATC = 0b00011111;
+"772
+[e = _LATC -> -> 31 `i `uc ]
+"774
 }
-[; ;main.c: 795: } else if (led_array[0] == 1 && led_array[11] == 1) {
+[; ;main.c: 774: } else if (led_array[0] == 1 && led_array[8] == 1) {
 [e $U 982  ]
 [e :U 981 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 983  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 983  ]
 {
-[; ;main.c: 798: LATA = 0b11101111;
-"798
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 800: LATB = 0b10000100;
-"800
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 802: LATC = 0b00001111;
-"802
-[e = _LATC -> -> 15 `i `uc ]
-"804
+[; ;main.c: 777: LATA = 0b11111111;
+"777
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 779: LATB = 0b10000000;
+"779
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 781: LATC = 0b00011110;
+"781
+[e = _LATC -> -> 30 `i `uc ]
+"783
 }
-[; ;main.c: 804: } else if (led_array[0] == 1 && led_array[12] == 1) {
+[; ;main.c: 783: } else if (led_array[0] == 1 && led_array[9] == 1) {
 [e $U 984  ]
 [e :U 983 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 985  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 985  ]
 {
-[; ;main.c: 807: LATA = 0b11101111;
-"807
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 809: LATB = 0b10000100;
-"809
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 811: LATC = 0b00001111;
-"811
-[e = _LATC -> -> 15 `i `uc ]
-"813
+[; ;main.c: 786: LATA = 0b11111111;
+"786
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 788: LATB = 0b10000000;
+"788
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 790: LATC = 0b00011101;
+"790
+[e = _LATC -> -> 29 `i `uc ]
+"792
 }
-[; ;main.c: 813: } else if (led_array[1] == 1 && led_array[6] == 1) {
+[; ;main.c: 792: } else if (led_array[0] == 1 && led_array[10] == 1) {
 [e $U 986  ]
 [e :U 985 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 987  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 987  ]
 {
-[; ;main.c: 816: LATA = 0b11101111;
-"816
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 818: LATB = 0b10000100;
-"818
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 820: LATC = 0b00001111;
-"820
-[e = _LATC -> -> 15 `i `uc ]
-"822
+[; ;main.c: 795: LATA = 0b11111111;
+"795
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 797: LATB = 0b00000000;
+"797
+[e = _LATB -> -> 0 `i `uc ]
+[; ;main.c: 799: LATC = 0b00011111;
+"799
+[e = _LATC -> -> 31 `i `uc ]
+"801
 }
-[; ;main.c: 822: } else if (led_array[1] == 1 && led_array[7] == 1) {
+[; ;main.c: 801: } else if (led_array[0] == 1 && led_array[11] == 1) {
 [e $U 988  ]
 [e :U 987 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 989  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 989  ]
 {
-[; ;main.c: 825: LATA = 0b11101111;
-"825
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 827: LATB = 0b10000100;
-"827
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 829: LATC = 0b00001111;
-"829
-[e = _LATC -> -> 15 `i `uc ]
-"831
+[; ;main.c: 804: LATA = 0b11111111;
+"804
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 806: LATB = 0b10000000;
+"806
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 808: LATC = 0b00011011;
+"808
+[e = _LATC -> -> 27 `i `uc ]
+"810
 }
-[; ;main.c: 831: } else if (led_array[1] == 1 && led_array[8] == 1) {
+[; ;main.c: 810: } else if (led_array[0] == 1 && led_array[12] == 1) {
 [e $U 990  ]
 [e :U 989 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 991  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 991  ]
 {
-[; ;main.c: 834: LATA = 0b11101111;
-"834
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 836: LATB = 0b10000100;
-"836
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 838: LATC = 0b00001111;
-"838
-[e = _LATC -> -> 15 `i `uc ]
-"840
+[; ;main.c: 813: LATA = 0b11111111;
+"813
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 815: LATB = 0b10000000;
+"815
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 817: LATC = 0b00010111;
+"817
+[e = _LATC -> -> 23 `i `uc ]
+"819
 }
-[; ;main.c: 840: } else if (led_array[1] == 1 && led_array[9] == 1) {
+[; ;main.c: 819: } else if (led_array[1] == 1 && led_array[6] == 1) {
 [e $U 992  ]
 [e :U 991 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 993  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 993  ]
 {
-[; ;main.c: 843: LATA = 0b11101111;
-"843
+[; ;main.c: 822: LATA = 0b11101111;
+"822
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 845: LATB = 0b10000100;
-"845
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 847: LATC = 0b00001111;
-"847
-[e = _LATC -> -> 15 `i `uc ]
-"849
+[; ;main.c: 824: LATB = 0b10000000;
+"824
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 826: LATC = 0b00101111;
+"826
+[e = _LATC -> -> 47 `i `uc ]
+"828
 }
-[; ;main.c: 849: } else if (led_array[1] == 1 && led_array[10] == 1) {
+[; ;main.c: 828: } else if (led_array[1] == 1 && led_array[7] == 1) {
 [e $U 994  ]
 [e :U 993 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 995  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 995  ]
 {
-[; ;main.c: 852: LATA = 0b11101111;
-"852
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 854: LATB = 0b10000100;
-"854
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 856: LATC = 0b00001111;
-"856
-[e = _LATC -> -> 15 `i `uc ]
-"858
+[; ;main.c: 831: LATA = 0b10111111;
+"831
+[e = _LATA -> -> 191 `i `uc ]
+[; ;main.c: 833: LATB = 0b10000000;
+"833
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 835: LATC = 0b00101111;
+"835
+[e = _LATC -> -> 47 `i `uc ]
+"837
 }
-[; ;main.c: 858: } else if (led_array[1] == 1 && led_array[11] == 1) {
+[; ;main.c: 837: } else if (led_array[1] == 1 && led_array[8] == 1) {
 [e $U 996  ]
 [e :U 995 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 997  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 997  ]
 {
-[; ;main.c: 861: LATA = 0b11101111;
-"861
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 863: LATB = 0b10000100;
-"863
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 865: LATC = 0b00001111;
-"865
-[e = _LATC -> -> 15 `i `uc ]
-"867
+[; ;main.c: 840: LATA = 0b11111111;
+"840
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 842: LATB = 0b10000000;
+"842
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 844: LATC = 0b00101110;
+"844
+[e = _LATC -> -> 46 `i `uc ]
+"846
 }
-[; ;main.c: 867: } else if (led_array[1] == 1 && led_array[12] == 1) {
+[; ;main.c: 846: } else if (led_array[1] == 1 && led_array[9] == 1) {
 [e $U 998  ]
 [e :U 997 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 999  ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 999  ]
 {
-[; ;main.c: 870: LATA = 0b11101111;
-"870
-[e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 872: LATB = 0b10000100;
-"872
-[e = _LATB -> -> 132 `i `uc ]
-[; ;main.c: 874: LATC = 0b00001111;
-"874
-[e = _LATC -> -> 15 `i `uc ]
-"875
+[; ;main.c: 849: LATA = 0b11111111;
+"849
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 851: LATB = 0b10000000;
+"851
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 853: LATC = 0b00101101;
+"853
+[e = _LATC -> -> 45 `i `uc ]
+"855
 }
+[; ;main.c: 855: } else if (led_array[1] == 1 && led_array[10] == 1) {
+[e $U 1000  ]
 [e :U 999 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 1001  ]
+{
+[; ;main.c: 858: LATA = 0b11111111;
+"858
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 860: LATB = 0b00000000;
+"860
+[e = _LATB -> -> 0 `i `uc ]
+[; ;main.c: 862: LATC = 0b00101111;
+"862
+[e = _LATC -> -> 47 `i `uc ]
+"864
+}
+[; ;main.c: 864: } else if (led_array[1] == 1 && led_array[11] == 1) {
+[e $U 1002  ]
+[e :U 1001 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 1003  ]
+{
+[; ;main.c: 867: LATA = 0b11111111;
+"867
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 869: LATB = 0b10000000;
+"869
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 871: LATC = 0b00101011;
+"871
+[e = _LATC -> -> 43 `i `uc ]
+"873
+}
+[; ;main.c: 873: } else if (led_array[1] == 1 && led_array[12] == 1) {
+[e $U 1004  ]
+[e :U 1003 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 1005  ]
+{
+[; ;main.c: 876: LATA = 0b11111111;
+"876
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 878: LATB = 0b10000000;
+"878
+[e = _LATB -> -> 128 `i `uc ]
+[; ;main.c: 880: LATC = 0b00100111;
 "880
+[e = _LATC -> -> 39 `i `uc ]
+"881
+}
+[e :U 1005 ]
+"882
+[e :U 1004 ]
+[e :U 1002 ]
+[e :U 1000 ]
 [e :U 998 ]
 [e :U 996 ]
 [e :U 994 ]
@@ -9420,195 +9455,751 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 886 ]
 [e :U 884 ]
 [e :U 882 ]
-[e :U 880 ]
-[e :U 878 ]
-[e :U 876 ]
-[; ;main.c: 875: }
-[; ;main.c: 880: }
-[e :UE 874 ]
+[; ;main.c: 881: }
+[; ;main.c: 882: }
+[e :UE 880 ]
 }
-"899
-[v _ISR `(i 1 ef ]
+"885
+[v _testToggle `(v 1 ef ]
 {
-[; ;main.c: 899: ISR () {
-[e :U _ISR ]
+[; ;main.c: 885: void testToggle () {
+[e :U _testToggle ]
 [f ]
-[; ;main.c: 902: adc_conversion ();
-"902
-[e ( _adc_conversion ..  ]
-[; ;main.c: 904: cur_inputs[conv_result.adc_channel] = conv_result.result;
-"904
-[e = *U + &U _cur_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _cur_inputs `ui `ux . _conv_result 0 ]
-[; ;main.c: 906: if (cur_inputs[conv_result.adc_channel] != prev_inputs[conv_result.adc_channel]) {
-"906
-[e $ ! != *U + &U _cur_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _cur_inputs `ui `ux *U + &U _prev_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _prev_inputs `ui `ux 1001  ]
+[; ;main.c: 891: for (int i = 0; i < 7; i++) {
+"891
 {
-[; ;main.c: 907: change_val = 1;
-"907
-[e = _change_val -> -> 1 `i `uc ]
-[; ;main.c: 908: prev_inputs[conv_result.adc_channel] = cur_inputs[conv_result.adc_channel];
-"908
-[e = *U + &U _prev_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _prev_inputs `ui `ux *U + &U _cur_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _cur_inputs `ui `ux ]
-[; ;main.c: 909: index = conv_result.adc_channel;
-"909
-[e = _index . _conv_result 1 ]
-"910
-}
-[; ;main.c: 910: } else {
-[e $U 1002  ]
-[e :U 1001 ]
-{
-[; ;main.c: 911: change_val = 0;
-"911
-[e = _change_val -> -> 0 `i `uc ]
-"912
-}
-[e :U 1002 ]
-[; ;main.c: 912: }
-[; ;main.c: 916: }
-"916
-[e :UE 1000 ]
-}
-"924
-[v _adc_conversion `(v 1 ef ]
-{
-[; ;main.c: 924: void adc_conversion() {
-[e :U _adc_conversion ]
-[f ]
-[; ;main.c: 926: ADON = 0;
-"926
-[e = _ADON -> -> 0 `i `b ]
-[; ;main.c: 928: ADRESH = 0;
-"928
-[e = _ADRESH -> -> 0 `i `uc ]
-[; ;main.c: 929: ADRESL = 0;
-"929
-[e = _ADRESL -> -> 0 `i `uc ]
-[; ;main.c: 932: switch (adc_num) {
-"932
-[e $U 1005  ]
-{
-[; ;main.c: 933: case 0 :
-"933
-[e :U 1006 ]
-[; ;main.c: 934: ADCON0 = 0b00100100;
-"934
-[e = _ADCON0 -> -> 36 `i `uc ]
-[; ;main.c: 935: break;
-"935
-[e $U 1004  ]
-[; ;main.c: 936: case 1 :
-"936
+[v _i `i 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 7 `i 1007  ]
+[e $U 1008  ]
 [e :U 1007 ]
-[; ;main.c: 937: ADCON0 = 0b00100000;
-"937
-[e = _ADCON0 -> -> 32 `i `uc ]
-[; ;main.c: 938: break;
-"938
-[e $U 1004  ]
-[; ;main.c: 939: case 2 :
-"939
-[e :U 1008 ]
-[; ;main.c: 940: ADCON0 = 0b00000000;
-"940
-[e = _ADCON0 -> -> 0 `i `uc ]
-[; ;main.c: 941: break;
-"941
-[e $U 1004  ]
-[; ;main.c: 942: case 3 :
-"942
-[e :U 1009 ]
-[; ;main.c: 943: ADCON0 = 0b00000100;
-"943
-[e = _ADCON0 -> -> 4 `i `uc ]
-[; ;main.c: 944: break;
-"944
-[e $U 1004  ]
-[; ;main.c: 945: case 4 :
-"945
+{
+[; ;main.c: 892: for (int j = 0; j < sizeof(led_array); j++) {
+"892
+{
+[v _j `i 1 a ]
+[e = _j -> 0 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1010  ]
+[e $U 1011  ]
 [e :U 1010 ]
-[; ;main.c: 946: ADCON0 = 0b00001000;
-"946
-[e = _ADCON0 -> -> 8 `i `uc ]
-[; ;main.c: 947: break;
-"947
-[e $U 1004  ]
-[; ;main.c: 948: case 5 :
-"948
+{
+[; ;main.c: 893: led_array[j] = 0;
+"893
+[e = *U + &U _led_array * -> -> _j `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
+"894
+}
+"892
+[e ++ _j -> 1 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1010  ]
 [e :U 1011 ]
-[; ;main.c: 949: ADCON0 = 0b00001100;
+"894
+}
+[; ;main.c: 894: }
+[; ;main.c: 895: led_array[0] = 1;
+"895
+[e = *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 896: led_array[1] = 1;
+"896
+[e = *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 897: led_array[i+6] = 1;
+"897
+[e = *U + &U _led_array * -> -> + _i -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 898: ToggleLeds();
+"898
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 899: DelayMs(5000);
+"899
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 900: DelayMs(5000);
+"900
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 901: DelayMs(5000);
+"901
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 902: DelayMs(5000);
+"902
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+"903
+}
+"891
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 7 `i 1007  ]
+[e :U 1008 ]
+"903
+}
+[; ;main.c: 903: }
+[; ;main.c: 904: for (int i = 0; i < 7; i++) {
+"904
+{
+[v _i `i 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 7 `i 1013  ]
+[e $U 1014  ]
+[e :U 1013 ]
+{
+[; ;main.c: 905: for (int j = 0; j < sizeof(led_array); j++) {
+"905
+{
+[v _j `i 1 a ]
+[e = _j -> 0 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1016  ]
+[e $U 1017  ]
+[e :U 1016 ]
+{
+[; ;main.c: 906: led_array[j] = 0;
+"906
+[e = *U + &U _led_array * -> -> _j `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
+"907
+}
+"905
+[e ++ _j -> 1 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1016  ]
+[e :U 1017 ]
+"907
+}
+[; ;main.c: 907: }
+[; ;main.c: 908: led_array[0] = 1;
+"908
+[e = *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 909: led_array[i+6] = 1;
+"909
+[e = *U + &U _led_array * -> -> + _i -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 910: ToggleLeds();
+"910
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 911: DelayMs(5000);
+"911
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 912: DelayMs(5000);
+"912
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 913: DelayMs(5000);
+"913
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 914: DelayMs(5000);
+"914
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+"915
+}
+"904
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 7 `i 1013  ]
+[e :U 1014 ]
+"915
+}
+[; ;main.c: 915: }
+[; ;main.c: 916: for (int i = 0; i < 7; i++) {
+"916
+{
+[v _i `i 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 7 `i 1019  ]
+[e $U 1020  ]
+[e :U 1019 ]
+{
+[; ;main.c: 917: for (int j = 0; j < sizeof(led_array); j++) {
+"917
+{
+[v _j `i 1 a ]
+[e = _j -> 0 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1022  ]
+[e $U 1023  ]
+[e :U 1022 ]
+{
+[; ;main.c: 918: led_array[j] = 0;
+"918
+[e = *U + &U _led_array * -> -> _j `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
+"919
+}
+"917
+[e ++ _j -> 1 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1022  ]
+[e :U 1023 ]
+"919
+}
+[; ;main.c: 919: }
+[; ;main.c: 920: led_array[1] = 1;
+"920
+[e = *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 921: led_array[i+6] = 1;
+"921
+[e = *U + &U _led_array * -> -> + _i -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 922: ToggleLeds();
+"922
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 923: DelayMs(5000);
+"923
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 924: DelayMs(5000);
+"924
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 925: DelayMs(5000);
+"925
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 926: DelayMs(5000);
+"926
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+"927
+}
+"916
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 7 `i 1019  ]
+[e :U 1020 ]
+"927
+}
+[; ;main.c: 927: }
+[; ;main.c: 930: for (int i = 0; i < 7; i++) {
+"930
+{
+[v _i `i 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 7 `i 1025  ]
+[e $U 1026  ]
+[e :U 1025 ]
+{
+[; ;main.c: 931: for (int j = 0; j < sizeof(led_array); j++) {
+"931
+{
+[v _j `i 1 a ]
+[e = _j -> 0 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1028  ]
+[e $U 1029  ]
+[e :U 1028 ]
+{
+[; ;main.c: 932: led_array[j] = 0;
+"932
+[e = *U + &U _led_array * -> -> _j `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
+"933
+}
+"931
+[e ++ _j -> 1 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1028  ]
+[e :U 1029 ]
+"933
+}
+[; ;main.c: 933: }
+[; ;main.c: 934: led_array[2] = 1;
+"934
+[e = *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 935: led_array[3] = 1;
+"935
+[e = *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 936: led_array[i+6] = 1;
+"936
+[e = *U + &U _led_array * -> -> + _i -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 937: ToggleLeds();
+"937
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 938: DelayMs(5000);
+"938
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 939: DelayMs(5000);
+"939
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 940: DelayMs(5000);
+"940
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 941: DelayMs(5000);
+"941
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+"942
+}
+"930
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 7 `i 1025  ]
+[e :U 1026 ]
+"942
+}
+[; ;main.c: 942: }
+[; ;main.c: 943: for (int i = 0; i < 7; i++) {
+"943
+{
+[v _i `i 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 7 `i 1031  ]
+[e $U 1032  ]
+[e :U 1031 ]
+{
+[; ;main.c: 944: for (int j = 0; j < sizeof(led_array); j++) {
+"944
+{
+[v _j `i 1 a ]
+[e = _j -> 0 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1034  ]
+[e $U 1035  ]
+[e :U 1034 ]
+{
+[; ;main.c: 945: led_array[j] = 0;
+"945
+[e = *U + &U _led_array * -> -> _j `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
+"946
+}
+"944
+[e ++ _j -> 1 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1034  ]
+[e :U 1035 ]
+"946
+}
+[; ;main.c: 946: }
+[; ;main.c: 947: led_array[2] = 1;
+"947
+[e = *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 948: led_array[i+6] = 1;
+"948
+[e = *U + &U _led_array * -> -> + _i -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 949: ToggleLeds();
 "949
-[e = _ADCON0 -> -> 12 `i `uc ]
-[; ;main.c: 950: break;
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 950: DelayMs(5000);
 "950
-[e $U 1004  ]
-[; ;main.c: 951: case 6 :
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 951: DelayMs(5000);
 "951
-[e :U 1012 ]
-[; ;main.c: 952: ADCON0 = 0b00010000;
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 952: DelayMs(5000);
 "952
-[e = _ADCON0 -> -> 16 `i `uc ]
-[; ;main.c: 953: break;
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 953: DelayMs(5000);
 "953
-[e $U 1004  ]
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+"954
+}
+"943
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 7 `i 1031  ]
+[e :U 1032 ]
 "954
 }
 [; ;main.c: 954: }
-[e $U 1004  ]
-"932
-[e :U 1005 ]
-[e [\ _adc_num , $ -> -> 0 `i `uc 1006
- , $ -> -> 1 `i `uc 1007
- , $ -> -> 2 `i `uc 1008
- , $ -> -> 3 `i `uc 1009
- , $ -> -> 4 `i `uc 1010
- , $ -> -> 5 `i `uc 1011
- , $ -> -> 6 `i `uc 1012
- 1004 ]
-"954
-[e :U 1004 ]
-[; ;main.c: 958: ADON = 1;
+[; ;main.c: 955: for (int i = 0; i < 7; i++) {
+"955
+{
+[v _i `i 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 7 `i 1037  ]
+[e $U 1038  ]
+[e :U 1037 ]
+{
+[; ;main.c: 956: for (int j = 0; j < sizeof(led_array); j++) {
+"956
+{
+[v _j `i 1 a ]
+[e = _j -> 0 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1040  ]
+[e $U 1041  ]
+[e :U 1040 ]
+{
+[; ;main.c: 957: led_array[j] = 0;
+"957
+[e = *U + &U _led_array * -> -> _j `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
 "958
-[e = _ADON -> -> 1 `i `b ]
-[; ;main.c: 959: GODONE = 1;
+}
+"956
+[e ++ _j -> 1 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1040  ]
+[e :U 1041 ]
+"958
+}
+[; ;main.c: 958: }
+[; ;main.c: 959: led_array[3] = 1;
 "959
-[e = _GODONE -> -> 1 `i `b ]
-[; ;main.c: 962: while (GODONE) {
+[e = *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 960: led_array[i+6] = 1;
+"960
+[e = *U + &U _led_array * -> -> + _i -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 961: ToggleLeds();
+"961
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 962: DelayMs(5000);
 "962
-[e $U 1013  ]
-[e :U 1014 ]
-{
-[; ;main.c: 963: ADON = 0;
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 963: DelayMs(5000);
 "963
-[e = _ADON -> -> 0 `i `b ]
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 964: DelayMs(5000);
 "964
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 965: DelayMs(5000);
+"965
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+"966
 }
-[e :U 1013 ]
-"962
-[e $ _GODONE 1014  ]
-[e :U 1015 ]
-[; ;main.c: 964: }
-[; ;main.c: 967: conv_result.result = ADRES;
-"967
-[e = . _conv_result 0 -> _ADRES `i ]
-[; ;main.c: 968: conv_result.adc_channel = adc_num;
-"968
-[e = . _conv_result 1 -> _adc_num `i ]
-[; ;main.c: 971: adc_num++;
-"971
-[e ++ _adc_num -> -> 1 `i `uc ]
-[; ;main.c: 972: if (adc_num >= 7) {
-"972
-[e $ ! >= -> _adc_num `i -> 7 `i 1016  ]
+"955
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 7 `i 1037  ]
+[e :U 1038 ]
+"966
+}
+[; ;main.c: 966: }
+[; ;main.c: 969: for (int i = 0; i < 7; i++) {
+"969
 {
-[; ;main.c: 973: adc_num = 0;
-"973
-[e = _adc_num -> -> 0 `i `uc ]
-"974
+[v _i `i 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 7 `i 1043  ]
+[e $U 1044  ]
+[e :U 1043 ]
+{
+[; ;main.c: 970: for (int j = 0; j < sizeof(led_array); j++) {
+"970
+{
+[v _j `i 1 a ]
+[e = _j -> 0 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1046  ]
+[e $U 1047  ]
+[e :U 1046 ]
+{
+[; ;main.c: 971: led_array[j] = 0;
+"971
+[e = *U + &U _led_array * -> -> _j `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
+"972
 }
-[e :U 1016 ]
-[; ;main.c: 974: }
-[; ;main.c: 975: }
+"970
+[e ++ _j -> 1 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1046  ]
+[e :U 1047 ]
+"972
+}
+[; ;main.c: 972: }
+[; ;main.c: 973: led_array[4] = 1;
+"973
+[e = *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 974: led_array[5] = 1;
+"974
+[e = *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 975: led_array[i+6] = 1;
 "975
-[e :UE 1003 ]
+[e = *U + &U _led_array * -> -> + _i -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 976: ToggleLeds();
+"976
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 977: DelayMs(5000);
+"977
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 978: DelayMs(5000);
+"978
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 979: DelayMs(5000);
+"979
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 980: DelayMs(5000);
+"980
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+"981
+}
+"969
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 7 `i 1043  ]
+[e :U 1044 ]
+"981
+}
+[; ;main.c: 981: }
+[; ;main.c: 983: for (int i = 0; i < 7; i++) {
+"983
+{
+[v _i `i 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 7 `i 1049  ]
+[e $U 1050  ]
+[e :U 1049 ]
+{
+[; ;main.c: 984: for (int j = 0; j < sizeof(led_array); j++) {
+"984
+{
+[v _j `i 1 a ]
+[e = _j -> 0 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1052  ]
+[e $U 1053  ]
+[e :U 1052 ]
+{
+[; ;main.c: 985: led_array[j] = 0;
+"985
+[e = *U + &U _led_array * -> -> _j `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
+"986
+}
+"984
+[e ++ _j -> 1 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1052  ]
+[e :U 1053 ]
+"986
+}
+[; ;main.c: 986: }
+[; ;main.c: 987: led_array[4] = 1;
+"987
+[e = *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 988: led_array[i+6] = 1;
+"988
+[e = *U + &U _led_array * -> -> + _i -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 989: ToggleLeds();
+"989
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 990: DelayMs(5000);
+"990
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 991: DelayMs(5000);
+"991
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 992: DelayMs(5000);
+"992
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 993: DelayMs(5000);
+"993
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+"994
+}
+"983
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 7 `i 1049  ]
+[e :U 1050 ]
+"994
+}
+[; ;main.c: 994: }
+[; ;main.c: 996: for (int i = 0; i < 7; i++) {
+"996
+{
+[v _i `i 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 7 `i 1055  ]
+[e $U 1056  ]
+[e :U 1055 ]
+{
+[; ;main.c: 997: for (int j = 0; j < sizeof(led_array); j++) {
+"997
+{
+[v _j `i 1 a ]
+[e = _j -> 0 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1058  ]
+[e $U 1059  ]
+[e :U 1058 ]
+{
+[; ;main.c: 998: led_array[j] = 0;
+"998
+[e = *U + &U _led_array * -> -> _j `ui `ux -> -> # *U &U _led_array `ui `ux -> 0 `i ]
+"999
+}
+"997
+[e ++ _j -> 1 `i ]
+[e $ < -> _j `ui -> # _led_array `ui 1058  ]
+[e :U 1059 ]
+"999
+}
+[; ;main.c: 999: }
+[; ;main.c: 1000: led_array[5] = 1;
+"1000
+[e = *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 1001: led_array[i+6] = 1;
+"1001
+[e = *U + &U _led_array * -> -> + _i -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 1002: ToggleLeds();
+"1002
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 1003: DelayMs(5000);
+"1003
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 1004: DelayMs(5000);
+"1004
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 1005: DelayMs(5000);
+"1005
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+[; ;main.c: 1006: DelayMs(5000);
+"1006
+[e ( _DelayMs (1 -> -> 5000 `i `uc ]
+"1007
+}
+"996
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 7 `i 1055  ]
+[e :U 1056 ]
+"1007
+}
+[; ;main.c: 1007: }
+[; ;main.c: 1008: }
+"1008
+[e :UE 1006 ]
+}
+"1027
+[v _ISR `(i 1 ef ]
+{
+[; ;main.c: 1027: ISR () {
+[e :U _ISR ]
+[f ]
+[; ;main.c: 1030: adc_conversion ();
+"1030
+[e ( _adc_conversion ..  ]
+[; ;main.c: 1032: cur_inputs[conv_result.adc_channel] = conv_result.result;
+"1032
+[e = *U + &U _cur_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _cur_inputs `ui `ux . _conv_result 0 ]
+[; ;main.c: 1034: if (cur_inputs[conv_result.adc_channel] != prev_inputs[conv_result.adc_channel]) {
+"1034
+[e $ ! != *U + &U _cur_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _cur_inputs `ui `ux *U + &U _prev_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _prev_inputs `ui `ux 1062  ]
+{
+[; ;main.c: 1035: change_val = 1;
+"1035
+[e = _change_val -> -> 1 `i `uc ]
+[; ;main.c: 1036: prev_inputs[conv_result.adc_channel] = cur_inputs[conv_result.adc_channel];
+"1036
+[e = *U + &U _prev_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _prev_inputs `ui `ux *U + &U _cur_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _cur_inputs `ui `ux ]
+[; ;main.c: 1037: index = conv_result.adc_channel;
+"1037
+[e = _index . _conv_result 1 ]
+"1038
+}
+[; ;main.c: 1038: } else {
+[e $U 1063  ]
+[e :U 1062 ]
+{
+[; ;main.c: 1039: change_val = 0;
+"1039
+[e = _change_val -> -> 0 `i `uc ]
+"1040
+}
+[e :U 1063 ]
+[; ;main.c: 1040: }
+[; ;main.c: 1044: }
+"1044
+[e :UE 1061 ]
+}
+"1052
+[v _adc_conversion `(v 1 ef ]
+{
+[; ;main.c: 1052: void adc_conversion() {
+[e :U _adc_conversion ]
+[f ]
+[; ;main.c: 1054: ADON = 0;
+"1054
+[e = _ADON -> -> 0 `i `b ]
+[; ;main.c: 1056: ADRESH = 0;
+"1056
+[e = _ADRESH -> -> 0 `i `uc ]
+[; ;main.c: 1057: ADRESL = 0;
+"1057
+[e = _ADRESL -> -> 0 `i `uc ]
+[; ;main.c: 1060: switch (adc_num) {
+"1060
+[e $U 1066  ]
+{
+[; ;main.c: 1061: case 0 :
+"1061
+[e :U 1067 ]
+[; ;main.c: 1062: ADCON0 = 0b00100100;
+"1062
+[e = _ADCON0 -> -> 36 `i `uc ]
+[; ;main.c: 1063: break;
+"1063
+[e $U 1065  ]
+[; ;main.c: 1064: case 1 :
+"1064
+[e :U 1068 ]
+[; ;main.c: 1065: ADCON0 = 0b00100000;
+"1065
+[e = _ADCON0 -> -> 32 `i `uc ]
+[; ;main.c: 1066: break;
+"1066
+[e $U 1065  ]
+[; ;main.c: 1067: case 2 :
+"1067
+[e :U 1069 ]
+[; ;main.c: 1068: ADCON0 = 0b00000000;
+"1068
+[e = _ADCON0 -> -> 0 `i `uc ]
+[; ;main.c: 1069: break;
+"1069
+[e $U 1065  ]
+[; ;main.c: 1070: case 3 :
+"1070
+[e :U 1070 ]
+[; ;main.c: 1071: ADCON0 = 0b00000100;
+"1071
+[e = _ADCON0 -> -> 4 `i `uc ]
+[; ;main.c: 1072: break;
+"1072
+[e $U 1065  ]
+[; ;main.c: 1073: case 4 :
+"1073
+[e :U 1071 ]
+[; ;main.c: 1074: ADCON0 = 0b00001000;
+"1074
+[e = _ADCON0 -> -> 8 `i `uc ]
+[; ;main.c: 1075: break;
+"1075
+[e $U 1065  ]
+[; ;main.c: 1076: case 5 :
+"1076
+[e :U 1072 ]
+[; ;main.c: 1077: ADCON0 = 0b00001100;
+"1077
+[e = _ADCON0 -> -> 12 `i `uc ]
+[; ;main.c: 1078: break;
+"1078
+[e $U 1065  ]
+[; ;main.c: 1079: case 6 :
+"1079
+[e :U 1073 ]
+[; ;main.c: 1080: ADCON0 = 0b00010000;
+"1080
+[e = _ADCON0 -> -> 16 `i `uc ]
+[; ;main.c: 1081: break;
+"1081
+[e $U 1065  ]
+"1082
+}
+[; ;main.c: 1082: }
+[e $U 1065  ]
+"1060
+[e :U 1066 ]
+[e [\ _adc_num , $ -> -> 0 `i `uc 1067
+ , $ -> -> 1 `i `uc 1068
+ , $ -> -> 2 `i `uc 1069
+ , $ -> -> 3 `i `uc 1070
+ , $ -> -> 4 `i `uc 1071
+ , $ -> -> 5 `i `uc 1072
+ , $ -> -> 6 `i `uc 1073
+ 1065 ]
+"1082
+[e :U 1065 ]
+[; ;main.c: 1086: ADON = 1;
+"1086
+[e = _ADON -> -> 1 `i `b ]
+[; ;main.c: 1087: GODONE = 1;
+"1087
+[e = _GODONE -> -> 1 `i `b ]
+[; ;main.c: 1090: while (GODONE) {
+"1090
+[e $U 1074  ]
+[e :U 1075 ]
+{
+[; ;main.c: 1091: ADON = 0;
+"1091
+[e = _ADON -> -> 0 `i `b ]
+"1092
+}
+[e :U 1074 ]
+"1090
+[e $ _GODONE 1075  ]
+[e :U 1076 ]
+[; ;main.c: 1092: }
+[; ;main.c: 1095: conv_result.result = ADRES;
+"1095
+[e = . _conv_result 0 -> _ADRES `i ]
+[; ;main.c: 1096: conv_result.adc_channel = adc_num;
+"1096
+[e = . _conv_result 1 -> _adc_num `i ]
+[; ;main.c: 1099: adc_num++;
+"1099
+[e ++ _adc_num -> -> 1 `i `uc ]
+[; ;main.c: 1100: if (adc_num >= 7) {
+"1100
+[e $ ! >= -> _adc_num `i -> 7 `i 1077  ]
+{
+[; ;main.c: 1101: adc_num = 0;
+"1101
+[e = _adc_num -> -> 0 `i `uc ]
+"1102
+}
+[e :U 1077 ]
+[; ;main.c: 1102: }
+[; ;main.c: 1103: }
+"1103
+[e :UE 1064 ]
 }

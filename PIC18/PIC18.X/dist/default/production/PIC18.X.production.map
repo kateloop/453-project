@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\CCS\AppData\Local\Temp\saj4.obj \
+  C:\Users\CCS\AppData\Local\Temp\s4hg.obj \
   dist/default/production\PIC18.X.production.obj 
 
 Object code version is 3.10
@@ -32,29 +32,32 @@ Machine type is 18F2682
 
 Call graph: (short form)
 
-*_main size 4,4 offset 0
-*    _ToggleLeds size 0,0 offset 8
+*_main size 4,7 offset 0
+*    _WriteUSART size 1,1 offset 11
+     _ToggleLeds size 0,0 offset 11
 
 Estimated maximum call depth: 1
 
 
                 Name          Link     Load   Length Selector Space Scale
-C:\Users\CCS\AppData\Local\Temp\saj4.obj
+C:\Users\CCS\AppData\Local\Temp\s4hg.obj
                 end_init         C        C       12       0     0
                 init             0        0        C       0     0
                 config      300000   300000        E  300000     0
 dist/default/production\PIC18.X.production.obj
-                text0        1312C    1312C       82    9896     0
-                text1        131AE    131AE      E52    98D7     0
+                text2        130DA    130DA       2C    986D     0
+                text0        13106    13106      10E    9883     0
+                text1        13214    13214      DEC    990A     0
 
-COMMON          param1         100      100        8     100     1
+COMMON          param1         100      100        D     100     1
 
 TOTAL           Name          Link     Load   Length  Space
         CLASS   CODE           
                 end_init         C        C       12     0
                 init             0        0        C     0
-                text0        1312C    1312C       82     0
-                text1        131AE    131AE      E52     0
+                text2        130DA    130DA       2C     0
+                text0        13106    13106      10E     0
+                text1        13214    13214      DEC     0
 
         CLASS   CONST          
 
@@ -74,7 +77,7 @@ TOTAL           Name          Link     Load   Length  Space
         CLASS   BANK0          
 
         CLASS   BANK1          
-                param1         100      100        8     1
+                param1         100      100        D     1
 
         CLASS   BANK2          
 
@@ -114,16 +117,17 @@ TOTAL           Name          Link     Load   Length  Space
 SEGMENTS        Name           Load    Length   Top     Selector    Space Class
 
                 reset_vec       000000  00001E  00001E         0       0  CODE    
-                param1          000100  000008  000108       100       1  BANK1   
-                text0           01312C  000082  0131AE      9896       0  CODE    
-                text1           0131AE  000E52  014000      98D7       0  CODE    
+                param1          000100  00000D  00010D       100       1  BANK1   
+                text2           0130DA  00002C  013106      986D       0  CODE    
+                text0           013106  00010E  013214      9883       0  CODE    
+                text1           013214  000DEC  014000      990A       0  CODE    
                 config          300000  00000E  30000E    300000       0  CONFIG  
 
 
 UNUSED ADDRESS RANGES
 
         BANK0            000041-0000FF
-        BANK1            000108-0001FF
+        BANK1            00010D-0001FF
         BANK10           000A00-000AFF
         BANK11           000B00-000BFF
         BANK12           000C00-000C9F
@@ -136,25 +140,28 @@ UNUSED ADDRESS RANGES
         BANK8            000800-0008FF
         BANK9            000900-0009FF
         BIGRAM           000041-0000FF
-                         000108-000C9F
-        CODE             00001E-01312B
+                         00010D-000C9F
+        CODE             00001E-0130D9
         COMRAM           000041-00005F
-        CONST            00001E-01312B
+        CONST            00001E-0130D9
         EEDATA           F00000-F003FF
         IDLOC            200000-200007
         MEDIUMCONST      000D00-00FFFF
-                         010D00-01312B
+                         010D00-0130D9
         NVRAM            000C00-000C9F
         RAM              000041-0000FF
-                         000108-000C9F
+                         00010D-000C9F
         SMALLCONST       000D00-003FFF
 
                                   Symbol Table
 
-??_ToggleLeds       param1       000108
+??_ToggleLeds       param1       00010B
+??_WriteUSART       param1       00010C
 ??_main             param1       000104
-?_ToggleLeds        param1       000108
+?_ToggleLeds        param1       00010B
+?_WriteUSART        param1       00010B
 ?_main              param1       000100
+WriteUSART@data     param1       00010B
 _ADCON0             (abs)        000FC2
 _ADCON1             (abs)        000FC1
 _ADCON2             (abs)        000FC0
@@ -198,14 +205,15 @@ _TXIE_x             (abs)        007CEC
 _TXIF               (abs)        007CF4
 _TXREG              (abs)        000FAD
 _TXSTA              (abs)        000FAC
-_ToggleLeds         text1        0131AE
+_ToggleLeds         text1        013214
 _USART_Status       (abs)        000030
+_WriteUSART         text2        0130DA
 __Bnvbit            nvbit        000041
 __Brbit             rbit         000041
 __HRAM              (abs)        000000
 __Habsbss0          (abs)        000041
-__Hbigbss           bigbss       000108
-__Hbigdata          bigdata      000108
+__Hbigbss           bigbss       00010D
+__Hbigdata          bigdata      00010D
 __Hbss              bss          000041
 __Hclrtext          clrtext      00001E
 __Hconfig           config       30000E
@@ -224,15 +232,15 @@ __Hintcode          intcode      000000
 __Hintcodelo        intcodelo    000000
 __Hintentry         intentry     00001E
 __Hintret           intret       00001E
-__Hintsave_regs     intsave_regs 000108
+__Hintsave_regs     intsave_regs 00010D
 __Hirdata           irdata       00001E
 __Hmediumconst      mediumconst  000D00
 __Hnvbit            nvbit        000208
 __Hnvram            nvram        00001E
 __Hnvrram           nvrram       000041
-__Hparam            param1       000108
+__Hparam            param1       00010D
 __Hparam0           param0       00001E
-__Hparam1           param1       000108
+__Hparam1           param1       00010D
 __Hparam10          param10      00001E
 __Hparam11          param11      00001E
 __Hparam12          param12      00001E
@@ -257,10 +265,11 @@ __Htemp             temp         000041
 __Htext             text         00001E
 __Htext0            text0        00001E
 __Htext1            text1        00001E
+__Htext2            text2        00001E
 __LRAM              (abs)        000001
 __Labsbss0          (abs)        000000
-__Lbigbss           bigbss       000108
-__Lbigdata          bigdata      000108
+__Lbigbss           bigbss       00010D
+__Lbigdata          bigdata      00010D
 __Lbss              bss          000041
 __Lclrtext          clrtext      00001E
 __Lconfig           config       300000
@@ -279,7 +288,7 @@ __Lintcode          intcode      000000
 __Lintcodelo        intcodelo    000000
 __Lintentry         intentry     00001E
 __Lintret           intret       00001E
-__Lintsave_regs     intsave_regs 000108
+__Lintsave_regs     intsave_regs 00010D
 __Lirdata           irdata       00001E
 __Lmediumconst      mediumconst  000D00
 __Lnvbit            nvbit        000208
@@ -312,6 +321,7 @@ __Ltemp             temp         000041
 __Ltext             text         00001E
 __Ltext0            text0        00001E
 __Ltext1            text1        00001E
+__Ltext2            text2        00001E
 __S0                (abs)        F00000
 __S1                (abs)        000C00
 __accesstop         (abs)        000060
@@ -324,7 +334,8 @@ __config5           (abs)        00FFFF
 __config6           (abs)        00FFFF
 __config7           (abs)        00FFFF
 __end_of_ToggleLeds text1        014000
-__end_of_main       text0        0131AE
+__end_of_WriteUSART text2        013106
+__end_of_main       text0        013214
 __mediumconst       mediumconst  000D00
 __ramtop            ramtop       000D00
 __smallconst        smallconst   000D00
@@ -335,7 +346,7 @@ _cur_inputs         (abs)        00001A
 _exit               init         000000
 _index              (abs)        000028
 _led_array          (abs)        000000
-_main               text0        01312C
+_main               text0        013106
 _prev_inputs        (abs)        000033
 _uart_in            (abs)        000032
 _uart_out           (abs)        000031
@@ -345,6 +356,8 @@ intlevel2           text         00001E
 intlevel3           text         00001E
 main@argc           param1       000100
 main@argv           param1       000102
-main@channel        param1       000104
-main@result         param1       000105
+main@channel        param1       000105
+main@i              param1       000108
+main@result         param1       000106
+main@tx             param1       000104
 start               init         000000

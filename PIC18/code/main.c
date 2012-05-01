@@ -49,6 +49,7 @@ __CONFIG (7, UNPROTECT);
 
 void ToggleLeds();
 void adc_conversion();
+void testToggle();
 
 //////////////////////////////////
 //  defines                     //
@@ -231,10 +232,10 @@ int main(int argc, char** argv) {
       //      }
             
   //      }
-        /*while (1) {
-            unsigned char tx = 'a';
+        while (1) {
+           unsigned char tx = 'a';
              WriteUSART(tx);
-        }*/
+        }
 
           /*   while (1) {
                 LATC = 0b01000000;
@@ -276,7 +277,15 @@ int main(int argc, char** argv) {
         
     }
         
-        ToggleLeds();
+        for (int i = 0; i < 13; i++) {
+            led_array[i] = 0;
+        }
+   //     led_array[2] = 1;   // 4R
+   //     led_array[3] = 1;   // 4L
+   //     led_array[10] = 1;
+   //     ToggleLeds();
+
+        //testToggle();
         /*
 // Enabled by 0
 #define A_SEL_PORTC  0b00000100    // pin 13, RC2
@@ -322,7 +331,7 @@ void ToggleLeds () {
         //LATB   PNN-NN--
         LATB = 0b1110000;
         //LATB   --NNPPPP
-        LATC = 0b00000111;
+        LATC = 0b00001111;
     } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
         // Octave 3 L & R LED on; D
         //LATA   -P-P----
@@ -399,7 +408,7 @@ void ToggleLeds () {
     } else if (led_array[4] == 1 && led_array[9] == 1) {
         // Octave 3 Right LED is on; F
         //LATA   -P-P----
-        LATA = 0b11111101;
+        LATA = 0b11111111;
         //LATB   PNN-NN--
         LATB = 0b1100000;
         //LATB   --NNPPPP
@@ -653,7 +662,7 @@ void ToggleLeds () {
         //LATB   PNN-NN--
         LATB = 0b10001000;
         //LATB   --NNPPPP
-        LATC = 0b00001110;
+        LATC = 0b00001101;
 
     } else if (led_array[3] == 1 && led_array[10] == 1) {
         // Octave 4 Left LED is on; G
@@ -869,11 +878,133 @@ void ToggleLeds () {
         LATB = 0b10000000;
         //LATB   --NNPPPP
         LATC = 0b00100111;
+    }   
+}
+
+
+void testToggle () {
+
+    // int led_array[13];
+    // R5, L5, R4, L4, R3, L3, C, D, E, F, G, A, B
+
+    // toggle octave 5 leds
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < sizeof(led_array); j++) {
+            led_array[j] = 0;
+        }
+        led_array[0] = 1;
+        led_array[1] = 1;
+        led_array[i+6] = 1;
+        ToggleLeds();
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+    }
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < sizeof(led_array); j++) {
+            led_array[j] = 0;
+        }
+        led_array[0] = 1;
+        led_array[i+6] = 1;
+        ToggleLeds();
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+    }
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < sizeof(led_array); j++) {
+            led_array[j] = 0;
+        }
+        led_array[1] = 1;
+        led_array[i+6] = 1;
+        ToggleLeds();
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
     }
 
+    // toggle octave 4 leds
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < sizeof(led_array); j++) {
+            led_array[j] = 0;
+        }
+        led_array[2] = 1;
+        led_array[3] = 1;
+        led_array[i+6] = 1;
+        ToggleLeds();
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+    }
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < sizeof(led_array); j++) {
+            led_array[j] = 0;
+        }
+        led_array[2] = 1;
+        led_array[i+6] = 1;
+        ToggleLeds();
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+    }
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < sizeof(led_array); j++) {
+            led_array[j] = 0;
+        }
+        led_array[3] = 1;
+        led_array[i+6] = 1;
+        ToggleLeds();
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+    }
 
-
-    
+    // toggle octave 3 LEDs
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < sizeof(led_array); j++) {
+            led_array[j] = 0;
+        }
+        led_array[4] = 1;
+        led_array[5] = 1;
+        led_array[i+6] = 1;
+        ToggleLeds();
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+    }
+    // toggle octave 3 LEDs
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < sizeof(led_array); j++) {
+            led_array[j] = 0;
+        }
+        led_array[4] = 1;
+        led_array[i+6] = 1;
+        ToggleLeds();
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+    }
+    // toggle octave 3 LEDs
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < sizeof(led_array); j++) {
+            led_array[j] = 0;
+        }
+        led_array[5] = 1;
+        led_array[i+6] = 1;
+        ToggleLeds();
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+    }
 }
 
 /*
