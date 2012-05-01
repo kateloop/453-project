@@ -9978,12 +9978,6 @@ TXSTA = 0b00100000;
 
 LATB = 0b00000000;
 
-# 235
-while (1) {
-unsigned char tx = 'a';
-WriteUSART(tx);
-}
-
 # 265
 while (0) {
 
@@ -10003,6 +9997,12 @@ char channel = index;
 for (int i = 0; i < 13; i++) {
 led_array[i] = 0;
 }
+led_array[4] = 1;
+led_array[5] = 1;
+led_array[6] = 1;
+ToggleLeds();
+
+testToggle();
 
 # 311
 }
@@ -10019,7 +10019,7 @@ if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
 
 LATA = 0b11101111;
 
-LATB = 0b1110000;
+LATB = 0b11100000;
 
 LATC = 0b00001111;
 } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
@@ -10076,7 +10076,7 @@ LATC = 0b00000111;
 
 LATA = 0b11101111;
 
-LATB = 0b1100000;
+LATB = 0b11000000;
 
 LATC = 0b00001111;
 } else if (led_array[4] == 1 && led_array[7] == 1) {
@@ -10084,7 +10084,7 @@ LATC = 0b00001111;
 
 LATA = 0b10111111;
 
-LATB = 0b1100000;
+LATB = 0b11000000;
 
 LATC = 0b00001111;
 } else if (led_array[4] == 1 && led_array[8] == 1) {
@@ -10092,7 +10092,7 @@ LATC = 0b00001111;
 
 LATA = 0b11111111;
 
-LATB = 0b1100000;
+LATB = 0b11000000;
 
 LATC = 0b00001110;
 } else if (led_array[4] == 1 && led_array[9] == 1) {
@@ -10100,7 +10100,7 @@ LATC = 0b00001110;
 
 LATA = 0b11111111;
 
-LATB = 0b1100000;
+LATB = 0b11000000;
 
 LATC = 0b00001101;
 
@@ -10109,7 +10109,7 @@ LATC = 0b00001101;
 
 LATA = 0b11111111;
 
-LATB = 0b0100000;
+LATB = 0b01000000;
 
 LATC = 0b00001111;
 
@@ -10118,7 +10118,7 @@ LATC = 0b00001111;
 
 LATA = 0b11111111;
 
-LATB = 0b1100000;
+LATB = 0b11000000;
 
 LATC = 0b00001011;
 
@@ -10127,7 +10127,7 @@ LATC = 0b00001011;
 
 LATA = 0b11111111;
 
-LATB = 0b1100000;
+LATB = 0b11000000;
 
 LATC = 0b00000111;
 
@@ -10136,7 +10136,7 @@ LATC = 0b00000111;
 
 LATA = 0b11101111;
 
-LATB = 0b1010000;
+LATB = 0b10100000;
 
 LATC = 0b00001111;
 
@@ -10145,7 +10145,7 @@ LATC = 0b00001111;
 
 LATA = 0b10111111;
 
-LATB = 0b1010000;
+LATB = 0b10100000;
 
 LATC = 0b00001111;
 
@@ -10154,7 +10154,7 @@ LATC = 0b00001111;
 
 LATA = 0b11111111;
 
-LATB = 0b1010000;
+LATB = 0b10100000;
 
 LATC = 0b00001110;
 
@@ -10163,7 +10163,7 @@ LATC = 0b00001110;
 
 LATA = 0b11111111;
 
-LATB = 0b1010000;
+LATB = 0b10100000;
 
 LATC = 0b00001101;
 
@@ -10172,7 +10172,7 @@ LATC = 0b00001101;
 
 LATA = 0b11111111;
 
-LATB = 0b0010000;
+LATB = 0b00100000;
 
 LATC = 0b00001111;
 
@@ -10181,7 +10181,7 @@ LATC = 0b00001111;
 
 LATA = 0b11111111;
 
-LATB = 0b1010000;
+LATB = 0b10100000;
 
 LATC = 0b00001011;
 
@@ -10190,7 +10190,7 @@ LATC = 0b00001011;
 
 LATA = 0b11111111;
 
-LATB = 0b1010000;
+LATB = 0b10100000;
 
 LATC = 0b00000111;
 }
@@ -10234,9 +10234,9 @@ LATC = 0b00001101;
 } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[10] == 1) {
 
 
-LATA = 0b01111111;
+LATA = 0b11111111;
 
-LATB = 0b10001100;
+LATB = 0b00001100;
 
 LATC = 0b00001111;
 } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[11] == 1) {

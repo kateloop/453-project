@@ -232,10 +232,10 @@ int main(int argc, char** argv) {
       //      }
             
   //      }
-        while (1) {
-           unsigned char tx = 'a';
-             WriteUSART(tx);
-        }
+   //     while (1) {
+   //        unsigned char tx = 'a';
+   //          WriteUSART(tx);
+   //     }
 
           /*   while (1) {
                 LATC = 0b01000000;
@@ -277,16 +277,13 @@ int main(int argc, char** argv) {
         
     }
         
-        for (int i = 0; i < 13; i++) {
+      /*  for (int i = 0; i < 13; i++) {
             led_array[i] = 0;
         }
-   //     led_array[2] = 1;   // 4R
-   //     led_array[3] = 1;   // 4L
-   //     led_array[10] = 1;
-   //     ToggleLeds();
 
-        //testToggle();
-        /*
+        testToggle(); */
+
+/*
 // Enabled by 0
 #define A_SEL_PORTC  0b00000100    // pin 13, RC2
 #define B_SEL_PORTC  0b00001000    // pin 14, RC3
@@ -329,7 +326,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11101111;
         //LATB   PNN-NN--
-        LATB = 0b1110000;
+        LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
     } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
@@ -386,7 +383,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11101111;
         //LATB   PNN-NN--
-        LATB = 0b1100000;
+        LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
     } else if (led_array[4] == 1 && led_array[7] == 1) {
@@ -394,7 +391,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b10111111;
         //LATB   PNN-NN--
-        LATB = 0b1100000;
+        LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
     } else if (led_array[4] == 1 && led_array[8] == 1) {
@@ -402,7 +399,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b1100000;
+        LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001110;
     } else if (led_array[4] == 1 && led_array[9] == 1) {
@@ -410,7 +407,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b1100000;
+        LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001101;
         
@@ -419,7 +416,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b0100000;
+        LATB = 0b01000000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
         
@@ -428,7 +425,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b1100000;
+        LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001011;
         
@@ -437,7 +434,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b1100000;
+        LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00000111;
         
@@ -446,7 +443,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11101111;
         //LATB   PNN-NN--
-        LATB = 0b1010000;
+        LATB = 0b10100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
         
@@ -455,7 +452,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b10111111;
         //LATB   PNN-NN--
-        LATB = 0b1010000;
+        LATB = 0b10100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
@@ -464,7 +461,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b1010000;
+        LATB = 0b10100000;
         //LATB   --NNPPPP
         LATC = 0b00001110;
 
@@ -473,7 +470,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b1010000;
+        LATB = 0b10100000;
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
@@ -482,7 +479,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b0010000;
+        LATB = 0b00100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
@@ -491,7 +488,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b1010000;
+        LATB = 0b10100000;
         //LATB   --NNPPPP
         LATC = 0b00001011;
 
@@ -500,7 +497,7 @@ void ToggleLeds () {
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b1010000;
+        LATB = 0b10100000;
         //LATB   --NNPPPP
         LATC = 0b00000111;
     }
@@ -544,9 +541,9 @@ void ToggleLeds () {
     } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[10] == 1) {
         // Octave 4 L & R LED on; G
         //LATA   -P-P----
-        LATA = 0b01111111;
+        LATA = 0b11111111;
         //LATB   PNN-NN--
-        LATB = 0b10001100;
+        LATB = 0b00001100;
         //LATB   --NNPPPP
         LATC = 0b00001111;
     } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[11] == 1) {

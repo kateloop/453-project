@@ -1,4 +1,5 @@
-_ToggleLeds: CODE, 78356 0 3564
-_main: CODE, 78086 0 270
-_WriteUSART: CODE, 78042 0 44
-Total: 3878
+_ToggleLeds: CODE, 78358 0 3562
+_main: CODE, 75048 0 278
+_testToggle: CODE, 75326 0 3032
+_DelayMs: CODE, 74976 0 72
+Total: 6944

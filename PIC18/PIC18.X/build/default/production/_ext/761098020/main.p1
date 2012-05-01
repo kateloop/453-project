@@ -46,10 +46,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXSTA `Vuc 0 e@4012 ]
 "8103 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
 [v _LATB `Vuc 0 e@3978 ]
-"236 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\peripheral/usart.h
-[v _WriteUSART `(v 0 ef1`uc ]
 "50 ../code/main.c
 [v _ToggleLeds `(v 0 ef ]
+"52 ../code/main.c
+[v _testToggle `(v 0 ef ]
 "8079 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
 [v _LATA `Vuc 0 e@3977 ]
 "8127 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
@@ -8293,46 +8293,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 207: LATB = 0b00000000;
 "207
 [e = _LATB -> -> 0 `i `uc ]
-[; ;main.c: 235: while (1) {
-"235
-[e :U 869 ]
-{
-"236
-[v _tx `uc 1 a ]
-[; ;main.c: 236: unsigned char tx = 'a';
-[e = _tx -> -> 97 `ui `uc ]
-[; ;main.c: 237: WriteUSART(tx);
-"237
-[e ( _WriteUSART (1 _tx ]
-"238
-}
-[e :U 868 ]
-"235
-[e $U 869  ]
-[e :U 870 ]
-[; ;main.c: 238: }
 [; ;main.c: 265: while (0) {
 "265
-[e $U 871  ]
-[e :U 872 ]
+[e $U 868  ]
+[e :U 869 ]
 {
 [; ;main.c: 267: ToggleLeds();
 "267
 [e ( _ToggleLeds ..  ]
 [; ;main.c: 270: while (change_val == 0) {
 "270
-[e $U 874  ]
-[e :U 875 ]
+[e $U 871  ]
+[e :U 872 ]
 {
 [; ;main.c: 272: continue;
 "272
-[e $U 874  ]
+[e $U 871  ]
 "273
 }
-[e :U 874 ]
+[e :U 871 ]
 "270
-[e $ == -> _change_val `i -> 0 `i 875  ]
-[e :U 876 ]
+[e $ == -> _change_val `i -> 0 `i 872  ]
+[e :U 873 ]
 "274
 [v _result `i 1 a ]
 [; ;main.c: 273: }
@@ -8344,19 +8326,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _channel -> _index `uc ]
 "278
 }
-[e :U 871 ]
+[e :U 868 ]
 "265
-[e $ != -> 0 `i -> 0 `i 872  ]
-[e :U 873 ]
+[e $ != -> 0 `i -> 0 `i 869  ]
+[e :U 870 ]
 [; ;main.c: 278: }
 [; ;main.c: 280: for (int i = 0; i < 13; i++) {
 "280
 {
 [v _i `i 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 13 `i 877  ]
-[e $U 878  ]
-[e :U 877 ]
+[e $ < _i -> 13 `i 874  ]
+[e $U 875  ]
+[e :U 874 ]
 {
 [; ;main.c: 281: led_array[i] = 0;
 "281
@@ -8365,11 +8347,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "280
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 13 `i 877  ]
-[e :U 878 ]
+[e $ < _i -> 13 `i 874  ]
+[e :U 875 ]
 "282
 }
 [; ;main.c: 282: }
+[; ;main.c: 283: led_array[4] = 1;
+"283
+[e = *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 284: led_array[5] = 1;
+"284
+[e = *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 285: led_array[6] = 1;
+"285
+[e = *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
+[; ;main.c: 286: ToggleLeds();
+"286
+[e ( _ToggleLeds ..  ]
+[; ;main.c: 288: testToggle();
+"288
+[e ( _testToggle ..  ]
 [; ;main.c: 311: }
 "311
 [e :UE 867 ]
@@ -8382,23 +8379,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;main.c: 326: if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
 "326
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 881  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 878  ]
 {
 [; ;main.c: 330: LATA = 0b11101111;
 "330
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 332: LATB = 0b1110000;
+[; ;main.c: 332: LATB = 0b11100000;
 "332
-[e = _LATB -> -> 112 `i `uc ]
+[e = _LATB -> -> 224 `i `uc ]
 [; ;main.c: 334: LATC = 0b00001111;
 "334
 [e = _LATC -> -> 15 `i `uc ]
 "335
 }
 [; ;main.c: 335: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
-[e $U 882  ]
-[e :U 881 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 883  ]
+[e $U 879  ]
+[e :U 878 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 880  ]
 {
 [; ;main.c: 338: LATA = 0b10111111;
 "338
@@ -8412,9 +8409,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "343
 }
 [; ;main.c: 343: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[8] == 1) {
-[e $U 884  ]
-[e :U 883 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 885  ]
+[e $U 881  ]
+[e :U 880 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 882  ]
 {
 [; ;main.c: 346: LATA = 0b11111111;
 "346
@@ -8428,9 +8425,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "351
 }
 [; ;main.c: 351: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[9] == 1) {
-[e $U 886  ]
-[e :U 885 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 887  ]
+[e $U 883  ]
+[e :U 882 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 884  ]
 {
 [; ;main.c: 354: LATA = 0b11111111;
 "354
@@ -8444,9 +8441,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "359
 }
 [; ;main.c: 359: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[10] == 1) {
-[e $U 888  ]
-[e :U 887 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 889  ]
+[e $U 885  ]
+[e :U 884 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 886  ]
 {
 [; ;main.c: 362: LATA = 0b11111111;
 "362
@@ -8460,9 +8457,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "367
 }
 [; ;main.c: 367: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[11] == 1) {
-[e $U 890  ]
-[e :U 889 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 891  ]
+[e $U 887  ]
+[e :U 886 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 888  ]
 {
 [; ;main.c: 370: LATA = 0b11111111;
 "370
@@ -8476,9 +8473,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "375
 }
 [; ;main.c: 375: } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[12] == 1) {
-[e $U 892  ]
-[e :U 891 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 893  ]
+[e $U 889  ]
+[e :U 888 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 890  ]
 {
 [; ;main.c: 378: LATA = 0b11111111;
 "378
@@ -8492,235 +8489,235 @@ Version 3.2 HI-TECH Software Intermediate Code
 "384
 }
 [; ;main.c: 384: } else if (led_array[4] == 1 && led_array[6] == 1) {
-[e $U 894  ]
-[e :U 893 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 895  ]
+[e $U 891  ]
+[e :U 890 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 892  ]
 {
 [; ;main.c: 387: LATA = 0b11101111;
 "387
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 389: LATB = 0b1100000;
+[; ;main.c: 389: LATB = 0b11000000;
 "389
-[e = _LATB -> -> 96 `i `uc ]
+[e = _LATB -> -> 192 `i `uc ]
 [; ;main.c: 391: LATC = 0b00001111;
 "391
 [e = _LATC -> -> 15 `i `uc ]
 "392
 }
 [; ;main.c: 392: } else if (led_array[4] == 1 && led_array[7] == 1) {
-[e $U 896  ]
-[e :U 895 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 897  ]
+[e $U 893  ]
+[e :U 892 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 894  ]
 {
 [; ;main.c: 395: LATA = 0b10111111;
 "395
 [e = _LATA -> -> 191 `i `uc ]
-[; ;main.c: 397: LATB = 0b1100000;
+[; ;main.c: 397: LATB = 0b11000000;
 "397
-[e = _LATB -> -> 96 `i `uc ]
+[e = _LATB -> -> 192 `i `uc ]
 [; ;main.c: 399: LATC = 0b00001111;
 "399
 [e = _LATC -> -> 15 `i `uc ]
 "400
 }
 [; ;main.c: 400: } else if (led_array[4] == 1 && led_array[8] == 1) {
-[e $U 898  ]
-[e :U 897 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 899  ]
+[e $U 895  ]
+[e :U 894 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 896  ]
 {
 [; ;main.c: 403: LATA = 0b11111111;
 "403
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 405: LATB = 0b1100000;
+[; ;main.c: 405: LATB = 0b11000000;
 "405
-[e = _LATB -> -> 96 `i `uc ]
+[e = _LATB -> -> 192 `i `uc ]
 [; ;main.c: 407: LATC = 0b00001110;
 "407
 [e = _LATC -> -> 14 `i `uc ]
 "408
 }
 [; ;main.c: 408: } else if (led_array[4] == 1 && led_array[9] == 1) {
-[e $U 900  ]
-[e :U 899 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 901  ]
+[e $U 897  ]
+[e :U 896 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 898  ]
 {
 [; ;main.c: 411: LATA = 0b11111111;
 "411
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 413: LATB = 0b1100000;
+[; ;main.c: 413: LATB = 0b11000000;
 "413
-[e = _LATB -> -> 96 `i `uc ]
+[e = _LATB -> -> 192 `i `uc ]
 [; ;main.c: 415: LATC = 0b00001101;
 "415
 [e = _LATC -> -> 13 `i `uc ]
 "417
 }
 [; ;main.c: 417: } else if (led_array[4] == 1 && led_array[10] == 1) {
-[e $U 902  ]
-[e :U 901 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 903  ]
+[e $U 899  ]
+[e :U 898 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 900  ]
 {
 [; ;main.c: 420: LATA = 0b11111111;
 "420
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 422: LATB = 0b0100000;
+[; ;main.c: 422: LATB = 0b01000000;
 "422
-[e = _LATB -> -> 32 `i `uc ]
+[e = _LATB -> -> 64 `i `uc ]
 [; ;main.c: 424: LATC = 0b00001111;
 "424
 [e = _LATC -> -> 15 `i `uc ]
 "426
 }
 [; ;main.c: 426: } else if (led_array[4] == 1 && led_array[11] == 1) {
-[e $U 904  ]
-[e :U 903 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 905  ]
+[e $U 901  ]
+[e :U 900 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 902  ]
 {
 [; ;main.c: 429: LATA = 0b11111111;
 "429
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 431: LATB = 0b1100000;
+[; ;main.c: 431: LATB = 0b11000000;
 "431
-[e = _LATB -> -> 96 `i `uc ]
+[e = _LATB -> -> 192 `i `uc ]
 [; ;main.c: 433: LATC = 0b00001011;
 "433
 [e = _LATC -> -> 11 `i `uc ]
 "435
 }
 [; ;main.c: 435: } else if (led_array[4] == 1 && led_array[12] == 1) {
-[e $U 906  ]
-[e :U 905 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 907  ]
+[e $U 903  ]
+[e :U 902 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 904  ]
 {
 [; ;main.c: 438: LATA = 0b11111111;
 "438
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 440: LATB = 0b1100000;
+[; ;main.c: 440: LATB = 0b11000000;
 "440
-[e = _LATB -> -> 96 `i `uc ]
+[e = _LATB -> -> 192 `i `uc ]
 [; ;main.c: 442: LATC = 0b00000111;
 "442
 [e = _LATC -> -> 7 `i `uc ]
 "444
 }
 [; ;main.c: 444: } else if (led_array[5] == 1 && led_array[6] == 1) {
-[e $U 908  ]
-[e :U 907 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 909  ]
+[e $U 905  ]
+[e :U 904 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 906  ]
 {
 [; ;main.c: 447: LATA = 0b11101111;
 "447
 [e = _LATA -> -> 239 `i `uc ]
-[; ;main.c: 449: LATB = 0b1010000;
+[; ;main.c: 449: LATB = 0b10100000;
 "449
-[e = _LATB -> -> 80 `i `uc ]
+[e = _LATB -> -> 160 `i `uc ]
 [; ;main.c: 451: LATC = 0b00001111;
 "451
 [e = _LATC -> -> 15 `i `uc ]
 "453
 }
 [; ;main.c: 453: } else if (led_array[5] == 1 && led_array[7] == 1) {
-[e $U 910  ]
-[e :U 909 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 911  ]
+[e $U 907  ]
+[e :U 906 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 908  ]
 {
 [; ;main.c: 456: LATA = 0b10111111;
 "456
 [e = _LATA -> -> 191 `i `uc ]
-[; ;main.c: 458: LATB = 0b1010000;
+[; ;main.c: 458: LATB = 0b10100000;
 "458
-[e = _LATB -> -> 80 `i `uc ]
+[e = _LATB -> -> 160 `i `uc ]
 [; ;main.c: 460: LATC = 0b00001111;
 "460
 [e = _LATC -> -> 15 `i `uc ]
 "462
 }
 [; ;main.c: 462: } else if (led_array[5] == 1 && led_array[8] == 1) {
-[e $U 912  ]
-[e :U 911 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 913  ]
+[e $U 909  ]
+[e :U 908 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 910  ]
 {
 [; ;main.c: 465: LATA = 0b11111111;
 "465
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 467: LATB = 0b1010000;
+[; ;main.c: 467: LATB = 0b10100000;
 "467
-[e = _LATB -> -> 80 `i `uc ]
+[e = _LATB -> -> 160 `i `uc ]
 [; ;main.c: 469: LATC = 0b00001110;
 "469
 [e = _LATC -> -> 14 `i `uc ]
 "471
 }
 [; ;main.c: 471: } else if (led_array[5] == 1 && led_array[9] == 1) {
-[e $U 914  ]
-[e :U 913 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 915  ]
+[e $U 911  ]
+[e :U 910 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 912  ]
 {
 [; ;main.c: 474: LATA = 0b11111111;
 "474
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 476: LATB = 0b1010000;
+[; ;main.c: 476: LATB = 0b10100000;
 "476
-[e = _LATB -> -> 80 `i `uc ]
+[e = _LATB -> -> 160 `i `uc ]
 [; ;main.c: 478: LATC = 0b00001101;
 "478
 [e = _LATC -> -> 13 `i `uc ]
 "480
 }
 [; ;main.c: 480: } else if (led_array[5] == 1 && led_array[10] == 1) {
-[e $U 916  ]
-[e :U 915 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 917  ]
+[e $U 913  ]
+[e :U 912 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 914  ]
 {
 [; ;main.c: 483: LATA = 0b11111111;
 "483
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 485: LATB = 0b0010000;
+[; ;main.c: 485: LATB = 0b00100000;
 "485
-[e = _LATB -> -> 16 `i `uc ]
+[e = _LATB -> -> 32 `i `uc ]
 [; ;main.c: 487: LATC = 0b00001111;
 "487
 [e = _LATC -> -> 15 `i `uc ]
 "489
 }
 [; ;main.c: 489: } else if (led_array[5] == 1 && led_array[11] == 1) {
-[e $U 918  ]
-[e :U 917 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 919  ]
+[e $U 915  ]
+[e :U 914 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 916  ]
 {
 [; ;main.c: 492: LATA = 0b11111111;
 "492
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 494: LATB = 0b1010000;
+[; ;main.c: 494: LATB = 0b10100000;
 "494
-[e = _LATB -> -> 80 `i `uc ]
+[e = _LATB -> -> 160 `i `uc ]
 [; ;main.c: 496: LATC = 0b00001011;
 "496
 [e = _LATC -> -> 11 `i `uc ]
 "498
 }
 [; ;main.c: 498: } else if (led_array[5] == 1 && led_array[12] == 1) {
-[e $U 920  ]
-[e :U 919 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 921  ]
+[e $U 917  ]
+[e :U 916 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 918  ]
 {
 [; ;main.c: 501: LATA = 0b11111111;
 "501
 [e = _LATA -> -> 255 `i `uc ]
-[; ;main.c: 503: LATB = 0b1010000;
+[; ;main.c: 503: LATB = 0b10100000;
 "503
-[e = _LATB -> -> 80 `i `uc ]
+[e = _LATB -> -> 160 `i `uc ]
 [; ;main.c: 505: LATC = 0b00000111;
 "505
 [e = _LATC -> -> 7 `i `uc ]
 "506
 }
 [; ;main.c: 506: }
-[e $U 922  ]
+[e $U 919  ]
 "509
-[e :U 921 ]
+[e :U 918 ]
 [; ;main.c: 509: else if (led_array[2] == 1 && led_array[3] == 1 && led_array[6] == 1) {
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 923  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 920  ]
 {
 [; ;main.c: 512: LATA = 0b11101111;
 "512
@@ -8734,9 +8731,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "518
 }
 [; ;main.c: 518: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[7] == 1) {
-[e $U 924  ]
-[e :U 923 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 925  ]
+[e $U 921  ]
+[e :U 920 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 922  ]
 {
 [; ;main.c: 521: LATA = 0b10111111;
 "521
@@ -8750,9 +8747,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "527
 }
 [; ;main.c: 527: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[8] == 1) {
-[e $U 926  ]
-[e :U 925 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 927  ]
+[e $U 923  ]
+[e :U 922 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 924  ]
 {
 [; ;main.c: 530: LATA = 0b11111111;
 "530
@@ -8766,9 +8763,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "536
 }
 [; ;main.c: 536: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[9] == 1) {
-[e $U 928  ]
-[e :U 927 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 929  ]
+[e $U 925  ]
+[e :U 924 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 926  ]
 {
 [; ;main.c: 539: LATA = 0b11111111;
 "539
@@ -8782,25 +8779,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 "544
 }
 [; ;main.c: 544: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[10] == 1) {
-[e $U 930  ]
-[e :U 929 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 931  ]
+[e $U 927  ]
+[e :U 926 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 928  ]
 {
-[; ;main.c: 547: LATA = 0b01111111;
+[; ;main.c: 547: LATA = 0b11111111;
 "547
-[e = _LATA -> -> 127 `i `uc ]
-[; ;main.c: 549: LATB = 0b10001100;
+[e = _LATA -> -> 255 `i `uc ]
+[; ;main.c: 549: LATB = 0b00001100;
 "549
-[e = _LATB -> -> 140 `i `uc ]
+[e = _LATB -> -> 12 `i `uc ]
 [; ;main.c: 551: LATC = 0b00001111;
 "551
 [e = _LATC -> -> 15 `i `uc ]
 "552
 }
 [; ;main.c: 552: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[11] == 1) {
-[e $U 932  ]
-[e :U 931 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 933  ]
+[e $U 929  ]
+[e :U 928 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 930  ]
 {
 [; ;main.c: 555: LATA = 0b11111111;
 "555
@@ -8814,9 +8811,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "560
 }
 [; ;main.c: 560: } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[12] == 1) {
-[e $U 934  ]
-[e :U 933 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 935  ]
+[e $U 931  ]
+[e :U 930 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 932  ]
 {
 [; ;main.c: 563: LATA = 0b11111111;
 "563
@@ -8830,9 +8827,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "568
 }
 [; ;main.c: 568: } else if (led_array[2] == 1 && led_array[6] == 1) {
-[e $U 936  ]
-[e :U 935 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 937  ]
+[e $U 933  ]
+[e :U 932 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 934  ]
 {
 [; ;main.c: 571: LATA = 0b11101111;
 "571
@@ -8846,9 +8843,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "577
 }
 [; ;main.c: 577: } else if (led_array[2] == 1 && led_array[7] == 1) {
-[e $U 938  ]
-[e :U 937 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 939  ]
+[e $U 935  ]
+[e :U 934 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 936  ]
 {
 [; ;main.c: 580: LATA = 0b10111111;
 "580
@@ -8862,9 +8859,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "586
 }
 [; ;main.c: 586: } else if (led_array[2] == 1 && led_array[8] == 1) {
-[e $U 940  ]
-[e :U 939 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 941  ]
+[e $U 937  ]
+[e :U 936 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 938  ]
 {
 [; ;main.c: 589: LATA = 0b11111111;
 "589
@@ -8878,9 +8875,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "595
 }
 [; ;main.c: 595: } else if (led_array[2] == 1 && led_array[9] == 1) {
-[e $U 942  ]
-[e :U 941 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 943  ]
+[e $U 939  ]
+[e :U 938 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 940  ]
 {
 [; ;main.c: 598: LATA = 0b11111111;
 "598
@@ -8894,9 +8891,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "604
 }
 [; ;main.c: 604: } else if (led_array[2] == 1 && led_array[10] == 1) {
-[e $U 944  ]
-[e :U 943 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 945  ]
+[e $U 941  ]
+[e :U 940 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 942  ]
 {
 [; ;main.c: 607: LATA = 0b11111111;
 "607
@@ -8910,9 +8907,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "613
 }
 [; ;main.c: 613: } else if (led_array[2] == 1 && led_array[11] == 1) {
-[e $U 946  ]
-[e :U 945 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 947  ]
+[e $U 943  ]
+[e :U 942 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 944  ]
 {
 [; ;main.c: 616: LATA = 0b11111111;
 "616
@@ -8926,9 +8923,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "622
 }
 [; ;main.c: 622: } else if (led_array[2] == 1 && led_array[12] == 1) {
-[e $U 948  ]
-[e :U 947 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 949  ]
+[e $U 945  ]
+[e :U 944 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 946  ]
 {
 [; ;main.c: 625: LATA = 0b11111111;
 "625
@@ -8942,9 +8939,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "631
 }
 [; ;main.c: 631: } else if (led_array[3] == 1 && led_array[6] == 1) {
-[e $U 950  ]
-[e :U 949 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 951  ]
+[e $U 947  ]
+[e :U 946 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 948  ]
 {
 [; ;main.c: 634: LATA = 0b11101111;
 "634
@@ -8958,9 +8955,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "640
 }
 [; ;main.c: 640: } else if (led_array[3] == 1 && led_array[7] == 1) {
-[e $U 952  ]
-[e :U 951 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 953  ]
+[e $U 949  ]
+[e :U 948 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 950  ]
 {
 [; ;main.c: 643: LATA = 0b10111111;
 "643
@@ -8974,9 +8971,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "649
 }
 [; ;main.c: 649: } else if (led_array[3] == 1 && led_array[8] == 1) {
-[e $U 954  ]
-[e :U 953 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 955  ]
+[e $U 951  ]
+[e :U 950 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 952  ]
 {
 [; ;main.c: 652: LATA = 0b11111111;
 "652
@@ -8990,9 +8987,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "658
 }
 [; ;main.c: 658: } else if (led_array[3] == 1 && led_array[9] == 1) {
-[e $U 956  ]
-[e :U 955 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 957  ]
+[e $U 953  ]
+[e :U 952 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 954  ]
 {
 [; ;main.c: 661: LATA = 0b11111111;
 "661
@@ -9006,9 +9003,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "667
 }
 [; ;main.c: 667: } else if (led_array[3] == 1 && led_array[10] == 1) {
-[e $U 958  ]
-[e :U 957 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 959  ]
+[e $U 955  ]
+[e :U 954 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 956  ]
 {
 [; ;main.c: 670: LATA = 0b11111111;
 "670
@@ -9022,9 +9019,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "676
 }
 [; ;main.c: 676: } else if (led_array[3] == 1 && led_array[11] == 1) {
-[e $U 960  ]
-[e :U 959 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 961  ]
+[e $U 957  ]
+[e :U 956 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 958  ]
 {
 [; ;main.c: 679: LATA = 0b11111111;
 "679
@@ -9038,9 +9035,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "685
 }
 [; ;main.c: 685: } else if (led_array[3] == 1 && led_array[12] == 1) {
-[e $U 962  ]
-[e :U 961 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 963  ]
+[e $U 959  ]
+[e :U 958 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 960  ]
 {
 [; ;main.c: 688: LATA = 0b11111111;
 "688
@@ -9054,11 +9051,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "693
 }
 [; ;main.c: 693: }
-[e $U 964  ]
+[e $U 961  ]
 "696
-[e :U 963 ]
+[e :U 960 ]
 [; ;main.c: 696: else if (led_array[0] == 1 && led_array[1] == 1 && led_array[6] == 1) {
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 965  ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 962  ]
 {
 [; ;main.c: 699: LATA = 0b11101111;
 "699
@@ -9072,9 +9069,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "705
 }
 [; ;main.c: 705: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[7] == 1) {
-[e $U 966  ]
-[e :U 965 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 967  ]
+[e $U 963  ]
+[e :U 962 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 964  ]
 {
 [; ;main.c: 708: LATA = 0b10111111;
 "708
@@ -9088,9 +9085,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "714
 }
 [; ;main.c: 714: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[8] == 1) {
-[e $U 968  ]
-[e :U 967 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 969  ]
+[e $U 965  ]
+[e :U 964 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 966  ]
 {
 [; ;main.c: 717: LATA = 0b11111111;
 "717
@@ -9104,9 +9101,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "723
 }
 [; ;main.c: 723: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[9] == 1) {
-[e $U 970  ]
-[e :U 969 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 971  ]
+[e $U 967  ]
+[e :U 966 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 968  ]
 {
 [; ;main.c: 726: LATA = 0b11111111;
 "726
@@ -9120,9 +9117,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "731
 }
 [; ;main.c: 731: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[10] == 1) {
-[e $U 972  ]
-[e :U 971 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 973  ]
+[e $U 969  ]
+[e :U 968 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 970  ]
 {
 [; ;main.c: 734: LATA = 0b11111111;
 "734
@@ -9136,9 +9133,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "739
 }
 [; ;main.c: 739: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[11] == 1) {
-[e $U 974  ]
-[e :U 973 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 975  ]
+[e $U 971  ]
+[e :U 970 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 972  ]
 {
 [; ;main.c: 742: LATA = 0b11111111;
 "742
@@ -9152,9 +9149,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "747
 }
 [; ;main.c: 747: } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[12] == 1) {
-[e $U 976  ]
-[e :U 975 ]
-[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 977  ]
+[e $U 973  ]
+[e :U 972 ]
+[e $ ! && && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 974  ]
 {
 [; ;main.c: 750: LATA = 0b11111111;
 "750
@@ -9168,9 +9165,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "756
 }
 [; ;main.c: 756: } else if (led_array[0] == 1 && led_array[6] == 1) {
-[e $U 978  ]
-[e :U 977 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 979  ]
+[e $U 975  ]
+[e :U 974 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 976  ]
 {
 [; ;main.c: 759: LATA = 0b11101111;
 "759
@@ -9184,9 +9181,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "765
 }
 [; ;main.c: 765: } else if (led_array[0] == 1 && led_array[7] == 1) {
-[e $U 980  ]
-[e :U 979 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 981  ]
+[e $U 977  ]
+[e :U 976 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 978  ]
 {
 [; ;main.c: 768: LATA = 0b10111111;
 "768
@@ -9200,9 +9197,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "774
 }
 [; ;main.c: 774: } else if (led_array[0] == 1 && led_array[8] == 1) {
-[e $U 982  ]
-[e :U 981 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 983  ]
+[e $U 979  ]
+[e :U 978 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 980  ]
 {
 [; ;main.c: 777: LATA = 0b11111111;
 "777
@@ -9216,9 +9213,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "783
 }
 [; ;main.c: 783: } else if (led_array[0] == 1 && led_array[9] == 1) {
-[e $U 984  ]
-[e :U 983 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 985  ]
+[e $U 981  ]
+[e :U 980 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 982  ]
 {
 [; ;main.c: 786: LATA = 0b11111111;
 "786
@@ -9232,9 +9229,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "792
 }
 [; ;main.c: 792: } else if (led_array[0] == 1 && led_array[10] == 1) {
-[e $U 986  ]
-[e :U 985 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 987  ]
+[e $U 983  ]
+[e :U 982 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 984  ]
 {
 [; ;main.c: 795: LATA = 0b11111111;
 "795
@@ -9248,9 +9245,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "801
 }
 [; ;main.c: 801: } else if (led_array[0] == 1 && led_array[11] == 1) {
-[e $U 988  ]
-[e :U 987 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 989  ]
+[e $U 985  ]
+[e :U 984 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 986  ]
 {
 [; ;main.c: 804: LATA = 0b11111111;
 "804
@@ -9264,9 +9261,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "810
 }
 [; ;main.c: 810: } else if (led_array[0] == 1 && led_array[12] == 1) {
-[e $U 990  ]
-[e :U 989 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 991  ]
+[e $U 987  ]
+[e :U 986 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 988  ]
 {
 [; ;main.c: 813: LATA = 0b11111111;
 "813
@@ -9280,9 +9277,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "819
 }
 [; ;main.c: 819: } else if (led_array[1] == 1 && led_array[6] == 1) {
-[e $U 992  ]
-[e :U 991 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 993  ]
+[e $U 989  ]
+[e :U 988 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 6 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 990  ]
 {
 [; ;main.c: 822: LATA = 0b11101111;
 "822
@@ -9296,9 +9293,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "828
 }
 [; ;main.c: 828: } else if (led_array[1] == 1 && led_array[7] == 1) {
-[e $U 994  ]
-[e :U 993 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 995  ]
+[e $U 991  ]
+[e :U 990 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 992  ]
 {
 [; ;main.c: 831: LATA = 0b10111111;
 "831
@@ -9312,9 +9309,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "837
 }
 [; ;main.c: 837: } else if (led_array[1] == 1 && led_array[8] == 1) {
-[e $U 996  ]
-[e :U 995 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 997  ]
+[e $U 993  ]
+[e :U 992 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 994  ]
 {
 [; ;main.c: 840: LATA = 0b11111111;
 "840
@@ -9328,9 +9325,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "846
 }
 [; ;main.c: 846: } else if (led_array[1] == 1 && led_array[9] == 1) {
-[e $U 998  ]
-[e :U 997 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 999  ]
+[e $U 995  ]
+[e :U 994 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 996  ]
 {
 [; ;main.c: 849: LATA = 0b11111111;
 "849
@@ -9344,9 +9341,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "855
 }
 [; ;main.c: 855: } else if (led_array[1] == 1 && led_array[10] == 1) {
-[e $U 1000  ]
-[e :U 999 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 1001  ]
+[e $U 997  ]
+[e :U 996 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 998  ]
 {
 [; ;main.c: 858: LATA = 0b11111111;
 "858
@@ -9360,9 +9357,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "864
 }
 [; ;main.c: 864: } else if (led_array[1] == 1 && led_array[11] == 1) {
-[e $U 1002  ]
-[e :U 1001 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 1003  ]
+[e $U 999  ]
+[e :U 998 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 1000  ]
 {
 [; ;main.c: 867: LATA = 0b11111111;
 "867
@@ -9376,9 +9373,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "873
 }
 [; ;main.c: 873: } else if (led_array[1] == 1 && led_array[12] == 1) {
-[e $U 1004  ]
-[e :U 1003 ]
-[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 1005  ]
+[e $U 1001  ]
+[e :U 1000 ]
+[e $ ! && == *U + &U _led_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i == *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i 1002  ]
 {
 [; ;main.c: 876: LATA = 0b11111111;
 "876
@@ -9391,73 +9388,73 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _LATC -> -> 39 `i `uc ]
 "881
 }
-[e :U 1005 ]
-"882
-[e :U 1004 ]
 [e :U 1002 ]
-[e :U 1000 ]
-[e :U 998 ]
-[e :U 996 ]
-[e :U 994 ]
-[e :U 992 ]
-[e :U 990 ]
-[e :U 988 ]
-[e :U 986 ]
-[e :U 984 ]
-[e :U 982 ]
-[e :U 980 ]
-[e :U 978 ]
-[e :U 976 ]
-[e :U 974 ]
-[e :U 972 ]
-[e :U 970 ]
-[e :U 968 ]
-[e :U 966 ]
-[e :U 964 ]
-[e :U 962 ]
-[e :U 960 ]
-[e :U 958 ]
-[e :U 956 ]
-[e :U 954 ]
-[e :U 952 ]
-[e :U 950 ]
-[e :U 948 ]
-[e :U 946 ]
-[e :U 944 ]
-[e :U 942 ]
-[e :U 940 ]
-[e :U 938 ]
-[e :U 936 ]
-[e :U 934 ]
-[e :U 932 ]
-[e :U 930 ]
-[e :U 928 ]
-[e :U 926 ]
-[e :U 924 ]
-[e :U 922 ]
-[e :U 920 ]
-[e :U 918 ]
-[e :U 916 ]
-[e :U 914 ]
-[e :U 912 ]
-[e :U 910 ]
-[e :U 908 ]
-[e :U 906 ]
-[e :U 904 ]
-[e :U 902 ]
-[e :U 900 ]
-[e :U 898 ]
-[e :U 896 ]
-[e :U 894 ]
-[e :U 892 ]
-[e :U 890 ]
-[e :U 888 ]
-[e :U 886 ]
-[e :U 884 ]
-[e :U 882 ]
+"882
+[e :U 1001 ]
+[e :U 999 ]
+[e :U 997 ]
+[e :U 995 ]
+[e :U 993 ]
+[e :U 991 ]
+[e :U 989 ]
+[e :U 987 ]
+[e :U 985 ]
+[e :U 983 ]
+[e :U 981 ]
+[e :U 979 ]
+[e :U 977 ]
+[e :U 975 ]
+[e :U 973 ]
+[e :U 971 ]
+[e :U 969 ]
+[e :U 967 ]
+[e :U 965 ]
+[e :U 963 ]
+[e :U 961 ]
+[e :U 959 ]
+[e :U 957 ]
+[e :U 955 ]
+[e :U 953 ]
+[e :U 951 ]
+[e :U 949 ]
+[e :U 947 ]
+[e :U 945 ]
+[e :U 943 ]
+[e :U 941 ]
+[e :U 939 ]
+[e :U 937 ]
+[e :U 935 ]
+[e :U 933 ]
+[e :U 931 ]
+[e :U 929 ]
+[e :U 927 ]
+[e :U 925 ]
+[e :U 923 ]
+[e :U 921 ]
+[e :U 919 ]
+[e :U 917 ]
+[e :U 915 ]
+[e :U 913 ]
+[e :U 911 ]
+[e :U 909 ]
+[e :U 907 ]
+[e :U 905 ]
+[e :U 903 ]
+[e :U 901 ]
+[e :U 899 ]
+[e :U 897 ]
+[e :U 895 ]
+[e :U 893 ]
+[e :U 891 ]
+[e :U 889 ]
+[e :U 887 ]
+[e :U 885 ]
+[e :U 883 ]
+[e :U 881 ]
+[e :U 879 ]
 [; ;main.c: 881: }
 [; ;main.c: 882: }
-[e :UE 880 ]
+[e :UE 877 ]
 }
 "885
 [v _testToggle `(v 1 ef ]
@@ -9470,18 +9467,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 1007  ]
-[e $U 1008  ]
-[e :U 1007 ]
+[e $ < _i -> 7 `i 1004  ]
+[e $U 1005  ]
+[e :U 1004 ]
 {
 [; ;main.c: 892: for (int j = 0; j < sizeof(led_array); j++) {
 "892
 {
 [v _j `i 1 a ]
 [e = _j -> 0 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1010  ]
-[e $U 1011  ]
-[e :U 1010 ]
+[e $ < -> _j `ui -> # _led_array `ui 1007  ]
+[e $U 1008  ]
+[e :U 1007 ]
 {
 [; ;main.c: 893: led_array[j] = 0;
 "893
@@ -9490,8 +9487,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "892
 [e ++ _j -> 1 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1010  ]
-[e :U 1011 ]
+[e $ < -> _j `ui -> # _led_array `ui 1007  ]
+[e :U 1008 ]
 "894
 }
 [; ;main.c: 894: }
@@ -9523,8 +9520,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "891
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 1007  ]
-[e :U 1008 ]
+[e $ < _i -> 7 `i 1004  ]
+[e :U 1005 ]
 "903
 }
 [; ;main.c: 903: }
@@ -9533,18 +9530,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 1013  ]
-[e $U 1014  ]
-[e :U 1013 ]
+[e $ < _i -> 7 `i 1010  ]
+[e $U 1011  ]
+[e :U 1010 ]
 {
 [; ;main.c: 905: for (int j = 0; j < sizeof(led_array); j++) {
 "905
 {
 [v _j `i 1 a ]
 [e = _j -> 0 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1016  ]
-[e $U 1017  ]
-[e :U 1016 ]
+[e $ < -> _j `ui -> # _led_array `ui 1013  ]
+[e $U 1014  ]
+[e :U 1013 ]
 {
 [; ;main.c: 906: led_array[j] = 0;
 "906
@@ -9553,8 +9550,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "905
 [e ++ _j -> 1 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1016  ]
-[e :U 1017 ]
+[e $ < -> _j `ui -> # _led_array `ui 1013  ]
+[e :U 1014 ]
 "907
 }
 [; ;main.c: 907: }
@@ -9583,8 +9580,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "904
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 1013  ]
-[e :U 1014 ]
+[e $ < _i -> 7 `i 1010  ]
+[e :U 1011 ]
 "915
 }
 [; ;main.c: 915: }
@@ -9593,18 +9590,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 1019  ]
-[e $U 1020  ]
-[e :U 1019 ]
+[e $ < _i -> 7 `i 1016  ]
+[e $U 1017  ]
+[e :U 1016 ]
 {
 [; ;main.c: 917: for (int j = 0; j < sizeof(led_array); j++) {
 "917
 {
 [v _j `i 1 a ]
 [e = _j -> 0 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1022  ]
-[e $U 1023  ]
-[e :U 1022 ]
+[e $ < -> _j `ui -> # _led_array `ui 1019  ]
+[e $U 1020  ]
+[e :U 1019 ]
 {
 [; ;main.c: 918: led_array[j] = 0;
 "918
@@ -9613,8 +9610,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "917
 [e ++ _j -> 1 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1022  ]
-[e :U 1023 ]
+[e $ < -> _j `ui -> # _led_array `ui 1019  ]
+[e :U 1020 ]
 "919
 }
 [; ;main.c: 919: }
@@ -9643,8 +9640,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "916
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 1019  ]
-[e :U 1020 ]
+[e $ < _i -> 7 `i 1016  ]
+[e :U 1017 ]
 "927
 }
 [; ;main.c: 927: }
@@ -9653,18 +9650,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 1025  ]
-[e $U 1026  ]
-[e :U 1025 ]
+[e $ < _i -> 7 `i 1022  ]
+[e $U 1023  ]
+[e :U 1022 ]
 {
 [; ;main.c: 931: for (int j = 0; j < sizeof(led_array); j++) {
 "931
 {
 [v _j `i 1 a ]
 [e = _j -> 0 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1028  ]
-[e $U 1029  ]
-[e :U 1028 ]
+[e $ < -> _j `ui -> # _led_array `ui 1025  ]
+[e $U 1026  ]
+[e :U 1025 ]
 {
 [; ;main.c: 932: led_array[j] = 0;
 "932
@@ -9673,8 +9670,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "931
 [e ++ _j -> 1 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1028  ]
-[e :U 1029 ]
+[e $ < -> _j `ui -> # _led_array `ui 1025  ]
+[e :U 1026 ]
 "933
 }
 [; ;main.c: 933: }
@@ -9706,8 +9703,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "930
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 1025  ]
-[e :U 1026 ]
+[e $ < _i -> 7 `i 1022  ]
+[e :U 1023 ]
 "942
 }
 [; ;main.c: 942: }
@@ -9716,18 +9713,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 1031  ]
-[e $U 1032  ]
-[e :U 1031 ]
+[e $ < _i -> 7 `i 1028  ]
+[e $U 1029  ]
+[e :U 1028 ]
 {
 [; ;main.c: 944: for (int j = 0; j < sizeof(led_array); j++) {
 "944
 {
 [v _j `i 1 a ]
 [e = _j -> 0 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1034  ]
-[e $U 1035  ]
-[e :U 1034 ]
+[e $ < -> _j `ui -> # _led_array `ui 1031  ]
+[e $U 1032  ]
+[e :U 1031 ]
 {
 [; ;main.c: 945: led_array[j] = 0;
 "945
@@ -9736,8 +9733,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "944
 [e ++ _j -> 1 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1034  ]
-[e :U 1035 ]
+[e $ < -> _j `ui -> # _led_array `ui 1031  ]
+[e :U 1032 ]
 "946
 }
 [; ;main.c: 946: }
@@ -9766,8 +9763,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "943
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 1031  ]
-[e :U 1032 ]
+[e $ < _i -> 7 `i 1028  ]
+[e :U 1029 ]
 "954
 }
 [; ;main.c: 954: }
@@ -9776,18 +9773,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 1037  ]
-[e $U 1038  ]
-[e :U 1037 ]
+[e $ < _i -> 7 `i 1034  ]
+[e $U 1035  ]
+[e :U 1034 ]
 {
 [; ;main.c: 956: for (int j = 0; j < sizeof(led_array); j++) {
 "956
 {
 [v _j `i 1 a ]
 [e = _j -> 0 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1040  ]
-[e $U 1041  ]
-[e :U 1040 ]
+[e $ < -> _j `ui -> # _led_array `ui 1037  ]
+[e $U 1038  ]
+[e :U 1037 ]
 {
 [; ;main.c: 957: led_array[j] = 0;
 "957
@@ -9796,8 +9793,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "956
 [e ++ _j -> 1 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1040  ]
-[e :U 1041 ]
+[e $ < -> _j `ui -> # _led_array `ui 1037  ]
+[e :U 1038 ]
 "958
 }
 [; ;main.c: 958: }
@@ -9826,8 +9823,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "955
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 1037  ]
-[e :U 1038 ]
+[e $ < _i -> 7 `i 1034  ]
+[e :U 1035 ]
 "966
 }
 [; ;main.c: 966: }
@@ -9836,18 +9833,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 1043  ]
-[e $U 1044  ]
-[e :U 1043 ]
+[e $ < _i -> 7 `i 1040  ]
+[e $U 1041  ]
+[e :U 1040 ]
 {
 [; ;main.c: 970: for (int j = 0; j < sizeof(led_array); j++) {
 "970
 {
 [v _j `i 1 a ]
 [e = _j -> 0 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1046  ]
-[e $U 1047  ]
-[e :U 1046 ]
+[e $ < -> _j `ui -> # _led_array `ui 1043  ]
+[e $U 1044  ]
+[e :U 1043 ]
 {
 [; ;main.c: 971: led_array[j] = 0;
 "971
@@ -9856,8 +9853,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "970
 [e ++ _j -> 1 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1046  ]
-[e :U 1047 ]
+[e $ < -> _j `ui -> # _led_array `ui 1043  ]
+[e :U 1044 ]
 "972
 }
 [; ;main.c: 972: }
@@ -9889,8 +9886,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "969
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 1043  ]
-[e :U 1044 ]
+[e $ < _i -> 7 `i 1040  ]
+[e :U 1041 ]
 "981
 }
 [; ;main.c: 981: }
@@ -9899,18 +9896,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 1049  ]
-[e $U 1050  ]
-[e :U 1049 ]
+[e $ < _i -> 7 `i 1046  ]
+[e $U 1047  ]
+[e :U 1046 ]
 {
 [; ;main.c: 984: for (int j = 0; j < sizeof(led_array); j++) {
 "984
 {
 [v _j `i 1 a ]
 [e = _j -> 0 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1052  ]
-[e $U 1053  ]
-[e :U 1052 ]
+[e $ < -> _j `ui -> # _led_array `ui 1049  ]
+[e $U 1050  ]
+[e :U 1049 ]
 {
 [; ;main.c: 985: led_array[j] = 0;
 "985
@@ -9919,8 +9916,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "984
 [e ++ _j -> 1 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1052  ]
-[e :U 1053 ]
+[e $ < -> _j `ui -> # _led_array `ui 1049  ]
+[e :U 1050 ]
 "986
 }
 [; ;main.c: 986: }
@@ -9949,8 +9946,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "983
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 1049  ]
-[e :U 1050 ]
+[e $ < _i -> 7 `i 1046  ]
+[e :U 1047 ]
 "994
 }
 [; ;main.c: 994: }
@@ -9959,18 +9956,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 1055  ]
-[e $U 1056  ]
-[e :U 1055 ]
+[e $ < _i -> 7 `i 1052  ]
+[e $U 1053  ]
+[e :U 1052 ]
 {
 [; ;main.c: 997: for (int j = 0; j < sizeof(led_array); j++) {
 "997
 {
 [v _j `i 1 a ]
 [e = _j -> 0 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1058  ]
-[e $U 1059  ]
-[e :U 1058 ]
+[e $ < -> _j `ui -> # _led_array `ui 1055  ]
+[e $U 1056  ]
+[e :U 1055 ]
 {
 [; ;main.c: 998: led_array[j] = 0;
 "998
@@ -9979,8 +9976,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "997
 [e ++ _j -> 1 `i ]
-[e $ < -> _j `ui -> # _led_array `ui 1058  ]
-[e :U 1059 ]
+[e $ < -> _j `ui -> # _led_array `ui 1055  ]
+[e :U 1056 ]
 "999
 }
 [; ;main.c: 999: }
@@ -10009,14 +10006,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "996
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 1055  ]
-[e :U 1056 ]
+[e $ < _i -> 7 `i 1052  ]
+[e :U 1053 ]
 "1007
 }
 [; ;main.c: 1007: }
 [; ;main.c: 1008: }
 "1008
-[e :UE 1006 ]
+[e :UE 1003 ]
 }
 "1027
 [v _ISR `(i 1 ef ]
@@ -10032,7 +10029,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _cur_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _cur_inputs `ui `ux . _conv_result 0 ]
 [; ;main.c: 1034: if (cur_inputs[conv_result.adc_channel] != prev_inputs[conv_result.adc_channel]) {
 "1034
-[e $ ! != *U + &U _cur_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _cur_inputs `ui `ux *U + &U _prev_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _prev_inputs `ui `ux 1062  ]
+[e $ ! != *U + &U _cur_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _cur_inputs `ui `ux *U + &U _prev_inputs * -> -> . _conv_result 1 `ui `ux -> -> # *U &U _prev_inputs `ui `ux 1059  ]
 {
 [; ;main.c: 1035: change_val = 1;
 "1035
@@ -10046,19 +10043,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1038
 }
 [; ;main.c: 1038: } else {
-[e $U 1063  ]
-[e :U 1062 ]
+[e $U 1060  ]
+[e :U 1059 ]
 {
 [; ;main.c: 1039: change_val = 0;
 "1039
 [e = _change_val -> -> 0 `i `uc ]
 "1040
 }
-[e :U 1063 ]
+[e :U 1060 ]
 [; ;main.c: 1040: }
 [; ;main.c: 1044: }
 "1044
-[e :UE 1061 ]
+[e :UE 1058 ]
 }
 "1052
 [v _adc_conversion `(v 1 ef ]
@@ -10077,87 +10074,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ADRESL -> -> 0 `i `uc ]
 [; ;main.c: 1060: switch (adc_num) {
 "1060
-[e $U 1066  ]
+[e $U 1063  ]
 {
 [; ;main.c: 1061: case 0 :
 "1061
-[e :U 1067 ]
+[e :U 1064 ]
 [; ;main.c: 1062: ADCON0 = 0b00100100;
 "1062
 [e = _ADCON0 -> -> 36 `i `uc ]
 [; ;main.c: 1063: break;
 "1063
-[e $U 1065  ]
+[e $U 1062  ]
 [; ;main.c: 1064: case 1 :
 "1064
-[e :U 1068 ]
+[e :U 1065 ]
 [; ;main.c: 1065: ADCON0 = 0b00100000;
 "1065
 [e = _ADCON0 -> -> 32 `i `uc ]
 [; ;main.c: 1066: break;
 "1066
-[e $U 1065  ]
+[e $U 1062  ]
 [; ;main.c: 1067: case 2 :
 "1067
-[e :U 1069 ]
+[e :U 1066 ]
 [; ;main.c: 1068: ADCON0 = 0b00000000;
 "1068
 [e = _ADCON0 -> -> 0 `i `uc ]
 [; ;main.c: 1069: break;
 "1069
-[e $U 1065  ]
+[e $U 1062  ]
 [; ;main.c: 1070: case 3 :
 "1070
-[e :U 1070 ]
+[e :U 1067 ]
 [; ;main.c: 1071: ADCON0 = 0b00000100;
 "1071
 [e = _ADCON0 -> -> 4 `i `uc ]
 [; ;main.c: 1072: break;
 "1072
-[e $U 1065  ]
+[e $U 1062  ]
 [; ;main.c: 1073: case 4 :
 "1073
-[e :U 1071 ]
+[e :U 1068 ]
 [; ;main.c: 1074: ADCON0 = 0b00001000;
 "1074
 [e = _ADCON0 -> -> 8 `i `uc ]
 [; ;main.c: 1075: break;
 "1075
-[e $U 1065  ]
+[e $U 1062  ]
 [; ;main.c: 1076: case 5 :
 "1076
-[e :U 1072 ]
+[e :U 1069 ]
 [; ;main.c: 1077: ADCON0 = 0b00001100;
 "1077
 [e = _ADCON0 -> -> 12 `i `uc ]
 [; ;main.c: 1078: break;
 "1078
-[e $U 1065  ]
+[e $U 1062  ]
 [; ;main.c: 1079: case 6 :
 "1079
-[e :U 1073 ]
+[e :U 1070 ]
 [; ;main.c: 1080: ADCON0 = 0b00010000;
 "1080
 [e = _ADCON0 -> -> 16 `i `uc ]
 [; ;main.c: 1081: break;
 "1081
-[e $U 1065  ]
+[e $U 1062  ]
 "1082
 }
 [; ;main.c: 1082: }
-[e $U 1065  ]
+[e $U 1062  ]
 "1060
-[e :U 1066 ]
-[e [\ _adc_num , $ -> -> 0 `i `uc 1067
- , $ -> -> 1 `i `uc 1068
- , $ -> -> 2 `i `uc 1069
- , $ -> -> 3 `i `uc 1070
- , $ -> -> 4 `i `uc 1071
- , $ -> -> 5 `i `uc 1072
- , $ -> -> 6 `i `uc 1073
- 1065 ]
+[e :U 1063 ]
+[e [\ _adc_num , $ -> -> 0 `i `uc 1064
+ , $ -> -> 1 `i `uc 1065
+ , $ -> -> 2 `i `uc 1066
+ , $ -> -> 3 `i `uc 1067
+ , $ -> -> 4 `i `uc 1068
+ , $ -> -> 5 `i `uc 1069
+ , $ -> -> 6 `i `uc 1070
+ 1062 ]
 "1082
-[e :U 1065 ]
+[e :U 1062 ]
 [; ;main.c: 1086: ADON = 1;
 "1086
 [e = _ADON -> -> 1 `i `b ]
@@ -10166,18 +10163,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GODONE -> -> 1 `i `b ]
 [; ;main.c: 1090: while (GODONE) {
 "1090
-[e $U 1074  ]
-[e :U 1075 ]
+[e $U 1071  ]
+[e :U 1072 ]
 {
 [; ;main.c: 1091: ADON = 0;
 "1091
 [e = _ADON -> -> 0 `i `b ]
 "1092
 }
-[e :U 1074 ]
+[e :U 1071 ]
 "1090
-[e $ _GODONE 1075  ]
-[e :U 1076 ]
+[e $ _GODONE 1072  ]
+[e :U 1073 ]
 [; ;main.c: 1092: }
 [; ;main.c: 1095: conv_result.result = ADRES;
 "1095
@@ -10190,16 +10187,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _adc_num -> -> 1 `i `uc ]
 [; ;main.c: 1100: if (adc_num >= 7) {
 "1100
-[e $ ! >= -> _adc_num `i -> 7 `i 1077  ]
+[e $ ! >= -> _adc_num `i -> 7 `i 1074  ]
 {
 [; ;main.c: 1101: adc_num = 0;
 "1101
 [e = _adc_num -> -> 0 `i `uc ]
 "1102
 }
-[e :U 1077 ]
+[e :U 1074 ]
 [; ;main.c: 1102: }
 [; ;main.c: 1103: }
 "1103
-[e :UE 1064 ]
+[e :UE 1061 ]
 }
