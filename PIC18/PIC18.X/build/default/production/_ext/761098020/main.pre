@@ -9980,6 +9980,8 @@ TXSTA = 0b00100000;
 while (1) {
 TXREG = 'a';
 while ((PIR1 & 0b00010000) ==0);
+TXREG = 'b';
+while ((PIR1 & 0b00010000) ==0);
 }
 
 
@@ -9998,10 +10000,10 @@ char channel = index;
 
 }
 
-# 235
+# 237
 }
 
-# 245
+# 247
 void ToggleLeds () {
 
 
@@ -10567,7 +10569,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 814
+# 816
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10687,7 +10689,7 @@ DelayMs(5000);
 }
 }
 
-# 950
+# 952
 ISR () {
 
 
@@ -10707,7 +10709,7 @@ change_val = 0;
 
 }
 
-# 975
+# 977
 void adc_conversion() {
 
 ADON = 0;

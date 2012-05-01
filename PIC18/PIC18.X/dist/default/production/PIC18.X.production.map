@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\CCS\AppData\Local\Temp\s5ek.obj \
+  C:\Users\CCS\AppData\Local\Temp\s544.obj \
   dist/default/production\PIC18.X.production.obj 
 
 Object code version is 3.10
@@ -39,12 +39,12 @@ Estimated maximum call depth: 1
 
 
                 Name          Link     Load   Length Selector Space Scale
-C:\Users\CCS\AppData\Local\Temp\s5ek.obj
+C:\Users\CCS\AppData\Local\Temp\s544.obj
                 end_init         C        C       12       0     0
                 init             0        0        C       0     0
                 config      300000   300000        E  300000     0
 dist/default/production\PIC18.X.production.obj
-                text0        13186    13186       90    98C3     0
+                text0        13170    13170       A6    98B8     0
                 text1        13216    13216      DEA    990B     0
 
 COMMON          param1         100      100        8     100     1
@@ -53,7 +53,7 @@ TOTAL           Name          Link     Load   Length  Space
         CLASS   CODE           
                 end_init         C        C       12     0
                 init             0        0        C     0
-                text0        13186    13186       90     0
+                text0        13170    13170       A6     0
                 text1        13216    13216      DEA     0
 
         CLASS   CONST          
@@ -115,7 +115,7 @@ SEGMENTS        Name           Load    Length   Top     Selector    Space Class
 
                 reset_vec       000000  00001E  00001E         0       0  CODE    
                 param1          000100  000008  000108       100       1  BANK1   
-                text0           013186  000090  013216      98C3       0  CODE    
+                text0           013170  0000A6  013216      98B8       0  CODE    
                 text1           013216  000DEA  014000      990B       0  CODE    
                 config          300000  00000E  30000E    300000       0  CONFIG  
 
@@ -137,13 +137,13 @@ UNUSED ADDRESS RANGES
         BANK9            000900-0009FF
         BIGRAM           000041-0000FF
                          000108-000C9F
-        CODE             00001E-013185
+        CODE             00001E-01316F
         COMRAM           000041-00005F
-        CONST            00001E-013185
+        CONST            00001E-01316F
         EEDATA           F00000-F003FF
         IDLOC            200000-200007
         MEDIUMCONST      000D00-00FFFF
-                         010D00-013185
+                         010D00-01316F
         NVRAM            000C00-000C9F
         RAM              000041-0000FF
                          000108-000C9F
@@ -336,7 +336,7 @@ _cur_inputs         (abs)        00001A
 _exit               init         000000
 _index              (abs)        000028
 _led_array          (abs)        000000
-_main               text0        013186
+_main               text0        013170
 _prev_inputs        (abs)        000033
 _uart_in            (abs)        000032
 _uart_out           (abs)        000031

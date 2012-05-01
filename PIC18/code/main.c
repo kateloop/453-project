@@ -208,6 +208,8 @@ int main(int argc, char** argv) {
         while (1) {
           TXREG = 'a';
           while ((PIR1 & 0b00010000) ==0);
+          TXREG = 'b';
+          while ((PIR1 & 0b00010000) ==0);
         }
 
 
