@@ -1,6 +1,0 @@
-xst -intstyle ise -ifn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/main.xst" -ofn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/main.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc basic.ucf -p xc4vlx80-ff1148-12 main.ngc main.ngd  
-map -intstyle ise -p xc4vlx80-ff1148-12 -global_opt off -cm area -ir off -pr b -c 100 -o main_map.ncd main.ngd main.pcf 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ece453_TLL5000_spring2012.ucf -p xc4vlx80-ff1148-12 main.ngc main.ngd  
-xst -intstyle ise -ifn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/main.xst" -ofn "C:/vmware-shared/dak-project/453-project/fpga/audio-v2p/main.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ece453_TLL5000_spring2012.ucf -p xc4vlx80-ff1148-12 main.ngc main.ngd  

@@ -9928,7 +9928,7 @@ void ToggleLeds();
 void adc_conversion();
 void testToggle();
 
-# 138
+# 137
 int led_array[13];
 
 unsigned char uart_out;
@@ -9951,7 +9951,7 @@ char change_val = 0;
 
 int index;
 
-# 164
+# 163
 int main(int argc, char** argv) {
 
 
@@ -9960,29 +9960,31 @@ OSCCON |= 0b01110010;
 
 ADCON0 = 0b00000000;
 ADCON1 = 0b00000101;
+ADCON0 = 0b00100000;
 ADCON2 = 0b10000000;
 ADCON2 = 0b10100000;
 adc_num = 0;
 
-
+# 202
 TRISA = 0b10101111;
 TRISB = 0b00010010;
 TRISC = 0b10000000;
 
-# 201
+# 229
 SPBRGH = (((8000000L/19200UL)/16) - 1) >> 8;
 SPBRG = (((8000000L/19200UL)/16) - 1);
 BAUDCON = 0b00001000;
 RCSTA = 0b10010000;
 TXSTA = 0b00100000;
 
-
-while (1) {
-TXREG = 'a';
-while ((PIR1 & 0b00010000) ==0);
-TXREG = 'b';
-while ((PIR1 & 0b00010000) ==0);
+# 247
+while(1) {
+char uout = 0xea;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
 }
+
+
 
 
 while (0) {
@@ -10000,10 +10002,10 @@ char channel = index;
 
 }
 
-# 237
+# 277
 }
 
-# 247
+# 287
 void ToggleLeds () {
 
 
@@ -10569,7 +10571,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 816
+# 856
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10689,7 +10691,7 @@ DelayMs(5000);
 }
 }
 
-# 952
+# 992
 ISR () {
 
 
@@ -10709,7 +10711,7 @@ change_val = 0;
 
 }
 
-# 977
+# 1017
 void adc_conversion() {
 
 ADON = 0;

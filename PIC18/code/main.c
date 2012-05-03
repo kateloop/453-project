@@ -104,6 +104,7 @@ void testToggle();
 #define ADCON0_CHANE 0b00001000 // Channel 2 conversion
 #define ADCON0_CHANF 0b00001100 // Channel 3 conversion
 #define ADCON0_CHANG 0b00010000 // Channel 4 conversion
+#define ADCON0_EN_OR 0b00000001 //ADC enable OR-mask
 
 // ADCON1 5   Voltage Reference Config bit, 0 for AVss
 //        4   Voltage Reference Config bit, 0 for AVdd
@@ -123,8 +124,6 @@ void testToggle();
 #define SPBRGH_SPBRG (((FOSC/BAUDRATE)/16) - 1) // SYNC = 0, BRG16 = 1, BRGH = 0
 #define BAUDRATE_ACT (FOSC/(16* (SPBRGH_SPBRG + 1)))
 #define BAUDRATE 19200UL
-#define openParam 0b00011000
-#define baudParam 0b0100
 
 // Oscillator Frequency
 //#define FOSC 8000000L // 8MHz
@@ -169,9 +168,35 @@ int main(int argc, char** argv) {
     // configure ADC
     ADCON0 = ADCON0_INIT;
     ADCON1 = ADCON1_VAL;
+    ADCON0 = ADCON0_CHANB;
     ADCON2 = ADCON2_VAL;
     ADCON2 = 0b10100000;  // Right Justified, 8TAD, Fosc/2
     adc_num = ADCCHANA; // reset the current adc channel to 0
+    
+
+    /*1. Configure the A/D module:
+? Configure analog pins, voltage reference and digital I/O (ADCON1)
+? Select A/D input channel (ADCON0)
+? Select A/D acquisition time (ADCON2)
+? Select A/D conversion clock (ADCON2)
+? Turn on A/D module (ADCON0)
+2. Configure A/D interrupt (if desired):
+? Clear ADIF bit
+? Set ADIE bit
+? Set GIE bit
+3. Wait the required acquisition time (if required).
+4. Start conversion:
+? Set GO/DONE bit (ADCON0 register)
+5. Wait for A/D conversion to complete, by either:
+? Polling for the GO/DONE bit to be cleared
+OR
+? Waiting for the A/D interrupt
+6. Read A/D Result registers (ADRESH:ADRESL);
+clear bit, ADIF, if required.
+7. For next conversion, go to step 1 or step 2, as
+required. The A/D conversion time per bit is
+defined as TAD. A minimum wait of 2 TAD is
+required before next acquisition starts.*/
 
     // set up GPIO
     TRISA = PORTA_DIR;
@@ -179,6 +204,8 @@ int main(int argc, char** argv) {
     TRISC = PORTC_DIR;
 
     // configure interrupt
+
+// TODO timer interrupt for ADC conversions
 
 
 //  INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
@@ -195,6 +222,7 @@ int main(int argc, char** argv) {
 
     // Turn on ADC and enable interrupts
    // ADON = 1;
+
    // ADC_INT_ENABLE();
 
         // UART config
@@ -204,13 +232,25 @@ int main(int argc, char** argv) {
         RCSTA = 0b10010000;
         TXSTA = 0b00100000;
 
-        // FIXME WRITE TO ARM
-        while (1) {
-          TXREG = 'a';
-          while ((PIR1 & 0b00010000) ==0);
-          TXREG = 'b';
-          while ((PIR1 & 0b00010000) ==0);
+  /*      ADCON0 |= 0b00000010;
+
+        while ((ADCON0 &= 0b00000010)== 0b1){
+
         }
+        while (1) {
+          TXREG = ADRESL;
+          while ((PIR1 & 0b00010000) ==0);
+          TXREG = ADRESH;
+          while ((PIR1 & 0b00010000) ==0);
+        }*/
+
+        while(1) {
+            char uout = 0xea;
+            TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+
+
 
 
     while (0) {

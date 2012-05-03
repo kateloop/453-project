@@ -1,4 +1,0 @@
-verilog work "processing.v"
-verilog work "CLOCK_GEN.v"
-verilog work "ac97.v"
-verilog work "main.v"
