@@ -165,43 +165,18 @@ int main(int argc, char** argv) {
     //OSCCON |= 0b00000010;
     OSCCON |= 0b01110010;  //internal oscillator, 8MHz
 
-    // configure ADC
-    ADCON0 = ADCON0_INIT;
-    ADCON1 = ADCON1_VAL;
-    ADCON0 = ADCON0_CHANB;
-    ADCON2 = ADCON2_VAL;
-    ADCON2 = 0b10100000;  // Right Justified, 8TAD, Fosc/2
-    adc_num = ADCCHANA; // reset the current adc channel to 0
-    
-
-    /*1. Configure the A/D module:
-? Configure analog pins, voltage reference and digital I/O (ADCON1)
-? Select A/D input channel (ADCON0)
-? Select A/D acquisition time (ADCON2)
-? Select A/D conversion clock (ADCON2)
-? Turn on A/D module (ADCON0)
-2. Configure A/D interrupt (if desired):
-? Clear ADIF bit
-? Set ADIE bit
-? Set GIE bit
-3. Wait the required acquisition time (if required).
-4. Start conversion:
-? Set GO/DONE bit (ADCON0 register)
-5. Wait for A/D conversion to complete, by either:
-? Polling for the GO/DONE bit to be cleared
-OR
-? Waiting for the A/D interrupt
-6. Read A/D Result registers (ADRESH:ADRESL);
-clear bit, ADIF, if required.
-7. For next conversion, go to step 1 or step 2, as
-required. The A/D conversion time per bit is
-defined as TAD. A minimum wait of 2 TAD is
-required before next acquisition starts.*/
-
     // set up GPIO
     TRISA = PORTA_DIR;
     TRISB = PORTB_DIR;
     TRISC = PORTC_DIR;
+
+    // configure ADC
+    ADCON0 = ADCON0_INIT;
+    ADCON1 = ADCON1_VAL;
+    ADCON2 = ADCON2_VAL;
+    ADCON2 = 0b00100000;  // Right Justified, 8TAD, Fosc/2
+    adc_num = ADCCHANA; // reset the current adc channel to 0
+ 
 
     // configure interrupt
 
@@ -232,23 +207,61 @@ required before next acquisition starts.*/
         RCSTA = 0b10010000;
         TXSTA = 0b00100000;
 
-  /*      ADCON0 |= 0b00000010;
 
-        while ((ADCON0 &= 0b00000010)== 0b1){
-
-        }
-        while (1) {
-          TXREG = ADRESL;
-          while ((PIR1 & 0b00010000) ==0);
-          TXREG = ADRESH;
-          while ((PIR1 & 0b00010000) ==0);
-        }*/
-
+  /*      char uout = 0x01;
         while(1) {
-            char uout = 0xea;
             TXREG = uout;
             while((PIR1 & 0b00010000) == 0);
-        }
+            while((PIR1 & 0b00100000) == 0);
+            uout = RCREG;
+            if (uout == 'a') {
+                uout = 0xaa;
+            }
+        }*/
+
+#if 0
+        char count = 0x00;
+    while (1) {
+
+    char uout;
+    ADON = 0;   // Turn off ADC
+
+    ADRESH = 0x00; // reset result registers
+    ADRESL = 0x00;
+    ADCON0 = ADCON0_CHANA;
+     // Start conversion and wait for result
+    ADON = 1;   // Turn on ADC
+    GODONE = 1; // Starts conversion
+
+    // Wait for conversion to finish
+    while (GODONE);
+
+
+    uout = count;
+    count++;
+    TXREG = uout;
+    while((PIR1 & 0b00010000) == 0);
+
+    uout = ADRESL;
+    TXREG = uout;
+    while((PIR1 & 0b00010000) == 0);
+    uout = ADRESH;
+    TXREG = uout;
+    while((PIR1 & 0b00010000) == 0);
+    DelayMs(5000);
+    DelayMs(5000);
+    DelayMs(5000);
+    DelayMs(5000);
+    DelayMs(5000);
+    DelayMs(5000);
+    DelayMs(5000);
+    DelayMs(5000);
+
+
+    }
+
+#endif
+        
 
 
 

@@ -12,11 +12,13 @@
 int main(int argc, char* argv[])
 {
    mon_printf("Testing Sound\n");
- 
-   FREQ_ADDR = 100000000/(512 * 300);
-   
-   int cur_val = FREQ_ADDR;
-   mon_printf("%d\n", cur_val);
+
+
+   while (1) { 
+  	 FREQ_ADDR = 100000000/(512 * 300);
+   }
+
+
    
 
    return 0;

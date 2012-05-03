@@ -4,31 +4,31 @@
 [d chip 18F2682 ]
 "140 ../code/main.c
 [s S24 _ADC_conv 4 `i 1 result 2 0 `i 1 adc_channel 2 2 ]
-[s S91 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[s S88 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S97 USART 1 `uc 1 val 1 0 `S91 1 . 1 0 ]
-[s S135 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[u S94 USART 1 `uc 1 val 1 0 `S88 1 . 1 0 ]
+[s S132 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S141 USART 1 `uc 1 val 1 0 `S91 1 . 1 0 ]
+[u S138 USART 1 `uc 1 val 1 0 `S88 1 . 1 0 ]
 "8641 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
-[s S153 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[s S150 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S159 USART 1 `uc 1 val 1 0 `S91 1 . 1 0 ]
+[u S156 USART 1 `uc 1 val 1 0 `S88 1 . 1 0 ]
 "163 ../code/main.c
 [v _main `(i  1 e 2 0 ]
-"287
+"300
 [v _ToggleLeds `(v  1 e 0 0 ]
 "137
 [v _led_array `[13]i  1 e 26 @0 ]
@@ -92,8 +92,6 @@
 [v _TRISC6 `Vb  1 e 0 @31910 ]
 "8247
 [v _TRISC7 `Vb  1 e 0 @31911 ]
-"8331
-[v _PIR1 `Vuc  1 e 1 @3998 ]
 "8337
 [v _TXIF `Vb  1 e 0 @31988 ]
 "8338
@@ -137,23 +135,21 @@
 "9270
 [v _OSCCON `Vuc  1 e 1 @4051 ]
 "6 udefs.c
-[v _USART_Status `S97  1 e 1 @48 ]
+[v _USART_Status `S94  1 e 1 @48 ]
 "163 ../code/main.c
 [v _main `(i  1 e 2 0 ]
 {
-"248
-[v _uout `uc  1 a 1 0 ]
-"266
-[v _channel `uc  1 a 1 1 ]
-"265
-[v _result `i  1 a 2 2 ]
+"279
+[v _channel `uc  1 a 1 0 ]
+"278
+[v _result `i  1 a 2 1 ]
 "163
 [v _argc `i  1 p 2 0 ]
 [v _argv `*.M*.Muc  1 p 2 2 ]
-"277
-} 4
-"287
+"290
+} 3
+"300
 [v _ToggleLeds `(v  1 e 0 0 ]
 {
-"847
+"860
 } 0

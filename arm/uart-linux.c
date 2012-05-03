@@ -29,6 +29,7 @@ typedef volatile struct {
 int main(int argc, char* argv[])
 {
 
+#if 0
    // Memory Map Setup
    long pageSize = sysconf(_SC_PAGESIZE);
    Registers* ptr = NULL;
@@ -52,7 +53,7 @@ int main(int argc, char* argv[])
    ptr->scratch[2] = 100000000/(512*300);
    printf("%08x\n", ptr->scratch[2]);
    fflush (stdout); 
-
+#endif
 
    // UART setup
    /* read "man 2 open" to learn about O_NONBLOCK and O_NOCTTY */
@@ -87,39 +88,30 @@ int main(int argc, char* argv[])
    }
 
    /* read "man select" for more advanced/event driven reading */
-#if 0
-while (0) {
+
+while (1) {
    write(fd, "a", 1);
    char buffer[64];
    size_t i = read(fd, buffer, 1);
 
    printf("%d: %02x\n", i, buffer[0]);
-   fflush(stdout);
-   printf("done writing, attempt read\n");
-   fflush(stdout);
-   char buffer[64];
-   read(fd, buffer, 1);
-   printf("done reading\n");
-   fflush(stdout);
-   printf(buffer);
-   printf("write and read complete\n");
-   fflush(stdout);
 }
-#endif
-   close(fd);
-   
-   munmap((void*) ptr, MAP_SIZE * pageSize);
 
+   close(fd);
+
+#if 0   
+   munmap((void*) ptr, MAP_SIZE * pageSize);
+#endif
 
    return 0;
-
+#if 0
 exit:
    return status;
 
 exit2:
    close (fd_mem);
    return status;
-
+#endif
 error:
    perror(UART_DEV);
    return 1;
