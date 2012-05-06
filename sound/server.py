@@ -94,7 +94,6 @@ freqVals = [131, 139, 147, 156, 165, 175, 185, 196, 208, 220, 233, 247, 262, 277
 
 while True:
     note, addr = sock.recvfrom(1024) # buffer size of 1024 bytes
-    print "",note[0]+note[1]+note[2],""
     freq = note[0] + note[1] + note[2]
     play(freq)
 
