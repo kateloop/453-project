@@ -9966,10 +9966,12 @@ TRISC = 0b10000000;
 ADCON0 = 0b00000000;
 ADCON1 = 0b00000101;
 ADCON2 = 0b10000000;
-ADCON2 = 0b00100000;
+
+
+ADCON2 = 0b00101010;
 adc_num = 0;
 
-# 204
+# 206
 SPBRGH = (((8000000L/19200UL)/16) - 1) >> 8;
 SPBRG = (((8000000L/19200UL)/16) - 1);
 BAUDCON = 0b00001000;
@@ -9984,7 +9986,138 @@ LATB = 0b10000000;
 
 LATC = 0b00001111;
 
-# 282
+# 233
+char count = 0x00;
+while (1) {
+char uout;
+
+uout = 0xee;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+
+
+ADON = 0;
+
+ADRESH = 0x00;
+ADRESL = 0x00;
+ADCON0 = 0b00100000;
+
+ADON = 1;
+GODONE = 1;
+
+
+while (GODONE);
+
+if (ADRESL < 50 ) {
+uout = 0x01;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 50 && ADRESL <160 ) {
+uout = 0x02;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 160 && ADRESL <250 ) {
+uout = 0x03;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 250 && ADRESL <350 ) {
+uout = 0x04;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 350 && ADRESL <450 ) {
+uout = 0x05;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 450 && ADRESL <550 ) {
+uout = 0x06;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 550 && ADRESL <650 ) {
+uout = 0x07;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 650 && ADRESL <750 ) {
+uout = 0x08;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 750 && ADRESL <850 ) {
+uout = 0x09;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 850 && ADRESL <950 ) {
+uout = 0x0A;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 950 && ADRESL <960 ) {
+uout = 0x0B;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 960 && ADRESL <970 ) {
+uout = 0x0C;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 970 && ADRESL <980 ) {
+uout = 0x0D;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 980 && ADRESL <990 ) {
+uout = 0x0E;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 990 && ADRESL <1000 ) {
+uout = 0x0F;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 1000 && ADRESL <1010 ) {
+uout = 0x10;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL >= 1010 && ADRESL < 1024) {
+uout = 0x11;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL ==1024) {
+uout = 0x12;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+else if (ADRESL > 1024) {
+uout = 0x13;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+}
+
+# 364
+DelayMs(5000);
+DelayMs(5000);
+DelayMs(5000);
+DelayMs(5000);
+DelayMs(5000);
+DelayMs(5000);
+DelayMs(5000);
+DelayMs(5000);
+
+
+}
+
+# 382
 while (0) {
 
 ToggleLeds();
@@ -9999,17 +10132,11 @@ char channel = index;
 
 
 }
-for (int i = 0; i < 13; i++) {
-led_array[i] = 0;
+
+# 404
 }
 
-testToggle();
-
-
-
-}
-
-# 314
+# 414
 void ToggleLeds () {
 
 
@@ -10575,7 +10702,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 883
+# 983
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10669,7 +10796,7 @@ DelayMs(5000);
 }
 }
 
-# 993
+# 1093
 ISR () {
 
 
@@ -10689,7 +10816,7 @@ change_val = 0;
 
 }
 
-# 1018
+# 1118
 void adc_conversion() {
 
 ADON = 0;

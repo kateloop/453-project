@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
    if (tcsetattr(fd, TCSANOW, &termInfo) == -1) {
       goto error;
    }
-
+/*
 int count = 0;
 int i, j;
 // send stuff to server
@@ -111,10 +111,10 @@ while (1) {
    }
 }
 
-
-
+*/
+/*
 // send stuff on uart
-/*   int i,j;
+   int i,j;
    int count = 0;
    while (1) {
        for (i = 0; i < 51; i++) {
@@ -132,13 +132,13 @@ while (1) {
 */
    /* read "man select" for more advanced/event driven reading */
 
-/*while (1) {
+while (1) {
    write(fd, "a", 1);
    char buffer[64];
    size_t i = read(fd, buffer, 1);
 
-   printf("%d: %d\n", i, buffer[0]);
-}*/
+   printf("%d: %x\n", i, buffer[0]);
+}
 
    close(fd);
 

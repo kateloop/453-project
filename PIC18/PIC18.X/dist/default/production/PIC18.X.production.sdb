@@ -4,34 +4,32 @@
 [d chip 18F2682 ]
 "140 ../code/main.c
 [s S24 _ADC_conv 4 `i 1 result 2 0 `i 1 adc_channel 2 2 ]
-[s S90 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[s S92 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S96 USART 1 `uc 1 val 1 0 `S90 1 . 1 0 ]
-[s S134 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[u S98 USART 1 `uc 1 val 1 0 `S92 1 . 1 0 ]
+[s S136 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S140 USART 1 `uc 1 val 1 0 `S90 1 . 1 0 ]
+[u S142 USART 1 `uc 1 val 1 0 `S92 1 . 1 0 ]
 "8641 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
-[s S152 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[s S154 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S158 USART 1 `uc 1 val 1 0 `S90 1 . 1 0 ]
+[u S160 USART 1 `uc 1 val 1 0 `S92 1 . 1 0 ]
 "163 ../code/main.c
 [v _main `(i  1 e 2 0 ]
-"314
+"414
 [v _ToggleLeds `(v  1 e 0 0 ]
-"877
-[v _testToggle `(v  1 e 0 0 ]
 "12 delay.c
 [v _DelayMs `(v  1 e 0 0 ]
 "137 ../code/main.c
@@ -96,6 +94,8 @@
 [v _TRISC6 `Vb  1 e 0 @31910 ]
 "8247
 [v _TRISC7 `Vb  1 e 0 @31911 ]
+"8331
+[v _PIR1 `Vuc  1 e 1 @3998 ]
 "8337
 [v _TXIF `Vb  1 e 0 @31988 ]
 "8338
@@ -139,62 +139,28 @@
 "9270
 [v _OSCCON `Vuc  1 e 1 @4051 ]
 "6 udefs.c
-[v _USART_Status `S96  1 e 1 @48 ]
+[v _USART_Status `S98  1 e 1 @48 ]
 "163 ../code/main.c
 [v _main `(i  1 e 2 0 ]
 {
-"292
-[v _channel `uc  1 a 1 0 ]
-"291
-[v _result `i  1 a 2 1 ]
-"296
-[v _i `i  1 a 2 3 ]
+"233
+[v _count `uc  1 a 1 0 ]
+"235
+[v _uout `uc  1 a 1 1 ]
+"392
+[v _channel `uc  1 a 1 2 ]
+"391
+[v _result `i  1 a 2 3 ]
 "163
 [v _argc `i  1 p 2 0 ]
 [v _argv `*.M*.Muc  1 p 2 2 ]
-"304
+"404
 } 5
-"877
-[v _testToggle `(v  1 e 0 0 ]
+"414
+[v _ToggleLeds `(v  1 e 0 0 ]
 {
-"883
-[v _i `i  1 a 2 0 ]
-"893
-[v _i `i  1 a 2 2 ]
-"902
-[v _i `i  1 a 2 4 ]
-"913
-[v _i `i  1 a 2 6 ]
-"923
-[v _i `i  1 a 2 8 ]
-"932
-[v _i `i  1 a 2 10 ]
-"943
-[v _i `i  1 a 2 12 ]
-"954
-[v _i `i  1 a 2 14 ]
-"965
-[v _i `i  1 a 2 16 ]
-"884
-[v _j `i  1 a 2 18 ]
-"894
-[v _j `i  1 a 2 20 ]
-"903
-[v _j `i  1 a 2 22 ]
-"914
-[v _j `i  1 a 2 24 ]
-"924
-[v _j `i  1 a 2 26 ]
-"933
-[v _j `i  1 a 2 28 ]
-"944
-[v _j `i  1 a 2 30 ]
-"955
-[v _j `i  1 a 2 32 ]
-"966
-[v _j `i  1 a 2 34 ]
 "974
-} 36
+} 0
 "12 delay.c
 [v _DelayMs `(v  1 e 0 0 ]
 {
@@ -206,8 +172,3 @@
 [v _cnt `uc  1 p 1 0 ]
 "28
 } 2
-"314 ../code/main.c
-[v _ToggleLeds `(v  1 e 0 0 ]
-{
-"874
-} 0

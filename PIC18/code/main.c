@@ -174,7 +174,9 @@ int main(int argc, char** argv) {
     ADCON0 = ADCON0_INIT;
     ADCON1 = ADCON1_VAL;
     ADCON2 = ADCON2_VAL;
-    ADCON2 = 0b00100000;  // Right Justified, 8TAD, Fosc/2
+   // ADCON2 = 0b00100000;  // Right Justified, 8TAD, Fosc/2
+    //ADCON2 = 0b00101101;  //Right justified, 12TAD, Fosc/16
+    ADCON2 = 0b00101010; //right justified, 12 TAD, Fosc/8
     adc_num = ADCCHANA; // reset the current adc channel to 0
  
 
@@ -228,7 +230,7 @@ int main(int argc, char** argv) {
         }*/
 
 
-/*    char count = 0x00;
+    char count = 0x00;
     while (1) {
         char uout;
 
@@ -249,18 +251,116 @@ int main(int argc, char** argv) {
         // Wait for conversion to finish
         while (GODONE);
 
+        if (ADRESL < 50 ) {
+            uout = 0x01;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 50 && ADRESL <160 ) {
+            uout = 0x02;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 160 && ADRESL <250 ) {
+            uout = 0x03;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 250 && ADRESL <350 ) {
+            uout = 0x04;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 350 && ADRESL <450 ) {
+            uout = 0x05;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 450 && ADRESL <550 ) {
+            uout = 0x06;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 550 && ADRESL <650 ) {
+            uout = 0x07;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 650 && ADRESL <750 ) {
+            uout = 0x08;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 750 && ADRESL <850 ) {
+            uout = 0x09;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 850 && ADRESL <950 ) {
+            uout = 0x0A;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 950 && ADRESL <960 ) {
+            uout = 0x0B;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 960 && ADRESL <970 ) {
+            uout = 0x0C;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 970 && ADRESL <980 ) {
+            uout = 0x0D;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 980 && ADRESL <990 ) {
+            uout = 0x0E;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 990 && ADRESL <1000 ) {
+            uout = 0x0F;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 1000 && ADRESL <1010 ) {
+            uout = 0x10;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL >= 1010 && ADRESL < 1024) {
+            uout = 0x11;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL ==1024) {
+            uout = 0x12;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        else if (ADRESL > 1024) {
+            uout = 0x13;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+       /*
         if (ADRES > 160) {
-            uout = ADRESH;
+           // uout = ADRESH;
+            uout = 0x02;
             TXREG = uout;
             while((PIR1 & 0b00010000) == 0);
-            uout = ADRESL;
-            TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        } else if (ADRES < 160) {
+            //uout = ADRESL;
+            //TXREG = uout;
+            //while((PIR1 & 0b00010000) == 0);
+        } else if (ADRES <= 160) {
             uout = 0x01;
             TXREG = uout;
             while((PIR1 & 0b00010000) == 0);
         }
+         */
         DelayMs(5000);
         DelayMs(5000);
         DelayMs(5000);
@@ -271,7 +371,7 @@ int main(int argc, char** argv) {
         DelayMs(5000);
 
 
-    }*/
+    }
 
 
     
@@ -293,13 +393,13 @@ int main(int argc, char** argv) {
         // TODO send result and channel across UART
 
     }
-     for (int i = 0; i < 13; i++) {
+   /*  for (int i = 0; i < 13; i++) {
                 led_array[i] = 0;
         }
 
         testToggle(); 
 
-   
+   */
    //  return (EXIT_SUCCESS);
 }
 

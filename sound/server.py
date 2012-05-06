@@ -78,8 +78,7 @@ def play(freq):
         winsound.PlaySound("A5S.wav", winsound.SND_ASYNC | winsound.SND_FILENAME)
      elif freq == "988":
         winsound.PlaySound("B5.wav", winsound.SND_ASYNC | winsound.SND_FILENAME)
-     
-             
+            
              
 
 
