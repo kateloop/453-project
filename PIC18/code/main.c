@@ -97,8 +97,8 @@ void testToggle();
 //        1   A/D Conversion Status Bit: 1 A/D conversion in progress, 0 A/D idle
 //        0   A/D on bit: 1 enabled, 0 disabled
 #define ADCON0_INIT  0b00000000 // Initial settings; ADC off and not converting
-#define ADCON0_CHANA 0b00100100 // Channel 9 conversion
-#define ADCON0_CHANB 0b00100000 // Channel 8 conversion
+#define ADCON0_CHANA 0b00100000 // Channel 8 conversion
+#define ADCON0_CHANB 0b00100100 // Channel 9 conversion
 #define ADCON0_CHANC 0b00000000 // Channel 0 conversion
 #define ADCON0_CHAND 0b00000100 // Channel 1 conversion
 #define ADCON0_CHANE 0b00001000 // Channel 2 conversion
@@ -207,8 +207,16 @@ int main(int argc, char** argv) {
         RCSTA = 0b10010000;
         TXSTA = 0b00100000;
 
+        // Octave 3 L & R LED on; D
+        //LATA   -P-P----
+        LATA = 0b11111111;
+        //LATB   PNN-NN--
+        LATB = 0b10000000;
+        //LATB   --NNPPPP
+        LATC = 0b00001111;
 
-  /*      char uout = 0x01;
+
+    /*    char uout = 0x01;
         while(1) {
             TXREG = uout;
             while((PIR1 & 0b00010000) == 0);
@@ -219,49 +227,54 @@ int main(int argc, char** argv) {
             }
         }*/
 
-#if 0
-        char count = 0x00;
+
+/*    char count = 0x00;
     while (1) {
+        char uout;
 
-    char uout;
-    ADON = 0;   // Turn off ADC
+        uout = 0xee;
+        TXREG = uout;
+        while((PIR1 & 0b00010000) == 0);
 
-    ADRESH = 0x00; // reset result registers
-    ADRESL = 0x00;
-    ADCON0 = ADCON0_CHANA;
-     // Start conversion and wait for result
-    ADON = 1;   // Turn on ADC
-    GODONE = 1; // Starts conversion
-
-    // Wait for conversion to finish
-    while (GODONE);
-
-
-    uout = count;
-    count++;
-    TXREG = uout;
-    while((PIR1 & 0b00010000) == 0);
-
-    uout = ADRESL;
-    TXREG = uout;
-    while((PIR1 & 0b00010000) == 0);
-    uout = ADRESH;
-    TXREG = uout;
-    while((PIR1 & 0b00010000) == 0);
-    DelayMs(5000);
-    DelayMs(5000);
-    DelayMs(5000);
-    DelayMs(5000);
-    DelayMs(5000);
-    DelayMs(5000);
-    DelayMs(5000);
-    DelayMs(5000);
-
-
-    }
-
-#endif
         
+        ADON = 0;   // Turn off ADC
+
+        ADRESH = 0x00; // reset result registers
+        ADRESL = 0x00;
+        ADCON0 = ADCON0_CHANA;
+        // Start conversion and wait for result
+        ADON = 1;   // Turn on ADC
+        GODONE = 1; // Starts conversion
+
+        // Wait for conversion to finish
+        while (GODONE);
+
+        if (ADRES > 160) {
+            uout = ADRESH;
+            TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+            uout = ADRESL;
+            TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        } else if (ADRES < 160) {
+            uout = 0x01;
+            TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+        }
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+        DelayMs(5000);
+
+
+    }*/
+
+
+    
 
 
 
@@ -281,12 +294,14 @@ int main(int argc, char** argv) {
 
     }
 
-  /*      for (int i = 0; i < 13; i++) {
-            led_array[i] = 0;
+       for (int i = 0; i < 13; i++) {
+                led_array[i] = 0;
         }
 
-        testToggle(); */
-  //  return (EXIT_SUCCESS);
+        testToggle(); 
+
+   
+   //  return (EXIT_SUCCESS);
 }
 
 
