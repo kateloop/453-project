@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\CCS\AppData\Local\Temp\s618.obj \
+  C:\Users\CCS\AppData\Local\Temp\s6l4.obj \
   dist/default/production\PIC18.X.production.obj 
 
 Object code version is 3.10
@@ -42,15 +42,15 @@ Estimated maximum call depth: 2
 
 
                 Name          Link     Load   Length Selector Space Scale
-C:\Users\CCS\AppData\Local\Temp\s618.obj
+C:\Users\CCS\AppData\Local\Temp\s6l4.obj
                 end_init         C        C       12       0     0
                 init             0        0        C       0     0
                 config      300000   300000        E  300000     0
 dist/default/production\PIC18.X.production.obj
                 text3        13216    13216      DEA    990B     0
-                text0        1253E    1253E      100    929F     0
-                text2        124F6    124F6       48    927B     0
-                text1        1263E    1263E      BD8    931F     0
+                text0        1275A    1275A      100    93AD     0
+                text2        12712    12712       48    9389     0
+                text1        1285A    1285A      9BC    942D     0
 
 COMMON          param1         100      100       33     100     1
 
@@ -59,9 +59,9 @@ TOTAL           Name          Link     Load   Length  Space
                 end_init         C        C       12     0
                 init             0        0        C     0
                 text3        13216    13216      DEA     0
-                text0        1253E    1253E      100     0
-                text2        124F6    124F6       48     0
-                text1        1263E    1263E      BD8     0
+                text0        1275A    1275A      100     0
+                text2        12712    12712       48     0
+                text1        1285A    1285A      9BC     0
 
         CLASS   CONST          
 
@@ -122,9 +122,9 @@ SEGMENTS        Name           Load    Length   Top     Selector    Space Class
 
                 reset_vec       000000  00001E  00001E         0       0  CODE    
                 param1          000100  000033  000133       100       1  BANK1   
-                text2           0124F6  000048  01253E      927B       0  CODE    
-                text0           01253E  000100  01263E      929F       0  CODE    
-                text1           01263E  000BD8  013216      931F       0  CODE    
+                text2           012712  000048  01275A      9389       0  CODE    
+                text0           01275A  000100  01285A      93AD       0  CODE    
+                text1           01285A  0009BC  013216      942D       0  CODE    
                 text3           013216  000DEA  014000      990B       0  CODE    
                 config          300000  00000E  30000E    300000       0  CONFIG  
 
@@ -146,13 +146,13 @@ UNUSED ADDRESS RANGES
         BANK9            000900-0009FF
         BIGRAM           000041-0000FF
                          000133-000C9F
-        CODE             00001E-0124F5
+        CODE             00001E-012711
         COMRAM           000041-00005F
-        CONST            00001E-0124F5
+        CONST            00001E-012711
         EEDATA           F00000-F003FF
         IDLOC            200000-200007
         MEDIUMCONST      000D00-00FFFF
-                         010D00-0124F5
+                         010D00-012711
         NVRAM            000C00-000C9F
         RAM              000041-0000FF
                          000133-000C9F
@@ -182,7 +182,7 @@ _BAUDCON            (abs)        000FB8
 _BRGH_x             (abs)        007D62
 _CREN_x             (abs)        007D5C
 _CSRC_x             (abs)        007D67
-_DelayMs            text2        0124F6
+_DelayMs            text2        012712
 _FERR               (abs)        007D5A
 _GODONE             (abs)        007E11
 _LATA               (abs)        000F89
@@ -344,9 +344,9 @@ __config4           (abs)        00FFFB
 __config5           (abs)        00FFFF
 __config6           (abs)        00FFFF
 __config7           (abs)        00FFFF
-__end_of_DelayMs    text2        01253E
+__end_of_DelayMs    text2        01275A
 __end_of_ToggleLeds text3        014000
-__end_of_main       text0        01263E
+__end_of_main       text0        01285A
 __end_of_testToggle text1        013216
 __mediumconst       mediumconst  000D00
 __ramtop            ramtop       000D00
@@ -358,9 +358,9 @@ _cur_inputs         (abs)        00001A
 _exit               init         000000
 _index              (abs)        000028
 _led_array          (abs)        000000
-_main               text0        01253E
+_main               text0        01275A
 _prev_inputs        (abs)        000033
-_testToggle         text1        01263E
+_testToggle         text1        01285A
 _uart_in            (abs)        000032
 _uart_out           (abs)        000031
 intlevel0           text         00001E

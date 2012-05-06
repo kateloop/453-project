@@ -9999,7 +9999,6 @@ char channel = index;
 
 
 }
-
 for (int i = 0; i < 13; i++) {
 led_array[i] = 0;
 }
@@ -10010,7 +10009,7 @@ testToggle();
 
 }
 
-# 315
+# 314
 void ToggleLeds () {
 
 
@@ -10576,7 +10575,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 884
+# 883
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10585,9 +10584,6 @@ led_array[0] = 1;
 led_array[1] = 1;
 led_array[i+6] = 1;
 ToggleLeds();
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
 DelayMs(5000);
 }
 for (int i = 0; i < 7; i++) {
@@ -10598,9 +10594,6 @@ led_array[0] = 1;
 led_array[i+6] = 1;
 ToggleLeds();
 DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
 }
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
@@ -10609,9 +10602,6 @@ led_array[j] = 0;
 led_array[1] = 1;
 led_array[i+6] = 1;
 ToggleLeds();
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
 DelayMs(5000);
 }
 
@@ -10625,9 +10615,6 @@ led_array[3] = 1;
 led_array[i+6] = 1;
 ToggleLeds();
 DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
 }
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
@@ -10636,9 +10623,6 @@ led_array[j] = 0;
 led_array[2] = 1;
 led_array[i+6] = 1;
 ToggleLeds();
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
 DelayMs(5000);
 }
 for (int i = 0; i < 7; i++) {
@@ -10649,9 +10633,6 @@ led_array[3] = 1;
 led_array[i+6] = 1;
 ToggleLeds();
 DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
 }
 
 
@@ -10664,9 +10645,6 @@ led_array[5] = 1;
 led_array[i+6] = 1;
 ToggleLeds();
 DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
 }
 
 for (int i = 0; i < 7; i++) {
@@ -10677,9 +10655,7 @@ led_array[4] = 1;
 led_array[i+6] = 1;
 ToggleLeds();
 DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
+
 }
 
 for (int i = 0; i < 7; i++) {
@@ -10690,13 +10666,10 @@ led_array[5] = 1;
 led_array[i+6] = 1;
 ToggleLeds();
 DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
 }
 }
 
-# 1020
+# 993
 ISR () {
 
 
@@ -10716,7 +10689,7 @@ change_val = 0;
 
 }
 
-# 1045
+# 1018
 void adc_conversion() {
 
 ADON = 0;

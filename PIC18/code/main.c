@@ -293,8 +293,7 @@ int main(int argc, char** argv) {
         // TODO send result and channel across UART
 
     }
-
-       for (int i = 0; i < 13; i++) {
+     for (int i = 0; i < 13; i++) {
                 led_array[i] = 0;
         }
 
@@ -890,9 +889,6 @@ void testToggle () {
         led_array[i+6] = 1;
         ToggleLeds();
         DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
     }
     for (int i = 0; i < 7; i++) {
         for (int j = 0; j < sizeof(led_array); j++) {
@@ -902,9 +898,6 @@ void testToggle () {
         led_array[i+6] = 1;
         ToggleLeds();
         DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
     }
     for (int i = 0; i < 7; i++) {
         for (int j = 0; j < sizeof(led_array); j++) {
@@ -913,9 +906,6 @@ void testToggle () {
         led_array[1] = 1;
         led_array[i+6] = 1;
         ToggleLeds();
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
         DelayMs(5000);
     }
 
@@ -929,9 +919,6 @@ void testToggle () {
         led_array[i+6] = 1;
         ToggleLeds();
         DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
     }
     for (int i = 0; i < 7; i++) {
         for (int j = 0; j < sizeof(led_array); j++) {
@@ -941,9 +928,6 @@ void testToggle () {
         led_array[i+6] = 1;
         ToggleLeds();
         DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
     }
     for (int i = 0; i < 7; i++) {
         for (int j = 0; j < sizeof(led_array); j++) {
@@ -952,9 +936,6 @@ void testToggle () {
         led_array[3] = 1;
         led_array[i+6] = 1;
         ToggleLeds();
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
         DelayMs(5000);
     }
 
@@ -968,9 +949,6 @@ void testToggle () {
         led_array[i+6] = 1;
         ToggleLeds();
         DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
     }
     // toggle octave 3 LEDs
     for (int i = 0; i < 7; i++) {
@@ -981,9 +959,7 @@ void testToggle () {
         led_array[i+6] = 1;
         ToggleLeds();
         DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
+
     }
     // toggle octave 3 LEDs
     for (int i = 0; i < 7; i++) {
@@ -993,9 +969,6 @@ void testToggle () {
         led_array[5] = 1;
         led_array[i+6] = 1;
         ToggleLeds();
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
         DelayMs(5000);
     }
 }

@@ -42,12 +42,14 @@ int main(int argc, char* argv[])
 
    host = gethostbyname("128.104.180.233");
    if (host == NULL) {
+      printf("unable to resovle host\n");
       fprintf(stderr, "%s: unable to resolve host\n", "128.104.180.233");
       return 1;
    }
-   port = 1414UL;
+   port = 1222UL;
    fd_sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
    if (fd_sock == -1) {
+      printf("socket\n");
       perror("socket");
       return 1;
    }
@@ -57,6 +59,7 @@ int main(int argc, char* argv[])
    addr.sin_port = htons(port);
 
    if (connect(fd_sock, (struct sockaddr*) &addr, sizeof(struct sockaddr_in)) == -1) {
+      printf("connect\n");
       perror("connect");
       return 1;
    }
@@ -93,14 +96,18 @@ int main(int argc, char* argv[])
    }
 
 int count = 0;
-int i;
+int i, j;
 // send stuff to server
 while (1) {
    for (i = 0; i < 51; i++) {
       int freq = playNote(i);
       char buf[5];
       snprintf(buf, 5, "%d", freq);        
-      write(fd_sock, buf,  4);   
+      write(fd_sock, buf,  4);
+      for (j = 0; j <9055000; j++) {
+         count += j - 3;
+      }   
+      printf("count %d\n", count);
    }
 }
 

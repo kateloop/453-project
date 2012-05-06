@@ -7,8 +7,9 @@
 #define FD3F 139
 #define FD3  147
 #define FD3S 156
-#define FE3F 165
-#define FE3  175
+#define FE3F 156
+#define FE3  165
+#define FF3F 165
 #define FF3  175
 #define FF3S 185
 #define FG3F 185
@@ -26,6 +27,7 @@
 #define FD4S 311
 #define FE4F 311
 #define FE4  330
+#define FF4F 330
 #define FF4  349
 #define FF4S 370
 #define FG4F 370
@@ -43,6 +45,7 @@
 #define FD5S 622
 #define FE5F 622
 #define FE5  659
+#define FF5F 659
 #define FF5  698
 #define FF5S 740
 #define FG5F 740
