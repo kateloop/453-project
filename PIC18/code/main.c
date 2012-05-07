@@ -140,7 +140,7 @@ int led_array[13];
 unsigned char uart_out;
 
 unsigned char new_note = 0x00;
-unsigned char old_ntoe = 0x00;
+unsigned char old_note = 0x00;
 
 
 // Structure to hold ADC conversion information
@@ -204,6 +204,8 @@ int main(int argc, char** argv) {
         LATC = 0b00001111;
 
 
+        // SAMPLE RECEIVE UART CODE: WILL NEED TO DO UART RECEIVE INTERRUPT TO CHANGE MODES
+
     /*    char uout = 0x01;
         while(1) {
             TXREG = uout;
@@ -218,7 +220,6 @@ int main(int argc, char** argv) {
 
 
         // USE FOLLOWING CODE TO CALIBRATE
-    char count = 0x00;
     while (1) {
         char uout;
         char hResult;
@@ -252,14 +253,6 @@ int main(int argc, char** argv) {
 
         DelayMs(5000);
         DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-        DelayMs(5000);
-
-
     }
 
 
