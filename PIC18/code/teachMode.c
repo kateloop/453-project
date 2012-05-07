@@ -1,6 +1,7 @@
    //note length defines
    #define br	2	 //break length
 	#define en  10  //eighth note
+	#define den	15  //dotted eighth note
 	#define qn  20  //quarter note
 	#define dqn 30  //dotted quarter note
 	#define hn  40  //half note
@@ -459,3 +460,61 @@
 			DelayMs(en);
 	}
 }
+
+	playClair(void){
+		getNote(A4F);
+		DelayMs(en);
+		getNote(A5F);
+		DelayMs(en);
+		DelayMs(dqn);
+		getNote(F5);
+		DelayMs(hn);
+		getNote(E5F);
+		DelayMs(en);
+		getNote(F5);
+		DelayMs(en);
+		getNote(E5F):
+		DelayMs(dhn);
+		DelayMs(en);
+		getNote(D5F);
+		DelayMs(en):
+		getNote(E5F);
+		DelayMs(en);
+		getNote(D5F);
+		DelayMs(en);
+		getNote(F5);
+		DelayMs(den);
+		getNote(D5F);
+		DelayMs(den);
+		getNote(C5);
+		DelayMs(en);
+		getNote(D5F);
+		DelayMs(en);
+		getNote(C5);
+		DelayMs(dhn);
+		DelayMs(en);
+		getNote(B4F);
+		DelayMs(en);
+		getNote(C5);
+		DelayMs(en);
+		getNote(B4F);
+		DelayMs(en);
+		getNote(E5F);
+		DelayMs(en);
+		getNote(B4F);
+		DelayMs(en);
+		getNote(A4F);
+		DelayMs(en);
+		getNote(B4F);
+		DelayMs(en);
+		getNote(A4F);
+		DelayMs(qn);
+		getNote(G4F);
+		DelayMs(en);
+		getNote(A4F);
+		DelayMs(en);
+		getNote(G4F);
+		Delay(dqn);
+		
+	}
+
