@@ -115,7 +115,7 @@ void testToggle();
 // ADCON2 7   A/D Result Format, 1 Right Justified
 //        5-3 A/D Acquisition Time Select bits   TODO 0TAD
 //        2-0 A/D Conversion Clock Select Bits   TODO Fosc/2
-#define ADCON2_VAL 0b10000000
+#define ADCON2_VAL 0b10001101    // Right justified, 2 TAD, Fosc/16
 
 // UART Defines
 #define UART_RENABLE 0b10010000
@@ -136,8 +136,12 @@ void testToggle();
 ////////////////////////////////////
 int led_array[13];
 
+// uart
 unsigned char uart_out;
-unsigned char uart_in;
+
+unsigned char new_note = 0x00;
+unsigned char old_ntoe = 0x00;
+
 
 // Structure to hold ADC conversion information
 typedef struct _ADC_conv {
@@ -162,7 +166,6 @@ int index;
 
 int main(int argc, char** argv) {
     // Init Config
-    //OSCCON |= 0b00000010;
     OSCCON |= 0b01110010;  //internal oscillator, 8MHz
 
     // set up GPIO
@@ -174,8 +177,6 @@ int main(int argc, char** argv) {
     ADCON0 = ADCON0_INIT;
     ADCON1 = ADCON1_VAL;
     ADCON2 = ADCON2_VAL;
-   // ADCON2 = 0b10101101;  //Right justified, 12TAD, Fosc/16
-    ADCON2 = 0b10001101;    // Right justified, 2 TAD, Fosc/16
     adc_num = ADCCHANA; // reset the current adc channel to 0
  
 
@@ -187,19 +188,6 @@ int main(int argc, char** argv) {
 //  INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
 //  INTCON2 = 0b00000000; //TODO no idea about this one
 //  INTCON3 = 0b00000000; //TODO no idea about this one
-
-     /*TODO testing UART:  The UART pins on the TLL6219 are pins 13-16 on the GPIO connector Chris      suggests taking these steps:
-            1. send a bunch of A's from the PIC and see if they print out on the screen; if they do, you have UART communication!
-            2. send relevant (non-character) data from the PIC and enable raw data part of uart code so it prints right
-            3.send data from the Arm and either echo it back and have it print out or use scope
-            Chris said he is more than willing to reiterate these steps later.  Also, the scope should looks like it's going crazy when                 we send A's, so that's a good indication of whether or not we have it working. He also said to assume that the problem is               with the PIC code.....let's hope he's right about that.
-    */
-
-
-    // Turn on ADC and enable interrupts
-   // ADON = 1;
-
-   // ADC_INT_ENABLE();
 
         // UART config
         SPBRGH  = SPBRGH_SPBRG >> 8;
@@ -253,238 +241,7 @@ int main(int argc, char** argv) {
         while (GODONE);
         hResult = ADRESH;
         lResult = ADRESL;
-        
-        if (adc_num == ADCCHANA) {
-            if (hResult == 0x00) {
-                // no note playing
-                
-            } else if (hResult == 0x01) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
 
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x02) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x03) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            }
-            
-        } else if (adc_num == ADCCHANB) {
-            if (hResult == 0x00) {
-                // no note playing
-            } else if (hResult == 0x01) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x02) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x03) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            }
-            
-        } else if (adc_num == ADCCHANC) {
-            if (hResult == 0x00) {
-                // No note playing
-                
-            } else if (hResult == 0x01) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x02) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x03) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            }
-            
-        } else if (adc_num == ADCCHAND) {
-            if (hResult == 0x00) {
-                // no note playing
-                
-            } else if (hResult == 0x01) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x02) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x03) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            }
-            
-        } else if (adc_num == ADCCHANE) {
-            if (hResult == 0x00) {
-                // no note playing
-                
-            } else if (hResult == 0x01) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x02) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x03) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            }
-            
-        } else if (adc_num == ADCCHANF) {
-            if (hResult == 0x00) {
-                // no note playing
-                
-            } else if (hResult == 0x01) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x02) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x03) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            }
-            
-        } else if (adc_num == ADCCHANG) {
-            if (hResult == 0x00) {
-                // no note playing
-                
-            } else if (hResult == 0x01) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x02) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            } else if (hResult == 0x03) {
-                if (lResult >= 0x00 && lResult <= 0x00) {
-
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else if (lResult >= 0x00 && lResult <= 0x00) {
-                } else {
-                    // no note playing
-                }
-                
-            }
-            
-        }
 
 
 
@@ -1404,8 +1161,10 @@ void adc_conversion() {
         ADON = 0;
     }
 
+    unsigned char note = getNote(ADRESH, ADRESL);
+
     // store conversion result
-    conv_result.result = ADRES;
+    conv_result.result = note;
     conv_result.adc_channel = adc_num;
 
     // Increase the number of the ADC for next conversion
@@ -1413,4 +1172,372 @@ void adc_conversion() {
     if (adc_num >= NUMADCCHAN) {
         adc_num = ADCCHANA;
     }
+}
+
+unsigned char getNote (unsigned char hResult, unsigned char lResult) {
+    unsigned char new_note;
+
+    if (adc_num == ADCCHANA) {
+        if (hResult == 0x00) {
+            // no note playing; ignore this sensor result???
+            new_note = 0x00;
+        } else if (hResult == 0x01) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5AF
+                new_note = 0x51;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5A
+                new_note = 0x41;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5AS
+                new_note = 0x49;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x02) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4AF
+                new_note = 0x31;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4A
+                new_note = 0x21;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4AS
+                new_note = 0x29;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x03) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3AF
+                new_note = 0x11;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3A
+                new_note = 0x01;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3AS
+                new_note = 0x09;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        }
+
+    } else if (adc_num == ADCCHANB) {
+        if (hResult == 0x00) {
+            // no note playing
+            new_note = 0x00;
+        } else if (hResult == 0x01) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5BF
+                new_note = 0x52;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5B
+                new_note = 0x42;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5BS
+                new_note = 0x4a;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x02) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4BF
+                new_note = 0x32;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4B
+                new_note = 0x22;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4BS
+                new_note = 0x2a;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x03) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3BF
+                new_note = 0x12;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3B
+                new_note = 0x02;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3BS
+                new_note = 0x0a;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+        }
+
+    } else if (adc_num == ADCCHANC) {
+        if (hResult == 0x00) {
+           // No note playing
+           new_note = 0x00;
+        } else if (hResult == 0x01) {
+           if (lResult >= 0x00 && lResult <= 0x00) {
+               // 5CF
+               new_note = 0x53;
+           } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5C
+                new_note = 0x43;
+           } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5CS
+                new_note = 0x4b;
+           } else {
+                // no note playing
+                new_note = 0x00;
+           }
+
+        } else if (hResult == 0x02) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4CF
+                new_note = 0x33;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4C
+                new_note = 0x23;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4CS
+                new_note = 0x2b;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x03) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3CF
+                new_note = 0x13;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3C
+                new_note = 0x03;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3CS
+                new_note = 0x0b;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+        }
+
+    } else if (adc_num == ADCCHAND) {
+        if (hResult == 0x00) {
+            // no note playing
+            new_note = 0x00;
+
+        } else if (hResult == 0x01) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5DF
+                new_note = 0x54;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5D
+                new_note = 0x44;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5DS
+                new_note = 0x4c;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x02) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4DF
+                new_note = 0x34;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4D
+                new_note = 0x24;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4DS
+                new_note = 0x2c;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x03) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3DF
+                new_note = 0x14;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3D
+                new_note = 0x04;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3DS
+                new_note = 0x0c;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        }
+
+    } else if (adc_num == ADCCHANE) {
+        if (hResult == 0x00) {
+            // no note playing
+            new_note = 0x00;
+
+        } else if (hResult == 0x01) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5EF
+                new_note = 0x55;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5E
+                new_note = 0x45;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5ES
+                new_note = 0x4d;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x02) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4EF
+                new_note = 0x35;
+
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4E
+                new_note = 0x25;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4ES
+                new_note = 0x2d;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x03) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3EF
+                new_note = 0x15;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3E
+                new_note = 0x05;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3ES
+                new_note = 0x0d;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        }
+
+    } else if (adc_num == ADCCHANF) {
+        if (hResult == 0x00) {
+           // no note playing
+            new_note = 0x00;
+
+        } else if (hResult == 0x01) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5FF
+                new_note = 0x56;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5F
+                new_note = 0x46;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5FS
+                new_note = 0x4e;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x02) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4FF
+                new_note = 0x36;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4F
+                new_note = 0x26;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4FS
+                new_note = 0x2e;
+            } else {
+               // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x03) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3FF
+                new_note = 0x16;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3F
+                new_note = 0x06;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3FS
+                new_note = 0x0e;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        }
+
+    } else if (adc_num == ADCCHANG) {
+        if (hResult == 0x00) {
+           // no note playing
+            new_note = 0x00;
+
+        } else if (hResult == 0x01) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5GF
+                new_note = 0x57;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5G
+                new_note = 0x47;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 5GS
+                new_note = 0x4f;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x02) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4GF
+                new_note = 0x37;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4G
+                new_note = 0x27;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 4GS
+                new_note = 0x2f;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        } else if (hResult == 0x03) {
+            if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3GF
+                new_note = 0x17;
+
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3G
+                new_note = 0x07;
+            } else if (lResult >= 0x00 && lResult <= 0x00) {
+                // 3GS
+                new_note = 0x0f;
+            } else {
+                // no note playing
+                new_note = 0x00;
+            }
+
+        }
+
+    }
+    return new_note;
 }
