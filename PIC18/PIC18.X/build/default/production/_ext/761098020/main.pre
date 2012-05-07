@@ -9967,11 +9967,10 @@ ADCON0 = 0b00000000;
 ADCON1 = 0b00000101;
 ADCON2 = 0b10000000;
 
-
-ADCON2 = 0b00101010;
+ADCON2 = 0b10001101;
 adc_num = 0;
 
-# 206
+# 205
 SPBRGH = (((8000000L/19200UL)/16) - 1) >> 8;
 SPBRG = (((8000000L/19200UL)/16) - 1);
 BAUDCON = 0b00001000;
@@ -9986,7 +9985,7 @@ LATB = 0b10000000;
 
 LATC = 0b00001111;
 
-# 233
+# 232
 char count = 0x00;
 while (1) {
 char uout;
@@ -10000,16 +9999,22 @@ ADON = 0;
 
 ADRESH = 0x00;
 ADRESL = 0x00;
-ADCON0 = 0b00100000;
+ADCON0 = 0b00000100;
 
 ADON = 1;
 GODONE = 1;
 
 
 while (GODONE);
+uout = ADRESH;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
 
 if (ADRESL < 50 ) {
 uout = 0x01;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+uout = ADRESL;
 TXREG = uout;
 while((PIR1 & 0b00010000) == 0);
 }
@@ -10017,9 +10022,15 @@ else if (ADRESL >= 50 && ADRESL <160 ) {
 uout = 0x02;
 TXREG = uout;
 while((PIR1 & 0b00010000) == 0);
+uout = ADRESL;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
 }
 else if (ADRESL >= 160 && ADRESL <250 ) {
 uout = 0x03;
+TXREG = uout;
+while((PIR1 & 0b00010000) == 0);
+uout = ADRESL;
 TXREG = uout;
 while((PIR1 & 0b00010000) == 0);
 }
@@ -10104,7 +10115,7 @@ TXREG = uout;
 while((PIR1 & 0b00010000) == 0);
 }
 
-# 364
+# 375
 DelayMs(5000);
 DelayMs(5000);
 DelayMs(5000);
@@ -10117,7 +10128,7 @@ DelayMs(5000);
 
 }
 
-# 382
+# 393
 while (0) {
 
 ToggleLeds();
@@ -10133,10 +10144,10 @@ char channel = index;
 
 }
 
-# 404
+# 415
 }
 
-# 414
+# 425
 void ToggleLeds () {
 
 
@@ -10702,7 +10713,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 983
+# 994
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10796,7 +10807,7 @@ DelayMs(5000);
 }
 }
 
-# 1093
+# 1104
 ISR () {
 
 
@@ -10816,7 +10827,7 @@ change_val = 0;
 
 }
 
-# 1118
+# 1129
 void adc_conversion() {
 
 ADON = 0;

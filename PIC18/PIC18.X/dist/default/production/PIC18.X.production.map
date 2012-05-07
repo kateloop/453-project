@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\CCS\AppData\Local\Temp\s3b8.obj \
+  C:\Users\CCS\AppData\Local\Temp\s358.obj \
   dist/default/production\PIC18.X.production.obj 
 
 Object code version is 3.10
@@ -40,13 +40,13 @@ Estimated maximum call depth: 1
 
 
                 Name          Link     Load   Length Selector Space Scale
-C:\Users\CCS\AppData\Local\Temp\s3b8.obj
+C:\Users\CCS\AppData\Local\Temp\s358.obj
                 end_init         C        C       12       0     0
                 init             0        0        C       0     0
                 config      300000   300000        E  300000     0
 dist/default/production\PIC18.X.production.obj
-                text2        12F0C    12F0C       48    9786     0
-                text0        12F54    12F54      2C2    97AA     0
+                text2        12EA4    12EA4       48    9752     0
+                text0        12EEC    12EEC      32A    9776     0
                 text1        13216    13216      DEA    990B     0
 
 COMMON          param1         100      100        E     100     1
@@ -55,8 +55,8 @@ TOTAL           Name          Link     Load   Length  Space
         CLASS   CODE           
                 end_init         C        C       12     0
                 init             0        0        C     0
-                text2        12F0C    12F0C       48     0
-                text0        12F54    12F54      2C2     0
+                text2        12EA4    12EA4       48     0
+                text0        12EEC    12EEC      32A     0
                 text1        13216    13216      DEA     0
 
         CLASS   CONST          
@@ -118,8 +118,8 @@ SEGMENTS        Name           Load    Length   Top     Selector    Space Class
 
                 reset_vec       000000  00001E  00001E         0       0  CODE    
                 param1          000100  00000E  00010E       100       1  BANK1   
-                text2           012F0C  000048  012F54      9786       0  CODE    
-                text0           012F54  0002C2  013216      97AA       0  CODE    
+                text2           012EA4  000048  012EEC      9752       0  CODE    
+                text0           012EEC  00032A  013216      9776       0  CODE    
                 text1           013216  000DEA  014000      990B       0  CODE    
                 config          300000  00000E  30000E    300000       0  CONFIG  
 
@@ -141,13 +141,13 @@ UNUSED ADDRESS RANGES
         BANK9            000900-0009FF
         BIGRAM           000041-0000FF
                          00010E-000C9F
-        CODE             00001E-012F0B
+        CODE             00001E-012EA3
         COMRAM           000041-00005F
-        CONST            00001E-012F0B
+        CONST            00001E-012EA3
         EEDATA           F00000-F003FF
         IDLOC            200000-200007
         MEDIUMCONST      000D00-00FFFF
-                         010D00-012F0B
+                         010D00-012EA3
         NVRAM            000C00-000C9F
         RAM              000041-0000FF
                          00010E-000C9F
@@ -175,7 +175,7 @@ _BAUDCON            (abs)        000FB8
 _BRGH_x             (abs)        007D62
 _CREN_x             (abs)        007D5C
 _CSRC_x             (abs)        007D67
-_DelayMs            text2        012F0C
+_DelayMs            text2        012EA4
 _FERR               (abs)        007D5A
 _GODONE             (abs)        007E11
 _LATA               (abs)        000F89
@@ -336,7 +336,7 @@ __config4           (abs)        00FFFB
 __config5           (abs)        00FFFF
 __config6           (abs)        00FFFF
 __config7           (abs)        00FFFF
-__end_of_DelayMs    text2        012F54
+__end_of_DelayMs    text2        012EEC
 __end_of_ToggleLeds text1        014000
 __end_of_main       text0        013216
 __mediumconst       mediumconst  000D00
@@ -349,7 +349,7 @@ _cur_inputs         (abs)        00001A
 _exit               init         000000
 _index              (abs)        000028
 _led_array          (abs)        000000
-_main               text0        012F54
+_main               text0        012EEC
 _prev_inputs        (abs)        000033
 _uart_in            (abs)        000032
 _uart_out           (abs)        000031

@@ -174,9 +174,8 @@ int main(int argc, char** argv) {
     ADCON0 = ADCON0_INIT;
     ADCON1 = ADCON1_VAL;
     ADCON2 = ADCON2_VAL;
-   // ADCON2 = 0b00100000;  // Right Justified, 8TAD, Fosc/2
-    //ADCON2 = 0b00101101;  //Right justified, 12TAD, Fosc/16
-    ADCON2 = 0b00101010; //right justified, 12 TAD, Fosc/8
+   // ADCON2 = 0b10101101;  //Right justified, 12TAD, Fosc/16
+    ADCON2 = 0b10001101;    // Right justified, 2 TAD, Fosc/16
     adc_num = ADCCHANA; // reset the current adc channel to 0
  
 
@@ -233,6 +232,8 @@ int main(int argc, char** argv) {
     char count = 0x00;
     while (1) {
         char uout;
+        char hResult;
+        char lResult;
 
         uout = 0xee;
         TXREG = uout;
@@ -243,16 +244,256 @@ int main(int argc, char** argv) {
 
         ADRESH = 0x00; // reset result registers
         ADRESL = 0x00;
-        ADCON0 = ADCON0_CHANA;
+        ADCON0 = ADCON0_CHAND;
         // Start conversion and wait for result
         ADON = 1;   // Turn on ADC
         GODONE = 1; // Starts conversion
 
         // Wait for conversion to finish
         while (GODONE);
+        hResult = ADRESH;
+        lResult = ADRESL;
+        
+        if (adc_num == ADCCHANA) {
+            if (hResult == 0x00) {
+                // no note playing
+                
+            } else if (hResult == 0x01) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x02) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x03) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            }
+            
+        } else if (adc_num == ADCCHANB) {
+            if (hResult == 0x00) {
+                // no note playing
+            } else if (hResult == 0x01) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x02) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x03) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            }
+            
+        } else if (adc_num == ADCCHANC) {
+            if (hResult == 0x00) {
+                // No note playing
+                
+            } else if (hResult == 0x01) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x02) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x03) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            }
+            
+        } else if (adc_num == ADCCHAND) {
+            if (hResult == 0x00) {
+                // no note playing
+                
+            } else if (hResult == 0x01) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x02) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x03) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            }
+            
+        } else if (adc_num == ADCCHANE) {
+            if (hResult == 0x00) {
+                // no note playing
+                
+            } else if (hResult == 0x01) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x02) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x03) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            }
+            
+        } else if (adc_num == ADCCHANF) {
+            if (hResult == 0x00) {
+                // no note playing
+                
+            } else if (hResult == 0x01) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x02) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x03) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            }
+            
+        } else if (adc_num == ADCCHANG) {
+            if (hResult == 0x00) {
+                // no note playing
+                
+            } else if (hResult == 0x01) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x02) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            } else if (hResult == 0x03) {
+                if (lResult >= 0x00 && lResult <= 0x00) {
+
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else if (lResult >= 0x00 && lResult <= 0x00) {
+                } else {
+                    // no note playing
+                }
+                
+            }
+            
+        }
+
+
+
 
         if (ADRESL < 50 ) {
             uout = 0x01;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+            uout = ADRESL;
              TXREG = uout;
             while((PIR1 & 0b00010000) == 0);
         }
@@ -260,9 +501,15 @@ int main(int argc, char** argv) {
             uout = 0x02;
              TXREG = uout;
             while((PIR1 & 0b00010000) == 0);
+            uout = ADRESL;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
         }
         else if (ADRESL >= 160 && ADRESL <250 ) {
             uout = 0x03;
+             TXREG = uout;
+            while((PIR1 & 0b00010000) == 0);
+            uout = ADRESL;
              TXREG = uout;
             while((PIR1 & 0b00010000) == 0);
         }
