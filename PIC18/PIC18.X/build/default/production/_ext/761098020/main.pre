@@ -10001,7 +10001,7 @@ ADON = 0;
 
 ADRESH = 0x00;
 ADRESL = 0x00;
-ADCON0 = 0b00100100;
+ADCON0 = 0b00001000;
 
 ADON = 1;
 GODONE = 1;
@@ -10865,18 +10865,18 @@ if (hResult == 0x00) {
 
 new_note = 0x00;
 } else if (hResult == 0x01) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 187 && lResult <= 213) {
 
 new_note = 0x52;
 led_array[0] = 1;
 led_array[11] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 161 && lResult <= 182) {
 
 new_note = 0x42;
 led_array[0] = 1;
 led_array[11] = 1;
 led_array[12] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 120 && lResult <= 150) {
 
 new_note = 0x4a;
 led_array[0] = 1;
@@ -10887,15 +10887,15 @@ new_note = 0x00;
 }
 
 } else if (hResult == 0x02) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 206 && lResult <= 232) {
 
 new_note = 0x32;
 led_array[0] = 1;
 led_array[9] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 165 && lResult <= 238) {
 
 new_note = 0x22;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 109 && lResult <= 140) {
 
 new_note = 0x2a;
 led_array[0] = 1;
@@ -10909,18 +10909,18 @@ led_array[10] = 1;
 }
 
 } else if (hResult == 0x03) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 0 && lResult <= 174) {
 
 new_note = 0x12;
 led_array[0] = 1;
 led_array[7] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 193 && lResult <= 210) {
 
 new_note = 0x02;
 led_array[0] = 1;
 led_array[7] = 1;
 led_array[8] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 221 && lResult <= 229) {
 
 new_note = 0x0a;
 led_array[0] = 1;
@@ -10936,18 +10936,18 @@ if (hResult == 0x00) {
 
 new_note = 0x00;
 } else if (hResult == 0x01) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 218 && lResult <= 242) {
 
 new_note = 0x53;
 led_array[6] = 1;
 led_array[11] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 167 && lResult <= 200) {
 
 new_note = 0x43;
 led_array[6] = 1;
 led_array[11] = 1;
 led_array[12] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 38 && lResult <= 160) {
 
 new_note = 0x4b;
 led_array[6] = 1;
@@ -10958,18 +10958,18 @@ new_note = 0x00;
 }
 
 } else if (hResult == 0x02) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 201 && lResult <= 235) {
 
 new_note = 0x33;
 led_array[6] = 1;
 led_array[9] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 124 && lResult <= 183) {
 
 new_note = 0x23;
 led_array[6] = 1;
 led_array[9] = 1;
 led_array[10] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 70 && lResult <= 110) {
 
 new_note = 0x2b;
 led_array[6] = 1;
@@ -10980,18 +10980,18 @@ new_note = 0x00;
 }
 
 } else if (hResult == 0x03) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 60 && lResult <= 87) {
 
 new_note = 0x13;
 led_array[6] = 1;
 led_array[7] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 138 && lResult <= 200) {
 
 new_note = 0x03;
 led_array[6] = 1;
 led_array[7] = 1;
 led_array[8] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 212 && lResult <= 232) {
 
 new_note = 0x0b;
 led_array[6] = 1;
@@ -11008,18 +11008,18 @@ if (hResult == 0x00) {
 new_note = 0x00;
 
 } else if (hResult == 0x01) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 200 && lResult <= 230) {
 
 new_note = 0x54;
 led_array[5] = 1;
 led_array[11] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 130 && lResult <= 180) {
 
 new_note = 0x44;
 led_array[5] = 1;
 led_array[11] = 1;
 led_array[12] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 90 && lResult <= 120) {
 
 led_array[5] = 1;
 led_array[12] = 1;
@@ -11030,18 +11030,18 @@ new_note = 0x00;
 }
 
 } else if (hResult == 0x02) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 203 && lResult <= 255) {
 
 new_note = 0x34;
 led_array[5] = 1;
 led_array[9] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 130 && lResult <= 167) {
 
 new_note = 0x24;
 led_array[5] = 1;
 led_array[9] = 1;
 led_array[10] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 87 && lResult <= 124) {
 
 new_note = 0x2c;
 led_array[5] = 1;
@@ -11052,18 +11052,18 @@ new_note = 0x00;
 }
 
 } else if (hResult == 0x03) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 60 && lResult <= 160) {
 
 new_note = 0x14;
 led_array[5] = 1;
 led_array[7] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 145 && lResult <= 205) {
 
 new_note = 0x04;
 led_array[5] = 1;
 led_array[7] = 1;
 led_array[8] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 227 && lResult <= 239) {
 
 new_note = 0x0c;
 led_array[5] = 1;
