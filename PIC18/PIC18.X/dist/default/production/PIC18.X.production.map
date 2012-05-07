@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\CCS\AppData\Local\Temp\s358.obj \
+  C:\Users\CCS\AppData\Local\Temp\s6ag.obj \
   dist/default/production\PIC18.X.production.obj 
 
 Object code version is 3.10
@@ -32,31 +32,31 @@ Machine type is 18F2682
 
 Call graph: (short form)
 
-*_main size 4,6 offset 0
-*    _DelayMs size 1,3 offset 10
-     _ToggleLeds size 0,0 offset 10
+*_main size 4,5 offset 0
+*    _DelayMs size 1,3 offset 9
+     _ToggleLeds size 0,0 offset 9
 
 Estimated maximum call depth: 1
 
 
                 Name          Link     Load   Length Selector Space Scale
-C:\Users\CCS\AppData\Local\Temp\s358.obj
+C:\Users\CCS\AppData\Local\Temp\s6ag.obj
                 end_init         C        C       12       0     0
                 init             0        0        C       0     0
                 config      300000   300000        E  300000     0
 dist/default/production\PIC18.X.production.obj
-                text2        12EA4    12EA4       48    9752     0
-                text0        12EEC    12EEC      32A    9776     0
+                text2        13004    13004       48    9802     0
+                text0        1304C    1304C      1CA    9826     0
                 text1        13216    13216      DEA    990B     0
 
-COMMON          param1         100      100        E     100     1
+COMMON          param1         100      100        D     100     1
 
 TOTAL           Name          Link     Load   Length  Space
         CLASS   CODE           
                 end_init         C        C       12     0
                 init             0        0        C     0
-                text2        12EA4    12EA4       48     0
-                text0        12EEC    12EEC      32A     0
+                text2        13004    13004       48     0
+                text0        1304C    1304C      1CA     0
                 text1        13216    13216      DEA     0
 
         CLASS   CONST          
@@ -72,12 +72,12 @@ TOTAL           Name          Link     Load   Length  Space
         CLASS   COMRAM         
 
         CLASS   ABS1           
-                abs_s1           0        0       41     1
+                abs_s1           0        0       34     1
 
         CLASS   BANK0          
 
         CLASS   BANK1          
-                param1         100      100        E     1
+                param1         100      100        D     1
 
         CLASS   BANK2          
 
@@ -117,17 +117,17 @@ TOTAL           Name          Link     Load   Length  Space
 SEGMENTS        Name           Load    Length   Top     Selector    Space Class
 
                 reset_vec       000000  00001E  00001E         0       0  CODE    
-                param1          000100  00000E  00010E       100       1  BANK1   
-                text2           012EA4  000048  012EEC      9752       0  CODE    
-                text0           012EEC  00032A  013216      9776       0  CODE    
+                param1          000100  00000D  00010D       100       1  BANK1   
+                text2           013004  000048  01304C      9802       0  CODE    
+                text0           01304C  0001CA  013216      9826       0  CODE    
                 text1           013216  000DEA  014000      990B       0  CODE    
                 config          300000  00000E  30000E    300000       0  CONFIG  
 
 
 UNUSED ADDRESS RANGES
 
-        BANK0            000041-0000FF
-        BANK1            00010E-0001FF
+        BANK0            000034-0000FF
+        BANK1            00010D-0001FF
         BANK10           000A00-000AFF
         BANK11           000B00-000BFF
         BANK12           000C00-000C9F
@@ -139,43 +139,42 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF
         BANK8            000800-0008FF
         BANK9            000900-0009FF
-        BIGRAM           000041-0000FF
-                         00010E-000C9F
-        CODE             00001E-012EA3
-        COMRAM           000041-00005F
-        CONST            00001E-012EA3
+        BIGRAM           000034-0000FF
+                         00010D-000C9F
+        CODE             00001E-013003
+        COMRAM           000034-00005F
+        CONST            00001E-013003
         EEDATA           F00000-F003FF
         IDLOC            200000-200007
         MEDIUMCONST      000D00-00FFFF
-                         010D00-012EA3
+                         010D00-013003
         NVRAM            000C00-000C9F
-        RAM              000041-0000FF
-                         00010E-000C9F
+        RAM              000034-0000FF
+                         00010D-000C9F
         SMALLCONST       000D00-003FFF
 
                                   Symbol Table
 
-??_DelayMs          param1       00010B
-??_ToggleLeds       param1       00010A
+??_DelayMs          param1       00010A
+??_ToggleLeds       param1       000109
 ??_main             param1       000104
-?_DelayMs           param1       00010A
-?_ToggleLeds        param1       00010A
+?_DelayMs           param1       000109
+?_ToggleLeds        param1       000109
 ?_main              param1       000100
-DelayMs@_dcnt       param1       00010C
-DelayMs@cnt         param1       00010A
-DelayMs@i           param1       00010B
+DelayMs@_dcnt       param1       00010B
+DelayMs@cnt         param1       000109
+DelayMs@i           param1       00010A
 _ADCON0             (abs)        000FC2
 _ADCON1             (abs)        000FC1
 _ADCON2             (abs)        000FC0
 _ADON               (abs)        007E10
-_ADRES              (abs)        000FC3
 _ADRESH             (abs)        000FC4
 _ADRESL             (abs)        000FC3
 _BAUDCON            (abs)        000FB8
 _BRGH_x             (abs)        007D62
 _CREN_x             (abs)        007D5C
 _CSRC_x             (abs)        007D67
-_DelayMs            text2        012EA4
+_DelayMs            text2        013004
 _FERR               (abs)        007D5A
 _GODONE             (abs)        007E11
 _LATA               (abs)        000F89
@@ -210,14 +209,14 @@ _TXIF               (abs)        007CF4
 _TXREG              (abs)        000FAD
 _TXSTA              (abs)        000FAC
 _ToggleLeds         text1        013216
-_USART_Status       (abs)        000030
-__Bnvbit            nvbit        000041
-__Brbit             rbit         000041
+_USART_Status       (abs)        00002A
+__Bnvbit            nvbit        000034
+__Brbit             rbit         000034
 __HRAM              (abs)        000000
-__Habsbss0          (abs)        000041
-__Hbigbss           bigbss       00010E
-__Hbigdata          bigdata      00010E
-__Hbss              bss          000041
+__Habsbss0          (abs)        000034
+__Hbigbss           bigbss       00010D
+__Hbigdata          bigdata      00010D
+__Hbss              bss          000034
 __Hclrtext          clrtext      00001E
 __Hconfig           config       30000E
 __Hconst            const        00001E
@@ -235,15 +234,15 @@ __Hintcode          intcode      000000
 __Hintcodelo        intcodelo    000000
 __Hintentry         intentry     00001E
 __Hintret           intret       00001E
-__Hintsave_regs     intsave_regs 00010E
+__Hintsave_regs     intsave_regs 00010D
 __Hirdata           irdata       00001E
 __Hmediumconst      mediumconst  000D00
-__Hnvbit            nvbit        000208
+__Hnvbit            nvbit        0001A0
 __Hnvram            nvram        00001E
-__Hnvrram           nvrram       000041
-__Hparam            param1       00010E
+__Hnvrram           nvrram       000034
+__Hparam            param1       00010D
 __Hparam0           param0       00001E
-__Hparam1           param1       00010E
+__Hparam1           param1       00010D
 __Hparam10          param10      00001E
 __Hparam11          param11      00001E
 __Hparam12          param12      00001E
@@ -257,23 +256,23 @@ __Hparam8           param8       00001E
 __Hparam9           param9       00001E
 __Hpowerup          powerup      000000
 __Hramtop           ramtop       000D00
-__Hrbit             rbit         000208
-__Hrbss             rbss         000041
-__Hrdata            rdata        000041
+__Hrbit             rbit         0001A0
+__Hrbss             rbss         000034
+__Hrdata            rdata        000034
 __Hreset_vec        reset_vec    000000
 __Hrparam           rparam       00001E
 __Hsmallconst       smallconst   000D00
-__Hstruct           struct       000041
-__Htemp             temp         000041
+__Hstruct           struct       000034
+__Htemp             temp         000034
 __Htext             text         00001E
 __Htext0            text0        00001E
 __Htext1            text1        00001E
 __Htext2            text2        00001E
 __LRAM              (abs)        000001
 __Labsbss0          (abs)        000000
-__Lbigbss           bigbss       00010E
-__Lbigdata          bigdata      00010E
-__Lbss              bss          000041
+__Lbigbss           bigbss       00010D
+__Lbigdata          bigdata      00010D
+__Lbss              bss          000034
 __Lclrtext          clrtext      00001E
 __Lconfig           config       300000
 __Lconst            const        00001E
@@ -291,12 +290,12 @@ __Lintcode          intcode      000000
 __Lintcodelo        intcodelo    000000
 __Lintentry         intentry     00001E
 __Lintret           intret       00001E
-__Lintsave_regs     intsave_regs 00010E
+__Lintsave_regs     intsave_regs 00010D
 __Lirdata           irdata       00001E
 __Lmediumconst      mediumconst  000D00
-__Lnvbit            nvbit        000208
+__Lnvbit            nvbit        0001A0
 __Lnvram            nvram        00001E
-__Lnvrram           nvrram       000041
+__Lnvrram           nvrram       000034
 __Lparam            param1       000100
 __Lparam0           param0       00001E
 __Lparam1           param1       000100
@@ -313,14 +312,14 @@ __Lparam8           param8       00001E
 __Lparam9           param9       00001E
 __Lpowerup          powerup      000000
 __Lramtop           ramtop       000D00
-__Lrbit             rbit         000208
-__Lrbss             rbss         000041
-__Lrdata            rdata        000041
+__Lrbit             rbit         0001A0
+__Lrbss             rbss         000034
+__Lrdata            rdata        000034
 __Lreset_vec        reset_vec    000000
 __Lrparam           rparam       00001E
 __Lsmallconst       smallconst   000D00
-__Lstruct           struct       000041
-__Ltemp             temp         000041
+__Lstruct           struct       000034
+__Ltemp             temp         000034
 __Ltext             text         00001E
 __Ltext0            text0        00001E
 __Ltext1            text1        00001E
@@ -336,31 +335,32 @@ __config4           (abs)        00FFFB
 __config5           (abs)        00FFFF
 __config6           (abs)        00FFFF
 __config7           (abs)        00FFFF
-__end_of_DelayMs    text2        012EEC
+__end_of_DelayMs    text2        01304C
 __end_of_ToggleLeds text1        014000
 __end_of_main       text0        013216
 __mediumconst       mediumconst  000D00
 __ramtop            ramtop       000D00
 __smallconst        smallconst   000D00
-_adc_num            (abs)        00002E
-_change_val         (abs)        00002F
-_conv_result        (abs)        00002A
-_cur_inputs         (abs)        00001A
+_adc_num            (abs)        00001A
+_change_val         (abs)        000029
+_conv_result        (abs)        000022
+_cur_inputs         (abs)        00001B
 _exit               init         000000
-_index              (abs)        000028
+_index              (abs)        000026
 _led_array          (abs)        000000
-_main               text0        012EEC
-_prev_inputs        (abs)        000033
-_uart_in            (abs)        000032
-_uart_out           (abs)        000031
+_main               text0        01304C
+_new_note           (abs)        000033
+_old_ntoe           (abs)        000032
+_prev_inputs        (abs)        00002B
+_uart_out           (abs)        000028
 intlevel0           text         00001E
 intlevel1           text         00001E
 intlevel2           text         00001E
 intlevel3           text         00001E
 main@argc           param1       000100
 main@argv           param1       000102
-main@channel        param1       000106
 main@count          param1       000104
-main@result         param1       000107
-main@uout           param1       000105
+main@hResult        param1       000105
+main@lResult        param1       000106
+main@uout           param1       000107
 start               init         000000
