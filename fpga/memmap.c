@@ -38,11 +38,14 @@ int main()
     pbase = (unsigned int *)mmap(0, MAP_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0xD3000000 & ~MAP_MASK);
     pmem = pbase + ((offset & MAP_MASK)>>2);
     data = *pmem;
+	
+	//printf("pmem is ", *pmem);
+	printf("Data out it %d"\n, data);
 
     // close driver
     close(fd);
 
     // report results
-    printf("\n\rRead 0x%08X from virtual address 0x%08X (physical address 0x%08X)\n\r", data, (unsigned int)pmem, BASE_ADDRESS+(offset&~3));
+  //  printf("\n\rRead 0x%08X from virtual address 0x%08X (physical address 0x%08X)\n\r", data, (unsigned int)pmem, BASE_ADDRESS+(offset&~3));
     return data;
 }
