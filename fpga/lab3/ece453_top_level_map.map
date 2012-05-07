@@ -1,0 +1,348 @@
+Release 12.4 Map M.81d (nt64)
+Xilinx Map Application Log File for Design 'ece453_top_level'
+
+Design Information
+------------------
+Command Line   : map -filter iseconfig/filter.filter -intstyle ise -p
+xc3s1500-fg676-4 -cm area -ir off -pr off -c 100 -o ece453_top_level_map.ncd
+ece453_top_level.ngd ece453_top_level.pcf 
+Target Device  : xc3s1500
+Target Package : fg676
+Target Speed   : -4
+Mapper Version : spartan3 -- $Revision: 1.52.76.2 $
+Mapped Date    : Mon May 07 15:44:11 2012
+
+Mapping design into LUTs...
+WARNING:MapLib:701 - Signal PS2_MOUSE_CLK connected to top level port
+   PS2_MOUSE_CLK has been removed.
+WARNING:MapLib:701 - Signal VE_FIELD_VSYNC connected to top level port
+   VE_FIELD_VSYNC has been removed.
+WARNING:MapLib:701 - Signal VE_BLANK connected to top level port VE_BLANK has
+   been removed.
+WARNING:MapLib:701 - Signal VE_HSYNC connected to top level port VE_HSYNC has
+   been removed.
+WARNING:MapLib:701 - Signal PS2_KEYB_DATA connected to top level port
+   PS2_KEYB_DATA has been removed.
+WARNING:MapLib:701 - Signal PS2_MOUSE_DATA connected to top level port
+   PS2_MOUSE_DATA has been removed.
+WARNING:MapLib:701 - Signal PS2_KEYB_CLK connected to top level port
+   PS2_KEYB_CLK has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<15> connected to top level port
+   FLASH_DATA<15> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<14> connected to top level port
+   FLASH_DATA<14> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<13> connected to top level port
+   FLASH_DATA<13> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<12> connected to top level port
+   FLASH_DATA<12> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<11> connected to top level port
+   FLASH_DATA<11> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<10> connected to top level port
+   FLASH_DATA<10> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<9> connected to top level port
+   FLASH_DATA<9> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<8> connected to top level port
+   FLASH_DATA<8> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<7> connected to top level port
+   FLASH_DATA<7> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<6> connected to top level port
+   FLASH_DATA<6> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<5> connected to top level port
+   FLASH_DATA<5> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<4> connected to top level port
+   FLASH_DATA<4> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<3> connected to top level port
+   FLASH_DATA<3> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<2> connected to top level port
+   FLASH_DATA<2> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<1> connected to top level port
+   FLASH_DATA<1> has been removed.
+WARNING:MapLib:701 - Signal FLASH_DATA<0> connected to top level port
+   FLASH_DATA<0> has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<67> connected to top level port MZA_PIO<67>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<66> connected to top level port MZA_PIO<66>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<65> connected to top level port MZA_PIO<65>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<64> connected to top level port MZA_PIO<64>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<63> connected to top level port MZA_PIO<63>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<62> connected to top level port MZA_PIO<62>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<61> connected to top level port MZA_PIO<61>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<60> connected to top level port MZA_PIO<60>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<59> connected to top level port MZA_PIO<59>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<58> connected to top level port MZA_PIO<58>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<57> connected to top level port MZA_PIO<57>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<56> connected to top level port MZA_PIO<56>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<55> connected to top level port MZA_PIO<55>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<54> connected to top level port MZA_PIO<54>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<53> connected to top level port MZA_PIO<53>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<52> connected to top level port MZA_PIO<52>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<51> connected to top level port MZA_PIO<51>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<50> connected to top level port MZA_PIO<50>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<49> connected to top level port MZA_PIO<49>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<48> connected to top level port MZA_PIO<48>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<47> connected to top level port MZA_PIO<47>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<46> connected to top level port MZA_PIO<46>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<45> connected to top level port MZA_PIO<45>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<44> connected to top level port MZA_PIO<44>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<43> connected to top level port MZA_PIO<43>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<42> connected to top level port MZA_PIO<42>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<41> connected to top level port MZA_PIO<41>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<40> connected to top level port MZA_PIO<40>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<39> connected to top level port MZA_PIO<39>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<38> connected to top level port MZA_PIO<38>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<37> connected to top level port MZA_PIO<37>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<36> connected to top level port MZA_PIO<36>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<35> connected to top level port MZA_PIO<35>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<34> connected to top level port MZA_PIO<34>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<33> connected to top level port MZA_PIO<33>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<32> connected to top level port MZA_PIO<32>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<31> connected to top level port MZA_PIO<31>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<30> connected to top level port MZA_PIO<30>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<29> connected to top level port MZA_PIO<29>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<28> connected to top level port MZA_PIO<28>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<27> connected to top level port MZA_PIO<27>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<26> connected to top level port MZA_PIO<26>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<25> connected to top level port MZA_PIO<25>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<24> connected to top level port MZA_PIO<24>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<23> connected to top level port MZA_PIO<23>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<22> connected to top level port MZA_PIO<22>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<21> connected to top level port MZA_PIO<21>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<20> connected to top level port MZA_PIO<20>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<19> connected to top level port MZA_PIO<19>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<18> connected to top level port MZA_PIO<18>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<17> connected to top level port MZA_PIO<17>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<16> connected to top level port MZA_PIO<16>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<15> connected to top level port MZA_PIO<15>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<14> connected to top level port MZA_PIO<14>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<13> connected to top level port MZA_PIO<13>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<12> connected to top level port MZA_PIO<12>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<11> connected to top level port MZA_PIO<11>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<10> connected to top level port MZA_PIO<10>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<9> connected to top level port MZA_PIO<9>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<8> connected to top level port MZA_PIO<8>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<7> connected to top level port MZA_PIO<7>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<6> connected to top level port MZA_PIO<6>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<5> connected to top level port MZA_PIO<5>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<4> connected to top level port MZA_PIO<4>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<3> connected to top level port MZA_PIO<3>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<2> connected to top level port MZA_PIO<2>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<1> connected to top level port MZA_PIO<1>
+   has been removed.
+WARNING:MapLib:701 - Signal MZA_PIO<0> connected to top level port MZA_PIO<0>
+   has been removed.
+Running directed packing...
+Running delay-based LUT packing...
+Running related packing...
+Updating timing models...
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_RESET_OUT_IBUF> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK1_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK2_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK3_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VE_CLK_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <AC97_SDATA_IN_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_LLC_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <RS232_RX_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_SFL_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VE_VSO_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PB<0>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PB<1>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PB<2>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PB<3>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PB<4>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_OE_B_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <RS232_RTS_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_VS_FIELD_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_CS0_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_CS1_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_CS2_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_CS3_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_CS5_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_NFIO4_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_NFIO5_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VE_CLAMP_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_HS_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_RS1_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SPI_MISO_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_INTRQ_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VE_CSO_HSO_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_WS1_B_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SYS_CLK_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FLASH_NRYBY_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <MZB_CPLD_RW_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK_BANK_0_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK_BANK_1_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <FPGA_CLK_BANK_5_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VE_TTXREQ_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<0>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<1>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<2>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<3>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<4>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<5>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<6>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <VD_DATA_DEC<7>_IBUF> is incomplete.
+   The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <AC97_BIT_CLK_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+
+Design Summary
+--------------
+
+Design Summary:
+Number of errors:      0
+Number of warnings:  139
+Logic Utilization:
+  Number of Slice Flip Flops:           289 out of  26,624    1%
+  Number of 4 input LUTs:               394 out of  26,624    1%
+Logic Distribution:
+  Number of occupied Slices:            300 out of  13,312    2%
+    Number of Slices containing only related logic:     300 out of     300 100%
+    Number of Slices containing unrelated logic:          0 out of     300   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:         424 out of  26,624    1%
+    Number used as logic:               394
+    Number used as a route-thru:         30
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                271 out of     487   55%
+  Number of BUFGMUXs:                     1 out of       8   12%
+
+Average Fanout of Non-Clock Nets:                3.15
+
+Peak Memory Usage:  259 MB
+Total REAL time to MAP completion:  2 secs 
+Total CPU time to MAP completion:   2 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Mapping completed.
+See MAP report file "ece453_top_level_map.mrp" for details.
