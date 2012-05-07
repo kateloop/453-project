@@ -14,7 +14,7 @@ unsigned char i;
 do {
 i = 4;
 do {
-{ unsigned char _dcnt; _dcnt = (250)*((20*1000L)/(12*1000L)); while(--_dcnt != 0) continue; };
+{ unsigned char _dcnt; _dcnt = (250)/((12*1000L)/(8*1000L))|1; while(--_dcnt != 0) continue; };
 } while(--i);
 } while(--cnt);
 

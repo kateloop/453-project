@@ -18,7 +18,7 @@
 
 // our includes
 #include "frequencies.h"
-
+#include "uartVals.h"
 
 
 // UART defines
@@ -94,8 +94,8 @@ int main(int argc, char* argv[])
    if (tcsetattr(fd, TCSANOW, &termInfo) == -1) {
       goto error;
    }
-/*
-int count = 0;
+
+/*int count = 0;
 int i, j;
 // send stuff to server
 while (1) {
@@ -110,8 +110,8 @@ while (1) {
       printf("count %d\n", count);
    }
 }
-
 */
+
 /*
 // send stuff on uart
    int i,j;
@@ -133,11 +133,17 @@ while (1) {
    /* read "man select" for more advanced/event driven reading */
 
 while (1) {
-   write(fd, "a", 1);
+//   write(fd, "a", 1);
+   
+   // read in from UART
    char buffer[64];
    size_t i = read(fd, buffer, 1);
-
-   printf("%d: %x\n", i, buffer[0]);
+   // output note to server
+//   int freq = playNote(i);
+//   char buf[5];
+//   snprintf(buf, 5, "%d", freq);
+//   write(fd_sock, buf, 4);	
+     printf("%d\n", buffer[0]);
 }
 
    close(fd);
@@ -153,158 +159,161 @@ error:
 
 int playNote (int note) {
     switch (note) {
-        case C3 :
+        case UC3 :
             return PLAY(FC3);
             break;
-        case C3S :
+        case UC3S :
             return PLAY(FC3S);
             break;
-        case D3F :
+        case UD3F :
             return PLAY(FD3S);
             break;
-        case D3 :
+        case UD3 :
             return PLAY(FD3);
             break;
-        case D3S :
+        case UD3S :
             return PLAY(FD3S);
             break;
-        case E3F :
+        case UE3F :
             return PLAY(FE3F);
             break;
-        case E3 :
+        case UE3 :
             return PLAY(FE3);
             break;
-        case F3 :
+        case UF3 :
             return PLAY(FF3);
             break;
-        case F3S :
+        case UF3S :
             return PLAY(FF3S);
             break;
-        case G3F :
+        case UG3F :
             return PLAY(FG3F);
             break;
-        case G3 :
+        case UG3 :
             return PLAY(FG3);
             break;
-        case G3S :
+        case UG3S :
             return PLAY(FG3S);
             break;
-        case A3F :
+        case UA3F :
             return PLAY(FA3F);
             break;
-        case A3 :
+        case UA3 :
             return PLAY(FA3);
             break;
-        case A3S :
+        case UA3S :
             return PLAY(FA3S);
             break;
-        case B3F :
+        case UB3F :
             return PLAY(FB3F);
             break;
-        case B3 :
+        case UB3 :
             return PLAY(FB3);
             break;
-        case C4 :
+        case UC4 :
             return PLAY(FC4);
             break;
-        case C4S :
+        case UC4S :
             return PLAY(FC4S);
             break;
-        case D4F :
+        case UD4F :
             return PLAY(FD4S);
             break;
-        case D4 :
+        case UD4 :
             return PLAY(FD4);
             break;
-        case D4S :
+        case UD4S :
             return PLAY(FD4S);
             break;
-        case E4F :
+        case UE4F :
             return PLAY(FE4F);
             break;
-        case E4 :
+        case UE4 :
             return PLAY(FE4);
             break;
-        case F4 :
+        case UF4 :
             return PLAY(FF4);
             break;
-        case F4S :
+        case UF4S :
             return PLAY(FF4S);
             break;
-        case G4F :
+        case UG4F :
             return PLAY(FG4F);
             break;
-        case G4 :
+        case UG4 :
             return PLAY(FG4);
             break;
-        case G4S :
+        case UG4S :
             return PLAY(FG4S);
             break;
-        case A4F :
+        case UA4F :
             return PLAY(FA4F);
             break;
-        case A4 :
+        case UA4 :
             return PLAY(FA4);
             break;
-        case A4S :
+        case UA4S :
             return PLAY(FA4S);
             break;
-        case B4F :
+        case UB4F :
             return PLAY(FB4F);
             break;
-        case B4 :
+        case UB4 :
             return PLAY(FB4);
             break;
-        case C5 :
+        case UC5 :
             return PLAY(FC5);
             break;
-        case C5S :
+        case UC5S :
             return PLAY(FC5S);
             break;
-        case D5F :
+        case UD5F :
             return PLAY(FD5S);
             break;
-        case D5 :
+        case UD5 :
             return PLAY(FD5);
             break;
-        case D5S :
+        case UD5S :
             return PLAY(FD5S);
             break;
-        case E5F :
+        case UE5F :
             return PLAY(FE5F);
             break;
-        case E5 :
+        case UE5 :
             return PLAY(FE5);
             break;
-        case F5 :
+        case UF5 :
             return PLAY(FF5);
             break;
-        case F5S :
+        case UF5S :
             return PLAY(FF5S);
             break;
-        case G5F :
+        case UG5F :
             return PLAY(FG5F);
             break;
-        case G5 :
+        case UG5 :
             return PLAY(FG5);
             break;
-        case G5S :
+        case UG5S :
             return PLAY(FG5S);
             break;
-        case A5F :
+        case UA5F :
             return PLAY(FA5F);
             break;
-        case A5 :
+        case UA5 :
             return PLAY(FA5);
             break;
-        case A5S :
+        case UA5S :
             return PLAY(FA5S);
             break;
-        case B5F :
+        case UB5F :
             return PLAY(FB5F);
             break;
-        case B5 :
+        case UB5 :
             return PLAY(FB5);
+            break;
+        case UOFF :
+            return PLAY(0);
             break;
     }
 

@@ -1,6 +1,4 @@
 Notes:
 
-May want to consider an interrupt register that tells user application what sensor has been updated
-
-User application should read and write LED registers, but only read sensor registers
-	uProcessor with ADC inputs should set the sensor registers
+Switch 0 in "on" position turns teaching mode on
+Switch 0 in "off" position turns teaching mode off
