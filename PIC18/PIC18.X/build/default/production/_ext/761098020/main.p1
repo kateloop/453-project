@@ -8345,9 +8345,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 236: ADRESL = 0x00;
 "236
 [e = _ADRESL -> -> 0 `i `uc ]
-[; ;main.c: 237: ADCON0 = 0b00001000;
+[; ;main.c: 237: ADCON0 = 0b00010000;
 "237
-[e = _ADCON0 -> -> 8 `i `uc ]
+[e = _ADCON0 -> -> 16 `i `uc ]
 [; ;main.c: 239: ADON = 1;
 "239
 [e = _ADON -> -> 1 `i `b ]
@@ -11181,9 +11181,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1203 ]
 [e $ ! == -> _hResult `i -> 1 `i 1205  ]
 {
-[; ;main.c: 1344: if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1344: if (lResult >= 8 && lResult <= 69) {
 "1344
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1206  ]
+[e $ ! && >= -> _lResult `i -> 8 `i <= -> _lResult `i -> 69 `i 1206  ]
 {
 [; ;main.c: 1346: new_note = 0x55;
 "1346
@@ -11196,10 +11196,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1349
 }
-[; ;main.c: 1349: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1349: } else if (lResult >= 96 && lResult <= 210) {
 [e $U 1207  ]
 [e :U 1206 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1208  ]
+[e $ ! && >= -> _lResult `i -> 96 `i <= -> _lResult `i -> 210 `i 1208  ]
 {
 [; ;main.c: 1351: new_note = 0x45;
 "1351
@@ -11215,10 +11215,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1355
 }
-[; ;main.c: 1355: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1355: } else if (lResult >= 214 && lResult <= 227) {
 [e $U 1209  ]
 [e :U 1208 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1210  ]
+[e $ ! && >= -> _lResult `i -> 214 `i <= -> _lResult `i -> 227 `i 1210  ]
 {
 [; ;main.c: 1357: new_note = 0x4d;
 "1357
@@ -11251,9 +11251,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1205 ]
 [e $ ! == -> _hResult `i -> 2 `i 1213  ]
 {
-[; ;main.c: 1366: if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1366: if (lResult >= 217 && lResult <= 255) {
 "1366
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1214  ]
+[e $ ! && >= -> _lResult `i -> 217 `i <= -> _lResult `i -> 255 `i 1214  ]
 {
 [; ;main.c: 1368: new_note = 0x35;
 "1368
@@ -11266,10 +11266,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1372
 }
-[; ;main.c: 1372: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1372: } else if (lResult >= 154 && lResult <= 202) {
 [e $U 1215  ]
 [e :U 1214 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1216  ]
+[e $ ! && >= -> _lResult `i -> 154 `i <= -> _lResult `i -> 202 `i 1216  ]
 {
 [; ;main.c: 1374: new_note = 0x25;
 "1374
@@ -11285,10 +11285,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1378
 }
-[; ;main.c: 1378: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1378: } else if (lResult >= 115 && lResult <= 145) {
 [e $U 1217  ]
 [e :U 1216 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1218  ]
+[e $ ! && >= -> _lResult `i -> 115 `i <= -> _lResult `i -> 145 `i 1218  ]
 {
 [; ;main.c: 1380: new_note = 0x2d;
 "1380
@@ -11321,9 +11321,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1213 ]
 [e $ ! == -> _hResult `i -> 3 `i 1221  ]
 {
-[; ;main.c: 1389: if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1389: if (lResult >= 227 && lResult <= 240) {
 "1389
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1222  ]
+[e $ ! && >= -> _lResult `i -> 227 `i <= -> _lResult `i -> 240 `i 1222  ]
 {
 [; ;main.c: 1391: new_note = 0x15;
 "1391
@@ -11336,10 +11336,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1394
 }
-[; ;main.c: 1394: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1394: } else if (lResult >= 180 && lResult <= 210) {
 [e $U 1223  ]
 [e :U 1222 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1224  ]
+[e $ ! && >= -> _lResult `i -> 180 `i <= -> _lResult `i -> 210 `i 1224  ]
 {
 [; ;main.c: 1396: new_note = 0x05;
 "1396
@@ -11355,10 +11355,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1400
 }
-[; ;main.c: 1400: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1400: } else if (lResult >= 90 && lResult <= 165) {
 [e $U 1225  ]
 [e :U 1224 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1226  ]
+[e $ ! && >= -> _lResult `i -> 90 `i <= -> _lResult `i -> 165 `i 1226  ]
 {
 [; ;main.c: 1402: new_note = 0x0d;
 "1402
@@ -11412,9 +11412,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1230 ]
 [e $ ! == -> _hResult `i -> 1 `i 1232  ]
 {
-[; ;main.c: 1418: if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1418: if (lResult >= 148 && lResult <= 174) {
 "1418
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1233  ]
+[e $ ! && >= -> _lResult `i -> 148 `i <= -> _lResult `i -> 174 `i 1233  ]
 {
 [; ;main.c: 1420: new_note = 0x56;
 "1420
@@ -11427,10 +11427,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 11 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1423
 }
-[; ;main.c: 1423: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1423: } else if (lResult >= 89 && lResult <= 120) {
 [e $U 1234  ]
 [e :U 1233 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1235  ]
+[e $ ! && >= -> _lResult `i -> 89 `i <= -> _lResult `i -> 120 `i 1235  ]
 {
 [; ;main.c: 1425: new_note = 0x46;
 "1425
@@ -11443,10 +11443,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 12 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1428
 }
-[; ;main.c: 1428: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1428: } else if (lResult >= 20 && lResult <= 72) {
 [e $U 1236  ]
 [e :U 1235 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1237  ]
+[e $ ! && >= -> _lResult `i -> 20 `i <= -> _lResult `i -> 72 `i 1237  ]
 {
 [; ;main.c: 1430: new_note = 0x4e;
 "1430
@@ -11482,9 +11482,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1232 ]
 [e $ ! == -> _hResult `i -> 2 `i 1240  ]
 {
-[; ;main.c: 1440: if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1440: if (lResult >= 223 && lResult <= 256) {
 "1440
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1241  ]
+[e $ ! && >= -> _lResult `i -> 223 `i <= -> _lResult `i -> 256 `i 1241  ]
 {
 [; ;main.c: 1442: new_note = 0x36;
 "1442
@@ -11497,10 +11497,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 9 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1445
 }
-[; ;main.c: 1445: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1445: } else if (lResult >= 165 && lResult <= 207) {
 [e $U 1242  ]
 [e :U 1241 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1243  ]
+[e $ ! && >= -> _lResult `i -> 165 `i <= -> _lResult `i -> 207 `i 1243  ]
 {
 [; ;main.c: 1447: new_note = 0x26;
 "1447
@@ -11516,10 +11516,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 10 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1451
 }
-[; ;main.c: 1451: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1451: } else if (lResult >= 132 && lResult <= 160) {
 [e $U 1244  ]
 [e :U 1243 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1245  ]
+[e $ ! && >= -> _lResult `i -> 132 `i <= -> _lResult `i -> 160 `i 1245  ]
 {
 [; ;main.c: 1453: new_note = 0x2e;
 "1453
@@ -11552,9 +11552,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1240 ]
 [e $ ! == -> _hResult `i -> 3 `i 1248  ]
 {
-[; ;main.c: 1462: if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1462: if (lResult >= 148 && lResult <= 174) {
 "1462
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1249  ]
+[e $ ! && >= -> _lResult `i -> 148 `i <= -> _lResult `i -> 174 `i 1249  ]
 {
 [; ;main.c: 1464: new_note = 0x16;
 "1464
@@ -11567,10 +11567,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 7 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1467
 }
-[; ;main.c: 1467: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1467: } else if (lResult >= 89 && lResult <= 120) {
 [e $U 1250  ]
 [e :U 1249 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1251  ]
+[e $ ! && >= -> _lResult `i -> 89 `i <= -> _lResult `i -> 120 `i 1251  ]
 {
 [; ;main.c: 1469: new_note = 0x06;
 "1469
@@ -11586,10 +11586,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _led_array * -> -> -> 8 `i `ui `ux -> -> # *U &U _led_array `ui `ux -> 1 `i ]
 "1473
 }
-[; ;main.c: 1473: } else if (lResult >= 0x00 && lResult <= 0x00) {
+[; ;main.c: 1473: } else if (lResult >= 20 && lResult <= 72) {
 [e $U 1252  ]
 [e :U 1251 ]
-[e $ ! && >= -> _lResult `i -> 0 `i <= -> _lResult `i -> 0 `i 1253  ]
+[e $ ! && >= -> _lResult `i -> 20 `i <= -> _lResult `i -> 72 `i 1253  ]
 {
 [; ;main.c: 1475: new_note = 0x0e;
 "1475

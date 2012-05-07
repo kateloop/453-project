@@ -234,7 +234,7 @@ int main(int argc, char** argv) {
 
         ADRESH = 0x00; // reset result registers
         ADRESL = 0x00;
-        ADCON0 = ADCON0_CHANE;
+        ADCON0 = ADCON0_CHANG;
         // Start conversion and wait for result
         ADON = 1;   // Turn on ADC
         GODONE = 1; // Starts conversion
@@ -1415,17 +1415,17 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             new_note = 0x00;
 
         } else if (hResult == 0x01) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 148 && lResult <= 174) {
                 // 5FF
                 new_note = 0x56;
                 led_array[3] = 1;
                 led_array[11] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 89 && lResult <= 120) {
                 // 5F
                 new_note = 0x46;
                 led_array[3] = 1;
                 led_array[12] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 20 && lResult <= 72) {
                 // 5FS
                 new_note = 0x4e;
                 led_array[3] = 1;
@@ -1437,18 +1437,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             }
 
         } else if (hResult == 0x02) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 223 && lResult <= 256) {
                 // 4FF
                 new_note = 0x36;
                 led_array[3] = 1;
                 led_array[9] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 165 && lResult <= 207) {
                 // 4F
                 new_note = 0x26;
                 led_array[3] = 1;
                 led_array[9] = 1;
                 led_array[10] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 132 && lResult <= 160) {
                 // 4FS
                 new_note = 0x2e;
                 led_array[3] = 1;
@@ -1459,18 +1459,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             }
 
         } else if (hResult == 0x03) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 148 && lResult <= 174) {
                 // 3FF
                 new_note = 0x16;
                 led_array[3] = 1;
                 led_array[7] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 89 && lResult <= 120) {
                 // 3F
                 new_note = 0x06;
                 led_array[3] = 1;
                 led_array[7] = 1;
                 led_array[8] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 20 && lResult <= 72) {
                 // 3FS
                 new_note = 0x0e;
                 led_array[3] = 1;

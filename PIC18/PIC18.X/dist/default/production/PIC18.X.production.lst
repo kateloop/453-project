@@ -1,7 +1,7 @@
 
 
 HI-TECH Software LITE Macro Assembler (PIC18) V9.66 build 8870 
-                                                       Mon May 07 17:00:25 2012
+                                                       Mon May 07 17:45:40 2012
 
 HI-TECH Software Omniscient Code Generator build 8870
      1  000000                     opt subtitle "HI-TECH Software Omniscient Code G
@@ -316,11 +316,11 @@ HI-TECH Software Omniscient Code Generator build 8870
    303                           
    304                           	
    305  01312A  A89E               	btfss	((c:3998)),c,(4)&7	;volatile
-   306  01312C  EF9A  F098         	goto	u6611
-   307  013130  EF9C  F098         	goto	u6610
-   308  013134                     u6611:
+   306  01312C  EF9A  F098         	goto	u6771
+   307  013130  EF9C  F098         	goto	u6770
+   308  013134                     u6771:
    309  013134  EF95  F098         	goto	l871
-   310  013138                     u6610:
+   310  013138                     u6770:
    311                           	
    312  013138                     l873:		; BSR set to: ?
    313                           
@@ -336,8 +336,8 @@ HI-TECH Software Omniscient Code Generator build 8870
    323  01313E  0E00               	movlw	low(0)
    324  013140  6EC3               	movwf	((c:4035)),c	;volatile
    325                           	line	237
-   326                           ;main.c: 237: ADCON0 = 0b00001000;
-   327  013142  0E08               	movlw	low(08h)
+   326                           ;main.c: 237: ADCON0 = 0b00010000;
+   327  013142  0E10               	movlw	low(010h)
    328  013144  6EC2               	movwf	((c:4034)),c	;volatile
    329                           	line	239
    330                           ;main.c: 239: ADON = 1;
@@ -352,11 +352,11 @@ HI-TECH Software Omniscient Code Generator build 8870
    339  01314E                     l874:		; BSR set to: ?
    340                           
    341  01314E  B2C2               	btfsc	c:(32273/8),(32273)&7	;volatile
-   342  013150  EFAC  F098         	goto	u6621
-   343  013154  EFAE  F098         	goto	u6620
-   344  013158                     u6621:
+   342  013150  EFAC  F098         	goto	u6781
+   343  013154  EFAE  F098         	goto	u6780
+   344  013158                     u6781:
    345  013158  EFA7  F098         	goto	l874
-   346  01315C                     u6620:
+   346  01315C                     u6780:
    347                           	
    348  01315C                     l876:		; BSR set to: ?
    349                           
@@ -380,11 +380,11 @@ HI-TECH Software Omniscient Code Generator build 8870
    367                           
    368                           	
    369  013170  A89E               	btfss	((c:3998)),c,(4)&7	;volatile
-   370  013172  EFBD  F098         	goto	u6631
-   371  013176  EFBF  F098         	goto	u6630
-   372  01317A                     u6631:
+   370  013172  EFBD  F098         	goto	u6791
+   371  013176  EFBF  F098         	goto	u6790
+   372  01317A                     u6791:
    373  01317A  EFB8  F098         	goto	l877
-   374  01317E                     u6630:
+   374  01317E                     u6790:
    375                           	
    376  01317E                     l879:		; BSR set to: ?
    377                           
@@ -402,11 +402,11 @@ HI-TECH Software Omniscient Code Generator build 8870
    389                           
    390                           	
    391  01318A  A89E               	btfss	((c:3998)),c,(4)&7	;volatile
-   392  01318C  EFCA  F098         	goto	u6641
-   393  013190  EFCC  F098         	goto	u6640
-   394  013194                     u6641:
+   392  01318C  EFCA  F098         	goto	u6801
+   393  013190  EFCC  F098         	goto	u6800
+   394  013194                     u6801:
    395  013194  EFC5  F098         	goto	l880
-   396  013198                     u6640:
+   396  013198                     u6800:
    397                           	
    398  013198                     l882:		; BSR set to: ?
    399                           
@@ -452,11 +452,11 @@ HI-TECH Software Omniscient Code Generator build 8870
    439                           	line	266
    440  0131C8  5029               	movf	((c:41)),c,w
    441  0131CA  B4D8               	btfsc	status,2
-   442  0131CC  EFEA  F098         	goto	u6651
-   443  0131D0  EFEC  F098         	goto	u6650
-   444  0131D4                     u6651:
+   442  0131CC  EFEA  F098         	goto	u6811
+   443  0131D0  EFEC  F098         	goto	u6810
+   444  0131D4                     u6811:
    445  0131D4  EFE2  F098         	goto	l884
-   446  0131D8                     u6650:
+   446  0131D8                     u6810:
    447                           	
    448  0131D8                     l888:		; BSR set to: ?
    449                           
@@ -482,11 +482,11 @@ HI-TECH Software Omniscient Code Generator build 8870
    469                           
    470                           	
    471  0131F0  A89E               	btfss	((c:3998)),c,(4)&7	;volatile
-   472  0131F2  EFFD  F098         	goto	u6661
-   473  0131F6  EFFF  F098         	goto	u6660
-   474  0131FA                     u6661:
+   472  0131F2  EFFD  F098         	goto	u6821
+   473  0131F6  EFFF  F098         	goto	u6820
+   474  0131FA                     u6821:
    475  0131FA  EFF8  F098         	goto	l889
-   476  0131FE                     u6660:
+   476  0131FE                     u6820:
    477                           	
    478  0131FE                     l891:		; BSR set to: ?
    479                           
@@ -575,29 +575,29 @@ HI-TECH Software Omniscient Code Generator build 8870
    559  013218  1009               	iorwf (1+((c:0)+08h)),c,w
    560                           
    561  01321A  A4D8               	btfss	status,2
-   562  01321C  EF12  F099         	goto	u5141
-   563  013220  EF14  F099         	goto	u5140
-   564+ 013224                     u5141:
+   562  01321C  EF12  F099         	goto	u5301
+   563  013220  EF14  F099         	goto	u5300
+   564+ 013224                     u5301:
    565+ 013224  EF2E  F099         	goto	l893
-   566  013228                     u5140:
+   566  013228                     u5300:
    567  013228  040A               	decf	(0+((c:0)+0Ah)),c,w
    568  01322A  100B               	iorwf (1+((c:0)+0Ah)),c,w
    569                           
    570  01322C  A4D8               	btfss	status,2
-   571  01322E  EF1B  F099         	goto	u5151
-   572  013232  EF1D  F099         	goto	u5150
-   573  013236                     u5151:
+   571  01322E  EF1B  F099         	goto	u5311
+   572  013232  EF1D  F099         	goto	u5310
+   573  013236                     u5311:
    574  013236  EF2E  F099         	goto	l893
-   575  01323A                     u5150:
+   575  01323A                     u5310:
    576  01323A  040C               	decf	(0+((c:0)+0Ch)),c,w
    577  01323C  100D               	iorwf (1+((c:0)+0Ch)),c,w
    578                           
    579  01323E  A4D8               	btfss	status,2
-   580  013240  EF24  F099         	goto	u5161
-   581  013244  EF26  F099         	goto	u5160
-   582  013248                     u5161:
+   580  013240  EF24  F099         	goto	u5321
+   581  013244  EF26  F099         	goto	u5320
+   582  013248                     u5321:
    583  013248  EF2E  F099         	goto	l893
-   584  01324C                     u5160:
+   584  01324C                     u5320:
    585                           	line	305
    586                           ;main.c: 305: LATA = 0b11101111;
    587  01324C  0EEF               	movlw	low(0EFh)
@@ -621,29 +621,29 @@ HI-TECH Software Omniscient Code Generator build 8870
    604  01325E  1009               	iorwf (1+((c:0)+08h)),c,w
    605                           
    606  013260  A4D8               	btfss	status,2
-   607  013262  EF35  F099         	goto	u5171
-   608  013266  EF37  F099         	goto	u5170
-   609  01326A                     u5171:
+   607  013262  EF35  F099         	goto	u5331
+   608  013266  EF37  F099         	goto	u5330
+   609  01326A                     u5331:
    610  01326A  EF51  F099         	goto	l895
-   611  01326E                     u5170:
+   611  01326E                     u5330:
    612  01326E  040A               	decf	(0+((c:0)+0Ah)),c,w
    613  013270  100B               	iorwf (1+((c:0)+0Ah)),c,w
    614                           
    615  013272  A4D8               	btfss	status,2
-   616  013274  EF3E  F099         	goto	u5181
-   617  013278  EF40  F099         	goto	u5180
-   618  01327C                     u5181:
+   616  013274  EF3E  F099         	goto	u5341
+   617  013278  EF40  F099         	goto	u5340
+   618  01327C                     u5341:
    619  01327C  EF51  F099         	goto	l895
-   620  013280                     u5180:
+   620  013280                     u5340:
    621  013280  040E               	decf	(0+((c:0)+0Eh)),c,w
    622  013282  100F               	iorwf (1+((c:0)+0Eh)),c,w
    623                           
    624  013284  A4D8               	btfss	status,2
-   625  013286  EF47  F099         	goto	u5191
-   626  01328A  EF49  F099         	goto	u5190
-   627  01328E                     u5191:
+   625  013286  EF47  F099         	goto	u5351
+   626  01328A  EF49  F099         	goto	u5350
+   627  01328E                     u5351:
    628  01328E  EF51  F099         	goto	l895
-   629  013292                     u5190:
+   629  013292                     u5350:
    630                           	line	313
    631                           ;main.c: 313: LATA = 0b10111111;
    632  013292  0EBF               	movlw	low(0BFh)
@@ -667,29 +667,29 @@ HI-TECH Software Omniscient Code Generator build 8870
    649  0132A4  1009               	iorwf (1+((c:0)+08h)),c,w
    650                           
    651  0132A6  A4D8               	btfss	status,2
-   652  0132A8  EF58  F099         	goto	u5201
-   653  0132AC  EF5A  F099         	goto	u5200
-   654  0132B0                     u5201:
+   652  0132A8  EF58  F099         	goto	u5361
+   653  0132AC  EF5A  F099         	goto	u5360
+   654  0132B0                     u5361:
    655  0132B0  EF73  F099         	goto	l897
-   656  0132B4                     u5200:
+   656  0132B4                     u5360:
    657  0132B4  040A               	decf	(0+((c:0)+0Ah)),c,w
    658  0132B6  100B               	iorwf (1+((c:0)+0Ah)),c,w
    659                           
    660  0132B8  A4D8               	btfss	status,2
-   661  0132BA  EF61  F099         	goto	u5211
-   662  0132BE  EF63  F099         	goto	u5210
-   663  0132C2                     u5211:
+   661  0132BA  EF61  F099         	goto	u5371
+   662  0132BE  EF63  F099         	goto	u5370
+   663  0132C2                     u5371:
    664  0132C2  EF73  F099         	goto	l897
-   665  0132C6                     u5210:
+   665  0132C6                     u5370:
    666  0132C6  0410               	decf	(0+((c:0)+010h)),c,w
    667  0132C8  1011               	iorwf (1+((c:0)+010h)),c,w
    668                           
    669  0132CA  A4D8               	btfss	status,2
-   670  0132CC  EF6A  F099         	goto	u5221
-   671  0132D0  EF6C  F099         	goto	u5220
-   672  0132D4                     u5221:
+   670  0132CC  EF6A  F099         	goto	u5381
+   671  0132D0  EF6C  F099         	goto	u5380
+   672  0132D4                     u5381:
    673  0132D4  EF73  F099         	goto	l897
-   674  0132D8                     u5220:
+   674  0132D8                     u5380:
    675                           	line	321
    676                           ;main.c: 321: LATA = 0b11111111;
    677  0132D8  6889               	setf	((c:3977)),c	;volatile
@@ -712,29 +712,29 @@ HI-TECH Software Omniscient Code Generator build 8870
    693  0132E8  1009               	iorwf (1+((c:0)+08h)),c,w
    694                           
    695  0132EA  A4D8               	btfss	status,2
-   696  0132EC  EF7A  F099         	goto	u5231
-   697  0132F0  EF7C  F099         	goto	u5230
-   698  0132F4                     u5231:
+   696  0132EC  EF7A  F099         	goto	u5391
+   697  0132F0  EF7C  F099         	goto	u5390
+   698  0132F4                     u5391:
    699  0132F4  EF95  F099         	goto	l899
-   700  0132F8                     u5230:
+   700  0132F8                     u5390:
    701  0132F8  040A               	decf	(0+((c:0)+0Ah)),c,w
    702  0132FA  100B               	iorwf (1+((c:0)+0Ah)),c,w
    703                           
    704  0132FC  A4D8               	btfss	status,2
-   705  0132FE  EF83  F099         	goto	u5241
-   706  013302  EF85  F099         	goto	u5240
-   707  013306                     u5241:
+   705  0132FE  EF83  F099         	goto	u5401
+   706  013302  EF85  F099         	goto	u5400
+   707  013306                     u5401:
    708  013306  EF95  F099         	goto	l899
-   709  01330A                     u5240:
+   709  01330A                     u5400:
    710  01330A  0412               	decf	(0+((c:0)+012h)),c,w
    711  01330C  1013               	iorwf (1+((c:0)+012h)),c,w
    712                           
    713  01330E  A4D8               	btfss	status,2
-   714  013310  EF8C  F099         	goto	u5251
-   715  013314  EF8E  F099         	goto	u5250
-   716  013318                     u5251:
+   714  013310  EF8C  F099         	goto	u5411
+   715  013314  EF8E  F099         	goto	u5410
+   716  013318                     u5411:
    717  013318  EF95  F099         	goto	l899
-   718  01331C                     u5250:
+   718  01331C                     u5410:
    719                           	line	329
    720                           ;main.c: 329: LATA = 0b11111111;
    721  01331C  6889               	setf	((c:3977)),c	;volatile
@@ -757,29 +757,29 @@ HI-TECH Software Omniscient Code Generator build 8870
    737  01332C  1009               	iorwf (1+((c:0)+08h)),c,w
    738                           
    739  01332E  A4D8               	btfss	status,2
-   740  013330  EF9C  F099         	goto	u5261
-   741  013334  EF9E  F099         	goto	u5260
-   742  013338                     u5261:
+   740  013330  EF9C  F099         	goto	u5421
+   741  013334  EF9E  F099         	goto	u5420
+   742  013338                     u5421:
    743  013338  EFB7  F099         	goto	l901
-   744  01333C                     u5260:
+   744  01333C                     u5420:
    745  01333C  040A               	decf	(0+((c:0)+0Ah)),c,w
    746  01333E  100B               	iorwf (1+((c:0)+0Ah)),c,w
    747                           
    748  013340  A4D8               	btfss	status,2
-   749  013342  EFA5  F099         	goto	u5271
-   750  013346  EFA7  F099         	goto	u5270
-   751  01334A                     u5271:
+   749  013342  EFA5  F099         	goto	u5431
+   750  013346  EFA7  F099         	goto	u5430
+   751  01334A                     u5431:
    752  01334A  EFB7  F099         	goto	l901
-   753  01334E                     u5270:
+   753  01334E                     u5430:
    754  01334E  0414               	decf	(0+((c:0)+014h)),c,w
    755  013350  1015               	iorwf (1+((c:0)+014h)),c,w
    756                           
    757  013352  A4D8               	btfss	status,2
-   758  013354  EFAE  F099         	goto	u5281
-   759  013358  EFB0  F099         	goto	u5280
-   760  01335C                     u5281:
+   758  013354  EFAE  F099         	goto	u5441
+   759  013358  EFB0  F099         	goto	u5440
+   760  01335C                     u5441:
    761+ 01335C  EFB7  F099         	goto	l901
-   762+ 013360                     u5280:
+   762+ 013360                     u5440:
    763                           	line	337
    764                           ;main.c: 337: LATA = 0b11111111;
    765  013360  6889               	setf	((c:3977)),c	;volatile
@@ -802,29 +802,29 @@ HI-TECH Software Omniscient Code Generator build 8870
    781  013370  1009               	iorwf (1+((c:0)+08h)),c,w
    782                           
    783  013372  A4D8               	btfss	status,2
-   784  013374  EFBE  F099         	goto	u5291
-   785  013378  EFC0  F099         	goto	u5290
-   786  01337C                     u5291:
+   784  013374  EFBE  F099         	goto	u5451
+   785  013378  EFC0  F099         	goto	u5450
+   786  01337C                     u5451:
    787  01337C  EFD9  F099         	goto	l903
-   788  013380                     u5290:
+   788  013380                     u5450:
    789  013380  040A               	decf	(0+((c:0)+0Ah)),c,w
    790  013382  100B               	iorwf (1+((c:0)+0Ah)),c,w
    791                           
    792  013384  A4D8               	btfss	status,2
-   793  013386  EFC7  F099         	goto	u5301
-   794  01338A  EFC9  F099         	goto	u5300
-   795  01338E                     u5301:
+   793  013386  EFC7  F099         	goto	u5461
+   794  01338A  EFC9  F099         	goto	u5460
+   795  01338E                     u5461:
    796  01338E  EFD9  F099         	goto	l903
-   797  013392                     u5300:
+   797  013392                     u5460:
    798  013392  0416               	decf	(0+((c:0)+016h)),c,w
    799  013394  1017               	iorwf (1+((c:0)+016h)),c,w
    800                           
    801  013396  A4D8               	btfss	status,2
-   802  013398  EFD0  F099         	goto	u5311
-   803  01339C  EFD2  F099         	goto	u5310
-   804  0133A0                     u5311:
+   802  013398  EFD0  F099         	goto	u5471
+   803  01339C  EFD2  F099         	goto	u5470
+   804  0133A0                     u5471:
    805  0133A0  EFD9  F099         	goto	l903
-   806  0133A4                     u5310:
+   806  0133A4                     u5470:
    807                           	line	345
    808                           ;main.c: 345: LATA = 0b11111111;
    809  0133A4  6889               	setf	((c:3977)),c	;volatile
@@ -847,29 +847,29 @@ HI-TECH Software Omniscient Code Generator build 8870
    825  0133B4  1009               	iorwf (1+((c:0)+08h)),c,w
    826                           
    827  0133B6  A4D8               	btfss	status,2
-   828  0133B8  EFE0  F099         	goto	u5321
-   829  0133BC  EFE2  F099         	goto	u5320
-   830  0133C0                     u5321:
+   828  0133B8  EFE0  F099         	goto	u5481
+   829  0133BC  EFE2  F099         	goto	u5480
+   830  0133C0                     u5481:
    831  0133C0  EFFB  F099         	goto	l905
-   832  0133C4                     u5320:
+   832  0133C4                     u5480:
    833  0133C4  040A               	decf	(0+((c:0)+0Ah)),c,w
    834  0133C6  100B               	iorwf (1+((c:0)+0Ah)),c,w
    835                           
    836  0133C8  A4D8               	btfss	status,2
-   837  0133CA  EFE9  F099         	goto	u5331
-   838  0133CE  EFEB  F099         	goto	u5330
-   839  0133D2                     u5331:
+   837  0133CA  EFE9  F099         	goto	u5491
+   838  0133CE  EFEB  F099         	goto	u5490
+   839  0133D2                     u5491:
    840  0133D2  EFFB  F099         	goto	l905
-   841  0133D6                     u5330:
+   841  0133D6                     u5490:
    842  0133D6  0418               	decf	(0+((c:0)+018h)),c,w
    843  0133D8  1019               	iorwf (1+((c:0)+018h)),c,w
    844                           
    845  0133DA  A4D8               	btfss	status,2
-   846  0133DC  EFF2  F099         	goto	u5341
-   847  0133E0  EFF4  F099         	goto	u5340
-   848  0133E4                     u5341:
+   846  0133DC  EFF2  F099         	goto	u5501
+   847  0133E0  EFF4  F099         	goto	u5500
+   848  0133E4                     u5501:
    849  0133E4  EFFB  F099         	goto	l905
-   850  0133E8                     u5340:
+   850  0133E8                     u5500:
    851                           	line	353
    852                           ;main.c: 353: LATA = 0b11111111;
    853  0133E8  6889               	setf	((c:3977)),c	;volatile
@@ -892,20 +892,20 @@ HI-TECH Software Omniscient Code Generator build 8870
    869  0133F8  1009               	iorwf (1+((c:0)+08h)),c,w
    870                           
    871  0133FA  A4D8               	btfss	status,2
-   872  0133FC  EF02  F09A         	goto	u5351
-   873  013400  EF04  F09A         	goto	u5350
-   874  013404                     u5351:
+   872  0133FC  EF02  F09A         	goto	u5511
+   873  013400  EF04  F09A         	goto	u5510
+   874  013404                     u5511:
    875  013404  EF15  F09A         	goto	l907
-   876  013408                     u5350:
+   876  013408                     u5510:
    877  013408  040C               	decf	(0+((c:0)+0Ch)),c,w
    878  01340A  100D               	iorwf (1+((c:0)+0Ch)),c,w
    879                           
    880  01340C  A4D8               	btfss	status,2
-   881  01340E  EF0B  F09A         	goto	u5361
-   882  013412  EF0D  F09A         	goto	u5360
-   883  013416                     u5361:
+   881  01340E  EF0B  F09A         	goto	u5521
+   882  013412  EF0D  F09A         	goto	u5520
+   883  013416                     u5521:
    884  013416  EF15  F09A         	goto	l907
-   885  01341A                     u5360:
+   885  01341A                     u5520:
    886                           	line	362
    887                           ;main.c: 362: LATA = 0b11101111;
    888  01341A  0EEF               	movlw	low(0EFh)
@@ -929,20 +929,20 @@ HI-TECH Software Omniscient Code Generator build 8870
    905  01342C  1009               	iorwf (1+((c:0)+08h)),c,w
    906                           
    907  01342E  A4D8               	btfss	status,2
-   908  013430  EF1C  F09A         	goto	u5371
-   909  013434  EF1E  F09A         	goto	u5370
-   910  013438                     u5371:
+   908  013430  EF1C  F09A         	goto	u5531
+   909  013434  EF1E  F09A         	goto	u5530
+   910  013438                     u5531:
    911  013438  EF2F  F09A         	goto	l909
-   912  01343C                     u5370:
+   912  01343C                     u5530:
    913  01343C  040E               	decf	(0+((c:0)+0Eh)),c,w
    914  01343E  100F               	iorwf (1+((c:0)+0Eh)),c,w
    915                           
    916  013440  A4D8               	btfss	status,2
-   917  013442  EF25  F09A         	goto	u5381
-   918  013446  EF27  F09A         	goto	u5380
-   919  01344A                     u5381:
+   917  013442  EF25  F09A         	goto	u5541
+   918  013446  EF27  F09A         	goto	u5540
+   919  01344A                     u5541:
    920  01344A  EF2F  F09A         	goto	l909
-   921  01344E                     u5380:
+   921  01344E                     u5540:
    922                           	line	370
    923                           ;main.c: 370: LATA = 0b10111111;
    924  01344E  0EBF               	movlw	low(0BFh)
@@ -966,20 +966,20 @@ HI-TECH Software Omniscient Code Generator build 8870
    941  013460  1009               	iorwf (1+((c:0)+08h)),c,w
    942                           
    943  013462  A4D8               	btfss	status,2
-   944  013464  EF36  F09A         	goto	u5391
-   945  013468  EF38  F09A         	goto	u5390
-   946  01346C                     u5391:
+   944  013464  EF36  F09A         	goto	u5551
+   945  013468  EF38  F09A         	goto	u5550
+   946  01346C                     u5551:
    947  01346C  EF48  F09A         	goto	l911
-   948  013470                     u5390:
+   948  013470                     u5550:
    949  013470  0410               	decf	(0+((c:0)+010h)),c,w
    950  013472  1011               	iorwf (1+((c:0)+010h)),c,w
    951                           
    952  013474  A4D8               	btfss	status,2
-   953  013476  EF3F  F09A         	goto	u5401
-   954  01347A  EF41  F09A         	goto	u5400
-   955  01347E                     u5401:
+   953  013476  EF3F  F09A         	goto	u5561
+   954  01347A  EF41  F09A         	goto	u5560
+   955  01347E                     u5561:
    956  01347E  EF48  F09A         	goto	l911
-   957  013482                     u5400:
+   957  013482                     u5560:
    958                           	line	378
    959                           ;main.c: 378: LATA = 0b11111111;
    960  013482  6889               	setf	((c:3977)),c	;volatile
@@ -1002,20 +1002,20 @@ HI-TECH Software Omniscient Code Generator build 8870
    976  013492  1009               	iorwf (1+((c:0)+08h)),c,w
    977                           
    978  013494  A4D8               	btfss	status,2
-   979  013496  EF4F  F09A         	goto	u5411
-   980  01349A  EF51  F09A         	goto	u5410
-   981  01349E                     u5411:
+   979  013496  EF4F  F09A         	goto	u5571
+   980  01349A  EF51  F09A         	goto	u5570
+   981  01349E                     u5571:
    982  01349E  EF61  F09A         	goto	l913
-   983  0134A2                     u5410:
+   983  0134A2                     u5570:
    984  0134A2  0412               	decf	(0+((c:0)+012h)),c,w
    985  0134A4  1013               	iorwf (1+((c:0)+012h)),c,w
    986                           
    987  0134A6  A4D8               	btfss	status,2
-   988  0134A8  EF58  F09A         	goto	u5421
-   989  0134AC  EF5A  F09A         	goto	u5420
-   990  0134B0                     u5421:
+   988  0134A8  EF58  F09A         	goto	u5581
+   989  0134AC  EF5A  F09A         	goto	u5580
+   990  0134B0                     u5581:
    991  0134B0  EF61  F09A         	goto	l913
-   992  0134B4                     u5420:
+   992  0134B4                     u5580:
    993                           	line	386
    994                           ;main.c: 386: LATA = 0b11111111;
    995  0134B4  6889               	setf	((c:3977)),c	;volatile
@@ -1038,20 +1038,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1011  0134C4  1009               	iorwf (1+((c:0)+08h)),c,w
   1012                           
   1013  0134C6  A4D8               	btfss	status,2
-  1014  0134C8  EF68  F09A         	goto	u5431
-  1015  0134CC  EF6A  F09A         	goto	u5430
-  1016  0134D0                     u5431:
+  1014  0134C8  EF68  F09A         	goto	u5591
+  1015  0134CC  EF6A  F09A         	goto	u5590
+  1016  0134D0                     u5591:
   1017  0134D0  EF7A  F09A         	goto	l915
-  1018  0134D4                     u5430:
+  1018  0134D4                     u5590:
   1019  0134D4  0414               	decf	(0+((c:0)+014h)),c,w
   1020  0134D6  1015               	iorwf (1+((c:0)+014h)),c,w
   1021                           
   1022  0134D8  A4D8               	btfss	status,2
-  1023  0134DA  EF71  F09A         	goto	u5441
-  1024  0134DE  EF73  F09A         	goto	u5440
-  1025  0134E2                     u5441:
+  1023  0134DA  EF71  F09A         	goto	u5601
+  1024  0134DE  EF73  F09A         	goto	u5600
+  1025  0134E2                     u5601:
   1026  0134E2  EF7A  F09A         	goto	l915
-  1027  0134E6                     u5440:
+  1027  0134E6                     u5600:
   1028                           	line	395
   1029                           ;main.c: 395: LATA = 0b11111111;
   1030  0134E6  6889               	setf	((c:3977)),c	;volatile
@@ -1074,20 +1074,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1046  0134F6  1009               	iorwf (1+((c:0)+08h)),c,w
   1047                           
   1048  0134F8  A4D8               	btfss	status,2
-  1049  0134FA  EF81  F09A         	goto	u5451
-  1050  0134FE  EF83  F09A         	goto	u5450
-  1051  013502                     u5451:
+  1049  0134FA  EF81  F09A         	goto	u5611
+  1050  0134FE  EF83  F09A         	goto	u5610
+  1051  013502                     u5611:
   1052  013502  EF93  F09A         	goto	l917
-  1053  013506                     u5450:
+  1053  013506                     u5610:
   1054  013506  0416               	decf	(0+((c:0)+016h)),c,w
   1055  013508  1017               	iorwf (1+((c:0)+016h)),c,w
   1056                           
   1057  01350A  A4D8               	btfss	status,2
-  1058  01350C  EF8A  F09A         	goto	u5461
-  1059  013510  EF8C  F09A         	goto	u5460
-  1060  013514                     u5461:
+  1058  01350C  EF8A  F09A         	goto	u5621
+  1059  013510  EF8C  F09A         	goto	u5620
+  1060  013514                     u5621:
   1061  013514  EF93  F09A         	goto	l917
-  1062  013518                     u5460:
+  1062  013518                     u5620:
   1063                           	line	404
   1064                           ;main.c: 404: LATA = 0b11111111;
   1065  013518  6889               	setf	((c:3977)),c	;volatile
@@ -1110,20 +1110,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1081  013528  1009               	iorwf (1+((c:0)+08h)),c,w
   1082                           
   1083  01352A  A4D8               	btfss	status,2
-  1084  01352C  EF9A  F09A         	goto	u5471
-  1085  013530  EF9C  F09A         	goto	u5470
-  1086  013534                     u5471:
+  1084  01352C  EF9A  F09A         	goto	u5631
+  1085  013530  EF9C  F09A         	goto	u5630
+  1086  013534                     u5631:
   1087  013534  EFAC  F09A         	goto	l919
-  1088  013538                     u5470:
+  1088  013538                     u5630:
   1089  013538  0418               	decf	(0+((c:0)+018h)),c,w
   1090  01353A  1019               	iorwf (1+((c:0)+018h)),c,w
   1091                           
   1092  01353C  A4D8               	btfss	status,2
-  1093  01353E  EFA3  F09A         	goto	u5481
-  1094  013542  EFA5  F09A         	goto	u5480
-  1095  013546                     u5481:
+  1093  01353E  EFA3  F09A         	goto	u5641
+  1094  013542  EFA5  F09A         	goto	u5640
+  1095  013546                     u5641:
   1096  013546  EFAC  F09A         	goto	l919
-  1097  01354A                     u5480:
+  1097  01354A                     u5640:
   1098                           	line	413
   1099                           ;main.c: 413: LATA = 0b11111111;
   1100  01354A  6889               	setf	((c:3977)),c	;volatile
@@ -1146,20 +1146,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1116  01355A  100B               	iorwf (1+((c:0)+0Ah)),c,w
   1117                           
   1118  01355C  A4D8               	btfss	status,2
-  1119  01355E  EFB3  F09A         	goto	u5491
-  1120  013562  EFB5  F09A         	goto	u5490
-  1121  013566                     u5491:
+  1119  01355E  EFB3  F09A         	goto	u5651
+  1120  013562  EFB5  F09A         	goto	u5650
+  1121  013566                     u5651:
   1122  013566  EFC6  F09A         	goto	l921
-  1123  01356A                     u5490:
+  1123  01356A                     u5650:
   1124  01356A  040C               	decf	(0+((c:0)+0Ch)),c,w
   1125  01356C  100D               	iorwf (1+((c:0)+0Ch)),c,w
   1126                           
   1127  01356E  A4D8               	btfss	status,2
-  1128  013570  EFBC  F09A         	goto	u5501
-  1129  013574  EFBE  F09A         	goto	u5500
-  1130  013578                     u5501:
+  1128  013570  EFBC  F09A         	goto	u5661
+  1129  013574  EFBE  F09A         	goto	u5660
+  1130  013578                     u5661:
   1131  013578  EFC6  F09A         	goto	l921
-  1132  01357C                     u5500:
+  1132  01357C                     u5660:
   1133                           	line	422
   1134                           ;main.c: 422: LATA = 0b11101111;
   1135  01357C  0EEF               	movlw	low(0EFh)
@@ -1183,20 +1183,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1152  01358E  100B               	iorwf (1+((c:0)+0Ah)),c,w
   1153                           
   1154  013590  A4D8               	btfss	status,2
-  1155  013592  EFCD  F09A         	goto	u5511
-  1156  013596  EFCF  F09A         	goto	u5510
-  1157  01359A                     u5511:
+  1155  013592  EFCD  F09A         	goto	u5671
+  1156  013596  EFCF  F09A         	goto	u5670
+  1157  01359A                     u5671:
   1158  01359A  EFE0  F09A         	goto	l923
-  1159  01359E                     u5510:
+  1159  01359E                     u5670:
   1160  01359E  040E               	decf	(0+((c:0)+0Eh)),c,w
   1161  0135A0  100F               	iorwf (1+((c:0)+0Eh)),c,w
   1162                           
   1163  0135A2  A4D8               	btfss	status,2
-  1164  0135A4  EFD6  F09A         	goto	u5521
-  1165  0135A8  EFD8  F09A         	goto	u5520
-  1166  0135AC                     u5521:
+  1164  0135A4  EFD6  F09A         	goto	u5681
+  1165  0135A8  EFD8  F09A         	goto	u5680
+  1166  0135AC                     u5681:
   1167  0135AC  EFE0  F09A         	goto	l923
-  1168  0135B0                     u5520:
+  1168  0135B0                     u5680:
   1169                           	line	431
   1170                           ;main.c: 431: LATA = 0b10111111;
   1171  0135B0  0EBF               	movlw	low(0BFh)
@@ -1220,20 +1220,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1188  0135C2  100B               	iorwf (1+((c:0)+0Ah)),c,w
   1189                           
   1190  0135C4  A4D8               	btfss	status,2
-  1191  0135C6  EFE7  F09A         	goto	u5531
-  1192  0135CA  EFE9  F09A         	goto	u5530
-  1193  0135CE                     u5531:
+  1191  0135C6  EFE7  F09A         	goto	u5691
+  1192  0135CA  EFE9  F09A         	goto	u5690
+  1193  0135CE                     u5691:
   1194  0135CE  EFF9  F09A         	goto	l925
-  1195  0135D2                     u5530:
+  1195  0135D2                     u5690:
   1196  0135D2  0410               	decf	(0+((c:0)+010h)),c,w
   1197  0135D4  1011               	iorwf (1+((c:0)+010h)),c,w
   1198                           
   1199  0135D6  A4D8               	btfss	status,2
-  1200  0135D8  EFF0  F09A         	goto	u5541
-  1201  0135DC  EFF2  F09A         	goto	u5540
-  1202  0135E0                     u5541:
+  1200  0135D8  EFF0  F09A         	goto	u5701
+  1201  0135DC  EFF2  F09A         	goto	u5700
+  1202  0135E0                     u5701:
   1203  0135E0  EFF9  F09A         	goto	l925
-  1204  0135E4                     u5540:
+  1204  0135E4                     u5700:
   1205                           	line	440
   1206                           ;main.c: 440: LATA = 0b11111111;
   1207  0135E4  6889               	setf	((c:3977)),c	;volatile
@@ -1256,20 +1256,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1223  0135F4  100B               	iorwf (1+((c:0)+0Ah)),c,w
   1224                           
   1225  0135F6  A4D8               	btfss	status,2
-  1226  0135F8  EF00  F09B         	goto	u5551
-  1227  0135FC  EF02  F09B         	goto	u5550
-  1228  013600                     u5551:
+  1226  0135F8  EF00  F09B         	goto	u5711
+  1227  0135FC  EF02  F09B         	goto	u5710
+  1228  013600                     u5711:
   1229  013600  EF12  F09B         	goto	l927
-  1230  013604                     u5550:
+  1230  013604                     u5710:
   1231  013604  0412               	decf	(0+((c:0)+012h)),c,w
   1232  013606  1013               	iorwf (1+((c:0)+012h)),c,w
   1233                           
   1234  013608  A4D8               	btfss	status,2
-  1235  01360A  EF09  F09B         	goto	u5561
-  1236  01360E  EF0B  F09B         	goto	u5560
-  1237  013612                     u5561:
+  1235  01360A  EF09  F09B         	goto	u5721
+  1236  01360E  EF0B  F09B         	goto	u5720
+  1237  013612                     u5721:
   1238  013612  EF12  F09B         	goto	l927
-  1239  013616                     u5560:
+  1239  013616                     u5720:
   1240                           	line	449
   1241                           ;main.c: 449: LATA = 0b11111111;
   1242  013616  6889               	setf	((c:3977)),c	;volatile
@@ -1292,20 +1292,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1258  013626  100B               	iorwf (1+((c:0)+0Ah)),c,w
   1259                           
   1260  013628  A4D8               	btfss	status,2
-  1261  01362A  EF19  F09B         	goto	u5571
-  1262  01362E  EF1B  F09B         	goto	u5570
-  1263  013632                     u5571:
+  1261  01362A  EF19  F09B         	goto	u5731
+  1262  01362E  EF1B  F09B         	goto	u5730
+  1263  013632                     u5731:
   1264  013632  EF2B  F09B         	goto	l929
-  1265  013636                     u5570:
+  1265  013636                     u5730:
   1266  013636  0414               	decf	(0+((c:0)+014h)),c,w
   1267  013638  1015               	iorwf (1+((c:0)+014h)),c,w
   1268                           
   1269  01363A  A4D8               	btfss	status,2
-  1270  01363C  EF22  F09B         	goto	u5581
-  1271  013640  EF24  F09B         	goto	u5580
-  1272  013644                     u5581:
+  1270  01363C  EF22  F09B         	goto	u5741
+  1271  013640  EF24  F09B         	goto	u5740
+  1272  013644                     u5741:
   1273  013644  EF2B  F09B         	goto	l929
-  1274  013648                     u5580:
+  1274  013648                     u5740:
   1275                           	line	458
   1276                           ;main.c: 458: LATA = 0b11111111;
   1277  013648  6889               	setf	((c:3977)),c	;volatile
@@ -1328,20 +1328,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1293  013658  100B               	iorwf (1+((c:0)+0Ah)),c,w
   1294                           
   1295  01365A  A4D8               	btfss	status,2
-  1296  01365C  EF32  F09B         	goto	u5591
-  1297  013660  EF34  F09B         	goto	u5590
-  1298  013664                     u5591:
+  1296  01365C  EF32  F09B         	goto	u5751
+  1297  013660  EF34  F09B         	goto	u5750
+  1298  013664                     u5751:
   1299  013664  EF44  F09B         	goto	l931
-  1300  013668                     u5590:
+  1300  013668                     u5750:
   1301  013668  0416               	decf	(0+((c:0)+016h)),c,w
   1302  01366A  1017               	iorwf (1+((c:0)+016h)),c,w
   1303                           
   1304  01366C  A4D8               	btfss	status,2
-  1305  01366E  EF3B  F09B         	goto	u5601
-  1306  013672  EF3D  F09B         	goto	u5600
-  1307  013676                     u5601:
+  1305  01366E  EF3B  F09B         	goto	u5761
+  1306  013672  EF3D  F09B         	goto	u5760
+  1307  013676                     u5761:
   1308  013676  EF44  F09B         	goto	l931
-  1309  01367A                     u5600:
+  1309  01367A                     u5760:
   1310                           	line	467
   1311                           ;main.c: 467: LATA = 0b11111111;
   1312  01367A  6889               	setf	((c:3977)),c	;volatile
@@ -1364,20 +1364,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1328  01368A  100B               	iorwf (1+((c:0)+0Ah)),c,w
   1329                           
   1330  01368C  A4D8               	btfss	status,2
-  1331  01368E  EF4B  F09B         	goto	u5611
-  1332  013692  EF4D  F09B         	goto	u5610
-  1333  013696                     u5611:
+  1331  01368E  EF4B  F09B         	goto	u5771
+  1332  013692  EF4D  F09B         	goto	u5770
+  1333  013696                     u5771:
   1334  013696  EF5D  F09B         	goto	l933
-  1335  01369A                     u5610:
+  1335  01369A                     u5770:
   1336  01369A  0418               	decf	(0+((c:0)+018h)),c,w
   1337  01369C  1019               	iorwf (1+((c:0)+018h)),c,w
   1338                           
   1339  01369E  A4D8               	btfss	status,2
-  1340  0136A0  EF54  F09B         	goto	u5621
-  1341  0136A4  EF56  F09B         	goto	u5620
-  1342  0136A8                     u5621:
+  1340  0136A0  EF54  F09B         	goto	u5781
+  1341  0136A4  EF56  F09B         	goto	u5780
+  1342  0136A8                     u5781:
   1343  0136A8  EF5D  F09B         	goto	l933
-  1344  0136AC                     u5620:
+  1344  0136AC                     u5780:
   1345                           	line	476
   1346                           ;main.c: 476: LATA = 0b11111111;
   1347  0136AC  6889               	setf	((c:3977)),c	;volatile
@@ -1402,29 +1402,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   1365  0136BC  1005               	iorwf (1+((c:0)+04h)),c,w
   1366                           
   1367  0136BE  A4D8               	btfss	status,2
-  1368  0136C0  EF64  F09B         	goto	u5631
-  1369  0136C4  EF66  F09B         	goto	u5630
-  1370  0136C8                     u5631:
+  1368  0136C0  EF64  F09B         	goto	u5791
+  1369  0136C4  EF66  F09B         	goto	u5790
+  1370  0136C8                     u5791:
   1371  0136C8  EF80  F09B         	goto	l935
-  1372  0136CC                     u5630:
+  1372  0136CC                     u5790:
   1373  0136CC  0406               	decf	(0+((c:0)+06h)),c,w
   1374  0136CE  1007               	iorwf (1+((c:0)+06h)),c,w
   1375                           
   1376  0136D0  A4D8               	btfss	status,2
-  1377  0136D2  EF6D  F09B         	goto	u5641
-  1378  0136D6  EF6F  F09B         	goto	u5640
-  1379  0136DA                     u5641:
+  1377  0136D2  EF6D  F09B         	goto	u5801
+  1378  0136D6  EF6F  F09B         	goto	u5800
+  1379  0136DA                     u5801:
   1380  0136DA  EF80  F09B         	goto	l935
-  1381  0136DE                     u5640:
+  1381  0136DE                     u5800:
   1382  0136DE  040C               	decf	(0+((c:0)+0Ch)),c,w
   1383  0136E0  100D               	iorwf (1+((c:0)+0Ch)),c,w
   1384                           
   1385  0136E2  A4D8               	btfss	status,2
-  1386  0136E4  EF76  F09B         	goto	u5651
-  1387  0136E8  EF78  F09B         	goto	u5650
-  1388  0136EC                     u5651:
+  1386  0136E4  EF76  F09B         	goto	u5811
+  1387  0136E8  EF78  F09B         	goto	u5810
+  1388  0136EC                     u5811:
   1389  0136EC  EF80  F09B         	goto	l935
-  1390  0136F0                     u5650:
+  1390  0136F0                     u5810:
   1391                           	line	487
   1392                           ;main.c: 487: LATA = 0b11101111;
   1393  0136F0  0EEF               	movlw	low(0EFh)
@@ -1448,29 +1448,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   1410  013702  1005               	iorwf (1+((c:0)+04h)),c,w
   1411                           
   1412  013704  A4D8               	btfss	status,2
-  1413  013706  EF87  F09B         	goto	u5661
-  1414  01370A  EF89  F09B         	goto	u5660
-  1415  01370E                     u5661:
+  1413  013706  EF87  F09B         	goto	u5821
+  1414  01370A  EF89  F09B         	goto	u5820
+  1415  01370E                     u5821:
   1416  01370E  EFA3  F09B         	goto	l937
-  1417  013712                     u5660:
+  1417  013712                     u5820:
   1418  013712  0406               	decf	(0+((c:0)+06h)),c,w
   1419  013714  1007               	iorwf (1+((c:0)+06h)),c,w
   1420                           
   1421  013716  A4D8               	btfss	status,2
-  1422  013718  EF90  F09B         	goto	u5671
-  1423  01371C  EF92  F09B         	goto	u5670
-  1424  013720                     u5671:
+  1422  013718  EF90  F09B         	goto	u5831
+  1423  01371C  EF92  F09B         	goto	u5830
+  1424  013720                     u5831:
   1425  013720  EFA3  F09B         	goto	l937
-  1426  013724                     u5670:
+  1426  013724                     u5830:
   1427  013724  040E               	decf	(0+((c:0)+0Eh)),c,w
   1428  013726  100F               	iorwf (1+((c:0)+0Eh)),c,w
   1429                           
   1430  013728  A4D8               	btfss	status,2
-  1431  01372A  EF99  F09B         	goto	u5681
-  1432  01372E  EF9B  F09B         	goto	u5680
-  1433  013732                     u5681:
+  1431  01372A  EF99  F09B         	goto	u5841
+  1432  01372E  EF9B  F09B         	goto	u5840
+  1433  013732                     u5841:
   1434  013732  EFA3  F09B         	goto	l937
-  1435  013736                     u5680:
+  1435  013736                     u5840:
   1436                           	line	496
   1437                           ;main.c: 496: LATA = 0b10111111;
   1438  013736  0EBF               	movlw	low(0BFh)
@@ -1494,29 +1494,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   1455  013748  1005               	iorwf (1+((c:0)+04h)),c,w
   1456                           
   1457  01374A  A4D8               	btfss	status,2
-  1458  01374C  EFAA  F09B         	goto	u5691
-  1459  013750  EFAC  F09B         	goto	u5690
-  1460  013754                     u5691:
+  1458  01374C  EFAA  F09B         	goto	u5851
+  1459  013750  EFAC  F09B         	goto	u5850
+  1460  013754                     u5851:
   1461  013754  EFC5  F09B         	goto	l939
-  1462  013758                     u5690:
+  1462  013758                     u5850:
   1463  013758  0406               	decf	(0+((c:0)+06h)),c,w
   1464  01375A  1007               	iorwf (1+((c:0)+06h)),c,w
   1465                           
   1466  01375C  A4D8               	btfss	status,2
-  1467  01375E  EFB3  F09B         	goto	u5701
-  1468  013762  EFB5  F09B         	goto	u5700
-  1469  013766                     u5701:
+  1467  01375E  EFB3  F09B         	goto	u5861
+  1468  013762  EFB5  F09B         	goto	u5860
+  1469  013766                     u5861:
   1470  013766  EFC5  F09B         	goto	l939
-  1471  01376A                     u5700:
+  1471  01376A                     u5860:
   1472  01376A  0410               	decf	(0+((c:0)+010h)),c,w
   1473  01376C  1011               	iorwf (1+((c:0)+010h)),c,w
   1474                           
   1475  01376E  A4D8               	btfss	status,2
-  1476  013770  EFBC  F09B         	goto	u5711
-  1477  013774  EFBE  F09B         	goto	u5710
-  1478  013778                     u5711:
+  1476  013770  EFBC  F09B         	goto	u5871
+  1477  013774  EFBE  F09B         	goto	u5870
+  1478  013778                     u5871:
   1479  013778  EFC5  F09B         	goto	l939
-  1480  01377C                     u5710:
+  1480  01377C                     u5870:
   1481                           	line	505
   1482                           ;main.c: 505: LATA = 0b11111111;
   1483  01377C  6889               	setf	((c:3977)),c	;volatile
@@ -1539,29 +1539,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   1499  01378C  1005               	iorwf (1+((c:0)+04h)),c,w
   1500                           
   1501  01378E  A4D8               	btfss	status,2
-  1502  013790  EFCC  F09B         	goto	u5721
-  1503  013794  EFCE  F09B         	goto	u5720
-  1504  013798                     u5721:
+  1502  013790  EFCC  F09B         	goto	u5881
+  1503  013794  EFCE  F09B         	goto	u5880
+  1504  013798                     u5881:
   1505  013798  EFE7  F09B         	goto	l941
-  1506  01379C                     u5720:
+  1506  01379C                     u5880:
   1507  01379C  0406               	decf	(0+((c:0)+06h)),c,w
   1508  01379E  1007               	iorwf (1+((c:0)+06h)),c,w
   1509                           
   1510  0137A0  A4D8               	btfss	status,2
-  1511  0137A2  EFD5  F09B         	goto	u5731
-  1512  0137A6  EFD7  F09B         	goto	u5730
-  1513  0137AA                     u5731:
+  1511  0137A2  EFD5  F09B         	goto	u5891
+  1512  0137A6  EFD7  F09B         	goto	u5890
+  1513  0137AA                     u5891:
   1514  0137AA  EFE7  F09B         	goto	l941
-  1515  0137AE                     u5730:
+  1515  0137AE                     u5890:
   1516  0137AE  0412               	decf	(0+((c:0)+012h)),c,w
   1517  0137B0  1013               	iorwf (1+((c:0)+012h)),c,w
   1518                           
   1519  0137B2  A4D8               	btfss	status,2
-  1520  0137B4  EFDE  F09B         	goto	u5741
-  1521  0137B8  EFE0  F09B         	goto	u5740
-  1522  0137BC                     u5741:
+  1520  0137B4  EFDE  F09B         	goto	u5901
+  1521  0137B8  EFE0  F09B         	goto	u5900
+  1522  0137BC                     u5901:
   1523  0137BC  EFE7  F09B         	goto	l941
-  1524  0137C0                     u5740:
+  1524  0137C0                     u5900:
   1525                           	line	514
   1526                           ;main.c: 514: LATA = 0b11111111;
   1527  0137C0  6889               	setf	((c:3977)),c	;volatile
@@ -1584,29 +1584,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   1543  0137D0  1005               	iorwf (1+((c:0)+04h)),c,w
   1544                           
   1545  0137D2  A4D8               	btfss	status,2
-  1546  0137D4  EFEE  F09B         	goto	u5751
-  1547  0137D8  EFF0  F09B         	goto	u5750
-  1548  0137DC                     u5751:
+  1546  0137D4  EFEE  F09B         	goto	u5911
+  1547  0137D8  EFF0  F09B         	goto	u5910
+  1548  0137DC                     u5911:
   1549  0137DC  EF09  F09C         	goto	l943
-  1550  0137E0                     u5750:
+  1550  0137E0                     u5910:
   1551  0137E0  0406               	decf	(0+((c:0)+06h)),c,w
   1552  0137E2  1007               	iorwf (1+((c:0)+06h)),c,w
   1553                           
   1554  0137E4  A4D8               	btfss	status,2
-  1555  0137E6  EFF7  F09B         	goto	u5761
-  1556  0137EA  EFF9  F09B         	goto	u5760
-  1557  0137EE                     u5761:
+  1555  0137E6  EFF7  F09B         	goto	u5921
+  1556  0137EA  EFF9  F09B         	goto	u5920
+  1557  0137EE                     u5921:
   1558  0137EE  EF09  F09C         	goto	l943
-  1559  0137F2                     u5760:
+  1559  0137F2                     u5920:
   1560  0137F2  0414               	decf	(0+((c:0)+014h)),c,w
   1561  0137F4  1015               	iorwf (1+((c:0)+014h)),c,w
   1562                           
   1563  0137F6  A4D8               	btfss	status,2
-  1564  0137F8  EF00  F09C         	goto	u5771
-  1565  0137FC  EF02  F09C         	goto	u5770
-  1566  013800                     u5771:
+  1564  0137F8  EF00  F09C         	goto	u5931
+  1565  0137FC  EF02  F09C         	goto	u5930
+  1566  013800                     u5931:
   1567  013800  EF09  F09C         	goto	l943
-  1568  013804                     u5770:
+  1568  013804                     u5930:
   1569                           	line	522
   1570                           ;main.c: 522: LATA = 0b11111111;
   1571  013804  6889               	setf	((c:3977)),c	;volatile
@@ -1629,29 +1629,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   1587  013814  1005               	iorwf (1+((c:0)+04h)),c,w
   1588                           
   1589  013816  A4D8               	btfss	status,2
-  1590  013818  EF10  F09C         	goto	u5781
-  1591  01381C  EF12  F09C         	goto	u5780
-  1592  013820                     u5781:
+  1590  013818  EF10  F09C         	goto	u5941
+  1591  01381C  EF12  F09C         	goto	u5940
+  1592  013820                     u5941:
   1593  013820  EF2B  F09C         	goto	l945
-  1594  013824                     u5780:
+  1594  013824                     u5940:
   1595  013824  0406               	decf	(0+((c:0)+06h)),c,w
   1596  013826  1007               	iorwf (1+((c:0)+06h)),c,w
   1597                           
   1598  013828  A4D8               	btfss	status,2
-  1599  01382A  EF19  F09C         	goto	u5791
-  1600  01382E  EF1B  F09C         	goto	u5790
-  1601  013832                     u5791:
+  1599  01382A  EF19  F09C         	goto	u5951
+  1600  01382E  EF1B  F09C         	goto	u5950
+  1601  013832                     u5951:
   1602  013832  EF2B  F09C         	goto	l945
-  1603  013836                     u5790:
+  1603  013836                     u5950:
   1604  013836  0416               	decf	(0+((c:0)+016h)),c,w
   1605  013838  1017               	iorwf (1+((c:0)+016h)),c,w
   1606                           
   1607  01383A  A4D8               	btfss	status,2
-  1608  01383C  EF22  F09C         	goto	u5801
-  1609  013840  EF24  F09C         	goto	u5800
-  1610  013844                     u5801:
+  1608  01383C  EF22  F09C         	goto	u5961
+  1609  013840  EF24  F09C         	goto	u5960
+  1610  013844                     u5961:
   1611  013844  EF2B  F09C         	goto	l945
-  1612  013848                     u5800:
+  1612  013848                     u5960:
   1613                           	line	530
   1614                           ;main.c: 530: LATA = 0b11111111;
   1615  013848  6889               	setf	((c:3977)),c	;volatile
@@ -1674,29 +1674,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   1631  013858  1005               	iorwf (1+((c:0)+04h)),c,w
   1632                           
   1633  01385A  A4D8               	btfss	status,2
-  1634  01385C  EF32  F09C         	goto	u5811
-  1635  013860  EF34  F09C         	goto	u5810
-  1636  013864                     u5811:
+  1634  01385C  EF32  F09C         	goto	u5971
+  1635  013860  EF34  F09C         	goto	u5970
+  1636  013864                     u5971:
   1637  013864  EF4D  F09C         	goto	l947
-  1638  013868                     u5810:
+  1638  013868                     u5970:
   1639  013868  0406               	decf	(0+((c:0)+06h)),c,w
   1640  01386A  1007               	iorwf (1+((c:0)+06h)),c,w
   1641                           
   1642  01386C  A4D8               	btfss	status,2
-  1643  01386E  EF3B  F09C         	goto	u5821
-  1644  013872  EF3D  F09C         	goto	u5820
-  1645  013876                     u5821:
+  1643  01386E  EF3B  F09C         	goto	u5981
+  1644  013872  EF3D  F09C         	goto	u5980
+  1645  013876                     u5981:
   1646  013876  EF4D  F09C         	goto	l947
-  1647  01387A                     u5820:
+  1647  01387A                     u5980:
   1648  01387A  0418               	decf	(0+((c:0)+018h)),c,w
   1649  01387C  1019               	iorwf (1+((c:0)+018h)),c,w
   1650                           
   1651  01387E  A4D8               	btfss	status,2
-  1652  013880  EF44  F09C         	goto	u5831
-  1653  013884  EF46  F09C         	goto	u5830
-  1654  013888                     u5831:
+  1652  013880  EF44  F09C         	goto	u5991
+  1653  013884  EF46  F09C         	goto	u5990
+  1654  013888                     u5991:
   1655  013888  EF4D  F09C         	goto	l947
-  1656  01388C                     u5830:
+  1656  01388C                     u5990:
   1657                           	line	538
   1658                           ;main.c: 538: LATA = 0b11111111;
   1659  01388C  6889               	setf	((c:3977)),c	;volatile
@@ -1719,20 +1719,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1675  01389C  1005               	iorwf (1+((c:0)+04h)),c,w
   1676                           
   1677  01389E  A4D8               	btfss	status,2
-  1678  0138A0  EF54  F09C         	goto	u5841
-  1679  0138A4  EF56  F09C         	goto	u5840
-  1680  0138A8                     u5841:
+  1678  0138A0  EF54  F09C         	goto	u6001
+  1679  0138A4  EF56  F09C         	goto	u6000
+  1680  0138A8                     u6001:
   1681  0138A8  EF67  F09C         	goto	l949
-  1682  0138AC                     u5840:
+  1682  0138AC                     u6000:
   1683  0138AC  040C               	decf	(0+((c:0)+0Ch)),c,w
   1684  0138AE  100D               	iorwf (1+((c:0)+0Ch)),c,w
   1685                           
   1686  0138B0  A4D8               	btfss	status,2
-  1687  0138B2  EF5D  F09C         	goto	u5851
-  1688  0138B6  EF5F  F09C         	goto	u5850
-  1689  0138BA                     u5851:
+  1687  0138B2  EF5D  F09C         	goto	u6011
+  1688  0138B6  EF5F  F09C         	goto	u6010
+  1689  0138BA                     u6011:
   1690  0138BA  EF67  F09C         	goto	l949
-  1691  0138BE                     u5850:
+  1691  0138BE                     u6010:
   1692                           	line	546
   1693                           ;main.c: 546: LATA = 0b11101111;
   1694  0138BE  0EEF               	movlw	low(0EFh)
@@ -1756,20 +1756,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1711  0138D0  1005               	iorwf (1+((c:0)+04h)),c,w
   1712                           
   1713  0138D2  A4D8               	btfss	status,2
-  1714  0138D4  EF6E  F09C         	goto	u5861
-  1715  0138D8  EF70  F09C         	goto	u5860
-  1716  0138DC                     u5861:
+  1714  0138D4  EF6E  F09C         	goto	u6021
+  1715  0138D8  EF70  F09C         	goto	u6020
+  1716  0138DC                     u6021:
   1717  0138DC  EF81  F09C         	goto	l951
-  1718  0138E0                     u5860:
+  1718  0138E0                     u6020:
   1719  0138E0  040E               	decf	(0+((c:0)+0Eh)),c,w
   1720  0138E2  100F               	iorwf (1+((c:0)+0Eh)),c,w
   1721                           
   1722  0138E4  A4D8               	btfss	status,2
-  1723  0138E6  EF77  F09C         	goto	u5871
-  1724  0138EA  EF79  F09C         	goto	u5870
-  1725  0138EE                     u5871:
+  1723  0138E6  EF77  F09C         	goto	u6031
+  1724  0138EA  EF79  F09C         	goto	u6030
+  1725  0138EE                     u6031:
   1726  0138EE  EF81  F09C         	goto	l951
-  1727  0138F2                     u5870:
+  1727  0138F2                     u6030:
   1728                           	line	555
   1729                           ;main.c: 555: LATA = 0b10111111;
   1730  0138F2  0EBF               	movlw	low(0BFh)
@@ -1793,20 +1793,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1747  013904  1005               	iorwf (1+((c:0)+04h)),c,w
   1748                           
   1749  013906  A4D8               	btfss	status,2
-  1750  013908  EF88  F09C         	goto	u5881
-  1751  01390C  EF8A  F09C         	goto	u5880
-  1752  013910                     u5881:
+  1750  013908  EF88  F09C         	goto	u6041
+  1751  01390C  EF8A  F09C         	goto	u6040
+  1752  013910                     u6041:
   1753  013910  EF9A  F09C         	goto	l953
-  1754  013914                     u5880:
+  1754  013914                     u6040:
   1755  013914  0410               	decf	(0+((c:0)+010h)),c,w
   1756  013916  1011               	iorwf (1+((c:0)+010h)),c,w
   1757                           
   1758  013918  A4D8               	btfss	status,2
-  1759  01391A  EF91  F09C         	goto	u5891
-  1760  01391E  EF93  F09C         	goto	u5890
-  1761  013922                     u5891:
+  1759  01391A  EF91  F09C         	goto	u6051
+  1760  01391E  EF93  F09C         	goto	u6050
+  1761  013922                     u6051:
   1762  013922  EF9A  F09C         	goto	l953
-  1763  013926                     u5890:
+  1763  013926                     u6050:
   1764                           	line	564
   1765                           ;main.c: 564: LATA = 0b11111111;
   1766  013926  6889               	setf	((c:3977)),c	;volatile
@@ -1829,20 +1829,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1782  013936  1005               	iorwf (1+((c:0)+04h)),c,w
   1783                           
   1784  013938  A4D8               	btfss	status,2
-  1785  01393A  EFA1  F09C         	goto	u5901
-  1786  01393E  EFA3  F09C         	goto	u5900
-  1787  013942                     u5901:
+  1785  01393A  EFA1  F09C         	goto	u6061
+  1786  01393E  EFA3  F09C         	goto	u6060
+  1787  013942                     u6061:
   1788  013942  EFB3  F09C         	goto	l955
-  1789  013946                     u5900:
+  1789  013946                     u6060:
   1790  013946  0412               	decf	(0+((c:0)+012h)),c,w
   1791  013948  1013               	iorwf (1+((c:0)+012h)),c,w
   1792                           
   1793  01394A  A4D8               	btfss	status,2
-  1794  01394C  EFAA  F09C         	goto	u5911
-  1795  013950  EFAC  F09C         	goto	u5910
-  1796  013954                     u5911:
+  1794  01394C  EFAA  F09C         	goto	u6071
+  1795  013950  EFAC  F09C         	goto	u6070
+  1796  013954                     u6071:
   1797  013954  EFB3  F09C         	goto	l955
-  1798  013958                     u5910:
+  1798  013958                     u6070:
   1799                           	line	573
   1800                           ;main.c: 573: LATA = 0b11111111;
   1801  013958  6889               	setf	((c:3977)),c	;volatile
@@ -1865,20 +1865,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1817  013968  1005               	iorwf (1+((c:0)+04h)),c,w
   1818                           
   1819  01396A  A4D8               	btfss	status,2
-  1820  01396C  EFBA  F09C         	goto	u5921
-  1821  013970  EFBC  F09C         	goto	u5920
-  1822  013974                     u5921:
+  1820  01396C  EFBA  F09C         	goto	u6081
+  1821  013970  EFBC  F09C         	goto	u6080
+  1822  013974                     u6081:
   1823  013974  EFCC  F09C         	goto	l957
-  1824  013978                     u5920:
+  1824  013978                     u6080:
   1825  013978  0414               	decf	(0+((c:0)+014h)),c,w
   1826  01397A  1015               	iorwf (1+((c:0)+014h)),c,w
   1827                           
   1828  01397C  A4D8               	btfss	status,2
-  1829  01397E  EFC3  F09C         	goto	u5931
-  1830  013982  EFC5  F09C         	goto	u5930
-  1831  013986                     u5931:
+  1829  01397E  EFC3  F09C         	goto	u6091
+  1830  013982  EFC5  F09C         	goto	u6090
+  1831  013986                     u6091:
   1832  013986  EFCC  F09C         	goto	l957
-  1833  01398A                     u5930:
+  1833  01398A                     u6090:
   1834                           	line	582
   1835                           ;main.c: 582: LATA = 0b11111111;
   1836  01398A  6889               	setf	((c:3977)),c	;volatile
@@ -1901,20 +1901,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1852  01399A  1005               	iorwf (1+((c:0)+04h)),c,w
   1853                           
   1854  01399C  A4D8               	btfss	status,2
-  1855  01399E  EFD3  F09C         	goto	u5941
-  1856  0139A2  EFD5  F09C         	goto	u5940
-  1857  0139A6                     u5941:
+  1855  01399E  EFD3  F09C         	goto	u6101
+  1856  0139A2  EFD5  F09C         	goto	u6100
+  1857  0139A6                     u6101:
   1858  0139A6  EFE5  F09C         	goto	l959
-  1859  0139AA                     u5940:
+  1859  0139AA                     u6100:
   1860  0139AA  0416               	decf	(0+((c:0)+016h)),c,w
   1861  0139AC  1017               	iorwf (1+((c:0)+016h)),c,w
   1862                           
   1863  0139AE  A4D8               	btfss	status,2
-  1864  0139B0  EFDC  F09C         	goto	u5951
-  1865  0139B4  EFDE  F09C         	goto	u5950
-  1866  0139B8                     u5951:
+  1864  0139B0  EFDC  F09C         	goto	u6111
+  1865  0139B4  EFDE  F09C         	goto	u6110
+  1866  0139B8                     u6111:
   1867  0139B8  EFE5  F09C         	goto	l959
-  1868  0139BC                     u5950:
+  1868  0139BC                     u6110:
   1869                           	line	591
   1870                           ;main.c: 591: LATA = 0b11111111;
   1871  0139BC  6889               	setf	((c:3977)),c	;volatile
@@ -1937,20 +1937,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1887  0139CC  1005               	iorwf (1+((c:0)+04h)),c,w
   1888                           
   1889  0139CE  A4D8               	btfss	status,2
-  1890  0139D0  EFEC  F09C         	goto	u5961
-  1891  0139D4  EFEE  F09C         	goto	u5960
-  1892  0139D8                     u5961:
+  1890  0139D0  EFEC  F09C         	goto	u6121
+  1891  0139D4  EFEE  F09C         	goto	u6120
+  1892  0139D8                     u6121:
   1893  0139D8  EFFE  F09C         	goto	l961
-  1894  0139DC                     u5960:
+  1894  0139DC                     u6120:
   1895  0139DC  0418               	decf	(0+((c:0)+018h)),c,w
   1896  0139DE  1019               	iorwf (1+((c:0)+018h)),c,w
   1897                           
   1898  0139E0  A4D8               	btfss	status,2
-  1899  0139E2  EFF5  F09C         	goto	u5971
-  1900  0139E6  EFF7  F09C         	goto	u5970
-  1901  0139EA                     u5971:
+  1899  0139E2  EFF5  F09C         	goto	u6131
+  1900  0139E6  EFF7  F09C         	goto	u6130
+  1901  0139EA                     u6131:
   1902  0139EA  EFFE  F09C         	goto	l961
-  1903  0139EE                     u5970:
+  1903  0139EE                     u6130:
   1904                           	line	600
   1905                           ;main.c: 600: LATA = 0b11111111;
   1906  0139EE  6889               	setf	((c:3977)),c	;volatile
@@ -1973,20 +1973,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1922  0139FE  1007               	iorwf (1+((c:0)+06h)),c,w
   1923                           
   1924  013A00  A4D8               	btfss	status,2
-  1925  013A02  EF05  F09D         	goto	u5981
-  1926  013A06  EF07  F09D         	goto	u5980
-  1927  013A0A                     u5981:
+  1925  013A02  EF05  F09D         	goto	u6141
+  1926  013A06  EF07  F09D         	goto	u6140
+  1927  013A0A                     u6141:
   1928  013A0A  EF18  F09D         	goto	l963
-  1929  013A0E                     u5980:
+  1929  013A0E                     u6140:
   1930  013A0E  040C               	decf	(0+((c:0)+0Ch)),c,w
   1931  013A10  100D               	iorwf (1+((c:0)+0Ch)),c,w
   1932                           
   1933  013A12  A4D8               	btfss	status,2
-  1934  013A14  EF0E  F09D         	goto	u5991
-  1935  013A18  EF10  F09D         	goto	u5990
-  1936  013A1C                     u5991:
+  1934  013A14  EF0E  F09D         	goto	u6151
+  1935  013A18  EF10  F09D         	goto	u6150
+  1936  013A1C                     u6151:
   1937  013A1C  EF18  F09D         	goto	l963
-  1938  013A20                     u5990:
+  1938  013A20                     u6150:
   1939                           	line	609
   1940                           ;main.c: 609: LATA = 0b11101111;
   1941  013A20  0EEF               	movlw	low(0EFh)
@@ -2010,20 +2010,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1958  013A32  1007               	iorwf (1+((c:0)+06h)),c,w
   1959                           
   1960  013A34  A4D8               	btfss	status,2
-  1961  013A36  EF1F  F09D         	goto	u6001
-  1962  013A3A  EF21  F09D         	goto	u6000
-  1963  013A3E                     u6001:
+  1961  013A36  EF1F  F09D         	goto	u6161
+  1962  013A3A  EF21  F09D         	goto	u6160
+  1963  013A3E                     u6161:
   1964  013A3E  EF32  F09D         	goto	l965
-  1965  013A42                     u6000:
+  1965  013A42                     u6160:
   1966  013A42  040E               	decf	(0+((c:0)+0Eh)),c,w
   1967  013A44  100F               	iorwf (1+((c:0)+0Eh)),c,w
   1968                           
   1969  013A46  A4D8               	btfss	status,2
-  1970  013A48  EF28  F09D         	goto	u6011
-  1971  013A4C  EF2A  F09D         	goto	u6010
-  1972  013A50                     u6011:
+  1970  013A48  EF28  F09D         	goto	u6171
+  1971  013A4C  EF2A  F09D         	goto	u6170
+  1972  013A50                     u6171:
   1973  013A50  EF32  F09D         	goto	l965
-  1974  013A54                     u6010:
+  1974  013A54                     u6170:
   1975                           	line	618
   1976                           ;main.c: 618: LATA = 0b10111111;
   1977  013A54  0EBF               	movlw	low(0BFh)
@@ -2047,20 +2047,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   1994  013A66  1007               	iorwf (1+((c:0)+06h)),c,w
   1995                           
   1996  013A68  A4D8               	btfss	status,2
-  1997  013A6A  EF39  F09D         	goto	u6021
-  1998  013A6E  EF3B  F09D         	goto	u6020
-  1999  013A72                     u6021:
+  1997  013A6A  EF39  F09D         	goto	u6181
+  1998  013A6E  EF3B  F09D         	goto	u6180
+  1999  013A72                     u6181:
   2000  013A72  EF4B  F09D         	goto	l967
-  2001  013A76                     u6020:
+  2001  013A76                     u6180:
   2002  013A76  0410               	decf	(0+((c:0)+010h)),c,w
   2003  013A78  1011               	iorwf (1+((c:0)+010h)),c,w
   2004                           
   2005  013A7A  A4D8               	btfss	status,2
-  2006  013A7C  EF42  F09D         	goto	u6031
-  2007  013A80  EF44  F09D         	goto	u6030
-  2008  013A84                     u6031:
+  2006  013A7C  EF42  F09D         	goto	u6191
+  2007  013A80  EF44  F09D         	goto	u6190
+  2008  013A84                     u6191:
   2009  013A84  EF4B  F09D         	goto	l967
-  2010  013A88                     u6030:
+  2010  013A88                     u6190:
   2011                           	line	627
   2012                           ;main.c: 627: LATA = 0b11111111;
   2013  013A88  6889               	setf	((c:3977)),c	;volatile
@@ -2083,20 +2083,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2029  013A98  1007               	iorwf (1+((c:0)+06h)),c,w
   2030                           
   2031  013A9A  A4D8               	btfss	status,2
-  2032  013A9C  EF52  F09D         	goto	u6041
-  2033  013AA0  EF54  F09D         	goto	u6040
-  2034  013AA4                     u6041:
+  2032  013A9C  EF52  F09D         	goto	u6201
+  2033  013AA0  EF54  F09D         	goto	u6200
+  2034  013AA4                     u6201:
   2035  013AA4  EF64  F09D         	goto	l969
-  2036  013AA8                     u6040:
+  2036  013AA8                     u6200:
   2037  013AA8  0412               	decf	(0+((c:0)+012h)),c,w
   2038  013AAA  1013               	iorwf (1+((c:0)+012h)),c,w
   2039                           
   2040  013AAC  A4D8               	btfss	status,2
-  2041  013AAE  EF5B  F09D         	goto	u6051
-  2042  013AB2  EF5D  F09D         	goto	u6050
-  2043  013AB6                     u6051:
+  2041  013AAE  EF5B  F09D         	goto	u6211
+  2042  013AB2  EF5D  F09D         	goto	u6210
+  2043  013AB6                     u6211:
   2044  013AB6  EF64  F09D         	goto	l969
-  2045  013ABA                     u6050:
+  2045  013ABA                     u6210:
   2046                           	line	636
   2047                           ;main.c: 636: LATA = 0b11111111;
   2048  013ABA  6889               	setf	((c:3977)),c	;volatile
@@ -2119,20 +2119,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2064  013ACA  1007               	iorwf (1+((c:0)+06h)),c,w
   2065                           
   2066  013ACC  A4D8               	btfss	status,2
-  2067  013ACE  EF6B  F09D         	goto	u6061
-  2068  013AD2  EF6D  F09D         	goto	u6060
-  2069  013AD6                     u6061:
+  2067  013ACE  EF6B  F09D         	goto	u6221
+  2068  013AD2  EF6D  F09D         	goto	u6220
+  2069  013AD6                     u6221:
   2070  013AD6  EF7D  F09D         	goto	l971
-  2071  013ADA                     u6060:
+  2071  013ADA                     u6220:
   2072  013ADA  0414               	decf	(0+((c:0)+014h)),c,w
   2073  013ADC  1015               	iorwf (1+((c:0)+014h)),c,w
   2074                           
   2075  013ADE  A4D8               	btfss	status,2
-  2076  013AE0  EF74  F09D         	goto	u6071
-  2077  013AE4  EF76  F09D         	goto	u6070
-  2078  013AE8                     u6071:
+  2076  013AE0  EF74  F09D         	goto	u6231
+  2077  013AE4  EF76  F09D         	goto	u6230
+  2078  013AE8                     u6231:
   2079  013AE8  EF7D  F09D         	goto	l971
-  2080  013AEC                     u6070:
+  2080  013AEC                     u6230:
   2081                           	line	645
   2082                           ;main.c: 645: LATA = 0b11111111;
   2083  013AEC  6889               	setf	((c:3977)),c	;volatile
@@ -2155,20 +2155,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2099  013AFC  1007               	iorwf (1+((c:0)+06h)),c,w
   2100                           
   2101  013AFE  A4D8               	btfss	status,2
-  2102  013B00  EF84  F09D         	goto	u6081
-  2103  013B04  EF86  F09D         	goto	u6080
-  2104  013B08                     u6081:
+  2102  013B00  EF84  F09D         	goto	u6241
+  2103  013B04  EF86  F09D         	goto	u6240
+  2104  013B08                     u6241:
   2105  013B08  EF96  F09D         	goto	l973
-  2106  013B0C                     u6080:
+  2106  013B0C                     u6240:
   2107  013B0C  0416               	decf	(0+((c:0)+016h)),c,w
   2108  013B0E  1017               	iorwf (1+((c:0)+016h)),c,w
   2109                           
   2110  013B10  A4D8               	btfss	status,2
-  2111  013B12  EF8D  F09D         	goto	u6091
-  2112  013B16  EF8F  F09D         	goto	u6090
-  2113  013B1A                     u6091:
+  2111  013B12  EF8D  F09D         	goto	u6251
+  2112  013B16  EF8F  F09D         	goto	u6250
+  2113  013B1A                     u6251:
   2114  013B1A  EF96  F09D         	goto	l973
-  2115  013B1E                     u6090:
+  2115  013B1E                     u6250:
   2116                           	line	654
   2117                           ;main.c: 654: LATA = 0b11111111;
   2118  013B1E  6889               	setf	((c:3977)),c	;volatile
@@ -2191,20 +2191,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2134  013B2E  1007               	iorwf (1+((c:0)+06h)),c,w
   2135                           
   2136  013B30  A4D8               	btfss	status,2
-  2137  013B32  EF9D  F09D         	goto	u6101
-  2138  013B36  EF9F  F09D         	goto	u6100
-  2139  013B3A                     u6101:
+  2137  013B32  EF9D  F09D         	goto	u6261
+  2138  013B36  EF9F  F09D         	goto	u6260
+  2139  013B3A                     u6261:
   2140  013B3A  EFAF  F09D         	goto	l975
-  2141  013B3E                     u6100:
+  2141  013B3E                     u6260:
   2142  013B3E  0418               	decf	(0+((c:0)+018h)),c,w
   2143  013B40  1019               	iorwf (1+((c:0)+018h)),c,w
   2144                           
   2145  013B42  A4D8               	btfss	status,2
-  2146  013B44  EFA6  F09D         	goto	u6111
-  2147  013B48  EFA8  F09D         	goto	u6110
-  2148  013B4C                     u6111:
+  2146  013B44  EFA6  F09D         	goto	u6271
+  2147  013B48  EFA8  F09D         	goto	u6270
+  2148  013B4C                     u6271:
   2149  013B4C  EFAF  F09D         	goto	l975
-  2150  013B50                     u6110:
+  2150  013B50                     u6270:
   2151                           	line	663
   2152                           ;main.c: 663: LATA = 0b11111111;
   2153  013B50  6889               	setf	((c:3977)),c	;volatile
@@ -2229,29 +2229,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   2171  013B60  1001               	iorwf ((c:0+1)),c,w
   2172                           
   2173  013B62  A4D8               	btfss	status,2
-  2174  013B64  EFB6  F09D         	goto	u6121
-  2175  013B68  EFB8  F09D         	goto	u6120
-  2176  013B6C                     u6121:
+  2174  013B64  EFB6  F09D         	goto	u6281
+  2175  013B68  EFB8  F09D         	goto	u6280
+  2176  013B6C                     u6281:
   2177  013B6C  EFD2  F09D         	goto	l977
-  2178  013B70                     u6120:
+  2178  013B70                     u6280:
   2179  013B70  0402               	decf	(0+((c:0)+02h)),c,w
   2180  013B72  1003               	iorwf (1+((c:0)+02h)),c,w
   2181                           
   2182  013B74  A4D8               	btfss	status,2
-  2183  013B76  EFBF  F09D         	goto	u6131
-  2184  013B7A  EFC1  F09D         	goto	u6130
-  2185  013B7E                     u6131:
+  2183  013B76  EFBF  F09D         	goto	u6291
+  2184  013B7A  EFC1  F09D         	goto	u6290
+  2185  013B7E                     u6291:
   2186  013B7E  EFD2  F09D         	goto	l977
-  2187  013B82                     u6130:
+  2187  013B82                     u6290:
   2188  013B82  040C               	decf	(0+((c:0)+0Ch)),c,w
   2189  013B84  100D               	iorwf (1+((c:0)+0Ch)),c,w
   2190                           
   2191  013B86  A4D8               	btfss	status,2
-  2192  013B88  EFC8  F09D         	goto	u6141
-  2193  013B8C  EFCA  F09D         	goto	u6140
-  2194  013B90                     u6141:
+  2192  013B88  EFC8  F09D         	goto	u6301
+  2193  013B8C  EFCA  F09D         	goto	u6300
+  2194  013B90                     u6301:
   2195  013B90  EFD2  F09D         	goto	l977
-  2196  013B94                     u6140:
+  2196  013B94                     u6300:
   2197                           	line	674
   2198                           ;main.c: 674: LATA = 0b11101111;
   2199  013B94  0EEF               	movlw	low(0EFh)
@@ -2275,29 +2275,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   2216  013BA6  1001               	iorwf ((c:0+1)),c,w
   2217                           
   2218  013BA8  A4D8               	btfss	status,2
-  2219  013BAA  EFD9  F09D         	goto	u6151
-  2220  013BAE  EFDB  F09D         	goto	u6150
-  2221  013BB2                     u6151:
+  2219  013BAA  EFD9  F09D         	goto	u6311
+  2220  013BAE  EFDB  F09D         	goto	u6310
+  2221  013BB2                     u6311:
   2222  013BB2  EFF5  F09D         	goto	l979
-  2223  013BB6                     u6150:
+  2223  013BB6                     u6310:
   2224  013BB6  0402               	decf	(0+((c:0)+02h)),c,w
   2225  013BB8  1003               	iorwf (1+((c:0)+02h)),c,w
   2226                           
   2227  013BBA  A4D8               	btfss	status,2
-  2228  013BBC  EFE2  F09D         	goto	u6161
-  2229  013BC0  EFE4  F09D         	goto	u6160
-  2230  013BC4                     u6161:
+  2228  013BBC  EFE2  F09D         	goto	u6321
+  2229  013BC0  EFE4  F09D         	goto	u6320
+  2230  013BC4                     u6321:
   2231  013BC4  EFF5  F09D         	goto	l979
-  2232  013BC8                     u6160:
+  2232  013BC8                     u6320:
   2233  013BC8  040E               	decf	(0+((c:0)+0Eh)),c,w
   2234  013BCA  100F               	iorwf (1+((c:0)+0Eh)),c,w
   2235                           
   2236  013BCC  A4D8               	btfss	status,2
-  2237  013BCE  EFEB  F09D         	goto	u6171
-  2238  013BD2  EFED  F09D         	goto	u6170
-  2239  013BD6                     u6171:
+  2237  013BCE  EFEB  F09D         	goto	u6331
+  2238  013BD2  EFED  F09D         	goto	u6330
+  2239  013BD6                     u6331:
   2240  013BD6  EFF5  F09D         	goto	l979
-  2241  013BDA                     u6170:
+  2241  013BDA                     u6330:
   2242                           	line	683
   2243                           ;main.c: 683: LATA = 0b10111111;
   2244  013BDA  0EBF               	movlw	low(0BFh)
@@ -2321,29 +2321,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   2261  013BEC  1001               	iorwf ((c:0+1)),c,w
   2262                           
   2263  013BEE  A4D8               	btfss	status,2
-  2264  013BF0  EFFC  F09D         	goto	u6181
-  2265  013BF4  EFFE  F09D         	goto	u6180
-  2266  013BF8                     u6181:
+  2264  013BF0  EFFC  F09D         	goto	u6341
+  2265  013BF4  EFFE  F09D         	goto	u6340
+  2266  013BF8                     u6341:
   2267  013BF8  EF17  F09E         	goto	l981
-  2268  013BFC                     u6180:
+  2268  013BFC                     u6340:
   2269  013BFC  0402               	decf	(0+((c:0)+02h)),c,w
   2270  013BFE  1003               	iorwf (1+((c:0)+02h)),c,w
   2271                           
   2272  013C00  A4D8               	btfss	status,2
-  2273  013C02  EF05  F09E         	goto	u6191
-  2274  013C06  EF07  F09E         	goto	u6190
-  2275  013C0A                     u6191:
+  2273  013C02  EF05  F09E         	goto	u6351
+  2274  013C06  EF07  F09E         	goto	u6350
+  2275  013C0A                     u6351:
   2276  013C0A  EF17  F09E         	goto	l981
-  2277  013C0E                     u6190:
+  2277  013C0E                     u6350:
   2278  013C0E  0410               	decf	(0+((c:0)+010h)),c,w
   2279  013C10  1011               	iorwf (1+((c:0)+010h)),c,w
   2280                           
   2281  013C12  A4D8               	btfss	status,2
-  2282  013C14  EF0E  F09E         	goto	u6201
-  2283  013C18  EF10  F09E         	goto	u6200
-  2284  013C1C                     u6201:
+  2282  013C14  EF0E  F09E         	goto	u6361
+  2283  013C18  EF10  F09E         	goto	u6360
+  2284  013C1C                     u6361:
   2285  013C1C  EF17  F09E         	goto	l981
-  2286  013C20                     u6200:
+  2286  013C20                     u6360:
   2287                           	line	692
   2288                           ;main.c: 692: LATA = 0b11111111;
   2289  013C20  6889               	setf	((c:3977)),c	;volatile
@@ -2366,29 +2366,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   2305  013C30  1001               	iorwf ((c:0+1)),c,w
   2306                           
   2307  013C32  A4D8               	btfss	status,2
-  2308  013C34  EF1E  F09E         	goto	u6211
-  2309  013C38  EF20  F09E         	goto	u6210
-  2310  013C3C                     u6211:
+  2308  013C34  EF1E  F09E         	goto	u6371
+  2309  013C38  EF20  F09E         	goto	u6370
+  2310  013C3C                     u6371:
   2311  013C3C  EF39  F09E         	goto	l983
-  2312  013C40                     u6210:
+  2312  013C40                     u6370:
   2313  013C40  0402               	decf	(0+((c:0)+02h)),c,w
   2314  013C42  1003               	iorwf (1+((c:0)+02h)),c,w
   2315                           
   2316  013C44  A4D8               	btfss	status,2
-  2317  013C46  EF27  F09E         	goto	u6221
-  2318  013C4A  EF29  F09E         	goto	u6220
-  2319  013C4E                     u6221:
+  2317  013C46  EF27  F09E         	goto	u6381
+  2318  013C4A  EF29  F09E         	goto	u6380
+  2319  013C4E                     u6381:
   2320  013C4E  EF39  F09E         	goto	l983
-  2321  013C52                     u6220:
+  2321  013C52                     u6380:
   2322  013C52  0412               	decf	(0+((c:0)+012h)),c,w
   2323  013C54  1013               	iorwf (1+((c:0)+012h)),c,w
   2324                           
   2325  013C56  A4D8               	btfss	status,2
-  2326  013C58  EF30  F09E         	goto	u6231
-  2327  013C5C  EF32  F09E         	goto	u6230
-  2328  013C60                     u6231:
+  2326  013C58  EF30  F09E         	goto	u6391
+  2327  013C5C  EF32  F09E         	goto	u6390
+  2328  013C60                     u6391:
   2329  013C60  EF39  F09E         	goto	l983
-  2330  013C64                     u6230:
+  2330  013C64                     u6390:
   2331                           	line	701
   2332                           ;main.c: 701: LATA = 0b11111111;
   2333  013C64  6889               	setf	((c:3977)),c	;volatile
@@ -2411,29 +2411,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   2349  013C74  1001               	iorwf ((c:0+1)),c,w
   2350                           
   2351  013C76  A4D8               	btfss	status,2
-  2352  013C78  EF40  F09E         	goto	u6241
-  2353  013C7C  EF42  F09E         	goto	u6240
-  2354  013C80                     u6241:
+  2352  013C78  EF40  F09E         	goto	u6401
+  2353  013C7C  EF42  F09E         	goto	u6400
+  2354  013C80                     u6401:
   2355  013C80  EF5B  F09E         	goto	l985
-  2356  013C84                     u6240:
+  2356  013C84                     u6400:
   2357  013C84  0402               	decf	(0+((c:0)+02h)),c,w
   2358  013C86  1003               	iorwf (1+((c:0)+02h)),c,w
   2359                           
   2360  013C88  A4D8               	btfss	status,2
-  2361  013C8A  EF49  F09E         	goto	u6251
-  2362  013C8E  EF4B  F09E         	goto	u6250
-  2363  013C92                     u6251:
+  2361  013C8A  EF49  F09E         	goto	u6411
+  2362  013C8E  EF4B  F09E         	goto	u6410
+  2363  013C92                     u6411:
   2364  013C92  EF5B  F09E         	goto	l985
-  2365  013C96                     u6250:
+  2365  013C96                     u6410:
   2366  013C96  0414               	decf	(0+((c:0)+014h)),c,w
   2367  013C98  1015               	iorwf (1+((c:0)+014h)),c,w
   2368                           
   2369  013C9A  A4D8               	btfss	status,2
-  2370  013C9C  EF52  F09E         	goto	u6261
-  2371  013CA0  EF54  F09E         	goto	u6260
-  2372  013CA4                     u6261:
+  2370  013C9C  EF52  F09E         	goto	u6421
+  2371  013CA0  EF54  F09E         	goto	u6420
+  2372  013CA4                     u6421:
   2373  013CA4  EF5B  F09E         	goto	l985
-  2374  013CA8                     u6260:
+  2374  013CA8                     u6420:
   2375                           	line	709
   2376                           ;main.c: 709: LATA = 0b11111111;
   2377  013CA8  6889               	setf	((c:3977)),c	;volatile
@@ -2456,29 +2456,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   2393  013CB8  1001               	iorwf ((c:0+1)),c,w
   2394                           
   2395  013CBA  A4D8               	btfss	status,2
-  2396  013CBC  EF62  F09E         	goto	u6271
-  2397  013CC0  EF64  F09E         	goto	u6270
-  2398  013CC4                     u6271:
+  2396  013CBC  EF62  F09E         	goto	u6431
+  2397  013CC0  EF64  F09E         	goto	u6430
+  2398  013CC4                     u6431:
   2399  013CC4  EF7D  F09E         	goto	l987
-  2400  013CC8                     u6270:
+  2400  013CC8                     u6430:
   2401  013CC8  0402               	decf	(0+((c:0)+02h)),c,w
   2402  013CCA  1003               	iorwf (1+((c:0)+02h)),c,w
   2403                           
   2404  013CCC  A4D8               	btfss	status,2
-  2405  013CCE  EF6B  F09E         	goto	u6281
-  2406  013CD2  EF6D  F09E         	goto	u6280
-  2407  013CD6                     u6281:
+  2405  013CCE  EF6B  F09E         	goto	u6441
+  2406  013CD2  EF6D  F09E         	goto	u6440
+  2407  013CD6                     u6441:
   2408  013CD6  EF7D  F09E         	goto	l987
-  2409  013CDA                     u6280:
+  2409  013CDA                     u6440:
   2410  013CDA  0416               	decf	(0+((c:0)+016h)),c,w
   2411  013CDC  1017               	iorwf (1+((c:0)+016h)),c,w
   2412                           
   2413  013CDE  A4D8               	btfss	status,2
-  2414  013CE0  EF74  F09E         	goto	u6291
-  2415  013CE4  EF76  F09E         	goto	u6290
-  2416  013CE8                     u6291:
+  2414  013CE0  EF74  F09E         	goto	u6451
+  2415  013CE4  EF76  F09E         	goto	u6450
+  2416  013CE8                     u6451:
   2417  013CE8  EF7D  F09E         	goto	l987
-  2418  013CEC                     u6290:
+  2418  013CEC                     u6450:
   2419                           	line	717
   2420                           ;main.c: 717: LATA = 0b11111111;
   2421  013CEC  6889               	setf	((c:3977)),c	;volatile
@@ -2501,29 +2501,29 @@ HI-TECH Software Omniscient Code Generator build 8870
   2437  013CFC  1001               	iorwf ((c:0+1)),c,w
   2438                           
   2439  013CFE  A4D8               	btfss	status,2
-  2440  013D00  EF84  F09E         	goto	u6301
-  2441  013D04  EF86  F09E         	goto	u6300
-  2442  013D08                     u6301:
+  2440  013D00  EF84  F09E         	goto	u6461
+  2441  013D04  EF86  F09E         	goto	u6460
+  2442  013D08                     u6461:
   2443  013D08  EF9F  F09E         	goto	l989
-  2444  013D0C                     u6300:
+  2444  013D0C                     u6460:
   2445  013D0C  0402               	decf	(0+((c:0)+02h)),c,w
   2446  013D0E  1003               	iorwf (1+((c:0)+02h)),c,w
   2447                           
   2448  013D10  A4D8               	btfss	status,2
-  2449  013D12  EF8D  F09E         	goto	u6311
-  2450  013D16  EF8F  F09E         	goto	u6310
-  2451  013D1A                     u6311:
+  2449  013D12  EF8D  F09E         	goto	u6471
+  2450  013D16  EF8F  F09E         	goto	u6470
+  2451  013D1A                     u6471:
   2452  013D1A  EF9F  F09E         	goto	l989
-  2453  013D1E                     u6310:
+  2453  013D1E                     u6470:
   2454  013D1E  0418               	decf	(0+((c:0)+018h)),c,w
   2455  013D20  1019               	iorwf (1+((c:0)+018h)),c,w
   2456                           
   2457  013D22  A4D8               	btfss	status,2
-  2458  013D24  EF96  F09E         	goto	u6321
-  2459  013D28  EF98  F09E         	goto	u6320
-  2460  013D2C                     u6321:
+  2458  013D24  EF96  F09E         	goto	u6481
+  2459  013D28  EF98  F09E         	goto	u6480
+  2460  013D2C                     u6481:
   2461  013D2C  EF9F  F09E         	goto	l989
-  2462  013D30                     u6320:
+  2462  013D30                     u6480:
   2463                           	line	725
   2464                           ;main.c: 725: LATA = 0b11111111;
   2465  013D30  6889               	setf	((c:3977)),c	;volatile
@@ -2546,20 +2546,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2481  013D40  1001               	iorwf ((c:0+1)),c,w
   2482                           
   2483  013D42  A4D8               	btfss	status,2
-  2484  013D44  EFA6  F09E         	goto	u6331
-  2485  013D48  EFA8  F09E         	goto	u6330
-  2486  013D4C                     u6331:
+  2484  013D44  EFA6  F09E         	goto	u6491
+  2485  013D48  EFA8  F09E         	goto	u6490
+  2486  013D4C                     u6491:
   2487  013D4C  EFB9  F09E         	goto	l991
-  2488  013D50                     u6330:
+  2488  013D50                     u6490:
   2489  013D50  040C               	decf	(0+((c:0)+0Ch)),c,w
   2490  013D52  100D               	iorwf (1+((c:0)+0Ch)),c,w
   2491                           
   2492  013D54  A4D8               	btfss	status,2
-  2493  013D56  EFAF  F09E         	goto	u6341
-  2494  013D5A  EFB1  F09E         	goto	u6340
-  2495  013D5E                     u6341:
+  2493  013D56  EFAF  F09E         	goto	u6501
+  2494  013D5A  EFB1  F09E         	goto	u6500
+  2495  013D5E                     u6501:
   2496  013D5E  EFB9  F09E         	goto	l991
-  2497  013D62                     u6340:
+  2497  013D62                     u6500:
   2498                           	line	734
   2499                           ;main.c: 734: LATA = 0b11101111;
   2500  013D62  0EEF               	movlw	low(0EFh)
@@ -2583,20 +2583,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2517  013D74  1001               	iorwf ((c:0+1)),c,w
   2518                           
   2519  013D76  A4D8               	btfss	status,2
-  2520  013D78  EFC0  F09E         	goto	u6351
-  2521  013D7C  EFC2  F09E         	goto	u6350
-  2522  013D80                     u6351:
+  2520  013D78  EFC0  F09E         	goto	u6511
+  2521  013D7C  EFC2  F09E         	goto	u6510
+  2522  013D80                     u6511:
   2523  013D80  EFD3  F09E         	goto	l993
-  2524  013D84                     u6350:
+  2524  013D84                     u6510:
   2525  013D84  040E               	decf	(0+((c:0)+0Eh)),c,w
   2526  013D86  100F               	iorwf (1+((c:0)+0Eh)),c,w
   2527                           
   2528  013D88  A4D8               	btfss	status,2
-  2529  013D8A  EFC9  F09E         	goto	u6361
-  2530  013D8E  EFCB  F09E         	goto	u6360
-  2531  013D92                     u6361:
+  2529  013D8A  EFC9  F09E         	goto	u6521
+  2530  013D8E  EFCB  F09E         	goto	u6520
+  2531  013D92                     u6521:
   2532  013D92  EFD3  F09E         	goto	l993
-  2533  013D96                     u6360:
+  2533  013D96                     u6520:
   2534                           	line	743
   2535                           ;main.c: 743: LATA = 0b10111111;
   2536  013D96  0EBF               	movlw	low(0BFh)
@@ -2620,20 +2620,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2553  013DA8  1001               	iorwf ((c:0+1)),c,w
   2554                           
   2555  013DAA  A4D8               	btfss	status,2
-  2556  013DAC  EFDA  F09E         	goto	u6371
-  2557  013DB0  EFDC  F09E         	goto	u6370
-  2558  013DB4                     u6371:
+  2556  013DAC  EFDA  F09E         	goto	u6531
+  2557  013DB0  EFDC  F09E         	goto	u6530
+  2558  013DB4                     u6531:
   2559  013DB4  EFEC  F09E         	goto	l995
-  2560  013DB8                     u6370:
+  2560  013DB8                     u6530:
   2561  013DB8  0410               	decf	(0+((c:0)+010h)),c,w
   2562  013DBA  1011               	iorwf (1+((c:0)+010h)),c,w
   2563                           
   2564  013DBC  A4D8               	btfss	status,2
-  2565  013DBE  EFE3  F09E         	goto	u6381
-  2566  013DC2  EFE5  F09E         	goto	u6380
-  2567  013DC6                     u6381:
+  2565  013DBE  EFE3  F09E         	goto	u6541
+  2566  013DC2  EFE5  F09E         	goto	u6540
+  2567  013DC6                     u6541:
   2568  013DC6  EFEC  F09E         	goto	l995
-  2569  013DCA                     u6380:
+  2569  013DCA                     u6540:
   2570                           	line	752
   2571                           ;main.c: 752: LATA = 0b11111111;
   2572  013DCA  6889               	setf	((c:3977)),c	;volatile
@@ -2656,20 +2656,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2588  013DDA  1001               	iorwf ((c:0+1)),c,w
   2589                           
   2590  013DDC  A4D8               	btfss	status,2
-  2591  013DDE  EFF3  F09E         	goto	u6391
-  2592  013DE2  EFF5  F09E         	goto	u6390
-  2593  013DE6                     u6391:
+  2591  013DDE  EFF3  F09E         	goto	u6551
+  2592  013DE2  EFF5  F09E         	goto	u6550
+  2593  013DE6                     u6551:
   2594  013DE6  EF05  F09F         	goto	l997
-  2595  013DEA                     u6390:
+  2595  013DEA                     u6550:
   2596  013DEA  0412               	decf	(0+((c:0)+012h)),c,w
   2597  013DEC  1013               	iorwf (1+((c:0)+012h)),c,w
   2598                           
   2599  013DEE  A4D8               	btfss	status,2
-  2600  013DF0  EFFC  F09E         	goto	u6401
-  2601  013DF4  EFFE  F09E         	goto	u6400
-  2602  013DF8                     u6401:
+  2600  013DF0  EFFC  F09E         	goto	u6561
+  2601  013DF4  EFFE  F09E         	goto	u6560
+  2602  013DF8                     u6561:
   2603  013DF8  EF05  F09F         	goto	l997
-  2604  013DFC                     u6400:
+  2604  013DFC                     u6560:
   2605                           	line	761
   2606                           ;main.c: 761: LATA = 0b11111111;
   2607  013DFC  6889               	setf	((c:3977)),c	;volatile
@@ -2692,20 +2692,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2623  013E0C  1001               	iorwf ((c:0+1)),c,w
   2624                           
   2625  013E0E  A4D8               	btfss	status,2
-  2626  013E10  EF0C  F09F         	goto	u6411
-  2627  013E14  EF0E  F09F         	goto	u6410
-  2628  013E18                     u6411:
+  2626  013E10  EF0C  F09F         	goto	u6571
+  2627  013E14  EF0E  F09F         	goto	u6570
+  2628  013E18                     u6571:
   2629  013E18  EF1E  F09F         	goto	l999
-  2630  013E1C                     u6410:
+  2630  013E1C                     u6570:
   2631  013E1C  0414               	decf	(0+((c:0)+014h)),c,w
   2632  013E1E  1015               	iorwf (1+((c:0)+014h)),c,w
   2633                           
   2634  013E20  A4D8               	btfss	status,2
-  2635  013E22  EF15  F09F         	goto	u6421
-  2636  013E26  EF17  F09F         	goto	u6420
-  2637  013E2A                     u6421:
+  2635  013E22  EF15  F09F         	goto	u6581
+  2636  013E26  EF17  F09F         	goto	u6580
+  2637  013E2A                     u6581:
   2638  013E2A  EF1E  F09F         	goto	l999
-  2639  013E2E                     u6420:
+  2639  013E2E                     u6580:
   2640                           	line	770
   2641                           ;main.c: 770: LATA = 0b11111111;
   2642  013E2E  6889               	setf	((c:3977)),c	;volatile
@@ -2728,20 +2728,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2658  013E3E  1001               	iorwf ((c:0+1)),c,w
   2659                           
   2660  013E40  A4D8               	btfss	status,2
-  2661  013E42  EF25  F09F         	goto	u6431
-  2662  013E46  EF27  F09F         	goto	u6430
-  2663  013E4A                     u6431:
+  2661  013E42  EF25  F09F         	goto	u6591
+  2662  013E46  EF27  F09F         	goto	u6590
+  2663  013E4A                     u6591:
   2664  013E4A  EF37  F09F         	goto	l1001
-  2665  013E4E                     u6430:
+  2665  013E4E                     u6590:
   2666  013E4E  0416               	decf	(0+((c:0)+016h)),c,w
   2667  013E50  1017               	iorwf (1+((c:0)+016h)),c,w
   2668                           
   2669  013E52  A4D8               	btfss	status,2
-  2670  013E54  EF2E  F09F         	goto	u6441
-  2671  013E58  EF30  F09F         	goto	u6440
-  2672  013E5C                     u6441:
+  2670  013E54  EF2E  F09F         	goto	u6601
+  2671  013E58  EF30  F09F         	goto	u6600
+  2672  013E5C                     u6601:
   2673  013E5C  EF37  F09F         	goto	l1001
-  2674  013E60                     u6440:
+  2674  013E60                     u6600:
   2675                           	line	779
   2676                           ;main.c: 779: LATA = 0b11111111;
   2677  013E60  6889               	setf	((c:3977)),c	;volatile
@@ -2764,20 +2764,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2693  013E70  1001               	iorwf ((c:0+1)),c,w
   2694                           
   2695  013E72  A4D8               	btfss	status,2
-  2696  013E74  EF3E  F09F         	goto	u6451
-  2697  013E78  EF40  F09F         	goto	u6450
-  2698  013E7C                     u6451:
+  2696  013E74  EF3E  F09F         	goto	u6611
+  2697  013E78  EF40  F09F         	goto	u6610
+  2698  013E7C                     u6611:
   2699  013E7C  EF50  F09F         	goto	l1003
-  2700  013E80                     u6450:
+  2700  013E80                     u6610:
   2701  013E80  0418               	decf	(0+((c:0)+018h)),c,w
   2702  013E82  1019               	iorwf (1+((c:0)+018h)),c,w
   2703                           
   2704  013E84  A4D8               	btfss	status,2
-  2705  013E86  EF47  F09F         	goto	u6461
-  2706  013E8A  EF49  F09F         	goto	u6460
-  2707  013E8E                     u6461:
+  2705  013E86  EF47  F09F         	goto	u6621
+  2706  013E8A  EF49  F09F         	goto	u6620
+  2707  013E8E                     u6621:
   2708  013E8E  EF50  F09F         	goto	l1003
-  2709  013E92                     u6460:
+  2709  013E92                     u6620:
   2710                           	line	788
   2711                           ;main.c: 788: LATA = 0b11111111;
   2712  013E92  6889               	setf	((c:3977)),c	;volatile
@@ -2800,20 +2800,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2728  013EA2  1003               	iorwf (1+((c:0)+02h)),c,w
   2729                           
   2730  013EA4  A4D8               	btfss	status,2
-  2731  013EA6  EF57  F09F         	goto	u6471
-  2732  013EAA  EF59  F09F         	goto	u6470
-  2733  013EAE                     u6471:
+  2731  013EA6  EF57  F09F         	goto	u6631
+  2732  013EAA  EF59  F09F         	goto	u6630
+  2733  013EAE                     u6631:
   2734  013EAE  EF6A  F09F         	goto	l1005
-  2735  013EB2                     u6470:
+  2735  013EB2                     u6630:
   2736  013EB2  040C               	decf	(0+((c:0)+0Ch)),c,w
   2737  013EB4  100D               	iorwf (1+((c:0)+0Ch)),c,w
   2738                           
   2739  013EB6  A4D8               	btfss	status,2
-  2740  013EB8  EF60  F09F         	goto	u6481
-  2741  013EBC  EF62  F09F         	goto	u6480
-  2742  013EC0                     u6481:
+  2740  013EB8  EF60  F09F         	goto	u6641
+  2741  013EBC  EF62  F09F         	goto	u6640
+  2742  013EC0                     u6641:
   2743  013EC0  EF6A  F09F         	goto	l1005
-  2744  013EC4                     u6480:
+  2744  013EC4                     u6640:
   2745                           	line	797
   2746                           ;main.c: 797: LATA = 0b11101111;
   2747  013EC4  0EEF               	movlw	low(0EFh)
@@ -2837,20 +2837,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2764  013ED6  1003               	iorwf (1+((c:0)+02h)),c,w
   2765                           
   2766  013ED8  A4D8               	btfss	status,2
-  2767  013EDA  EF71  F09F         	goto	u6491
-  2768  013EDE  EF73  F09F         	goto	u6490
-  2769  013EE2                     u6491:
+  2767  013EDA  EF71  F09F         	goto	u6651
+  2768  013EDE  EF73  F09F         	goto	u6650
+  2769  013EE2                     u6651:
   2770  013EE2  EF84  F09F         	goto	l1007
-  2771  013EE6                     u6490:
+  2771  013EE6                     u6650:
   2772  013EE6  040E               	decf	(0+((c:0)+0Eh)),c,w
   2773  013EE8  100F               	iorwf (1+((c:0)+0Eh)),c,w
   2774                           
   2775  013EEA  A4D8               	btfss	status,2
-  2776  013EEC  EF7A  F09F         	goto	u6501
-  2777  013EF0  EF7C  F09F         	goto	u6500
-  2778  013EF4                     u6501:
+  2776  013EEC  EF7A  F09F         	goto	u6661
+  2777  013EF0  EF7C  F09F         	goto	u6660
+  2778  013EF4                     u6661:
   2779  013EF4  EF84  F09F         	goto	l1007
-  2780  013EF8                     u6500:
+  2780  013EF8                     u6660:
   2781                           	line	806
   2782                           ;main.c: 806: LATA = 0b10111111;
   2783  013EF8  0EBF               	movlw	low(0BFh)
@@ -2874,20 +2874,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2800  013F0A  1003               	iorwf (1+((c:0)+02h)),c,w
   2801                           
   2802  013F0C  A4D8               	btfss	status,2
-  2803  013F0E  EF8B  F09F         	goto	u6511
-  2804  013F12  EF8D  F09F         	goto	u6510
-  2805  013F16                     u6511:
+  2803  013F0E  EF8B  F09F         	goto	u6671
+  2804  013F12  EF8D  F09F         	goto	u6670
+  2805  013F16                     u6671:
   2806  013F16  EF9D  F09F         	goto	l1009
-  2807  013F1A                     u6510:
+  2807  013F1A                     u6670:
   2808  013F1A  0410               	decf	(0+((c:0)+010h)),c,w
   2809  013F1C  1011               	iorwf (1+((c:0)+010h)),c,w
   2810                           
   2811  013F1E  A4D8               	btfss	status,2
-  2812  013F20  EF94  F09F         	goto	u6521
-  2813  013F24  EF96  F09F         	goto	u6520
-  2814  013F28                     u6521:
+  2812  013F20  EF94  F09F         	goto	u6681
+  2813  013F24  EF96  F09F         	goto	u6680
+  2814  013F28                     u6681:
   2815  013F28  EF9D  F09F         	goto	l1009
-  2816  013F2C                     u6520:
+  2816  013F2C                     u6680:
   2817                           	line	815
   2818                           ;main.c: 815: LATA = 0b11111111;
   2819  013F2C  6889               	setf	((c:3977)),c	;volatile
@@ -2910,20 +2910,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2835  013F3C  1003               	iorwf (1+((c:0)+02h)),c,w
   2836                           
   2837  013F3E  A4D8               	btfss	status,2
-  2838  013F40  EFA4  F09F         	goto	u6531
-  2839  013F44  EFA6  F09F         	goto	u6530
-  2840  013F48                     u6531:
+  2838  013F40  EFA4  F09F         	goto	u6691
+  2839  013F44  EFA6  F09F         	goto	u6690
+  2840  013F48                     u6691:
   2841  013F48  EFB6  F09F         	goto	l1011
-  2842  013F4C                     u6530:
+  2842  013F4C                     u6690:
   2843  013F4C  0412               	decf	(0+((c:0)+012h)),c,w
   2844  013F4E  1013               	iorwf (1+((c:0)+012h)),c,w
   2845                           
   2846  013F50  A4D8               	btfss	status,2
-  2847  013F52  EFAD  F09F         	goto	u6541
-  2848  013F56  EFAF  F09F         	goto	u6540
-  2849  013F5A                     u6541:
+  2847  013F52  EFAD  F09F         	goto	u6701
+  2848  013F56  EFAF  F09F         	goto	u6700
+  2849  013F5A                     u6701:
   2850  013F5A  EFB6  F09F         	goto	l1011
-  2851  013F5E                     u6540:
+  2851  013F5E                     u6700:
   2852                           	line	824
   2853                           ;main.c: 824: LATA = 0b11111111;
   2854  013F5E  6889               	setf	((c:3977)),c	;volatile
@@ -2946,20 +2946,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2870  013F6E  1003               	iorwf (1+((c:0)+02h)),c,w
   2871                           
   2872  013F70  A4D8               	btfss	status,2
-  2873  013F72  EFBD  F09F         	goto	u6551
-  2874  013F76  EFBF  F09F         	goto	u6550
-  2875  013F7A                     u6551:
+  2873  013F72  EFBD  F09F         	goto	u6711
+  2874  013F76  EFBF  F09F         	goto	u6710
+  2875  013F7A                     u6711:
   2876  013F7A  EFCF  F09F         	goto	l1013
-  2877  013F7E                     u6550:
+  2877  013F7E                     u6710:
   2878  013F7E  0414               	decf	(0+((c:0)+014h)),c,w
   2879  013F80  1015               	iorwf (1+((c:0)+014h)),c,w
   2880                           
   2881  013F82  A4D8               	btfss	status,2
-  2882  013F84  EFC6  F09F         	goto	u6561
-  2883  013F88  EFC8  F09F         	goto	u6560
-  2884  013F8C                     u6561:
+  2882  013F84  EFC6  F09F         	goto	u6721
+  2883  013F88  EFC8  F09F         	goto	u6720
+  2884  013F8C                     u6721:
   2885  013F8C  EFCF  F09F         	goto	l1013
-  2886  013F90                     u6560:
+  2886  013F90                     u6720:
   2887                           	line	833
   2888                           ;main.c: 833: LATA = 0b11111111;
   2889  013F90  6889               	setf	((c:3977)),c	;volatile
@@ -2982,20 +2982,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2905  013FA0  1003               	iorwf (1+((c:0)+02h)),c,w
   2906                           
   2907  013FA2  A4D8               	btfss	status,2
-  2908  013FA4  EFD6  F09F         	goto	u6571
-  2909  013FA8  EFD8  F09F         	goto	u6570
-  2910  013FAC                     u6571:
+  2908  013FA4  EFD6  F09F         	goto	u6731
+  2909  013FA8  EFD8  F09F         	goto	u6730
+  2910  013FAC                     u6731:
   2911  013FAC  EFE8  F09F         	goto	l1015
-  2912  013FB0                     u6570:
+  2912  013FB0                     u6730:
   2913  013FB0  0416               	decf	(0+((c:0)+016h)),c,w
   2914  013FB2  1017               	iorwf (1+((c:0)+016h)),c,w
   2915                           
   2916  013FB4  A4D8               	btfss	status,2
-  2917  013FB6  EFDF  F09F         	goto	u6581
-  2918  013FBA  EFE1  F09F         	goto	u6580
-  2919  013FBE                     u6581:
+  2917  013FB6  EFDF  F09F         	goto	u6741
+  2918  013FBA  EFE1  F09F         	goto	u6740
+  2919  013FBE                     u6741:
   2920  013FBE  EFE8  F09F         	goto	l1015
-  2921  013FC2                     u6580:
+  2921  013FC2                     u6740:
   2922                           	line	842
   2923                           ;main.c: 842: LATA = 0b11111111;
   2924  013FC2  6889               	setf	((c:3977)),c	;volatile
@@ -3018,20 +3018,20 @@ HI-TECH Software Omniscient Code Generator build 8870
   2940  013FD2  1003               	iorwf (1+((c:0)+02h)),c,w
   2941                           
   2942  013FD4  A4D8               	btfss	status,2
-  2943  013FD6  EFEF  F09F         	goto	u6591
-  2944  013FDA  EFF1  F09F         	goto	u6590
-  2945  013FDE                     u6591:
+  2943  013FD6  EFEF  F09F         	goto	u6751
+  2944  013FDA  EFF1  F09F         	goto	u6750
+  2945  013FDE                     u6751:
   2946  013FDE  EFFF  F09F         	goto	l894
-  2947  013FE2                     u6590:
+  2947  013FE2                     u6750:
   2948  013FE2  0418               	decf	(0+((c:0)+018h)),c,w
   2949  013FE4  1019               	iorwf (1+((c:0)+018h)),c,w
   2950                           
   2951  013FE6  A4D8               	btfss	status,2
-  2952  013FE8  EFF8  F09F         	goto	u6601
-  2953  013FEC  EFFA  F09F         	goto	u6600
-  2954  013FF0                     u6601:
+  2952  013FE8  EFF8  F09F         	goto	u6761
+  2953  013FEC  EFFA  F09F         	goto	u6760
+  2954  013FF0                     u6761:
   2955  013FF0  EFFF  F09F         	goto	l894
-  2956  013FF4                     u6600:
+  2956  013FF4                     u6760:
   2957                           	line	851
   2958                           ;main.c: 851: LATA = 0b11111111;
   2959  013FF4  6889               	setf	((c:3977)),c	;volatile
@@ -3536,7 +3536,7 @@ HI-TECH Software Omniscient Code Generator build 8870
 
 
 HI-TECH Software PICC-18 Macro Assembler V9.66 build 8870 
-Symbol Table                                           Mon May 07 17:00:25 2012
+Symbol Table                                           Mon May 07 17:45:40 2012
 
                 l900 3FFE                  l901 336E  
                 l902 3FFE                  l910 3FFE  
@@ -3617,161 +3617,161 @@ Symbol Table                                           Mon May 07 17:00:25 2012
                l1288 309C                 l1289 30B4  
                _ADON 007E10                 _FERR 007D5A  
                _LATA 000F89                 _LATB 000F8A  
-               _LATC 000F8B                 u6000 3A42  
-               u5200 32B4                 u6001 3A3E  
-               u5201 32B0                 u6010 3A54  
-               u5210 32C6                 u6011 3A50  
-               u5211 32C2                 u6100 3B3E  
-               u6020 3A76                 u5300 3392  
-               u5220 32D8                 u5140 3228  
-               u6101 3B3A                 u6021 3A72  
-               u5301 338E                 u5221 32D4  
-               u5141 3224                 u6110 3B50  
-               u6030 3A88                 u5310 33A4  
-               u5230 32F8                 u5150 323A  
-               u6111 3B4C                 u6031 3A84  
-               u5311 33A0                 u5231 32F4  
-               u5151 3236                 u6200 3C20  
-               u6120 3B70                 u6040 3AA8  
-               u5400 3482                 u5320 33C4  
-               u5240 330A                 u5160 324C  
-               u6201 3C1C                 u6121 3B6C  
-               u6041 3AA4                 u5401 347E  
-               u5321 33C0                 u5241 3306  
-               u5161 3248                 u6210 3C40  
-               u6130 3B82                 u6050 3ABA  
-               u5410 34A2                 u5330 33D6  
-               u5250 331C                 u5170 326E  
-               u6211 3C3C                 u6131 3B7E  
-               u6051 3AB6                 u5411 349E  
-               u5331 33D2                 u5251 3318  
-               u5171 326A                 u6300 3D0C  
-               u6220 3C52                 u6140 3B94  
-               u6060 3ADA                 u5500 357C  
-               u5420 34B4                 u5340 33E8  
-               u5260 333C                 u5180 3280  
-               u6301 3D08                 u6221 3C4E  
-               u6141 3B90                 u6061 3AD6  
-               u5501 3578                 u5421 34B0  
-               u5341 33E4                 u5261 3338  
-               u5181 327C                 u6310 3D1E  
-               u6230 3C64                 u6150 3BB6  
-               u6070 3AEC                 u5510 359E  
-               u5430 34D4                 u5350 3408  
-               u5270 334E                 u5190 3292  
-               u6311 3D1A                 u6231 3C60  
-               u6151 3BB2                 u6071 3AE8  
-               u5511 359A                 u5431 34D0  
-               u5351 3404                 u5271 334A  
-               u5191 328E                 u6400 3DFC  
-               u6320 3D30                 u6240 3C84  
-               u6160 3BC8                 u6080 3B0C  
-               u5600 367A                 u5520 35B0  
-               u5440 34E6                 u5360 341A  
-               u5280 3360                 u6401 3DF8  
-               u6321 3D2C                 u6241 3C80  
-               u6161 3BC4                 u6081 3B08  
-               u5601 3676                 u5521 35AC  
-               u5441 34E2                 u5361 3416  
-               u5281 335C                 u6410 3E1C  
-               u6330 3D50                 u6250 3C96  
-               u6170 3BDA                 u6090 3B1E  
-               u5610 369A                 u5530 35D2  
-               u5450 3506                 u5370 343C  
-               u5290 3380                 u6411 3E18  
-               u6331 3D4C                 u6251 3C92  
-               u6171 3BD6                 u6091 3B1A  
-               u5611 3696                 u5531 35CE  
-               u5451 3502                 u5371 3438  
-               u5291 337C                 _RCIF 007CF5  
-               u6500 3EF8                 u6420 3E2E  
-               u6340 3D62                 u6260 3CA8  
-               u6180 3BFC                 u5700 376A  
-               u5620 36AC                 u5540 35E4  
-               u5460 3518                 u5380 344E  
-               u6501 3EF4                 u6421 3E2A  
-               u6341 3D5E                 u6261 3CA4  
-               u6181 3BF8                 u5701 3766  
-               u5621 36A8                 u5541 35E0  
-               u5461 3514                 u5381 344A  
-               u6510 3F1A                 u6430 3E4E  
-               u6350 3D84                 u6270 3CC8  
-               u6190 3C0E                 u5710 377C  
-               u5630 36CC                 u5550 3604  
-               u5470 3538                 u5390 3470  
-               u6511 3F16                 u6431 3E4A  
-               u6351 3D80                 u6271 3CC4  
-               u6191 3C0A                 u5711 3778  
-               u5631 36C8                 u5551 3600  
-               u5471 3534                 u5391 346C  
-               u6600 3FF4                 u6520 3F2C  
-               u6440 3E60                 u6360 3D96  
-               u6280 3CDA                 u5800 3848  
-               u5720 379C                 u5640 36DE  
-               u5560 3616                 u5480 354A  
-               _PIR1 000F9E                 u6601 3FF0  
-               u6521 3F28                 u6441 3E5C  
-               u6361 3D92                 u6281 3CD6  
-               u5801 3844                 u5721 3798  
-               u5641 36DA                 u5561 3612  
-               u5481 3546                 u6530 3F4C  
-               u6450 3E80                 u6370 3DB8  
-               u6290 3CEC                 u5810 3868  
-               u5730 37AE                 u5650 36F0  
-               u5570 3636                 u5490 356A  
-               u6610 3138                 u6531 3F48  
-               u6451 3E7C                 u6371 3DB4  
-               u6291 3CE8                 u5811 3864  
-               u5731 37AA                 u5651 36EC  
-               u5571 3632                 u5491 3566  
-               u6611 3134                 u6540 3F5E  
-               u6460 3E92                 u6380 3DCA  
-               u5900 3946                 u5820 387A  
-               u5740 37C0                 u5660 3712  
-               u5580 3648                 u6620 315C  
-               u6541 3F5A                 u6461 3E8E  
-               u6381 3DC6                 u5901 3942  
-               u5821 3876                 u5741 37BC  
-               u5661 370E                 u5581 3644  
-               u6621 3158                 u6550 3F7E  
-               u6470 3EB2                 u6390 3DEA  
-               u5910 3958                 u5830 388C  
-               u5750 37E0                 u5670 3724  
-               u5590 3668                 u6630 317E  
-               u6551 3F7A                 u6471 3EAE  
-               u6391 3DE6                 u5911 3954  
-               u5831 3888                 u5751 37DC  
-               u5671 3720                 u5591 3664  
-               u6631 317A                 u6560 3F90  
-               u6480 3EC4                 u5920 3978  
-               u5840 38AC                 u5760 37F2  
-               u5680 3736                 u6640 3198  
-               u6561 3F8C                 u6481 3EC0  
-               u5921 3974                 u5841 38A8  
-               u5761 37EE                 u5681 3732  
-               u6641 3194                 _OERR 007D59  
-               u6570 3FB0                 u6490 3EE6  
-               u5930 398A                 u5850 38BE  
-               u5770 3804                 u5690 3758  
-               u6650 31D8                 u6571 3FAC  
-               u6491 3EE2                 u5931 3986  
-               u5851 38BA                 u5771 3800  
-               u5691 3754                 u6651 31D4  
-               u6580 3FC2                 u5940 39AA  
-               u5860 38E0                 u5780 3824  
-               u6660 31FE                 u6581 3FBE  
-               u5941 39A6                 u5861 38DC  
-               u5781 3820                 u6661 31FA  
-               u6590 3FE2                 u5950 39BC  
-               u5870 38F2                 u5790 3836  
-               u6591 3FDE                 u5951 39B8  
-               u5871 38EE                 u5791 3832  
-               u5960 39DC                 u5880 3914  
-               u5961 39D8                 u5881 3910  
-               u5970 39EE                 u5890 3926  
-               u5971 39EA                 u5891 3922  
-               u5980 3A0E                 u5981 3A0A  
-               u5990 3A20                 u5991 3A1C  
+               _LATC 000F8B                 u6000 38AC  
+               u6001 38A8                 u6010 38BE  
+               u6011 38BA                 u6100 39AA  
+               u6020 38E0                 u5300 3228  
+               u6101 39A6                 u6021 38DC  
+               u5301 3224                 u6110 39BC  
+               u6030 38F2                 u5310 323A  
+               u6111 39B8                 u6031 38EE  
+               u5311 3236                 u6200 3AA8  
+               u6120 39DC                 u6040 3914  
+               u5400 330A                 u5320 324C  
+               u6201 3AA4                 u6121 39D8  
+               u6041 3910                 u5401 3306  
+               u5321 3248                 u6210 3ABA  
+               u6130 39EE                 u6050 3926  
+               u5410 331C                 u5330 326E  
+               u6211 3AB6                 u6131 39EA  
+               u6051 3922                 u5411 3318  
+               u5331 326A                 u6300 3B94  
+               u6220 3ADA                 u6140 3A0E  
+               u6060 3946                 u5500 33E8  
+               u5420 333C                 u5340 3280  
+               u6301 3B90                 u6221 3AD6  
+               u6141 3A0A                 u6061 3942  
+               u5501 33E4                 u5421 3338  
+               u5341 327C                 u6310 3BB6  
+               u6230 3AEC                 u6150 3A20  
+               u6070 3958                 u5510 3408  
+               u5430 334E                 u5350 3292  
+               u6311 3BB2                 u6231 3AE8  
+               u6151 3A1C                 u6071 3954  
+               u5511 3404                 u5431 334A  
+               u5351 328E                 u6400 3C84  
+               u6320 3BC8                 u6240 3B0C  
+               u6160 3A42                 u6080 3978  
+               u5600 34E6                 u5520 341A  
+               u5440 3360                 u5360 32B4  
+               u6401 3C80                 u6321 3BC4  
+               u6241 3B08                 u6161 3A3E  
+               u6081 3974                 u5601 34E2  
+               u5521 3416                 u5441 335C  
+               u5361 32B0                 u6410 3C96  
+               u6330 3BDA                 u6250 3B1E  
+               u6170 3A54                 u6090 398A  
+               u5610 3506                 u5530 343C  
+               u5450 3380                 u5370 32C6  
+               u6411 3C92                 u6331 3BD6  
+               u6251 3B1A                 u6171 3A50  
+               u6091 3986                 u5611 3502  
+               u5531 3438                 u5451 337C  
+               u5371 32C2                 _RCIF 007CF5  
+               u6500 3D62                 u6420 3CA8  
+               u6340 3BFC                 u6260 3B3E  
+               u6180 3A76                 u5700 35E4  
+               u5620 3518                 u5540 344E  
+               u5460 3392                 u5380 32D8  
+               u6501 3D5E                 u6421 3CA4  
+               u6341 3BF8                 u6261 3B3A  
+               u6181 3A72                 u5701 35E0  
+               u5621 3514                 u5541 344A  
+               u5461 338E                 u5381 32D4  
+               u6510 3D84                 u6430 3CC8  
+               u6350 3C0E                 u6270 3B50  
+               u6190 3A88                 u5710 3604  
+               u5630 3538                 u5550 3470  
+               u5470 33A4                 u5390 32F8  
+               u6511 3D80                 u6431 3CC4  
+               u6351 3C0A                 u6271 3B4C  
+               u6191 3A84                 u5711 3600  
+               u5631 3534                 u5551 346C  
+               u5471 33A0                 u5391 32F4  
+               u6600 3E60                 u6520 3D96  
+               u6440 3CDA                 u6360 3C20  
+               u6280 3B70                 u5800 36DE  
+               u5720 3616                 u5640 354A  
+               u5560 3482                 u5480 33C4  
+               _PIR1 000F9E                 u6601 3E5C  
+               u6521 3D92                 u6441 3CD6  
+               u6361 3C1C                 u6281 3B6C  
+               u5801 36DA                 u5721 3612  
+               u5641 3546                 u5561 347E  
+               u5481 33C0                 u6610 3E80  
+               u6530 3DB8                 u6450 3CEC  
+               u6370 3C40                 u6290 3B82  
+               u5810 36F0                 u5730 3636  
+               u5650 356A                 u5570 34A2  
+               u5490 33D6                 u6611 3E7C  
+               u6531 3DB4                 u6451 3CE8  
+               u6371 3C3C                 u6291 3B7E  
+               u5811 36EC                 u5731 3632  
+               u5651 3566                 u5571 349E  
+               u5491 33D2                 u6700 3F5E  
+               u6620 3E92                 u6540 3DCA  
+               u6460 3D0C                 u6380 3C52  
+               u5900 37C0                 u5820 3712  
+               u5740 3648                 u5660 357C  
+               u5580 34B4                 u6701 3F5A  
+               u6621 3E8E                 u6541 3DC6  
+               u6461 3D08                 u6381 3C4E  
+               u5901 37BC                 u5821 370E  
+               u5741 3644                 u5661 3578  
+               u5581 34B0                 u6710 3F7E  
+               u6630 3EB2                 u6550 3DEA  
+               u6470 3D1E                 u6390 3C64  
+               u5910 37E0                 u5830 3724  
+               u5750 3668                 u5670 359E  
+               u5590 34D4                 u6711 3F7A  
+               u6631 3EAE                 u6551 3DE6  
+               u6471 3D1A                 u6391 3C60  
+               u5911 37DC                 u5831 3720  
+               u5751 3664                 u5671 359A  
+               u5591 34D0                 u6720 3F90  
+               u6640 3EC4                 u6560 3DFC  
+               u6480 3D30                 u5920 37F2  
+               u5840 3736                 u5760 367A  
+               u5680 35B0                 u6800 3198  
+               u6721 3F8C                 u6641 3EC0  
+               u6561 3DF8                 u6481 3D2C  
+               u5921 37EE                 u5841 3732  
+               u5761 3676                 u5681 35AC  
+               u6801 3194                 _OERR 007D59  
+               u6730 3FB0                 u6650 3EE6  
+               u6570 3E1C                 u6490 3D50  
+               u5930 3804                 u5850 3758  
+               u5770 369A                 u5690 35D2  
+               u6810 31D8                 u6731 3FAC  
+               u6651 3EE2                 u6571 3E18  
+               u6491 3D4C                 u5931 3800  
+               u5851 3754                 u5771 3696  
+               u5691 35CE                 u6811 31D4  
+               u6740 3FC2                 u6660 3EF8  
+               u6580 3E2E                 u5940 3824  
+               u5860 376A                 u5780 36AC  
+               u6820 31FE                 u6741 3FBE  
+               u6661 3EF4                 u6581 3E2A  
+               u5941 3820                 u5861 3766  
+               u5781 36A8                 u6821 31FA  
+               u6750 3FE2                 u6670 3F1A  
+               u6590 3E4E                 u5950 3836  
+               u5870 377C                 u5790 36CC  
+               u6751 3FDE                 u6671 3F16  
+               u6591 3E4A                 u5951 3832  
+               u5871 3778                 u5791 36C8  
+               u6760 3FF4                 u6680 3F2C  
+               u5960 3848                 u5880 379C  
+               u6761 3FF0                 u6681 3F28  
+               u5961 3844                 u5881 3798  
+               u6690 3F4C                 u5970 3868  
+               u5890 37AE                 u6770 3138  
+               u6691 3F48                 u5971 3864  
+               u5891 37AA                 u6771 3134  
+               u5980 387A                 u6780 315C  
+               u5981 3876                 u6781 3158  
+               u5990 388C                 u6790 317E  
+               u5991 3888                 u6791 317A  
                _RX9D 007D58                 _TX9D 007D60  
                _TXIF 007CF4                 _main 30D4  
                indf0 000FEF                 fsr0l 000FE9  
