@@ -21,7 +21,7 @@
 int main()
 {
     int fd;
-    unsigned int offset = 24, data = 0;
+    unsigned int offset = 36, data = 0;
     unsigned int *pmem, *pbase;
 
     printf("Teaching mode! :-)\n\r");
@@ -40,7 +40,9 @@ int main()
     data = *pmem;
 	
 	//printf("pmem is ", *pmem);
-	printf("Data out it %d"\n, data);
+	printf("pbase %p\n", pbase);
+	printf("%p\n", pmem);
+	printf("Data out it %d\n", data);
 
     // close driver
     close(fd);
