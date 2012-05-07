@@ -50,7 +50,7 @@ __CONFIG (7, UNPROTECT);
 void ToggleLeds();
 void adc_conversion();
 void testToggle();
-
+unsigned char getNote (unsigned char, unsigned char);
 //////////////////////////////////
 //  defines                     //
 //////////////////////////////////
@@ -153,8 +153,8 @@ ADC_conv conv_result;
 volatile char adc_num;  // Keeps track of which ADC channel is being used
 
 // Inputs from the sensors, if cur is not the same as prev, new sound to be played
-int cur_inputs[7];
-int prev_inputs[7];
+unsigned char cur_inputs[7];
+unsigned char prev_inputs[7];
 
 char change_val = 0;
 
@@ -196,7 +196,6 @@ int main(int argc, char** argv) {
         RCSTA = 0b10010000;
         TXSTA = 0b00100000;
 
-        // Octave 3 L & R LED on; D
         //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
@@ -217,6 +216,8 @@ int main(int argc, char** argv) {
         }*/
 
 
+
+        // USE FOLLOWING CODE TO CALIBRATE
     char count = 0x00;
     while (1) {
         char uout;
@@ -241,130 +242,14 @@ int main(int argc, char** argv) {
         while (GODONE);
         hResult = ADRESH;
         lResult = ADRESL;
+        
+        uout = hResult;
+        TXREG = uout;
+        while((PIR1 & 0b00010000) == 0);
+        uout = lResult;
+        TXREG = uout;
+        while((PIR1 & 0b00010000) == 0);
 
-
-
-
-
-        if (ADRESL < 50 ) {
-            uout = 0x01;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-            uout = ADRESL;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 50 && ADRESL <160 ) {
-            uout = 0x02;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-            uout = ADRESL;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 160 && ADRESL <250 ) {
-            uout = 0x03;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-            uout = ADRESL;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 250 && ADRESL <350 ) {
-            uout = 0x04;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 350 && ADRESL <450 ) {
-            uout = 0x05;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 450 && ADRESL <550 ) {
-            uout = 0x06;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 550 && ADRESL <650 ) {
-            uout = 0x07;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 650 && ADRESL <750 ) {
-            uout = 0x08;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 750 && ADRESL <850 ) {
-            uout = 0x09;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 850 && ADRESL <950 ) {
-            uout = 0x0A;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 950 && ADRESL <960 ) {
-            uout = 0x0B;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 960 && ADRESL <970 ) {
-            uout = 0x0C;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 970 && ADRESL <980 ) {
-            uout = 0x0D;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 980 && ADRESL <990 ) {
-            uout = 0x0E;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 990 && ADRESL <1000 ) {
-            uout = 0x0F;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 1000 && ADRESL <1010 ) {
-            uout = 0x10;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL >= 1010 && ADRESL < 1024) {
-            uout = 0x11;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL ==1024) {
-            uout = 0x12;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-        else if (ADRESL > 1024) {
-            uout = 0x13;
-             TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-       /*
-        if (ADRES > 160) {
-           // uout = ADRESH;
-            uout = 0x02;
-            TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-            //uout = ADRESL;
-            //TXREG = uout;
-            //while((PIR1 & 0b00010000) == 0);
-        } else if (ADRES <= 160) {
-            uout = 0x01;
-            TXREG = uout;
-            while((PIR1 & 0b00010000) == 0);
-        }
-         */
         DelayMs(5000);
         DelayMs(5000);
         DelayMs(5000);
@@ -383,28 +268,30 @@ int main(int argc, char** argv) {
 
 
 
-    while (0) {
-        // once receive data on the uart, stuff into led array
-        ToggleLeds();
-
-        // wait until sensor value changes and send out on uart
+    while (0) {  
+        // wait until sensor value changes 
         while (change_val == 0) {
             // spin
             continue;
         }
-        int result = cur_inputs[index];
-        char channel = index; // 0 == A, 6 == G
-        // TODO send result and channel across UART
+
+        // once note changes, send data across UART and light LEDs
+        uart_out = cur_inputs[index];
+        TXREG = uart_out;
+        while((PIR1 & 0b00010000) == 0);
+        
+        ToggleLeds();
+
+        // Reset Change Val
+        change_val = 0;
 
     }
-   /*  for (int i = 0; i < 13; i++) {
-                led_array[i] = 0;
-        }
-
+    
+   /*  
         testToggle(); 
-
    */
-   //  return (EXIT_SUCCESS);
+
+     return (EXIT_SUCCESS);
 }
 
 
@@ -1077,21 +964,6 @@ void testToggle () {
     }
 }
 
-/*
- * Does an ADC conversion
- */
-/*void adc_conversion (int adc_channel) {
-
-    ADC_INT_DISABLE (); // disable interrupts
-
-    // ADIE = 0;  // Mask interrupt
-     //ADIF = 0;  // Reset ADC interrupt bit
-
-    // Reenable interrupts
-    ADC_INT_ENABLE();
-}*/
-
-
 // ISR that processes ADC data from 7 inputs in a sequential fashion
 
 ISR () {
@@ -1157,10 +1029,7 @@ void adc_conversion() {
     GODONE = 1; // Starts conversion
 
     // Wait for conversion to finish
-    while (GODONE) {
-        ADON = 0;
-    }
-
+    while (GODONE);
     unsigned char note = getNote(ADRESH, ADRESL);
 
     // store conversion result
@@ -1174,23 +1043,41 @@ void adc_conversion() {
     }
 }
 
+
+/////////////////////////////////////////
+//   Function that determines note
+//   to be played and data to send
+//   across UART
+///////////////////////////////////////////
 unsigned char getNote (unsigned char hResult, unsigned char lResult) {
     unsigned char new_note;
+    int i = 0;
+    for (i = 0; i < 13; i++) {
+        led_array[i] = 0;
+    }
 
     if (adc_num == ADCCHANA) {
         if (hResult == 0x00) {
             // no note playing; ignore this sensor result???
             new_note = 0x00;
+
         } else if (hResult == 0x01) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5AF
                 new_note = 0x51;
+                led_array[1] = 1;
+                led_array[11] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5A
                 new_note = 0x41;
+                led_array[1] = 1;
+                led_array[11] = 1;
+                led_array[12] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5AS
                 new_note = 0x49;
+                led_array[1] = 1;
+                led_array[12] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1200,12 +1087,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4AF
                 new_note = 0x31;
+                led_array[1] = 1;
+                led_array[9] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4A
                 new_note = 0x21;
+                led_array[1] = 1;
+                led_array[9] = 1;
+                led_array[10] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4AS
                 new_note = 0x29;
+                led_array[1] = 1;
+                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1215,17 +1109,23 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3AF
                 new_note = 0x11;
+                led_array[1] = 1;
+                led_array[7] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3A
                 new_note = 0x01;
+                led_array[1] = 1;
+                led_array[7] = 1;
+                led_array[8] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3AS
                 new_note = 0x09;
+                led_array[1] = 1;
+                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
             }
-
         }
 
     } else if (adc_num == ADCCHANB) {
@@ -1236,12 +1136,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5BF
                 new_note = 0x52;
+                led_array[0] = 1;
+                led_array[11] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5B
                 new_note = 0x42;
+                led_array[0] = 1;
+                led_array[11] = 1;
+                led_array[12] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5BS
                 new_note = 0x4a;
+                led_array[0] = 1;
+                led_array[12] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1251,27 +1158,41 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4BF
                 new_note = 0x32;
+                led_array[0] = 1;
+                led_array[9] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4B
                 new_note = 0x22;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4BS
                 new_note = 0x2a;
+                led_array[0] = 1;
+                led_array[9] = 1;
+                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
+                led_array[0] = 1;
+                led_array[10] = 1;
             }
 
         } else if (hResult == 0x03) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3BF
                 new_note = 0x12;
+                led_array[0] = 1;
+                led_array[7] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3B
                 new_note = 0x02;
+                led_array[0] = 1;
+                led_array[7] = 1;
+                led_array[8] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3BS
                 new_note = 0x0a;
+                led_array[0] = 1;
+                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1286,12 +1207,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
            if (lResult >= 0x00 && lResult <= 0x00) {
                // 5CF
                new_note = 0x53;
+               led_array[6] = 1;
+               led_array[11] = 1;
            } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5C
                 new_note = 0x43;
+                led_array[6] = 1;
+                led_array[11] = 1;
+                led_array[12] = 1;
            } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5CS
                 new_note = 0x4b;
+                led_array[6] = 1;
+               led_array[12] = 1;
            } else {
                 // no note playing
                 new_note = 0x00;
@@ -1301,12 +1229,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4CF
                 new_note = 0x33;
+                led_array[6] = 1;
+                led_array[9] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4C
                 new_note = 0x23;
+                led_array[6] = 1;
+                led_array[9] = 1;
+                led_array[10] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4CS
                 new_note = 0x2b;
+                led_array[6] = 1;
+                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1316,12 +1251,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3CF
                 new_note = 0x13;
+                led_array[6] = 1;
+                led_array[7] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3C
                 new_note = 0x03;
+                led_array[6] = 1;
+                led_array[7] = 1;
+                led_array[8] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3CS
                 new_note = 0x0b;
+                led_array[6] = 1;
+                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1337,11 +1279,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5DF
                 new_note = 0x54;
+                led_array[5] = 1;
+                led_array[11] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5D
                 new_note = 0x44;
+                led_array[5] = 1;
+                led_array[11] = 1;
+                led_array[12] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5DS
+                led_array[5] = 1;
+                led_array[12] = 1;
                 new_note = 0x4c;
             } else {
                 // no note playing
@@ -1352,12 +1301,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4DF
                 new_note = 0x34;
+                led_array[5] = 1;
+                led_array[9] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4D
                 new_note = 0x24;
+                led_array[5] = 1;
+                led_array[9] = 1;
+                led_array[10] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4DS
                 new_note = 0x2c;
+                led_array[5] = 1;
+                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1367,12 +1323,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3DF
                 new_note = 0x14;
+                led_array[5] = 1;
+                led_array[7] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3D
                 new_note = 0x04;
+                led_array[5] = 1;
+                led_array[7] = 1;
+                led_array[8] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3DS
                 new_note = 0x0c;
+                led_array[5] = 1;
+                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1389,12 +1352,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5EF
                 new_note = 0x55;
+                led_array[4] = 1;
+                led_array[11] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5E
                 new_note = 0x45;
+                led_array[4] = 1;
+                led_array[11] = 1;
+                led_array[12] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5ES
                 new_note = 0x4d;
+                led_array[4] = 1;
+                led_array[12] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1404,13 +1374,20 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4EF
                 new_note = 0x35;
+                led_array[4] = 1;
+                led_array[9] = 1;
 
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4E
                 new_note = 0x25;
+                led_array[4] = 1;
+                led_array[9] = 1;
+                led_array[10] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4ES
                 new_note = 0x2d;
+                led_array[4] = 1;
+                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1420,12 +1397,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3EF
                 new_note = 0x15;
+                led_array[4] = 1;
+                led_array[7] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3E
                 new_note = 0x05;
+                led_array[4] = 1;
+                led_array[7] = 1;
+                led_array[8] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3ES
                 new_note = 0x0d;
+                led_array[4] = 1;
+                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1442,12 +1426,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5FF
                 new_note = 0x56;
+                led_array[3] = 1;
+                led_array[11] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5F
                 new_note = 0x46;
+                led_array[3] = 1;
+                led_array[12] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5FS
                 new_note = 0x4e;
+                led_array[3] = 1;
+                led_array[11] = 1;
+                led_array[12] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1457,12 +1448,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4FF
                 new_note = 0x36;
+                led_array[3] = 1;
+                led_array[9] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4F
                 new_note = 0x26;
+                led_array[3] = 1;
+                led_array[9] = 1;
+                led_array[10] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4FS
                 new_note = 0x2e;
+                led_array[3] = 1;
+                led_array[10] = 1;
             } else {
                // no note playing
                 new_note = 0x00;
@@ -1472,12 +1470,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3FF
                 new_note = 0x16;
+                led_array[3] = 1;
+                led_array[7] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3F
                 new_note = 0x06;
+                led_array[3] = 1;
+                led_array[7] = 1;
+                led_array[8] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3FS
                 new_note = 0x0e;
+                led_array[3] = 1;
+                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1494,12 +1499,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5GF
                 new_note = 0x57;
+                led_array[2] = 1;
+                led_array[11] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5G
                 new_note = 0x47;
+                led_array[2] = 1;
+                led_array[11] = 1;
+                led_array[12] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 5GS
                 new_note = 0x4f;
+                led_array[2] = 1;
+                led_array[12] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1509,12 +1521,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4GF
                 new_note = 0x37;
+                led_array[2] = 1;
+                led_array[9] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4G
                 new_note = 0x27;
+                led_array[2] = 1;
+                led_array[9] = 1;
+                led_array[10] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 4GS
                 new_note = 0x2f;
+                led_array[2] = 1;
+                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1524,13 +1543,20 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3GF
                 new_note = 0x17;
+                led_array[2] = 1;
+                led_array[7] = 1;
 
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3G
                 new_note = 0x07;
+                led_array[2] = 1;
+                led_array[7] = 1;
+                led_array[8] = 1;
             } else if (lResult >= 0x00 && lResult <= 0x00) {
                 // 3GS
                 new_note = 0x0f;
+                led_array[2] = 1;
+                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
