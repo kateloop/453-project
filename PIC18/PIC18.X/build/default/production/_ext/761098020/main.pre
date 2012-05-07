@@ -9936,7 +9936,7 @@ int led_array[13];
 unsigned char uart_out;
 
 unsigned char new_note = 0x00;
-unsigned char old_ntoe = 0x00;
+unsigned char old_note = 0x00;
 
 
 
@@ -9986,8 +9986,7 @@ LATB = 0b10000000;
 
 LATC = 0b00001111;
 
-# 221
-char count = 0x00;
+# 223
 while (1) {
 char uout;
 char hResult;
@@ -10002,7 +10001,7 @@ ADON = 0;
 
 ADRESH = 0x00;
 ADRESL = 0x00;
-ADCON0 = 0b00000100;
+ADCON0 = 0b00100000;
 
 ADON = 1;
 GODONE = 1;
@@ -10021,17 +10020,9 @@ while((PIR1 & 0b00010000) == 0);
 
 DelayMs(5000);
 DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-DelayMs(5000);
-
-
 }
 
-# 271
+# 264
 while (0) {
 
 while (change_val == 0) {
@@ -10051,11 +10042,11 @@ change_val = 0;
 
 }
 
-# 294
+# 286
 return (0);
 }
 
-# 305
+# 297
 void ToggleLeds () {
 
 
@@ -10621,7 +10612,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 874
+# 866
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10736,7 +10727,7 @@ change_val = 0;
 
 }
 
-# 994
+# 986
 void adc_conversion() {
 
 ADON = 0;
@@ -10789,7 +10780,7 @@ adc_num = 0;
 }
 }
 
-# 1052
+# 1044
 unsigned char getNote (unsigned char hResult, unsigned char lResult) {
 unsigned char new_note;
 int i = 0;

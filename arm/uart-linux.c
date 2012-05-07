@@ -94,8 +94,8 @@ int main(int argc, char* argv[])
    if (tcsetattr(fd, TCSANOW, &termInfo) == -1) {
       goto error;
    }
-/*
-int count = 0;
+
+/*int count = 0;
 int i, j;
 // send stuff to server
 while (1) {
@@ -110,8 +110,8 @@ while (1) {
       printf("count %d\n", count);
    }
 }
-
 */
+
 /*
 // send stuff on uart
    int i,j;
@@ -139,11 +139,11 @@ while (1) {
    char buffer[64];
    size_t i = read(fd, buffer, 1);
    // output note to server
-   int freq = playNote(i);
-   char buf[5];
-   snprintf(buf, 5, "%d", freq);
-   write(fd_sock, buf, 4);	
-   printf("%d: %x\n", i, buffer[0]);
+//   int freq = playNote(i);
+//   char buf[5];
+//   snprintf(buf, 5, "%d", freq);
+//   write(fd_sock, buf, 4);	
+     printf("%d\n", buffer[0]);
 }
 
    close(fd);

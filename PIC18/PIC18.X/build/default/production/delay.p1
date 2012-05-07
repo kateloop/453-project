@@ -23,11 +23,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "23
 [e :U 7 ]
 {
-[; ;delay.c: 24: { unsigned char _dcnt; _dcnt = (250)*((20*1000L)/(12*1000L)); while(--_dcnt != 0) continue; };
+[; ;delay.c: 24: { unsigned char _dcnt; _dcnt = (250)/((12*1000L)/(8*1000L))|1; while(--_dcnt != 0) continue; };
 "24
 {
 [v __dcnt `uc 1 a ]
-[e = __dcnt -> * -> -> 250 `i `l / * -> -> 20 `i `l -> 1000 `l * -> -> 12 `i `l -> 1000 `l `uc ]
+[e = __dcnt -> | / -> -> 250 `i `l / * -> -> 12 `i `l -> 1000 `l * -> -> 8 `i `l -> 1000 `l -> -> 1 `i `l `uc ]
 [e $U 8  ]
 [e :U 9 ]
 [e $U 8  ]
