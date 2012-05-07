@@ -1125,18 +1125,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             // no note playing
             new_note = 0x00;
         } else if (hResult == 0x01) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 187 && lResult <= 213) {
                 // 5BF
                 new_note = 0x52;
                 led_array[0] = 1;
                 led_array[11] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 161 && lResult <= 182) {
                 // 5B
                 new_note = 0x42;
                 led_array[0] = 1;
                 led_array[11] = 1;
                 led_array[12] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 120 && lResult <= 150) {
                 // 5BS
                 new_note = 0x4a;
                 led_array[0] = 1;
@@ -1147,15 +1147,15 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             }
 
         } else if (hResult == 0x02) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 206 && lResult <= 232) {
                 // 4BF
                 new_note = 0x32;
                 led_array[0] = 1;
                 led_array[9] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 165 && lResult <= 238) {
                 // 4B
                 new_note = 0x22;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 109 && lResult <= 140) {
                 // 4BS
                 new_note = 0x2a;
                 led_array[0] = 1;
@@ -1169,18 +1169,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             }
 
         } else if (hResult == 0x03) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 0 && lResult <= 174) {
                 // 3BF
                 new_note = 0x12;
                 led_array[0] = 1;
                 led_array[7] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 193 && lResult <= 210) {
                 // 3B
                 new_note = 0x02;
                 led_array[0] = 1;
                 led_array[7] = 1;
                 led_array[8] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 221 && lResult <= 229) {
                 // 3BS
                 new_note = 0x0a;
                 led_array[0] = 1;
