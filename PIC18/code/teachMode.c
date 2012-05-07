@@ -8,7 +8,7 @@
 	#define wn	80  //whole note
 
 	//playing Piano Man by Billy Joel
-	while(1){
+	playPianoMan(void){
 		//verse 
 		getNote(G4);
 		DelayMs(qn);
@@ -389,5 +389,73 @@
       getNote(C5);
       DelayMs(wn);
 		DelayMs(hn);
-
 	}
+
+	playClocks(void){
+		while(1){
+			getNote(E5F);
+			DelayMs(en);
+			getNote(B4F);
+			DelayMs(en);
+			getNote(G4);
+			DelayMs(en);
+			getNote(E5F);
+			DelayMs(en);
+			getNote(B4F);
+			DelayMs(en);
+			getNote(G4);
+			DelayMs(en);
+			getNote(E5F);
+			DelayMs(en);
+			getNote(B4F);
+			DelayMs(en);
+			getNote(D5F);
+			DelayMs(en);
+			getNote(B4F);
+			DelayMs(en);
+			getNote(F4);
+			DelayMs(en);
+			getNote(D5F);
+			DelayMs(en);
+			getNote(B4F);
+			DelayMs(en);
+			getNote(F4);
+			DelayMs(en);
+			getNote(D5F);
+			DelayMs(en);
+			getNote(B4F);
+			DelayMs(en);
+			getNote(D5F);
+         DelayMs(en);
+         getNote(B4F);
+         DelayMs(en);
+         getNote(F4);
+         DelayMs(en);
+         getNote(D5F);
+         DelayMs(en);
+         getNote(B4F);
+         DelayMs(en);
+         getNote(F4);
+         DelayMs(en);
+         getNote(D5F);
+         DelayMs(en);
+         getNote(B4F);
+         DelayMs(en);
+			getNote(C5);
+			DelayMs(en);
+			getNote(A4F);
+			DelayMs(en);
+			getNote(F4);
+			DelayMs(en);
+			getNote(C5);
+			DelayMs(en);
+			getNote(A4F);
+			DelayMs(en);
+			getNote(F4);
+			DelayMs(en);
+			getNote(C5);
+			DelayMs(en);
+			getNote(A4F);
+			DelayMs(en);
+	}
+}
