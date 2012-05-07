@@ -234,7 +234,7 @@ int main(int argc, char** argv) {
 
         ADRESH = 0x00; // reset result registers
         ADRESL = 0x00;
-        ADCON0 = ADCON0_CHANB;
+        ADCON0 = ADCON0_CHANE;
         // Start conversion and wait for result
         ADON = 1;   // Turn on ADC
         GODONE = 1; // Starts conversion
@@ -1196,18 +1196,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
            // No note playing
            new_note = 0x00;
         } else if (hResult == 0x01) {
-           if (lResult >= 0x00 && lResult <= 0x00) {
+           if (lResult >= 218 && lResult <= 242) {
                // 5CF
                new_note = 0x53;
                led_array[6] = 1;
                led_array[11] = 1;
-           } else if (lResult >= 0x00 && lResult <= 0x00) {
+           } else if (lResult >= 167 && lResult <= 200) {
                 // 5C
                 new_note = 0x43;
                 led_array[6] = 1;
                 led_array[11] = 1;
                 led_array[12] = 1;
-           } else if (lResult >= 0x00 && lResult <= 0x00) {
+           } else if (lResult >= 38 && lResult <= 160) {
                 // 5CS
                 new_note = 0x4b;
                 led_array[6] = 1;
@@ -1218,18 +1218,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
            }
 
         } else if (hResult == 0x02) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 201 && lResult <= 235) {
                 // 4CF
                 new_note = 0x33;
                 led_array[6] = 1;
                 led_array[9] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 124 && lResult <= 183) {
                 // 4C
                 new_note = 0x23;
                 led_array[6] = 1;
                 led_array[9] = 1;
                 led_array[10] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 70 && lResult <= 110) {
                 // 4CS
                 new_note = 0x2b;
                 led_array[6] = 1;
@@ -1240,18 +1240,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             }
 
         } else if (hResult == 0x03) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 60 && lResult <= 87) {
                 // 3CF
                 new_note = 0x13;
                 led_array[6] = 1;
                 led_array[7] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 138 && lResult <= 200) {
                 // 3C
                 new_note = 0x03;
                 led_array[6] = 1;
                 led_array[7] = 1;
                 led_array[8] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 212 && lResult <= 232) {
                 // 3CS
                 new_note = 0x0b;
                 led_array[6] = 1;
@@ -1268,18 +1268,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             new_note = 0x00;
 
         } else if (hResult == 0x01) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 200 && lResult <= 230) {
                 // 5DF
                 new_note = 0x54;
                 led_array[5] = 1;
                 led_array[11] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 130 && lResult <= 180) {
                 // 5D
                 new_note = 0x44;
                 led_array[5] = 1;
                 led_array[11] = 1;
                 led_array[12] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 90 && lResult <= 120) {
                 // 5DS
                 led_array[5] = 1;
                 led_array[12] = 1;
@@ -1290,18 +1290,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             }
 
         } else if (hResult == 0x02) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 203 && lResult <= 255) {
                 // 4DF
                 new_note = 0x34;
                 led_array[5] = 1;
                 led_array[9] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 130 && lResult <= 167) {
                 // 4D
                 new_note = 0x24;
                 led_array[5] = 1;
                 led_array[9] = 1;
                 led_array[10] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 87 && lResult <= 124) {
                 // 4DS
                 new_note = 0x2c;
                 led_array[5] = 1;
@@ -1312,18 +1312,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             }
 
         } else if (hResult == 0x03) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 60 && lResult <= 160) {
                 // 3DF
                 new_note = 0x14;
                 led_array[5] = 1;
                 led_array[7] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 145 && lResult <= 205) {
                 // 3D
                 new_note = 0x04;
                 led_array[5] = 1;
                 led_array[7] = 1;
                 led_array[8] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 227 && lResult <= 239) {
                 // 3DS
                 new_note = 0x0c;
                 led_array[5] = 1;
