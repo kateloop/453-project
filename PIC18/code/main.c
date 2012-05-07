@@ -1488,18 +1488,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             new_note = 0x00;
 
         } else if (hResult == 0x01) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 87 && lResult <= 160) {
                 // 5GF
                 new_note = 0x57;
                 led_array[2] = 1;
                 led_array[11] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 175 && lResult <= 215) {
                 // 5G
                 new_note = 0x47;
                 led_array[2] = 1;
                 led_array[11] = 1;
                 led_array[12] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 224 && lResult <= 228) {
                 // 5GS
                 new_note = 0x4f;
                 led_array[2] = 1;
@@ -1510,18 +1510,18 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             }
 
         } else if (hResult == 0x02) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 200 && lResult <= 229) {
                 // 4GF
                 new_note = 0x37;
                 led_array[2] = 1;
                 led_array[9] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 139 && lResult <= 192) {
                 // 4G
                 new_note = 0x27;
                 led_array[2] = 1;
                 led_array[9] = 1;
                 led_array[10] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 107 && lResult <= 140) {
                 // 4GS
                 new_note = 0x2f;
                 led_array[2] = 1;
@@ -1532,19 +1532,19 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             }
 
         } else if (hResult == 0x03) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 165 && lResult <= 190) {
                 // 3GF
                 new_note = 0x17;
                 led_array[2] = 1;
                 led_array[7] = 1;
 
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 130 && lResult <= 160) {
                 // 3G
                 new_note = 0x07;
                 led_array[2] = 1;
                 led_array[7] = 1;
                 led_array[8] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 107 && lResult <= 125) {
                 // 3GS
                 new_note = 0x0f;
                 led_array[2] = 1;
