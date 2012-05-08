@@ -185,6 +185,11 @@ int playNote (unsigned char note) {
         case UE3 :
             return PLAY(FE3);
             break;
+        case UE3S :
+            return PLAY(F3);
+  	    break;
+        case UF3F :
+ 	    return PLAY(FE3);
         case UF3 :
             return PLAY(FF3);
             break;
@@ -215,6 +220,12 @@ int playNote (unsigned char note) {
         case UB3 :
             return PLAY(FB3);
             break;
+        case UB3S :
+            return PLAY(FC4);
+            break;
+        case UC4F :
+            return PLAY(FB3);
+            break;
         case UC4 :
             return PLAY(FC4);
             break;
@@ -234,6 +245,12 @@ int playNote (unsigned char note) {
             return PLAY(FE4F);
             break;
         case UE4 :
+            return PLAY(FE4);
+            break;
+        case UE4S :
+            return PLAY(FF4);
+            break;
+        case UF4F :
             return PLAY(FE4);
             break;
         case UF4 :
@@ -266,6 +283,12 @@ int playNote (unsigned char note) {
         case UB4 :
             return PLAY(FB4);
             break;
+        case UB4S :
+            return PLAY(FC5);
+            break;
+        case UC5F :
+            return PLAY(FB4);
+            break;
         case UC5 :
             return PLAY(FC5);
             break;
@@ -285,6 +308,12 @@ int playNote (unsigned char note) {
             return PLAY(FE5F);
             break;
         case UE5 :
+            return PLAY(FE5);
+            break;
+        case UE5S :
+            return PLAY(FF5);
+            break;
+        case UF5F :
             return PLAY(FE5);
             break;
         case UF5 :
@@ -318,10 +347,10 @@ int playNote (unsigned char note) {
             return PLAY(FB5);
             break;
         case UOFF :
-            return PLAY(0);
+            return PLAY(OFF);
             break;
         default :
-	   return PLAY(0);
+	   return PLAY(OFF);
 	   break;
     }
 

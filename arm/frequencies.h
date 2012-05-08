@@ -56,6 +56,7 @@
 #define FA5S 932
 #define FB5F 932
 #define FB5  988
+#define OFF  0
 
 /* Note definitions */
 #define C3  0
