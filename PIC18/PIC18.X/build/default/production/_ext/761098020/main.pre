@@ -9923,13 +9923,14 @@ asm("\tglobal __config" "5"); asm("\t__config" "5" " equ " "0xFFFF");
 asm("\tglobal __config" "6"); asm("\t__config" "6" " equ " "0xFFFF");
 asm("\tglobal __config" "7"); asm("\t__config" "7" " equ " "0xFFFF");
 
-# 51
+# 33
 void ToggleLeds();
 void adc_conversion();
 void testToggle();
 unsigned char getNote (unsigned char, unsigned char);
+void play (unsigned char);
 
-# 144
+# 128
 int led_array[13];
 
 
@@ -9952,18 +9953,20 @@ unsigned char chanE[3] = {0,0,0};
 unsigned char chanF[3] = {0,0,0};
 unsigned char chanG[3] = {0,0,0};
 
+unsigned char mode = 0x00;
+
 volatile char adc_num;
 
 
 unsigned char cur_inputs[7];
 unsigned char prev_inputs[7];
 
-char change_val = 0;
-
 int index;
 
-# 180
+# 164
 int main(int argc, char** argv) {
+
+while (1) {
 
 OSCCON |= 0b01110010;
 
@@ -9987,6 +9990,9 @@ T0CON = 0b10000000;
 INTCON = 0b00100000;
 
 
+PIE1 |= 0b00100000;
+
+
 SPBRGH = (((8000000L/19200UL)/16) - 1) >> 8;
 SPBRG = (((8000000L/19200UL)/16) - 1);
 BAUDCON = 0b00001000;
@@ -10002,13 +10008,135 @@ LATC = 0b00001111;
 
 INTCON |= 0b10000000;
 
-# 232
-while (1);
+if (mode == 0) {
+while (mode == 0);
+}
 
+else if (mode == 1) {
+
+INTCON = 0b10000000;
+while (mode == 1) {
+
+}
+}
+
+else if (mode == 2) {
+
+INTCON = 0b10000000;
+while (mode == 2) {
+
+}
+}
+
+else if (mode == 3) {
+
+INTCON = 0b10000000;
+while (mode == 3) {
+
+}
+}
+
+else {
+mode = 0;
+}
+}
+
+# 254
 return (0);
 }
 
-# 245
+void play(unsigned char note) {
+TXREG = note;
+while((PIR1 & 0b00010000) == 0);
+}
+
+
+
+void interrupt my_isr(void) {
+
+INTCON &= 0b01111111;
+
+if (TMR0IE && TMR0IF && TMR0IP) {
+adc_conversion ();
+
+if (conv_result.adc_channel == 0) {
+if ((chanA[0] & conv_result.result) == conv_result.result) {
+TXREG = conv_result.result;
+while((PIR1 & 0b00010000) == 0);
+ToggleLeds();
+} else {
+
+}
+chanA[0] = conv_result.result;
+} else if (conv_result.adc_channel == 1) {
+if ((chanB[0] & conv_result.result) == conv_result.result) {
+TXREG = conv_result.result;
+while((PIR1 & 0b00010000) == 0);
+ToggleLeds();
+} else {
+
+}
+chanB[0] = conv_result.result;
+} else if (conv_result.adc_channel == 2) {
+if ((chanC[0] & conv_result.result) == conv_result.result) {
+TXREG = conv_result.result;
+while((PIR1 & 0b00010000) == 0);
+ToggleLeds();
+} else {
+
+}
+chanC[0] = conv_result.result;
+} else if (conv_result.adc_channel == 3) {
+if ((chanD[0] & conv_result.result) == conv_result.result) {
+TXREG = conv_result.result;
+while((PIR1 & 0b00010000) == 0);
+ToggleLeds();
+} else {
+
+}
+chanD[0] = conv_result.result;
+} else if (conv_result.adc_channel == 4) {
+if ((chanE[0] & conv_result.result) == conv_result.result) {
+TXREG = conv_result.result;
+while((PIR1 & 0b00010000) == 0);
+ToggleLeds();
+} else {
+
+}
+chanE[0] = conv_result.result;
+} else if (conv_result.adc_channel == 5) {
+if ((chanF[0] & conv_result.result) == conv_result.result) {
+TXREG = conv_result.result;
+while((PIR1 & 0b00010000) == 0);
+ToggleLeds();
+} else {
+}
+chanF[0] = conv_result.result;
+} else if (conv_result.adc_channel == 6) {
+if ((chanG[0] & conv_result.result) == conv_result.result) {
+TXREG = conv_result.result;
+while((PIR1 & 0b00010000) == 0);
+ToggleLeds();
+} else {
+
+}
+chanG[0] = conv_result.result;
+}
+
+TMR0IF = 0;
+}
+
+else if (RCIF) {
+mode = RCREG;
+RCIF = 0;
+}
+
+
+INTCON |= 0b10000000;
+
+}
+
+# 356
 void ToggleLeds () {
 
 
@@ -10104,7 +10232,7 @@ LATB = 0b11000000;
 
 LATC = 0b00001101;
 
-} else if (conv_result.adc_channel == 6 && conv_result.result == 0x0f) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x17) {
 
 
 LATA = 0b11111111;
@@ -10167,7 +10295,7 @@ LATB = 0b10100000;
 
 LATC = 0b00001101;
 
-} else if (conv_result.adc_channel == 6 && conv_result.result == 0x17) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x0f) {
 
 
 LATA = 0b11111111;
@@ -10574,7 +10702,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 814
+# 925
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10668,88 +10796,7 @@ DelayMs(5000);
 }
 }
 
-
-
-void interrupt my_isr(void) {
-
-INTCON &= 0b01111111;
-
-if (TMR0IE && TMR0IF && TMR0IP) {
-adc_conversion ();
-
-if (conv_result.adc_channel == 0) {
-if ((chanA[0] & conv_result.result) == conv_result.result) {
-TXREG = conv_result.result;
-while((PIR1 & 0b00010000) == 0);
-ToggleLeds();
-} else {
-
-}
-chanA[0] = conv_result.result;
-} else if (conv_result.adc_channel == 1) {
-if ((chanB[0] & conv_result.result) == conv_result.result) {
-TXREG = conv_result.result;
-while((PIR1 & 0b00010000) == 0);
-ToggleLeds();
-} else {
-
-}
-chanB[0] = conv_result.result;
-} else if (conv_result.adc_channel == 2) {
-if ((chanC[0] & conv_result.result) == conv_result.result) {
-TXREG = conv_result.result;
-while((PIR1 & 0b00010000) == 0);
-ToggleLeds();
-} else {
-
-}
-chanC[0] = conv_result.result;
-} else if (conv_result.adc_channel == 3) {
-if ((chanD[0] & conv_result.result) == conv_result.result) {
-TXREG = conv_result.result;
-while((PIR1 & 0b00010000) == 0);
-ToggleLeds();
-} else {
-
-}
-chanD[0] = conv_result.result;
-} else if (conv_result.adc_channel == 4) {
-if ((chanE[0] & conv_result.result) == conv_result.result) {
-TXREG = conv_result.result;
-while((PIR1 & 0b00010000) == 0);
-ToggleLeds();
-} else {
-
-}
-chanE[0] = conv_result.result;
-} else if (conv_result.adc_channel == 5) {
-if ((chanF[0] & conv_result.result) == conv_result.result) {
-TXREG = conv_result.result;
-while((PIR1 & 0b00010000) == 0);
-ToggleLeds();
-} else {
-}
-chanF[0] = conv_result.result;
-} else if (conv_result.adc_channel == 6) {
-if ((chanG[0] & conv_result.result) == conv_result.result) {
-TXREG = conv_result.result;
-while((PIR1 & 0b00010000) == 0);
-ToggleLeds();
-} else {
-
-}
-chanG[0] = conv_result.result;
-}
-
-TMR0IF = 0;
-}
-
-
-INTCON |= 0b10000000;
-
-}
-
-# 994
+# 1023
 void adc_conversion() {
 
 ADON = 0;
@@ -10804,7 +10851,7 @@ adc_num = 0;
 }
 }
 
-# 1054
+# 1083
 unsigned char getNote (unsigned char hResult, unsigned char lResult) {
 unsigned char new_note;
 

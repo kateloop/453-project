@@ -15,18 +15,18 @@
   <version xil_pn:ise_version="12.4" xil_pn:schema_version="2"/>
 
   <files>
-    <file xil_pn:name="../ece453_TLL5000_spring2012.ucf" xil_pn:type="FILE_UCF">
+    <file xil_pn:name="ece453_TLL5000_spring2012.ucf" xil_pn:type="FILE_UCF">
       <association xil_pn:name="Implementation"/>
     </file>
     <file xil_pn:name="BIU.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation"/>
       <association xil_pn:name="Implementation"/>
     </file>
-    <file xil_pn:name="../ece453_master_module.v" xil_pn:type="FILE_VERILOG">
+    <file xil_pn:name="ece453_master_module.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation"/>
       <association xil_pn:name="Implementation"/>
     </file>
-    <file xil_pn:name="../ece453_top_level.v" xil_pn:type="FILE_VERILOG">
+    <file xil_pn:name="ece453_top_level.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation"/>
       <association xil_pn:name="Implementation"/>
     </file>
@@ -136,7 +136,7 @@
     <property xil_pn:name="Ignore User Timing Constraints Map" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Ignore User Timing Constraints Par" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Implementation Top" xil_pn:value="Module|ece453_top_level" xil_pn:valueState="non-default"/>
-    <property xil_pn:name="Implementation Top File" xil_pn:value="../ece453_top_level.v" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Implementation Top File" xil_pn:value="ece453_top_level.v" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Implementation Top Instance Path" xil_pn:value="/ece453_top_level" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Include 'uselib Directive in Verilog File" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Include SIMPRIM Models in Verilog File" xil_pn:value="false" xil_pn:valueState="default"/>

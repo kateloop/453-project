@@ -3,23 +3,26 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
 Command Line: C:\Xilinx\12.4\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe -filter
 iseconfig/filter.filter -intstyle ise -dd _ngo -nt timestamp -uc
-C:/vmware-shared/Lab5_Dan&Liu/Lab5_Dan&Liu/lab3/lab3/distribution/ece453_TLL5000
-_spring2012.ucf -p xc3s1500-fg676-4 ece453_top_level.ngc ece453_top_level.ngd
+ece453_TLL5000_spring2012.ucf -p xc3s1500-fg676-4 ece453_top_level.ngc
+ece453_top_level.ngd
 
 Reading NGO file
-"C:/vmware-shared/Lab5_Dan&Liu/Lab5_Dan&Liu/lab3/lab3/distribution/lab3/ece453_t
-op_level.ngc" ...
+"C:/vmware-shared/dak-project/453-project/fpga/lab3/ece453_top_level.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
-Annotating constraints to design from ucf file
-"C:/vmware-shared/Lab5_Dan&Liu/Lab5_Dan&Liu/lab3/lab3/distribution/ece453_TLL500
-0_spring2012.ucf" ...
+Annotating constraints to design from ucf file "ece453_TLL5000_spring2012.ucf"
+...
 Resolving constraint associations...
 Checking Constraint Associations...
 Done...
 
 Checking expanded design ...
+ERROR:NgdBuild:604 - logical block 'MASTER' with type 'ece453_master_module'
+   could not be resolved. A pin name misspelling can cause this, a missing edif
+   or ngc file, case mismatch between the block name and the edif or ngc file
+   name, or the misspelling of a type name. Symbol 'ece453_master_module' is not
+   supported in target 'spartan3'.
 
 Partition Implementation Status
 -------------------------------
@@ -29,13 +32,14 @@ Partition Implementation Status
 -------------------------------
 
 NGDBUILD Design Results Summary:
-  Number of errors:     0
+  Number of errors:     1
   Number of warnings:   0
 
-Total memory usage is 141704 kilobytes
+Total memory usage is 138632 kilobytes
 
-Writing NGD file "ece453_top_level.ngd" ...
 Total REAL time to NGDBUILD completion:  2 sec
 Total CPU time to NGDBUILD completion:   2 sec
+
+One or more errors were found during NGDBUILD.  No NGD file will be written.
 
 Writing NGDBUILD log file "ece453_top_level.bld"...

@@ -26,24 +26,6 @@ __CONFIG (5, UNPROTECT);
 __CONFIG (6, UNPROTECT);
 __CONFIG (7, UNPROTECT);
 
-/*
-/ ADC /
-#define _ADC_V5
-/ CC /
-#define _CC_V1
-/ PWM /
-#define _PWM_V1
-/ USART /
-#define _EAUSART_V4
-/ TIMERS /
-#define _TMR_V2
-/ EEPROM /
-#define _EEP_V3
-/ PORT_B /
-#define _PTB_V1
-*/
-
-
 ////////////////////////////////
 //  Function Declarations     //
 ////////////////////////////////
@@ -52,6 +34,8 @@ void ToggleLeds();
 void adc_conversion();
 void testToggle();
 unsigned char getNote (unsigned char, unsigned char);
+void play (unsigned char);
+
 //////////////////////////////////
 //  defines                     //
 //////////////////////////////////
@@ -163,13 +147,13 @@ unsigned char chanE[3] = {0,0,0};
 unsigned char chanF[3] = {0,0,0};
 unsigned char chanG[3] = {0,0,0};
 
+unsigned char mode = 0x00;
+
 volatile char adc_num;  // Keeps track of which ADC channel is being used
 
 // Inputs from the sensors, if cur is not the same as prev, new sound to be played
 unsigned char cur_inputs[7];
 unsigned char prev_inputs[7];
-
-char change_val = 0;
 
 int index;
 
@@ -178,45 +162,81 @@ int index;
  */
 
 int main(int argc, char** argv) {
-    // Init Config
-    OSCCON |= 0b01110010;  //internal oscillator, 8MHz
 
-    // set up GPIO
-    TRISA = PORTA_DIR;
-    TRISB = PORTB_DIR;
-    TRISC = PORTC_DIR;
+    while (1) {
+            // Init Config
+            OSCCON |= 0b01110010;  //internal oscillator, 8MHz
 
-    // configure ADC
-    ADCON0 = ADCON0_INIT;
-    ADCON1 = ADCON1_VAL;
-    ADCON2 = ADCON2_VAL;
-    adc_num = ADCCHANA; // reset the current adc channel to 0
+            // set up GPIO
+            TRISA = PORTA_DIR;
+            TRISB = PORTB_DIR;
+            TRISC = PORTC_DIR;
+
+            // configure ADC
+            ADCON0 = ADCON0_INIT;
+            ADCON1 = ADCON1_VAL;
+            ADCON2 = ADCON2_VAL;
+            adc_num = ADCCHANA; // reset the current adc channel to 0
  
 
-    // configure timer0
-    //T0CON = T0CON_VAL;
-    T0CON = T0CON_16;
+            // configure timer0
+            //T0CON = T0CON_VAL;
+            T0CON = T0CON_16;
 
-    // configure timer0 interrupt
-    INTCON = INTCON_INIT;
+            // configure timer0 interrupt
+            INTCON = INTCON_INIT;
 
-   // UART config
-   SPBRGH  = SPBRGH_SPBRG >> 8;
-   SPBRG =  SPBRGH_SPBRG;
-   BAUDCON = 0b00001000;
-   RCSTA = 0b10010000;
-   TXSTA = 0b00100000;
+            // configure UART Receive interrupt
+            PIE1 |= 0b00100000;     // enables UART receive interrupts
 
-   //LATA   -P-P----
-   LATA = 0b11111111;
-   //LATB   PNN-NN--
-   LATB = 0b10000000;
-   //LATC   --NNPPPP
-   LATC = 0b00001111;
+            // UART config
+            SPBRGH  = SPBRGH_SPBRG >> 8;
+            SPBRG =  SPBRGH_SPBRG;
+            BAUDCON = 0b00001000;
+            RCSTA = 0b10010000;
+            TXSTA = 0b00100000;
 
-   INTCON |= 0b10000000;   // enables interrupts
+            //LATA   -P-P----
+            LATA = 0b11111111;
+            //LATB   PNN-NN--
+            LATB = 0b10000000;
+            //LATC   --NNPPPP
+            LATC = 0b00001111;
 
-   // SAMPLE RECEIVE UART CODE: WILL NEED TO DO UART RECEIVE INTERRUPT TO CHANGE MODES
+            INTCON |= 0b10000000;   // enables interrupts
+
+        if (mode == 0) {
+            while (mode == 0);
+        }
+
+        else if (mode == 1) {
+            // play Piano Man
+            INTCON = 0b10000000;  // turn off timer 0 interrupt
+            while (mode == 1) {
+
+            }
+        }
+
+        else if (mode == 2) {
+            // play Clocks
+            INTCON = 0b10000000;  // turn off timer 0 interrupt
+            while (mode == 2) {
+
+            }
+        }
+
+        else if (mode == 3) {
+            // Play Clare De Lune
+            INTCON = 0b10000000;  // turn off timer 0 interrupt
+            while (mode == 3) {
+
+            }
+        }
+
+        else {
+            mode = 0;
+        }
+    }            // SAMPLE RECEIVE UART CODE: WILL NEED TO DO UART RECEIVE INTERRUPT TO CHANGE MODES
 
     /*    char uout = 0x01;
         while(1) {
@@ -229,9 +249,100 @@ int main(int argc, char** argv) {
             }
         }*/
 
-    while (1); // spin
+
 
     return (EXIT_SUCCESS);
+}
+
+void play(unsigned char note) {
+    TXREG = note;
+    while((PIR1 & 0b00010000) == 0);
+}
+
+// ISR that processes ADC data from 7 inputs in a sequential fashion
+
+void interrupt my_isr(void) {
+    // Disable Interrupts
+    INTCON &= 0b01111111;   // disables interrupts
+
+    if (TMR0IE && TMR0IF && TMR0IP) {
+        adc_conversion ();
+
+       if (conv_result.adc_channel == ADCCHANA) {
+            if ((chanA[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
+
+            }
+            chanA[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHANB) {
+            if ((chanB[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
+
+            }
+            chanB[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHANC) {
+            if ((chanC[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
+
+            }
+            chanC[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHAND) {
+            if ((chanD[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
+
+            }
+            chanD[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHANE) {
+            if ((chanE[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
+
+            }
+            chanE[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHANF) {
+            if ((chanF[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
+            }
+            chanF[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHANG) {
+            if ((chanG[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
+
+            }
+            chanG[0] = conv_result.result;
+        }
+        // Clear flag for timer 0
+        TMR0IF = 0;
+    }
+    // UART Interrupt
+    else if (RCIF) {
+        mode = RCREG;
+        RCIF = 0;
+    }
+
+    // Reenable Interrupts
+    INTCON |= 0b10000000;   // enables interrupts
+
 }
 
 
@@ -337,7 +448,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
-    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x0f) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x17) {
         // Octave 3 Right LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -400,7 +511,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
-    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x17) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x0f) {
         // Octave 3 Left LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -903,88 +1014,6 @@ void testToggle () {
         DelayMs(5000);
     }
 }
-
-// ISR that processes ADC data from 7 inputs in a sequential fashion
-
-void interrupt my_isr(void) {
-    // Disable Interrupts
-    INTCON &= 0b01111111;   // disables interrupts
-
-    if (TMR0IE && TMR0IF && TMR0IP) {
-        adc_conversion ();
-
-       if (conv_result.adc_channel == ADCCHANA) {
-            if ((chanA[0] & conv_result.result) == conv_result.result) {
-                TXREG = conv_result.result;
-                while((PIR1 & 0b00010000) == 0);
-                ToggleLeds();
-            } else {
-                
-            }
-            chanA[0] = conv_result.result;
-        } else if (conv_result.adc_channel == ADCCHANB) {
-            if ((chanB[0] & conv_result.result) == conv_result.result) {
-                TXREG = conv_result.result;
-                while((PIR1 & 0b00010000) == 0);
-                ToggleLeds();
-            } else {
-            
-            }
-            chanB[0] = conv_result.result;
-        } else if (conv_result.adc_channel == ADCCHANC) {
-            if ((chanC[0] & conv_result.result) == conv_result.result) {
-                TXREG = conv_result.result;
-                while((PIR1 & 0b00010000) == 0);
-                ToggleLeds();
-            } else {
-              
-            }
-            chanC[0] = conv_result.result;
-        } else if (conv_result.adc_channel == ADCCHAND) {
-            if ((chanD[0] & conv_result.result) == conv_result.result) {
-                TXREG = conv_result.result;
-                while((PIR1 & 0b00010000) == 0);
-                ToggleLeds();
-            } else {
-              
-            }
-            chanD[0] = conv_result.result;
-        } else if (conv_result.adc_channel == ADCCHANE) {
-            if ((chanE[0] & conv_result.result) == conv_result.result) {
-                TXREG = conv_result.result;
-                while((PIR1 & 0b00010000) == 0);
-                ToggleLeds();
-            } else {
-              
-            }
-            chanE[0] = conv_result.result;
-        } else if (conv_result.adc_channel == ADCCHANF) {
-            if ((chanF[0] & conv_result.result) == conv_result.result) {
-                TXREG = conv_result.result;
-                while((PIR1 & 0b00010000) == 0);
-                ToggleLeds();
-            } else {
-            }
-            chanF[0] = conv_result.result;
-        } else if (conv_result.adc_channel == ADCCHANG) {
-            if ((chanG[0] & conv_result.result) == conv_result.result) {
-                TXREG = conv_result.result;
-                while((PIR1 & 0b00010000) == 0);
-                ToggleLeds();
-            } else {
-                
-            }
-            chanG[0] = conv_result.result;
-        }
-        // Clear flag for timer 0
-        TMR0IF = 0;
-    }
-
-    // Reenable Interrupts
-    INTCON |= 0b10000000;   // enables interrupts
-
-}
-
 
 //////////////////////////////////////////////
 // Function that processes ADC data from    //

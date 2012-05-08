@@ -33,6 +33,9 @@ int playNote(unsigned char);
 
 int main(int argc, char* argv[])
 {
+   // memory map setup
+
+   // client setup
    struct sockaddr_in addr;
    struct hostent* host;
    char* tmp;
@@ -94,61 +97,28 @@ int main(int argc, char* argv[])
    if (tcsetattr(fd, TCSANOW, &termInfo) == -1) {
       goto error;
    }
-
-/*int count = 0;
-int i, j;
-// send stuff to server
-while (1) {
-   for (i = 0; i < 51; i++) {
-      int freq = playNote(i);
-      char buf[5];
-      snprintf(buf, 5, "%d", freq);        
-      write(fd_sock, buf,  4);
-      for (j = 0; j <9055000; j++) {
-         count += j - 3;
-      }   
-      printf("count %d\n", count);
-   }
-}
-*/
-
-/*
-// send stuff on uart
-   int i,j;
-   int count = 0;
-   while (1) {
-       for (i = 0; i < 51; i++) {
-          printf("note %d\n", i);
-      playNote(i, ptr);
-          for ( j = 0; j < 5005000; j++) {
-            // spin
-            count = j;
-            count--;
-            count+=2;
-      }
-       }
-       printf("%d\n", count);
-   }
-*/
    /* read "man select" for more advanced/event driven reading */
 
+int mode = 0;
+int cur_mode = -1;
 while (1) {
-//   write(fd, "a", 1);
-   
+   // read value from FPGA
+   char send_buffer[64];
+   // send mode across uart if different from current mode
+   if (mode != cur_mode) {
+      cur_mode = mode;
+      write(fd, send_buffer, 1);
+   }
+
    // read in from UART
    char buffer[64];
    size_t i = read(fd, buffer, 1);
-   //unsigned char result  = buffer[0];
-   //i = read(fd, buffer, 1);
-   //unsigned char sensor = buffer[0];
-   //i = read(fd, buffer, 1);
-   // output note to server
    unsigned char val = buffer[0];
    int freq = playNote(val);
    char buf[5];
    snprintf(buf, 5, "%d", freq);
-   write(fd_sock, buf, 4);	
-   printf("Val: %x Freq: %d\n", val, freq);
+   write(fd_sock, buf, 4);  
+
 }
 
    close(fd);
@@ -187,9 +157,9 @@ int playNote (unsigned char note) {
             break;
         case UE3S :
             return PLAY(F3);
-  	    break;
+        break;
         case UF3F :
- 	    return PLAY(FE3);
+        return PLAY(FE3);
         case UF3 :
             return PLAY(FF3);
             break;
@@ -350,8 +320,8 @@ int playNote (unsigned char note) {
             return PLAY(OFF);
             break;
         default :
-	   return PLAY(OFF);
-	   break;
+       return PLAY(OFF);
+       break;
     }
 
 }

@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\CCS\AppData\Local\Temp\s6r4.obj \
+  C:\Users\CCS\AppData\Local\Temp\s39s.obj \
   dist/default/production\PIC18.X.production.obj 
 
 Object code version is 3.10
@@ -32,21 +32,21 @@ Machine type is 18F2682
 
 Call graph: (short form)
 
-*_main size 4,0 offset 0
+*_main size 4,1 offset 0
 
 Estimated maximum call depth: 0
 
-*intlevel2 size 0,0 offset 4
-*    _my_isr size 0,14 offset 4
-*        _adc_conversion size 0,3 offset 18
-*            _getNote size 2,2 offset 21
-         _ToggleLeds size 0,0 offset 18
+*intlevel2 size 0,0 offset 5
+*    _my_isr size 0,14 offset 5
+*        _adc_conversion size 0,3 offset 19
+*            _getNote size 2,2 offset 22
+         _ToggleLeds size 0,0 offset 19
 
 Estimated maximum call depth: 3
 
 
                 Name          Link     Load   Length Selector Space Scale
-C:\Users\CCS\AppData\Local\Temp\s6r4.obj
+C:\Users\CCS\AppData\Local\Temp\s39s.obj
                 end_init        24       24       12       4     0
                 init            18       18        C       4     0
                 reset_vec        0        0        4       0     0
@@ -54,12 +54,12 @@ C:\Users\CCS\AppData\Local\Temp\s6r4.obj
 dist/default/production\PIC18.X.production.obj
                 intcode          8        8       10       4     0
                 text4           36       36     1362       4     0
-                text3         2274     2274       B8       4     0
-                text0         232C     232C       50       4     0
-                text1         1FD0     1FD0      2A4       4     0
+                text3         239C     239C       B8       4     0
+                text0         228C     228C      110       4     0
+                text1         1FD0     1FD0      2BC       4     0
                 text2         1398     1398      C38       4     0
 
-COMMON          param1         100      100       19     100     1
+COMMON          param1         100      100       1A     100     1
 
 TOTAL           Name          Link     Load   Length  Space
         CLASS   CODE           
@@ -68,9 +68,9 @@ TOTAL           Name          Link     Load   Length  Space
                 intcode          8        8       10     0
                 reset_vec        0        0        4     0
                 text4           36       36     1362     0
-                text3         2274     2274       B8     0
-                text0         232C     232C       50     0
-                text1         1FD0     1FD0      2A4     0
+                text3         239C     239C       B8     0
+                text0         228C     228C      110     0
+                text1         1FD0     1FD0      2BC     0
                 text2         1398     1398      C38     0
 
         CLASS   CONST          
@@ -91,7 +91,7 @@ TOTAL           Name          Link     Load   Length  Space
         CLASS   BANK0          
 
         CLASS   BANK1          
-                param1         100      100       19     1
+                param1         100      100       1A     1
 
         CLASS   BANK2          
 
@@ -131,15 +131,15 @@ TOTAL           Name          Link     Load   Length  Space
 SEGMENTS        Name           Load    Length   Top     Selector    Space Class
 
                 reset_vec       000000  000004  000004         0       0  CODE    
-                intcode         000008  002374  00237C         4       0  CODE    
-                param1          000100  000019  000119       100       1  BANK1   
+                intcode         000008  00244C  002454         4       0  CODE    
+                param1          000100  00001A  00011A       100       1  BANK1   
                 config          300000  00000E  30000E    300000       0  CONFIG  
 
 
 UNUSED ADDRESS RANGES
 
         BANK0            000046-0000FF
-        BANK1            000119-0001FF
+        BANK1            00011A-0001FF
         BANK10           000A00-000AFF
         BANK11           000B00-000BFF
         BANK12           000C00-000C9F
@@ -152,33 +152,33 @@ UNUSED ADDRESS RANGES
         BANK8            000800-0008FF
         BANK9            000900-0009FF
         BIGRAM           000046-0000FF
-                         000119-000C9F
+                         00011A-000C9F
         CODE             000004-000007
-                         00237C-013FFF
+                         002454-013FFF
         COMRAM           000046-00005F
         CONST            000004-000007
-                         00237C-013FFF
+                         002454-013FFF
         EEDATA           F00000-F003FF
         IDLOC            200000-200007
-        MEDIUMCONST      00237C-00FFFF
+        MEDIUMCONST      002454-00FFFF
                          010D00-013FFF
         NVRAM            000C00-000C9F
         RAM              000046-0000FF
-                         000119-000C9F
-        SMALLCONST       00237C-003FFF
+                         00011A-000C9F
+        SMALLCONST       002454-003FFF
 
                                   Symbol Table
 
-??_ToggleLeds           param1       000112
-??_adc_conversion       param1       000112
-??_getNote              param1       000117
+??_ToggleLeds           param1       000113
+??_adc_conversion       param1       000113
+??_getNote              param1       000118
 ??_main                 param1       000104
-??_my_isr               param1       000104
-?_ToggleLeds            param1       000112
-?_adc_conversion        param1       000112
-?_getNote               param1       000115
+??_my_isr               param1       000105
+?_ToggleLeds            param1       000113
+?_adc_conversion        param1       000113
+?_getNote               param1       000116
 ?_main                  param1       000100
-?_my_isr                param1       000104
+?_my_isr                param1       000105
 _ADCON0                 (abs)        000FC2
 _ADCON1                 (abs)        000FC1
 _ADCON2                 (abs)        000FC0
@@ -197,6 +197,7 @@ _LATB                   (abs)        000F8A
 _LATC                   (abs)        000F8B
 _OERR                   (abs)        007D59
 _OSCCON                 (abs)        000FD3
+_PIE1                   (abs)        000F9D
 _PIR1                   (abs)        000F9E
 _RCIE_x                 (abs)        007CED
 _RCIF                   (abs)        007CF5
@@ -228,13 +229,13 @@ _TXIF                   (abs)        007CF4
 _TXREG                  (abs)        000FAD
 _TXSTA                  (abs)        000FAC
 _ToggleLeds             text2        001398
-_USART_Status           (abs)        000018
+_USART_Status           (abs)        000019
 __Bnvbit                nvbit        000046
 __Brbit                 rbit         000046
 __HRAM                  (abs)        000000
 __Habsbss0              (abs)        000046
-__Hbigbss               bigbss       000119
-__Hbigdata              bigdata      000119
+__Hbigbss               bigbss       00011A
+__Hbigdata              bigdata      00011A
 __Hbss                  bss          000046
 __Hclrtext              clrtext      000036
 __Hconfig               config       30000E
@@ -253,15 +254,15 @@ __Hintcode              intcode      000018
 __Hintcodelo            intcodelo    000018
 __Hintentry             intentry     000036
 __Hintret               intret       000036
-__Hintsave_regs         intsave_regs 000119
+__Hintsave_regs         intsave_regs 00011A
 __Hirdata               irdata       000036
 __Hmediumconst          mediumconst  000D00
 __Hnvbit                nvbit        000230
 __Hnvram                nvram        000036
 __Hnvrram               nvrram       000046
-__Hparam                param1       000119
+__Hparam                param1       00011A
 __Hparam0               param0       000036
-__Hparam1               param1       000119
+__Hparam1               param1       00011A
 __Hparam10              param10      000036
 __Hparam11              param11      000036
 __Hparam12              param12      000036
@@ -291,8 +292,8 @@ __Htext3                text3        000036
 __Htext4                text4        000036
 __LRAM                  (abs)        000001
 __Labsbss0              (abs)        000000
-__Lbigbss               bigbss       000119
-__Lbigdata              bigdata      000119
+__Lbigbss               bigbss       00011A
+__Lbigdata              bigdata      00011A
 __Lbss                  bss          000046
 __Lclrtext              clrtext      000036
 __Lconfig               config       300000
@@ -311,7 +312,7 @@ __Lintcode              intcode      000008
 __Lintcodelo            intcodelo    000018
 __Lintentry             intentry     000036
 __Lintret               intret       000036
-__Lintsave_regs         intsave_regs 000119
+__Lintsave_regs         intsave_regs 00011A
 __Lirdata               irdata       000036
 __Lmediumconst          mediumconst  000D00
 __Lnvbit                nvbit        000230
@@ -359,45 +360,45 @@ __config5               (abs)        00FFFF
 __config6               (abs)        00FFFF
 __config7               (abs)        00FFFF
 __end_of_ToggleLeds     text2        001FD0
-__end_of_adc_conversion text3        00232C
+__end_of_adc_conversion text3        002454
 __end_of_getNote        text4        001398
-__end_of_main           text0        00237C
-__end_of_my_isr         text1        002274
+__end_of_main           text0        00239C
+__end_of_my_isr         text1        00228C
 __mediumconst           mediumconst  000D00
 __ramtop                ramtop       000D00
 __smallconst            smallconst   000D00
-_adc_conversion         text3        002274
-_adc_num                (abs)        000002
-_chanA                  (abs)        00000F
-_chanB                  (abs)        000012
-_chanC                  (abs)        000015
-_chanD                  (abs)        000006
-_chanE                  (abs)        000003
-_chanF                  (abs)        00000C
-_chanG                  (abs)        000009
-_change_val             (abs)        000019
-_conv_result            (abs)        000000
+_adc_conversion         text3        00239C
+_adc_num                (abs)        000000
+_chanA                  (abs)        000010
+_chanB                  (abs)        000013
+_chanC                  (abs)        000016
+_chanD                  (abs)        000007
+_chanE                  (abs)        000004
+_chanF                  (abs)        00000D
+_chanG                  (abs)        00000A
+_conv_result            (abs)        000001
 _cur_inputs             (abs)        00003D
 _exit                   init         000018
 _getNote                text4        000036
 _index                  (abs)        000044
-_led_array              (abs)        00001C
-_main                   text0        00232C
+_led_array              (abs)        00001A
+_main                   text0        00228C
+_mode                   (abs)        000003
 _my_isr                 text1        001FD0
-_new_note               (abs)        00001B
+_new_note               (abs)        000035
 _prev_inputs            (abs)        000036
-_uart_out               (abs)        00001A
-adc_conversion@hResult  param1       000112
-adc_conversion@lResult  param1       000113
-adc_conversion@note     param1       000114
-getNote@hResult         param1       000115
-getNote@lResult         param1       000116
-getNote@new_note        param1       000117
+_uart_out               (abs)        000034
+adc_conversion@hResult  param1       000113
+adc_conversion@lResult  param1       000114
+adc_conversion@note     param1       000115
+getNote@hResult         param1       000116
+getNote@lResult         param1       000117
+getNote@new_note        param1       000118
 int_func                intcode      000008
-intlevel0               text         00237C
-intlevel1               text         00237C
-intlevel2               text         00237C
-intlevel3               text         00237C
+intlevel0               text         002454
+intlevel1               text         002454
+intlevel2               text         002454
+intlevel3               text         002454
 main@argc               param1       000100
 main@argv               param1       000102
 start                   init         000018

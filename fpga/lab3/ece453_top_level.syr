@@ -104,10 +104,8 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling verilog file "lab1.v" in library work
-Compiling verilog file "../ece453_master_module.v" in library work
-Module <lab1> compiled
-Compiling verilog file "../ece453_top_level.v" in library work
+Compiling verilog file "ece453_master_module.v" in library work
+Compiling verilog file "ece453_top_level.v" in library work
 Module <ece453_master_module> compiled
 Module <ece453_top_level> compiled
 No errors in compilation
@@ -119,22 +117,13 @@ Analysis of file <"ece453_top_level.prj"> succeeded.
 =========================================================================
 Analyzing hierarchy for module <ece453_top_level> in library <work>.
 
-Analyzing hierarchy for module <ece453_master_module> in library <work>.
-
-Analyzing hierarchy for module <lab1> in library <work>.
-
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing top module <ece453_top_level>.
+WARNING:Xst:2211 - "ece453_master_module.v" line 111: Instantiating black box module <ece453_master_module>.
 Module <ece453_top_level> is correct for synthesis.
- 
-Analyzing module <ece453_master_module> in library <work>.
-Module <ece453_master_module> is correct for synthesis.
- 
-Analyzing module <lab1> in library <work>.
-Module <lab1> is correct for synthesis.
  
 
 =========================================================================
@@ -142,256 +131,9 @@ Module <lab1> is correct for synthesis.
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <io_direction<31>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<30>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<29>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<28>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<27>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<26>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<25>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<24>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<23>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<22>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<21>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<20>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<19>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<18>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<17>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_direction<16>> in unit <lab1> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_write> in unit <lab1> has a constant value of 00000000000000000000000000000000 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <io_read> in unit <lab1> has a constant value of 00000000000000000000000000000000 during circuit operation. The register is replaced by logic.
-
-Synthesizing Unit <lab1>.
-    Related source file is "lab1.v".
-WARNING:Xst:646 - Signal <io_write> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <io_read> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <io_direction<31:16>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found 32-bit tristate buffer for signal <data_out>.
-    Found 16-bit register for signal <ACC_PORT_PIN_OUT>.
-    Found 16-bit adder for signal <$add0000> created at line 66.
-    Found 16-bit adder for signal <$add0001> created at line 171.
-    Found 32-bit adder for signal <$sub0000> created at line 110.
-    Found 32-bit adder for signal <$sub0001> created at line 173.
-    Found 1-bit register for signal <busy>.
-    Found 32-bit register for signal <count>.
-    Found 16-bit register for signal <io_direction<15:0>>.
-    Found 32-bit register for signal <random>.
-    Found 1-bit xor2 for signal <random$xor0000> created at line 110.
-    Found 1-bit xor2 for signal <random$xor0001> created at line 110.
-    Found 1-bit xor2 for signal <random$xor0002> created at line 110.
-    Found 1-bit xor2 for signal <random$xor0003> created at line 173.
-    Found 1-bit xor2 for signal <random$xor0004> created at line 173.
-    Found 1-bit xor2 for signal <random$xor0005> created at line 173.
-    Found 32-bit register for signal <RandomNumber>.
-    Found 32-bit register for signal <read>.
-    Found 32-bit register for signal <scratch1>.
-    Found 32-bit register for signal <scratch2>.
-    Found 32-bit register for signal <scratch3>.
-    Found 32-bit register for signal <scratch4>.
-    Summary:
-	inferred 289 D-type flip-flop(s).
-	inferred   4 Adder/Subtractor(s).
-	inferred  32 Tristate(s).
-Unit <lab1> synthesized.
-
-
-Synthesizing Unit <ece453_master_module>.
-    Related source file is "../ece453_master_module.v".
-WARNING:Xst:647 - Input <SPI_MISO> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2563 - Inout <PIO<58>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<63>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <VD_NRESET> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <PIO<64>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<59>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <ACC_PORT_PIN<42:25>> is never assigned. Tied to value 000000000000000000.
-WARNING:Xst:647 - Input <CPLD_RS1_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <PIO_DIR0> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <PIO<65>> is never assigned. Tied to value Z.
-WARNING:Xst:647 - Input <ARM_CS5_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2563 - Inout <PIO<66>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <PIO_DIR8> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <PS2_MOUSE_CLK> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<67>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <LCD_DATA> is never assigned. Tied to value 0000.
-WARNING:Xst:2563 - Inout <VE_FIELD_VSYNC> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <LCD_E> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <VD_HS> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <SPI_SS> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <VE_VSO> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <FLASH_ADDR> is never assigned. Tied to value 00000000000000000000000.
-WARNING:Xst:647 - Input <VD_SFL> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <RS232_RTS> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <PS2_ENABLED> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <AC97_SYNC> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <CPLD_WS1_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <RS232_CTS> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <VE_DATA> is never assigned. Tied to value 00000000.
-WARNING:Xst:647 - Input <CPLD_NFIO4> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <CPLD_NFIO5> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <FPGA_CLK_BANK_0> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <FPGA_CLK_BANK_1> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2563 - Inout <VE_BLANK> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <VGA_PIX_CLK> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <FPGA_CLK_BANK_5> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <FLASH_NWE> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <VE_HSYNC> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <VE_SCRESET_RTC> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <AC97_ID_0> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <AC97_BIT_CLK> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <VD_LLC> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <AC97_ID_1> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <FLASH_NWP> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <FLASH_DATA<10>> is never assigned. Tied to value Z.
-WARNING:Xst:647 - Input <ARM_CS0_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <VD_VS_FIELD> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <PB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2563 - Inout <PS2_KEYB_DATA> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <FLASH_DATA<11>> is never assigned. Tied to value Z.
-WARNING:Xst:647 - Input <ARM_OE_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <LCD_RS> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <LCD_BACK> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <ARM_RESET_OUT> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2563 - Inout <FLASH_DATA<12>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <LCD_RW> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <VGA_BLANK> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <FPGA_CLK1> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <FPGA_CLK2> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2563 - Inout <FLASH_DATA<13>> is never assigned. Tied to value Z.
-WARNING:Xst:647 - Input <FPGA_CLK3> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <VE_CLK> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <VGA_HSYNC> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <PIO_IN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2563 - Inout <FLASH_DATA<14>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <VGA_PSAVE> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <VD_DATA_DEC> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2563 - Inout <FLASH_DATA<15>> is never assigned. Tied to value Z.
-WARNING:Xst:647 - Input <ARM_CS1_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <VE_CLAMP> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <PIO_DIR16> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <RS232_RX> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <PIO_DIR24> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <AC97_RESET_N> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <VE_CSO_HSO> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <VE_TTXREQ> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <PIO_DIR32> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <PIO_DIR40> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <AC97_SDATA_IN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <RS232_TX> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <PS2_MOUSE_DATA> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <VD_NPWRDWN> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <FLASH_DATA<0>> is never assigned. Tied to value Z.
-WARNING:Xst:647 - Input <ARM_CS2_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <FLASH_NRESET> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <PIO_OE_B0> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <FLASH_DATA<1>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <SPI_SCK> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <VGA_B> is never assigned. Tied to value 00000000.
-WARNING:Xst:2563 - Inout <FLASH_DATA<2>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <PIO_OE_B8> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <VGA_G> is never assigned. Tied to value 00000000.
-WARNING:Xst:1305 - Output <VE_RESET> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <FLASH_DATA<3>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <SPI_MOSI> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <PIO_OE_B16> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <ARM_RW> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <PIO_OE_B24> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <FLASH_DATA<4>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <PIO_OE_B32> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <VGA_R> is never assigned. Tied to value 00000000.
-WARNING:Xst:2563 - Inout <FLASH_DATA<5>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <AC97_SDATA_OUT> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <PIO<50>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <PIO_OE_B40> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <ARM_CS3_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <FLASH_NBYTE> is never assigned. Tied to value 0.
-WARNING:Xst:647 - Input <FLASH_NRYBY> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <FLASH_NCE> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <FLASH_DATA<6>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<51>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <VGA_VSYNC> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <FLASH_DATA<7>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<52>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <FLASH_DATA<8>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<53>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<48>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <VE_PAL_NTSC> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <FLASH_DATA<9>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<54>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<49>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <ARM_IRQ> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <PIO_OUT> is never assigned. Tied to value 000000000000000000000000000000000000000000000000.
-WARNING:Xst:2563 - Inout <I2C_SDA> is never assigned. Tied to value Z.
-WARNING:Xst:647 - Input <VD_INTRQ> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <FLASH_NOE_E> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <PIO<55>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<60>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PS2_KEYB_CLK> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <I2C_SCL> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<61>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<56>> is never assigned. Tied to value Z.
-WARNING:Xst:647 - Input <SYS_CLK> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1305 - Output <VE_TTX> is never assigned. Tied to value 0.
-WARNING:Xst:2563 - Inout <PIO<62>> is never assigned. Tied to value Z.
-WARNING:Xst:2563 - Inout <PIO<57>> is never assigned. Tied to value Z.
-WARNING:Xst:1305 - Output <VGA_SYNC> is never assigned. Tied to value 0.
-WARNING:Xst:1780 - Signal <c_address> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <c_WS> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <c_RS> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <c_BE> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <c_AS> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <c_ARM_D> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-    Found 1-bit tristate buffer for signal <PS2_MOUSE_CLK>.
-    Found 1-bit tristate buffer for signal <VE_FIELD_VSYNC>.
-    Found 1-bit tristate buffer for signal <VE_BLANK>.
-    Found 1-bit tristate buffer for signal <VE_HSYNC>.
-    Found 1-bit tristate buffer for signal <PS2_KEYB_DATA>.
-    Found 1-bit tristate buffer for signal <PS2_MOUSE_DATA>.
-    Found 1-bit tristate buffer for signal <I2C_SDA>.
-    Found 1-bit tristate buffer for signal <PS2_KEYB_CLK>.
-    Found 1-bit tristate buffer for signal <I2C_SCL>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<15>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<14>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<13>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<12>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<11>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<10>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<9>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<8>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<7>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<6>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<5>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<4>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<3>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<2>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<1>>.
-    Found 1-bit tristate buffer for signal <FLASH_DATA<0>>.
-    Found 1-bit tristate buffer for signal <PIO<67>>.
-    Found 1-bit tristate buffer for signal <PIO<66>>.
-    Found 1-bit tristate buffer for signal <PIO<65>>.
-    Found 1-bit tristate buffer for signal <PIO<64>>.
-    Found 1-bit tristate buffer for signal <PIO<63>>.
-    Found 1-bit tristate buffer for signal <PIO<62>>.
-    Found 1-bit tristate buffer for signal <PIO<61>>.
-    Found 1-bit tristate buffer for signal <PIO<60>>.
-    Found 1-bit tristate buffer for signal <PIO<59>>.
-    Found 1-bit tristate buffer for signal <PIO<58>>.
-    Found 1-bit tristate buffer for signal <PIO<57>>.
-    Found 1-bit tristate buffer for signal <PIO<56>>.
-    Found 1-bit tristate buffer for signal <PIO<55>>.
-    Found 1-bit tristate buffer for signal <PIO<54>>.
-    Found 1-bit tristate buffer for signal <PIO<53>>.
-    Found 1-bit tristate buffer for signal <PIO<52>>.
-    Found 1-bit tristate buffer for signal <PIO<51>>.
-    Found 1-bit tristate buffer for signal <PIO<50>>.
-    Found 1-bit tristate buffer for signal <PIO<49>>.
-    Found 1-bit tristate buffer for signal <PIO<48>>.
-    Summary:
-	inferred  45 Tristate(s).
-Unit <ece453_master_module> synthesized.
-
 
 Synthesizing Unit <ece453_top_level>.
-    Related source file is "../ece453_top_level.v".
+    Related source file is "ece453_top_level.v".
     Found 48-bit tristate buffer for signal <MZA_PIO<47:0>>.
     Summary:
 	inferred  48 Tristate(s).
@@ -402,17 +144,8 @@ Unit <ece453_top_level> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 4
- 16-bit adder                                          : 2
- 32-bit adder                                          : 2
-# Registers                                            : 227
- 1-bit register                                        : 225
- 32-bit register                                       : 2
-# Tristates                                            : 94
- 1-bit tristate buffer                                 : 93
- 32-bit tristate buffer                                : 1
-# Xors                                                 : 6
- 1-bit xor2                                            : 6
+# Tristates                                            : 48
+ 1-bit tristate buffer                                 : 48
 
 =========================================================================
 
@@ -424,15 +157,7 @@ Macro Statistics
 =========================================================================
 Advanced HDL Synthesis Report
 
-Macro Statistics
-# Adders/Subtractors                                   : 4
- 16-bit adder                                          : 2
- 32-bit adder                                          : 2
-# Registers                                            : 289
- Flip-Flops                                            : 289
-# Xors                                                 : 6
- 1-bit xor2                                            : 6
-
+Found no macro
 =========================================================================
 
 =========================================================================
@@ -442,18 +167,240 @@ Macro Statistics
 Optimizing unit <ece453_top_level> ...
 
 Mapping all equations...
+WARNING:Xst:2036 - Inserting OBUF on port <PS2_MOUSE_CLK> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_FIELD_VSYNC> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_BLANK> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_HSYNC> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <PS2_KEYB_DATA> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <PS2_MOUSE_DATA> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <I2C_SDA> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <PS2_KEYB_CLK> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <I2C_SCL> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<31>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<30>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<29>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<28>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<27>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<26>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<25>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<24>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<23>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<22>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<21>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<20>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<19>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<18>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<17>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<16>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<15>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<14>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<13>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<12>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<11>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<10>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<9>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<8>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<7>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<6>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<5>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<4>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<3>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<2>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<1>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_D<0>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<15>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<14>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<13>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<12>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<11>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<10>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<9>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<8>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<7>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<6>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<5>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<4>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<3>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<2>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<1>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_DATA<0>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<67>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<66>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<65>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<64>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<63>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<62>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<61>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<60>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<59>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<58>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<57>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<56>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<55>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<54>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<53>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<52>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<51>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<50>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<49>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_PIO<48>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VD_NRESET> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_OE16> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_OE24> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_OE32> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_OE40> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LCD_E> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <SPI_SS> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <PS2_ENABLED> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_CPLD_DTACK> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <AC97_SYNC> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <RS232_CTS> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_DIR0> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_PIX_CLK> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_DIR8> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_NWE> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_SCRESET_RTC> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_OE0> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <AC97_ID_0> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <AC97_ID_1> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_NWP> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_OE8> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZB_CPLD_IRQ> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LCD_BACK> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LCD_RS> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LCD_RW> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_BLANK> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_HSYNC> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_PSAVE> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <AC97_RESET_N> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <RS232_TX> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VD_NPWRDWN> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_NRESET> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <SPI_SCK> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_DIR16> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_RESET> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_DIR24> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <SPI_MOSI> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_DIR32> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <MZA_DIR40> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <AC97_SDATA_OUT> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_NBYTE> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_NCE> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_VSYNC> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_PAL_NTSC> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_NOE_E> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_TTX> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_SYNC> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<42>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<41>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<40>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<39>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<38>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<37>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<36>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<35>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<34>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<33>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<32>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<31>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<30>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<29>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<28>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<27>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<26>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<25>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<24>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<23>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<22>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<21>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<20>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<19>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<18>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<17>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<16>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<15>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<14>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<13>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<12>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<11>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<10>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <ACC_PORT_PIN<9>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LCD_DATA<3>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LCD_DATA<2>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LCD_DATA<1>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LCD_DATA<0>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<22>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<21>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<20>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<19>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<18>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<17>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<16>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<15>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<14>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<13>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<12>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<11>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<10>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<9>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<8>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<7>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<6>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<5>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<4>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<3>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<2>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<1>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <FLASH_ADDR<0>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_DATA<7>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_DATA<6>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_DATA<5>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_DATA<4>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_DATA<3>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_DATA<2>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_DATA<1>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VE_DATA<0>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_B<7>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_B<6>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_B<5>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_B<4>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_B<3>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_B<2>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_B<1>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_B<0>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_G<7>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_G<6>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_G<5>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_G<4>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_G<3>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_G<2>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_G<1>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_G<0>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_R<7>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_R<6>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_R<5>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_R<4>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_R<3>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_R<2>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_R<1>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <VGA_R<0>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LED<7>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LED<6>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LED<5>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LED<4>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LED<3>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LED<2>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LED<1>> driven by black box <ece453_master_module>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <LED<0>> driven by black box <ece453_master_module>. Possible simulation mismatch.
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block ece453_top_level, actual ratio is 1.
+Found area constraint ratio of 100 (+ 5) on block ece453_top_level, actual ratio is 0.
 
 Final Macro Processing ...
 
 =========================================================================
 Final Register Report
 
-Macro Statistics
-# Registers                                            : 289
- Flip-Flops                                            : 289
-
+Found no macro
 =========================================================================
 
 =========================================================================
@@ -481,31 +428,14 @@ Design Statistics
 # IOs                              : 362
 
 Cell Usage :
-# BELS                             : 502
-#      GND                         : 1
-#      INV                         : 3
-#      LUT1                        : 30
-#      LUT2                        : 34
-#      LUT2_D                      : 2
-#      LUT3                        : 85
-#      LUT3_L                      : 1
-#      LUT4                        : 220
-#      LUT4_D                      : 3
-#      LUT4_L                      : 44
-#      MUXCY                       : 35
-#      MUXF5                       : 11
-#      VCC                         : 1
-#      XORCY                       : 32
-# FlipFlops/Latches                : 289
-#      FDCE                        : 209
-#      FDE                         : 80
-# Clock Buffers                    : 1
-#      BUFGP                       : 1
-# IO Buffers                       : 313
-#      IBUF                        : 40
-#      IOBUF                       : 32
-#      OBUF                        : 148
-#      OBUFT                       : 93
+# BELS                             : 6
+#      INV                         : 6
+# IO Buffers                       : 362
+#      IBUF                        : 89
+#      IOBUF                       : 48
+#      OBUF                        : 225
+# Others                           : 1
+#      ece453_master_module        : 1
 =========================================================================
 
 Device utilization summary:
@@ -513,12 +443,10 @@ Device utilization summary:
 
 Selected Device : 3s1500fg676-4 
 
- Number of Slices:                      232  out of  13312     1%  
- Number of Slice Flip Flops:            289  out of  26624     1%  
- Number of 4 input LUTs:                422  out of  26624     1%  
+ Number of Slices:                        3  out of  13312     0%  
+ Number of 4 input LUTs:                  6  out of  26624     0%  
  Number of IOs:                         362
- Number of bonded IOBs:                 314  out of    487    64%  
- Number of GCLKs:                         1  out of      8    12%  
+ Number of bonded IOBs:                 362  out of    487    74%  
 
 ---------------------------
 Partition Resource Summary:
@@ -538,140 +466,55 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)  | Load  |
------------------------------------+------------------------+-------+
-MZB_CPLD_CLK0                      | BUFGP                  | 289   |
------------------------------------+------------------------+-------+
+No clock signals found in this design
 
 Asynchronous Control Signals Information:
 ----------------------------------------
------------------------------------------------------+-----------------------------------+-------+
-Control Signal                                       | Buffer(FF name)                   | Load  |
------------------------------------------------------+-----------------------------------+-------+
-MASTER/my_lab/RST_inv(MASTER/my_lab/RST_inv1_INV_0:O)| NONE(MASTER/my_lab/RandomNumber_0)| 209   |
------------------------------------------------------+-----------------------------------+-------+
+No asynchronous control signals found in this design
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 8.618ns (Maximum Frequency: 116.036MHz)
-   Minimum input arrival time before clock: 16.988ns
-   Maximum output required time after clock: 7.285ns
-   Maximum combinational path delay: 8.590ns
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 8.398ns
 
 Timing Detail:
 --------------
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'MZB_CPLD_CLK0'
-  Clock period: 8.618ns (frequency: 116.036MHz)
-  Total number of paths / destination ports: 1471 / 217
--------------------------------------------------------------------------
-Delay:               8.618ns (Levels of Logic = 6)
-  Source:            MASTER/my_lab/scratch4_0 (FF)
-  Destination:       MASTER/my_lab/read_0 (FF)
-  Source Clock:      MZB_CPLD_CLK0 rising
-  Destination Clock: MZB_CPLD_CLK0 rising
-
-  Data Path: MASTER/my_lab/scratch4_0 to MASTER/my_lab/read_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDCE:C->Q             1   0.720   0.869  MASTER/my_lab/scratch4_0 (MASTER/my_lab/scratch4_0)
-     LUT4:I2->O            1   0.551   0.996  MASTER/my_lab/read_mux0000<0>38 (MASTER/my_lab/read_mux0000<0>38)
-     LUT3:I1->O            4   0.551   0.985  MASTER/my_lab/read_mux0000<0>40 (MASTER/my_lab/read_mux0000<0>40)
-     LUT3:I2->O            2   0.551   0.903  MASTER/my_lab/read_mux0000<0>426_SW01 (N238)
-     LUT4:I3->O            1   0.551   0.000  MASTER/my_lab/read_mux0000<0>390_SW0_G (N286)
-     MUXF5:I1->O           1   0.360   0.827  MASTER/my_lab/read_mux0000<0>390_SW0 (N261)
-     LUT4:I3->O            1   0.551   0.000  MASTER/my_lab/read_mux0000<0>459 (MASTER/my_lab/read_mux0000<0>)
-     FDE:D                     0.203          MASTER/my_lab/read_0
-    ----------------------------------------
-    Total                      8.618ns (4.038ns logic, 4.580ns route)
-                                       (46.9% logic, 53.1% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'MZB_CPLD_CLK0'
-  Total number of paths / destination ports: 26780 / 546
--------------------------------------------------------------------------
-Offset:              16.988ns (Levels of Logic = 14)
-  Source:            MZB_A<16> (PAD)
-  Destination:       MASTER/my_lab/read_1 (FF)
-  Destination Clock: MZB_CPLD_CLK0 rising
-
-  Data Path: MZB_A<16> to MASTER/my_lab/read_1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             1   0.821   1.140  MZB_A_16_IBUF (MZB_A_16_IBUF)
-     LUT4:I0->O            1   0.551   0.000  MASTER/my_lab/io_direction_15_not00011_wg_lut<0> (MASTER/my_lab/io_direction_15_not00011_wg_lut<0>)
-     MUXCY:S->O            1   0.500   0.000  MASTER/my_lab/io_direction_15_not00011_wg_cy<0> (MASTER/my_lab/io_direction_15_not00011_wg_cy<0>)
-     MUXCY:CI->O           1   0.064   0.000  MASTER/my_lab/io_direction_15_not00011_wg_cy<1> (MASTER/my_lab/io_direction_15_not00011_wg_cy<1>)
-     MUXCY:CI->O           1   0.064   0.000  MASTER/my_lab/io_direction_15_not00011_wg_cy<2> (MASTER/my_lab/io_direction_15_not00011_wg_cy<2>)
-     MUXCY:CI->O           1   0.064   0.000  MASTER/my_lab/io_direction_15_not00011_wg_cy<3> (MASTER/my_lab/io_direction_15_not00011_wg_cy<3>)
-     MUXCY:CI->O          55   0.303   2.011  MASTER/my_lab/io_direction_15_not00011_wg_cy<4> (MASTER/my_lab/io_direction_15_not00011_wg_cy<4>)
-     LUT4:I3->O           13   0.551   1.365  MASTER/my_lab/ACC_PORT_PIN_OUT_0_and000111 (N59)
-     LUT2:I1->O           26   0.551   2.158  MASTER/my_lab/read_cmp_eq00071 (MASTER/my_lab/read_cmp_eq0007)
-     LUT4:I0->O            6   0.551   1.342  MASTER/my_lab/count_31_and00001 (MASTER/my_lab/count_31_and0000)
-     LUT3:I0->O            1   0.551   0.000  MASTER/my_lab/read_mux0000<0>178_SW1_F (N287)
-     MUXF5:I0->O           1   0.360   0.827  MASTER/my_lab/read_mux0000<0>178_SW1 (N265)
-     LUT4_D:I3->O         30   0.551   1.910  MASTER/my_lab/read_mux0000<0>189 (N01)
-     LUT3:I2->O            1   0.551   0.000  MASTER/my_lab/read_mux0000<8>47 (MASTER/my_lab/read_mux0000<8>)
-     FDE:D                     0.203          MASTER/my_lab/read_8
-    ----------------------------------------
-    Total                     16.988ns (6.236ns logic, 10.752ns route)
-                                       (36.7% logic, 63.3% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'MZB_CPLD_CLK0'
-  Total number of paths / destination ports: 48 / 48
--------------------------------------------------------------------------
-Offset:              7.285ns (Levels of Logic = 1)
-  Source:            MASTER/my_lab/ACC_PORT_PIN_OUT_12 (FF)
-  Destination:       ACC_PORT_PIN<21> (PAD)
-  Source Clock:      MZB_CPLD_CLK0 rising
-
-  Data Path: MASTER/my_lab/ACC_PORT_PIN_OUT_12 to ACC_PORT_PIN<21>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDE:C->Q              5   0.720   0.921  MASTER/my_lab/ACC_PORT_PIN_OUT_12 (MASTER/my_lab/ACC_PORT_PIN_OUT_12)
-     OBUF:I->O                 5.644          ACC_PORT_PIN_21_OBUF (ACC_PORT_PIN<21>)
-    ----------------------------------------
-    Total                      7.285ns (6.364ns logic, 0.921ns route)
-                                       (87.4% logic, 12.6% route)
-
-=========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 40 / 40
+  Total number of paths / destination ports: 458 / 410
 -------------------------------------------------------------------------
-Delay:               8.590ns (Levels of Logic = 2)
-  Source:            MZB_CPLD_RS5_B (PAD)
-  Destination:       MZB_D<31> (PAD)
+Delay:               8.398ns (Levels of Logic = 2)
+  Source:            MASTER:PIO_DIR40 (PAD)
+  Destination:       MZA_PIO<47> (PAD)
 
-  Data Path: MZB_CPLD_RS5_B to MZB_D<31>
+  Data Path: MASTER:PIO_DIR40 to MZA_PIO<47>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            37   0.821   1.882  MZB_CPLD_RS5_B_IBUF (MZB_CPLD_RS5_B_IBUF)
-     IOBUF:T->IO               5.887          MZB_D_31_IOBUF (MZB_D<31>)
+    ece453_master_module:PIO_DIR40    2   0.000   0.877  MASTER (MZA_DIR40_OBUF)
+     INV:I->O              8   0.551   1.083  MZA_DIR40_inv1_INV_0 (MZA_DIR40_inv)
+     IOBUF:T->IO               5.887          MZA_PIO_47_IOBUF (MZA_PIO<47>)
     ----------------------------------------
-    Total                      8.590ns (6.708ns logic, 1.882ns route)
-                                       (78.1% logic, 21.9% route)
+    Total                      8.398ns (6.438ns logic, 1.960ns route)
+                                       (76.7% logic, 23.3% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 9.66 secs
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.29 secs
  
 --> 
 
-Total memory usage is 252804 kilobytes
+Total memory usage is 240260 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  146 (   0 filtered)
-Number of infos    :   18 (   0 filtered)
+Number of warnings :  226 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
 

@@ -197,3 +197,5 @@ map -filter "iseconfig/filter.filter" -intstyle ise -p xc3s1500-fg676-4 -cm area
 par -filter "iseconfig/filter.filter" -w -intstyle ise -ol high -t 1 ece453_top_level_map.ncd ece453_top_level.ncd ece453_top_level.pcf 
 trce -filter C:/vmware-shared/Lab5_Dan&Liu/Lab5_Dan&Liu/lab3/lab3/distribution/lab3/iseconfig/filter.filter -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ece453_top_level.twx ece453_top_level.ncd -o ece453_top_level.twr ece453_top_level.pcf 
 bitgen -filter "iseconfig/filter.filter" -intstyle ise -f ece453_top_level.ut ece453_top_level.ncd 
+xst -intstyle ise -filter "C:/vmware-shared/dak-project/453-project/fpga/lab3/iseconfig/filter.filter" -ifn "C:/vmware-shared/dak-project/453-project/fpga/lab3/ece453_top_level.xst" -ofn "C:/vmware-shared/dak-project/453-project/fpga/lab3/ece453_top_level.syr" 
+ngdbuild -filter "iseconfig/filter.filter" -intstyle ise -dd _ngo -nt timestamp -uc ece453_TLL5000_spring2012.ucf -p xc3s1500-fg676-4 ece453_top_level.ngc ece453_top_level.ngd  
