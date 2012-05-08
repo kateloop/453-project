@@ -28,13 +28,47 @@
 #define PLAY(FREQ) FREQ
 
 // Sound Stuff Defines
-int playNote(unsigned char); 
+int playNote(unsigned char);
+
+#define MAP_SIZE 4096UL
+#define MAP_MASK (MAP_SIZE - 1)
+
+#define BASE_ADDRESS 0xD3000000
+
+int getFPGAData()
+{
+    int fd_mem;
+    unsigned int offset = 36, data = 0;
+    unsigned int *pmem, *pbase;
+
+    // open the driver
+    fd_mem = open("/dev/mem", O_RDWR|O_SYNC);
+    if(!fd_mem) {
+        printf("Unable to open /dev/mem.  Ensure it exists (major=1, minor=1)\n");
+        return -1;
+    }
+
+     // calculate address and do read
+    pbase = (unsigned int *)mmap(0, MAP_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd_mem, 0xD3000000 & ~MAP_MASK);
+    pmem = pbase + ((offset & MAP_MASK)>>2);
+    data = *pmem;
+
+    //printf("pmem is ", *pmem);
+    printf("pbase %p\n", pbase);
+    printf("%p\n", pmem);
+    printf("Data out it %d\n", data);
+
+    // close driver
+    close(fd_mem);
+
+    // report results
+  //  printf("\n\rRead 0x%08X from virtual address 0x%08X (physical address 0x%08X)\n\r", data, (unsigned int)pmem, BASE_ADDRESS+(offset&~3));
+    return data;
+}
 
 
 int main(int argc, char* argv[])
 {
-   // memory map setup
-
    // client setup
    struct sockaddr_in addr;
    struct hostent* host;
@@ -103,6 +137,8 @@ int mode = 0;
 int cur_mode = -1;
 while (1) {
    // read value from FPGA
+   //mode = getFPGAData();
+   printf("mode: %d\n", mode);
    char send_buffer[64];
    // send mode across uart if different from current mode
    if (mode != cur_mode) {

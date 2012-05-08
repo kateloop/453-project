@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : main.c
+// Name        : memmap.c
 // Author      :
 // Version     :
 // Copyright   :
@@ -18,31 +18,28 @@
 
 #define BASE_ADDRESS 0xD3000000
 
-int main()
+int memmap()
 {
-    int fd;
+    int fd_mem;
     unsigned int offset = 36, data = 0;
     unsigned int *pmem, *pbase;
 
-    printf("Teaching mode! :-)\n\r");
-
     // open the driver
-    fd = open("/dev/mem", O_RDWR|O_SYNC);
-    if(!fd) {
+    fd_mem = open("/dev/mem", O_RDWR|O_SYNC);
+    if(!fd_mem) {
         printf("Unable to open /dev/mem.  Ensure it exists (major=1, minor=1)\n");
         return -1;
     }
 
-
-    // calculate address and do read
-    pbase = (unsigned int *)mmap(0, MAP_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0xD3000000 & ~MAP_MASK);
+     // calculate address and do read
+    pbase = (unsigned int *)mmap(0, MAP_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd_mem, 0xD3000000 & ~MAP_MASK);
     pmem = pbase + ((offset & MAP_MASK)>>2);
     data = *pmem;
-	
-	//printf("pmem is ", *pmem);
-	printf("pbase %p\n", pbase);
-	printf("%p\n", pmem);
-	printf("Data out it %d\n", data);
+
+    //printf("pmem is ", *pmem);
+    printf("pbase %p\n", pbase);
+    printf("%p\n", pmem);
+    printf("Data out it %d\n", data);
 
     // close driver
     close(fd);

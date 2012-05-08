@@ -1,6 +1,13 @@
-_ToggleLeds: CODE, 5016 0 3128
-_main: CODE, 8844 0 272
-_adc_conversion: CODE, 9116 0 184
-_my_isr: CODE, 8144 0 700
-_getNote: CODE, 54 0 4962
-Total: 9246
+_ToggleLeds: CODE, 20368 0 3128
+_play: CODE, 27084 0 24
+_main: CODE, 26544 0 284
+_adc_conversion: CODE, 26828 0 184
+_playClocks: CODE, 23496 0 1286
+_my_isr: CODE, 25844 0 700
+_getNoteTeachMode: CODE, 12582 0 4658
+i2_ToggleLeds: CODE, 17240 0 3128
+_getNote: CODE, 7620 0 4962
+_DelayMs: CODE, 27012 0 72
+_playPianoMan: CODE, 98 0 7522
+_playClair: CODE, 24782 0 1062
+Total: 27010

@@ -176,11 +176,9 @@
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1336423486" xil_pn:in_ck="8366376491485835775" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="-2635841387707318536" xil_pn:start_ts="1336423485">
+    <transform xil_pn:end_ts="1336450017" xil_pn:in_ck="8366376491485835775" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="-2635841387707318536" xil_pn:start_ts="1336450015">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
     </transform>
     <transform xil_pn:end_ts="1336449558" xil_pn:in_ck="7741410969689318908" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1336449556">
       <status xil_pn:value="SuccessfullyRun"/>

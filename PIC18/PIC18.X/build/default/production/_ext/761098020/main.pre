@@ -9929,8 +9929,12 @@ void adc_conversion();
 void testToggle();
 unsigned char getNote (unsigned char, unsigned char);
 void play (unsigned char);
+void getNoteTeachMode (unsigned char);
+void playPianoMan ();
+void playClair();
+void playClocks();
 
-# 128
+# 142
 int led_array[13];
 
 
@@ -9953,7 +9957,7 @@ unsigned char chanE[3] = {0,0,0};
 unsigned char chanF[3] = {0,0,0};
 unsigned char chanG[3] = {0,0,0};
 
-unsigned char mode = 0x00;
+unsigned char mode = 0x03;
 
 volatile char adc_num;
 
@@ -9963,7 +9967,7 @@ unsigned char prev_inputs[7];
 
 int index;
 
-# 164
+# 178
 int main(int argc, char** argv) {
 
 while (1) {
@@ -10008,40 +10012,42 @@ LATC = 0b00001111;
 
 INTCON |= 0b10000000;
 
-if (mode == 0) {
-while (mode == 0);
+if (mode == 0x00) {
+while (mode == 0x00);
 }
 
-else if (mode == 1) {
+else if (mode == 0x01) {
 
 INTCON = 0b10000000;
-while (mode == 1) {
+while (mode == 0x01) {
+playPianoMan();
 
 }
 }
 
-else if (mode == 2) {
+else if (mode == 0x02) {
 
 INTCON = 0b10000000;
-while (mode == 2) {
+while (mode == 0x02) {
+playClocks();
 
 }
 }
 
-else if (mode == 3) {
+else if (mode == 0x03) {
 
 INTCON = 0b10000000;
-while (mode == 3) {
-
+while (mode == 0x03) {
+playClair();
 }
 }
 
 else {
-mode = 0;
+mode = 0x00;
 }
 }
 
-# 254
+# 270
 return (0);
 }
 
@@ -10136,7 +10142,7 @@ INTCON |= 0b10000000;
 
 }
 
-# 356
+# 372
 void ToggleLeds () {
 
 
@@ -10702,7 +10708,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 925
+# 941
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10796,7 +10802,7 @@ DelayMs(5000);
 }
 }
 
-# 1023
+# 1039
 void adc_conversion() {
 
 ADON = 0;
@@ -10851,7 +10857,7 @@ adc_num = 0;
 }
 }
 
-# 1083
+# 1099
 unsigned char getNote (unsigned char hResult, unsigned char lResult) {
 unsigned char new_note;
 
@@ -11215,4 +11221,897 @@ new_note = 0x00;
 
 }
 return new_note;
+}
+
+
+void getNoteTeachMode(unsigned char uNote){
+if (uNote == 0b00000001){
+conv_result.result = 0b00000001;
+conv_result.adc_channel = 0;
+play(0b00000001);
+ToggleLeds();
+}
+else if (uNote == 0b00010001){
+conv_result.result = 0b00010001;
+conv_result.adc_channel = 0;
+play(0b00010001);
+ToggleLeds();
+}
+else if (uNote == 0b00001001){
+conv_result.result = 0b00001001;
+conv_result.adc_channel = 0;
+play(0b00001001);
+ToggleLeds();
+}
+else if (uNote == 0b00000010){
+conv_result.result = 0b00000010;
+conv_result.adc_channel = 1;
+play(0b00000010);
+ToggleLeds();
+}
+else if (uNote == 0b00010010){
+conv_result.result = 0b00010010;
+conv_result.adc_channel = 1;
+play(0b00010010);
+ToggleLeds();
+}
+else if (uNote == 0b00001010){
+conv_result.result = 0b00001010;
+conv_result.adc_channel = 1;
+play(0b00001010);
+ToggleLeds();
+}
+else if (uNote == 0b00000011){
+conv_result.result = 0b00000011;
+conv_result.adc_channel = 2;
+play(0b00000011);
+ToggleLeds();
+}
+else if (uNote == 0b00010011){
+conv_result.result = 0b00010011;
+conv_result.adc_channel = 2;
+play(0b00010011);
+ToggleLeds();
+}
+else if (uNote == 0b00001011){
+conv_result.result = 0b00001011;
+conv_result.adc_channel = 2;
+play(0b00001011);
+ToggleLeds();
+}
+else if (uNote == 0b00000100){
+conv_result.result = 0b00000100;
+conv_result.adc_channel = 3;
+play(0b00000100);
+ToggleLeds();
+}
+else if (uNote == 0b00010100){
+conv_result.result = 0b00010100;
+conv_result.adc_channel = 3;
+play(0b00010100);
+ToggleLeds();
+}
+else if (uNote == 0b00001100){
+conv_result.result = 0b00001100;
+conv_result.adc_channel = 3;
+play(0b00001100);
+ToggleLeds();
+}
+else if (uNote == 0b00000101){
+conv_result.result = 0b00000101;
+conv_result.adc_channel = 4;
+play(0b00000101);
+ToggleLeds();
+}
+else if (uNote == 0b00010101){
+conv_result.result = 0b00010101;
+conv_result.adc_channel = 4;
+play(0b00010101);
+ToggleLeds();
+}
+else if (uNote == 0b00001101){
+conv_result.result = 0b00001101;
+conv_result.adc_channel = 4;
+play(0b00001101);
+ToggleLeds();
+}
+else if (uNote == 0b00000110){
+conv_result.result = 0b00000110;
+conv_result.adc_channel = 5;
+play(0b00000110);
+ToggleLeds();
+}
+else if (uNote == 0b00010110){
+conv_result.result = 0b00010110;
+conv_result.adc_channel = 5;
+play(0b00010110);
+ToggleLeds();
+}
+else if (uNote == 0b00001110){
+conv_result.result = 0b00001110;
+conv_result.adc_channel = 5;
+play(0b00001110);
+ToggleLeds();
+}
+else if (uNote == 0b00000111){
+conv_result.result = 0b00000111;
+conv_result.adc_channel = 6;
+play(0b00000111);
+ToggleLeds();
+}
+else if (uNote == 0b00010111){
+conv_result.result = 0b00010111;
+conv_result.adc_channel = 6;
+play(0b00010111);
+ToggleLeds();
+}
+else if (uNote == 0b00001111){
+conv_result.result = 0b00001111;
+conv_result.adc_channel = 6;
+play(0b00001111);
+ToggleLeds();
+}
+else if (uNote == 0b00100001){
+conv_result.result = 0b00100001;
+conv_result.adc_channel = 0;
+play(0b00100001);
+ToggleLeds();
+}
+else if (uNote == 0b00110001){
+conv_result.result = 0b00110001;
+conv_result.adc_channel = 0;
+play(0b00110001);
+ToggleLeds();
+}
+else if (uNote == 0b00101001){
+conv_result.result = 0b00101001;
+conv_result.adc_channel = 0;
+play(0b00101001);
+ToggleLeds();
+}
+else if (uNote == 0b00100010){
+conv_result.result = 0b00100010;
+conv_result.adc_channel = 1;
+play(0b00100010);
+ToggleLeds();
+}
+else if (uNote == 0b00110010){
+conv_result.result = 0b00110010;
+conv_result.adc_channel = 1;
+play(0b00110010);
+ToggleLeds();
+}
+else if (uNote == 0b00101010){
+conv_result.result = 0b00101010;
+conv_result.adc_channel = 1;
+play(0b00101010);
+ToggleLeds();
+}
+else if (uNote == 0b00100011){
+conv_result.result = 0b00100011;
+conv_result.adc_channel = 2;
+play(0b00100011);
+ToggleLeds();
+}
+else if (uNote == 0b00110011){
+conv_result.result = 0b00110011;
+conv_result.adc_channel = 2;
+play(0b00110011);
+ToggleLeds();
+}
+else if (uNote == 0b00101011){
+conv_result.result = 0b00101011;
+conv_result.adc_channel = 2;
+play(0b00101011);
+ToggleLeds();
+}
+else if (uNote == 0b00100100){
+conv_result.result = 0b00100100;
+conv_result.adc_channel = 3;
+play(0b00100100);
+ToggleLeds();
+}
+else if (uNote == 0b00110100){
+conv_result.result = 0b00110100;
+conv_result.adc_channel = 3;
+play(0b00110100);
+ToggleLeds();
+}
+else if (uNote == 0b00101100){
+conv_result.result = 0b00101100;
+conv_result.adc_channel = 3;
+play(0b00101100);
+ToggleLeds();
+}
+else if (uNote == 0b00100101){
+conv_result.result = 0b00100101;
+conv_result.adc_channel = 4;
+play(0b00100101);
+ToggleLeds();
+}
+else if (uNote == 0b00110101){
+conv_result.result = 0b00110101;
+conv_result.adc_channel = 4;
+play(0b00110101);
+ToggleLeds();
+}
+else if (uNote == 0b00101101){
+conv_result.result = 0b00101101;
+conv_result.adc_channel = 4;
+play(0b00101101);
+ToggleLeds();
+}
+else if (uNote == 0b00100110){
+conv_result.result = 0b00100110;
+conv_result.adc_channel = 5;
+play(0b00100110);
+ToggleLeds();
+}
+else if (uNote == 0b00110110){
+conv_result.result = 0b00110110;
+conv_result.adc_channel = 5;
+play(0b00110110);
+ToggleLeds();
+}
+else if (uNote == 0b00101110){
+conv_result.result = 0b00101110;
+conv_result.adc_channel = 5;
+play(0b00101110);
+ToggleLeds();
+}
+else if (uNote == 0b00100111){
+conv_result.result = 0b00100111;
+conv_result.adc_channel = 6;
+play(0b00100111);
+ToggleLeds();
+}
+else if (uNote == 0b00110111){
+conv_result.result = 0b00110111;
+conv_result.adc_channel = 6;
+play(0b00110111);
+ToggleLeds();
+}
+else if (uNote == 0b00101111){
+conv_result.result = 0b00101111;
+conv_result.adc_channel = 6;
+play(0b00101111);
+ToggleLeds();
+}
+else if (uNote == 0b01000001){
+conv_result.result = 0b01000001;
+conv_result.adc_channel = 0;
+play(0b01000001);
+ToggleLeds();
+}
+else if (uNote == 0b01010001){
+conv_result.result = 0b01010001;
+conv_result.adc_channel = 0;
+play(0b01010001);
+ToggleLeds();
+}
+else if (uNote == 0b01001001){
+conv_result.result = 0b01001001;
+conv_result.adc_channel = 0;
+play(0b01001001);
+ToggleLeds();
+}
+else if (uNote == 0b01000010){
+conv_result.result = 0b01000010;
+conv_result.adc_channel = 1;
+play(0b01000010);
+ToggleLeds();
+}
+else if (uNote == 0b01010010){
+conv_result.result = 0b01010010;
+conv_result.adc_channel = 1;
+play(0b01010010);
+ToggleLeds();
+}
+else if (uNote == 0b01001010){
+conv_result.result = 0b01001010;
+conv_result.adc_channel = 1;
+play(0b01001010);
+ToggleLeds();
+}
+else if (uNote == 0b01000011){
+conv_result.result = 0b01000011;
+conv_result.adc_channel = 2;
+play(0b01000011);
+ToggleLeds();
+}
+else if (uNote == 0b01010011){
+conv_result.result = 0b01010011;
+conv_result.adc_channel = 2;
+play(0b01010011);
+ToggleLeds();
+}
+else if (uNote == 0b01001011){
+conv_result.result = 0b01001011;
+conv_result.adc_channel = 2;
+play(0b01001011);
+ToggleLeds();
+}
+else if (uNote == 0b01000100){
+conv_result.result = 0b01000100;
+conv_result.adc_channel = 3;
+play(0b01000100);
+ToggleLeds();
+}
+else if (uNote == 0b01010100){
+conv_result.result = 0b01010100;
+conv_result.adc_channel = 3;
+play(0b01010100);
+ToggleLeds();
+}
+else if (uNote == 0b01001100){
+conv_result.result = 0b01001100;
+conv_result.adc_channel = 3;
+play(0b01001100);
+ToggleLeds();
+}
+else if (uNote == 0b01000101){
+conv_result.result = 0b01000101;
+conv_result.adc_channel = 4;
+play(0b01000101);
+ToggleLeds();
+}
+else if (uNote == 0b01010101){
+conv_result.result = 0b01010101;
+conv_result.adc_channel = 4;
+play(0b01010101);
+ToggleLeds();
+}
+else if (uNote == 0b01001101){
+conv_result.result = 0b01001101;
+conv_result.adc_channel = 4;
+play(0b01001101);
+ToggleLeds();
+}
+else if (uNote == 0b01000110){
+conv_result.result = 0b01000110;
+conv_result.adc_channel = 5;
+play(0b01000110);
+ToggleLeds();
+}
+else if (uNote == 0b01010110){
+conv_result.result = 0b01010110;
+conv_result.adc_channel = 5;
+play(0b01010110);
+ToggleLeds();
+}
+else if (uNote == 0b01001110){
+conv_result.result = 0b01001110;
+conv_result.adc_channel = 5;
+play(0b01001110);
+ToggleLeds();
+}
+else if (uNote == 0b01000111){
+conv_result.result = 0b01000111;
+conv_result.adc_channel = 6;
+play(0b01000111);
+ToggleLeds();
+}
+else if (uNote == 0b01010111){
+conv_result.result = 0b01010111;
+conv_result.adc_channel = 6;
+play(0b01010111);
+ToggleLeds();
+}
+else if (uNote == 0b01001111){
+conv_result.result = 0b01001111;
+conv_result.adc_channel = 6;
+play(0b01001111);
+ToggleLeds();
+}
+
+}
+
+
+void playPianoMan(){
+
+getNoteTeachMode(0b00100111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100111);
+DelayMs(40*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100110);
+DelayMs(30*8);
+getNoteTeachMode(0b00100101);
+DelayMs(10*8);
+getNoteTeachMode(0b00100110);
+DelayMs(10*8);
+getNoteTeachMode(0b00100101);
+DelayMs(10*8);
+getNoteTeachMode(0b00100011);
+DelayMs(40*8);
+getNoteTeachMode(0);
+DelayMs(40*8);
+getNoteTeachMode(0b00100011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100011);
+DelayMs(30*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100011);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100011);
+DelayMs(10*8);
+getNoteTeachMode(0b00100100);
+DelayMs(30*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100100);
+DelayMs(80*8);
+getNoteTeachMode(0);
+DelayMs(20*8);
+getNoteTeachMode(0b00100111);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100111);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100111);
+DelayMs(80*8);
+getNoteTeachMode(0b00100110);
+DelayMs(10*8);
+getNoteTeachMode(0b00100101);
+DelayMs(10*8);
+getNoteTeachMode(0b00100110);
+DelayMs(20*8);
+getNoteTeachMode(0b00100101);
+DelayMs(10*8);
+getNoteTeachMode(0b00100011);
+DelayMs(10*8);
+DelayMs(50*8);
+getNoteTeachMode(0b00000001);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00000001);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00000001);
+DelayMs(40*8);
+getNoteTeachMode(0b00100110);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100110);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100110);
+DelayMs(20*8);
+getNoteTeachMode(0b00100101);
+DelayMs(20*8);
+getNoteTeachMode(0b00100011);
+DelayMs(20*8);
+getNoteTeachMode(0b00100011);
+DelayMs(50*8);
+play(0);
+DelayMs(80*8);
+DelayMs(40*8);
+DelayMs(30*8);
+getNoteTeachMode(0b01000111);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(20*8);
+getNoteTeachMode(0b01000110);
+DelayMs(20*8);
+getNoteTeachMode(0b01000101);
+DelayMs(20*8);
+getNoteTeachMode(0b01000110);
+DelayMs(10*8);
+getNoteTeachMode(0b01000101);
+DelayMs(10*8);
+getNoteTeachMode(0b01000011);
+DelayMs(80*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(40*8);
+getNoteTeachMode(0b01000100);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000100);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000100);
+DelayMs(80*8);
+getNoteTeachMode(0);
+DelayMs(20*8);
+getNoteTeachMode(0b01000101);
+DelayMs(10*8);
+getNoteTeachMode(0b01000110);
+DelayMs(10*8);
+getNoteTeachMode(0b01000111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(30*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(40*8);
+getNoteTeachMode(0b01000110);
+DelayMs(10*8);
+getNoteTeachMode(0b01000101);
+DelayMs(10*8);
+getNoteTeachMode(0b01000110);
+DelayMs(20*8);
+getNoteTeachMode(0b01000101);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000101);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000101);
+DelayMs(40*8);
+getNoteTeachMode(0b01000011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(30*8);
+getNoteTeachMode(0b01000101);
+DelayMs(10*8);
+getNoteTeachMode(0b01000110);
+DelayMs(30*8);
+getNoteTeachMode(0b01000101);
+DelayMs(10*8);
+getNoteTeachMode(0b01000011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(80*8);
+DelayMs(40*8);
+
+
+getNoteTeachMode(0b00100001);
+DelayMs(40*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100001);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100001);
+DelayMs(50*8);
+getNoteTeachMode(0b00100010);
+DelayMs(10*8);
+getNoteTeachMode(0b01000011);
+DelayMs(10*8);
+getNoteTeachMode(0b00100010);
+DelayMs(10*8);
+getNoteTeachMode(0b00100001);
+DelayMs(40*8);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(80*8);
+DelayMs(20*8);
+getNoteTeachMode(0b00100001);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b00100001);
+DelayMs(10*8);
+DelayMs(40*8);
+getNoteTeachMode(0b00100010);
+DelayMs(10*8);
+getNoteTeachMode(0b01000011);
+DelayMs(10*8);
+getNoteTeachMode(0b00100010);
+DelayMs(80*8);
+DelayMs(20*8);
+getNoteTeachMode(0b00100001);
+DelayMs(10*8);
+getNoteTeachMode(0b00100111);
+DelayMs(10*8);
+DelayMs(50*8);
+getNoteTeachMode(0);
+DelayMs(80*8);
+DelayMs(80*8);
+
+getNoteTeachMode(0b01000111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(30*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(20*8);
+getNoteTeachMode(0b01000110);
+DelayMs(30*8);
+getNoteTeachMode(0b01000101);
+DelayMs(10*8);
+getNoteTeachMode(0b01000110);
+DelayMs(10*8);
+getNoteTeachMode(0b01000101);
+DelayMs(20*8);
+getNoteTeachMode(0b01000011);
+DelayMs(30*8);
+DelayMs(50*8);
+getNoteTeachMode(0b00100001);
+DelayMs(20*8);
+getNoteTeachMode(0b01000011);
+DelayMs(30*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(40*8);
+getNoteTeachMode(0b01000100);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000100);
+DelayMs(80*8);
+getNoteTeachMode(0b01000101);
+DelayMs(20*8);
+getNoteTeachMode(0b01000110);
+DelayMs(20*8);
+getNoteTeachMode(0b01000111);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(30*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000111);
+DelayMs(20*8);
+getNoteTeachMode(0b01000110);
+DelayMs(30*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000110);
+DelayMs(10*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000110);
+DelayMs(10*8);
+getNoteTeachMode(0b01000101);
+DelayMs(10*8);
+getNoteTeachMode(0b01000011);
+DelayMs(40*8);
+getNoteTeachMode(0);
+DelayMs(40*8);
+getNoteTeachMode(0b00100111);
+DelayMs(20*8);
+getNoteTeachMode(0b00100001);
+DelayMs(20*8);
+getNoteTeachMode(0b01000011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(20*8);
+getNoteTeachMode(0b01000110);
+DelayMs(20*8);
+getNoteTeachMode(0b01000101);
+DelayMs(20*8);
+getNoteTeachMode(0b01000011);
+DelayMs(20*8);
+getNoteTeachMode(0);
+DelayMs(2);
+getNoteTeachMode(0b01000011);
+DelayMs(80*8);
+DelayMs(40*8);
+}
+
+void playClocks(){
+while(1){
+getNoteTeachMode(0b01010101);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b00100111);
+DelayMs(10*8);
+getNoteTeachMode(0b01010101);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b00100111);
+DelayMs(10*8);
+getNoteTeachMode(0b01010101);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b01010100);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b00100110);
+DelayMs(10*8);
+getNoteTeachMode(0b01010100);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b00100110);
+DelayMs(10*8);
+getNoteTeachMode(0b01010100);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b01010100);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b00100110);
+DelayMs(10*8);
+getNoteTeachMode(0b01010100);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b00100110);
+DelayMs(10*8);
+getNoteTeachMode(0b01010100);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b01000011);
+DelayMs(10*8);
+getNoteTeachMode(0b00110001);
+DelayMs(10*8);
+getNoteTeachMode(0b00100110);
+DelayMs(10*8);
+getNoteTeachMode(0b01000011);
+DelayMs(10*8);
+getNoteTeachMode(0b00110001);
+DelayMs(10*8);
+getNoteTeachMode(0b00100110);
+DelayMs(10*8);
+getNoteTeachMode(0b01000011);
+DelayMs(10*8);
+getNoteTeachMode(0b00110001);
+DelayMs(10*8);
+}
+}
+
+void playClair(){
+getNoteTeachMode(0b00110001);
+DelayMs(10*8);
+getNoteTeachMode(0b01010001);
+DelayMs(10*8);
+DelayMs(30*8);
+getNoteTeachMode(0b01000110);
+DelayMs(40*8);
+getNoteTeachMode(0b01010101);
+DelayMs(10*8);
+getNoteTeachMode(0b01000110);
+DelayMs(10*8);
+getNoteTeachMode(0b01010101);
+DelayMs(50*8);
+DelayMs(10*8);
+getNoteTeachMode(0b01010100);
+DelayMs(10*8);
+getNoteTeachMode(0b01010101);
+DelayMs(10*8);
+getNoteTeachMode(0b01010100);
+DelayMs(10*8);
+getNoteTeachMode(0b01000110);
+DelayMs(15*8);
+getNoteTeachMode(0b01010100);
+DelayMs(15*8);
+getNoteTeachMode(0b01000011);
+DelayMs(10*8);
+getNoteTeachMode(0b01010100);
+DelayMs(10*8);
+getNoteTeachMode(0b01000011);
+DelayMs(50*8);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b01000011);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b01010101);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b00110001);
+DelayMs(10*8);
+getNoteTeachMode(0b00110010);
+DelayMs(10*8);
+getNoteTeachMode(0b00110001);
+DelayMs(20*8);
+getNoteTeachMode(0b00110111);
+DelayMs(10*8);
+getNoteTeachMode(0b00110001);
+DelayMs(10*8);
+getNoteTeachMode(0b00110111);
+DelayMs(30*8);
+
 }
