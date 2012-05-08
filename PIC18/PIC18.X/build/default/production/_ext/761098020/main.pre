@@ -9929,20 +9929,18 @@ void adc_conversion();
 void testToggle();
 unsigned char getNote (unsigned char, unsigned char);
 
-# 137
+# 143
 int led_array[13];
 
 
 unsigned char uart_out;
 
 unsigned char new_note = 0x00;
-unsigned char old_note = 0x00;
-
 
 
 typedef struct _ADC_conv {
-int result;
-int adc_channel;
+unsigned char result;
+unsigned char adc_channel;
 }ADC_conv;
 ADC_conv conv_result;
 
@@ -9956,7 +9954,7 @@ char change_val = 0;
 
 int index;
 
-# 167
+# 171
 int main(int argc, char** argv) {
 
 OSCCON |= 0b01110010;
@@ -9972,7 +9970,15 @@ ADCON1 = 0b00000101;
 ADCON2 = 0b10001101;
 adc_num = 0;
 
-# 193
+
+
+
+T0CON = 0b10000000;
+
+
+INTCON = 0b00100000;
+
+# 202
 SPBRGH = (((8000000L/19200UL)/16) - 1) >> 8;
 SPBRG = (((8000000L/19200UL)/16) - 1);
 BAUDCON = 0b00001000;
@@ -9986,67 +9992,27 @@ LATB = 0b10000000;
 
 LATC = 0b00001111;
 
-# 223
+
+INTCON |= 0b10000000;
+
+# 276
 while (1) {
-char uout;
-char hResult;
-char lResult;
-
-uout = 0xee;
-TXREG = uout;
-while((PIR1 & 0b00010000) == 0);
-
-
-ADON = 0;
-
-ADRESH = 0x00;
-ADRESL = 0x00;
-ADCON0 = 0b00010000;
-
-ADON = 1;
-GODONE = 1;
-
-
-while (GODONE);
-hResult = ADRESH;
-lResult = ADRESL;
-
-uout = hResult;
-TXREG = uout;
-while((PIR1 & 0b00010000) == 0);
-uout = lResult;
-TXREG = uout;
-while((PIR1 & 0b00010000) == 0);
-
-DelayMs(5000);
-DelayMs(5000);
-}
-
-# 264
-while (0) {
 
 while (change_val == 0) {
 
 continue;
 }
 
-
-uart_out = cur_inputs[index];
-TXREG = uart_out;
-while((PIR1 & 0b00010000) == 0);
-
-ToggleLeds();
-
-
+# 292
 change_val = 0;
 
 }
 
-# 286
+# 299
 return (0);
 }
 
-# 297
+# 310
 void ToggleLeds () {
 
 
@@ -10612,7 +10578,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 866
+# 879
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10708,9 +10674,11 @@ DelayMs(5000);
 
 
 
-ISR () {
+void interrupt my_isr(void) {
 
+INTCON &= 0b01111111;
 
+if (TMR0IE && TMR0IF && TMR0IP) {
 adc_conversion ();
 
 cur_inputs[conv_result.adc_channel] = conv_result.result;
@@ -10723,11 +10691,27 @@ index = conv_result.adc_channel;
 change_val = 0;
 }
 
+uart_out = conv_result.result;
+TXREG = uart_out;
+while((PIR1 & 0b00010000) == 0);
+uart_out = conv_result.adc_channel;
+TXREG = uart_out;
+while((PIR1 & 0b00010000) == 0);
+uart_out = conv_result.result;
+TXREG = uart_out;
+while((PIR1 & 0b00010000) == 0);
 
+
+
+TMR0IF = 0;
+}
+
+
+INTCON |= 0b10000000;
 
 }
 
-# 986
+# 1017
 void adc_conversion() {
 
 ADON = 0;
@@ -10767,7 +10751,9 @@ GODONE = 1;
 
 
 while (GODONE);
-unsigned char note = getNote(ADRESH, ADRESL);
+unsigned char hResult = ADRESH;
+unsigned char lResult = ADRESL;
+unsigned char note = getNote(hResult, lResult);
 
 
 conv_result.result = note;
@@ -10780,7 +10766,7 @@ adc_num = 0;
 }
 }
 
-# 1044
+# 1077
 unsigned char getNote (unsigned char hResult, unsigned char lResult) {
 unsigned char new_note;
 int i = 0;
@@ -11228,18 +11214,18 @@ if (hResult == 0x00) {
 new_note = 0x00;
 
 } else if (hResult == 0x01) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 87 && lResult <= 160) {
 
 new_note = 0x57;
 led_array[2] = 1;
 led_array[11] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 175 && lResult <= 215) {
 
 new_note = 0x47;
 led_array[2] = 1;
 led_array[11] = 1;
 led_array[12] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 224 && lResult <= 228) {
 
 new_note = 0x4f;
 led_array[2] = 1;
@@ -11250,18 +11236,18 @@ new_note = 0x00;
 }
 
 } else if (hResult == 0x02) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 200 && lResult <= 229) {
 
 new_note = 0x37;
 led_array[2] = 1;
 led_array[9] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 139 && lResult <= 192) {
 
 new_note = 0x27;
 led_array[2] = 1;
 led_array[9] = 1;
 led_array[10] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 107 && lResult <= 140) {
 
 new_note = 0x2f;
 led_array[2] = 1;
@@ -11272,19 +11258,19 @@ new_note = 0x00;
 }
 
 } else if (hResult == 0x03) {
-if (lResult >= 0x00 && lResult <= 0x00) {
+if (lResult >= 165 && lResult <= 190) {
 
 new_note = 0x17;
 led_array[2] = 1;
 led_array[7] = 1;
 
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 130 && lResult <= 160) {
 
 new_note = 0x07;
 led_array[2] = 1;
 led_array[7] = 1;
 led_array[8] = 1;
-} else if (lResult >= 0x00 && lResult <= 0x00) {
+} else if (lResult >= 107 && lResult <= 125) {
 
 new_note = 0x0f;
 led_array[2] = 1;

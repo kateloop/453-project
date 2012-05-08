@@ -1,4 +1,5 @@
-_ToggleLeds: CODE, 78358 0 3562
-_main: CODE, 78036 0 322
-_DelayMs: CODE, 77964 0 72
-Total: 3956
+_main: CODE, 6870 0 112
+_adc_conversion: CODE, 6686 0 184
+_my_isr: CODE, 6326 0 360
+_getNote: CODE, 54 0 6272
+Total: 6928

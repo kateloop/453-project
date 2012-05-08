@@ -28,7 +28,7 @@
 #define PLAY(FREQ) FREQ
 
 // Sound Stuff Defines
-int playNote(int); 
+int playNote(unsigned char); 
 
 
 int main(int argc, char* argv[])
@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
       fprintf(stderr, "%s: unable to resolve host\n", "128.104.180.233");
       return 1;
    }
-   port = 1222UL;
+   port = 1223UL;
    fd_sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
    if (fd_sock == -1) {
       printf("socket\n");
@@ -138,12 +138,17 @@ while (1) {
    // read in from UART
    char buffer[64];
    size_t i = read(fd, buffer, 1);
+   unsigned char result  = buffer[0];
+   i = read(fd, buffer, 1);
+   unsigned char sensor = buffer[0];
+   i = read(fd, buffer, 1);
    // output note to server
-//   int freq = playNote(i);
-//   char buf[5];
-//   snprintf(buf, 5, "%d", freq);
-//   write(fd_sock, buf, 4);	
-     printf("%d\n", buffer[0]);
+   unsigned char val = buffer[0];
+   int freq = playNote(val);
+   char buf[5];
+   snprintf(buf, 5, "%d", freq);
+   write(fd_sock, buf, 4);	
+   printf("Sensor %d: Exp: %x Act: %x Freq: %x\n", sensor, result, val, freq);
 }
 
    close(fd);
@@ -157,7 +162,7 @@ error:
 }
 
 
-int playNote (int note) {
+int playNote (unsigned char note) {
     switch (note) {
         case UC3 :
             return PLAY(FC3);
@@ -315,6 +320,9 @@ int playNote (int note) {
         case UOFF :
             return PLAY(0);
             break;
+       // default :
+	 //   return PLAY(0);
+	 //   break;
     }
 
 }

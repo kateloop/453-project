@@ -126,9 +126,15 @@ unsigned char getNote (unsigned char, unsigned char);
 #define BAUDRATE 19200UL
 
 // Oscillator Frequency
-//#define FOSC 8000000L // 8MHz
 #define FOSC 8000000L // 8 MHZ
 #define CLK_8MHZ 0b01110010
+
+// Interrupt Defines
+#define INTCON_INIT 0b00100000
+
+// Timer0 Defines
+#define T0CON_VAL 0b11000000
+#define T0CON_16  0b10000000
 
 
 ////////////////////////////////////
@@ -140,13 +146,11 @@ int led_array[13];
 unsigned char uart_out;
 
 unsigned char new_note = 0x00;
-unsigned char old_note = 0x00;
-
 
 // Structure to hold ADC conversion information
 typedef struct _ADC_conv {
- int result;        // result of ADC conversion
- int adc_channel;   // channel converted (ie what note was played)
+ unsigned char result;        // result of ADC conversion
+ unsigned char adc_channel;   // channel converted (ie what note was played)
 }ADC_conv;
 ADC_conv conv_result;
 
@@ -180,9 +184,14 @@ int main(int argc, char** argv) {
     adc_num = ADCCHANA; // reset the current adc channel to 0
  
 
-    // configure interrupt
+    // configure timer0
+    //T0CON = T0CON_VAL;
+    T0CON = T0CON_16;
 
-// TODO timer interrupt for ADC conversions
+    // configure timer0 interrupt
+    INTCON = INTCON_INIT;
+
+    // INTCON<7> GIE bit - enables/disables all interrupt sources
 
 
 //  INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
@@ -204,6 +213,9 @@ int main(int argc, char** argv) {
         LATC = 0b00001111;
 
 
+        INTCON |= 0b10000000;   // enables interrupts
+
+
         // SAMPLE RECEIVE UART CODE: WILL NEED TO DO UART RECEIVE INTERRUPT TO CHANGE MODES
 
     /*    char uout = 0x01;
@@ -220,7 +232,7 @@ int main(int argc, char** argv) {
 
 
         // USE FOLLOWING CODE TO CALIBRATE
-    while (1) {
+/*    while (1) {
         char uout;
         char hResult;
         char lResult;
@@ -253,7 +265,7 @@ int main(int argc, char** argv) {
 
         DelayMs(5000);
         DelayMs(5000);
-    }
+    }*/
 
 
     
@@ -261,7 +273,7 @@ int main(int argc, char** argv) {
 
 
 
-    while (0) {  
+    while (1) {
         // wait until sensor value changes 
         while (change_val == 0) {
             // spin
@@ -269,11 +281,12 @@ int main(int argc, char** argv) {
         }
 
         // once note changes, send data across UART and light LEDs
-        uart_out = cur_inputs[index];
-        TXREG = uart_out;
-        while((PIR1 & 0b00010000) == 0);
-        
-        ToggleLeds();
+      //  uart_out = cur_inputs[index];
+      //  TXREG = uart_out;
+      //  while((PIR1 & 0b00010000) == 0);
+
+     //   ToggleLeds();
+
 
         // Reset Change Val
         change_val = 0;
@@ -958,22 +971,40 @@ void testToggle () {
 
 // ISR that processes ADC data from 7 inputs in a sequential fashion
 
-ISR () {
-    // TODO Disable Interrupts
+void interrupt my_isr(void) {
+    // Disable Interrupts
+    INTCON &= 0b01111111;   // disables interrupts
 
-    adc_conversion ();
+    if (TMR0IE && TMR0IF && TMR0IP) {
+        adc_conversion ();
 
-    cur_inputs[conv_result.adc_channel] = conv_result.result;
+        cur_inputs[conv_result.adc_channel] = conv_result.result;
 
-    if (cur_inputs[conv_result.adc_channel] != prev_inputs[conv_result.adc_channel]) {
-        change_val = 1;
-        prev_inputs[conv_result.adc_channel] = cur_inputs[conv_result.adc_channel];
-        index = conv_result.adc_channel;
-    } else {
-        change_val = 0;
+        if (cur_inputs[conv_result.adc_channel] != prev_inputs[conv_result.adc_channel]) {
+            change_val = 1;
+            prev_inputs[conv_result.adc_channel] = cur_inputs[conv_result.adc_channel];
+            index = conv_result.adc_channel;
+        } else {
+            change_val = 0;
+        }
+
+        uart_out = conv_result.result;
+        TXREG = uart_out;
+        while((PIR1 & 0b00010000) == 0);
+        uart_out = conv_result.adc_channel;
+        TXREG = uart_out;
+        while((PIR1 & 0b00010000) == 0);
+        uart_out = conv_result.result;
+        TXREG = uart_out;
+        while((PIR1 & 0b00010000) == 0);
+
+
+        // Clear flag for timer 0
+        TMR0IF = 0;
     }
 
-    // TODO Reenable Interrupts
+    // Reenable Interrupts
+    INTCON |= 0b10000000;   // enables interrupts
 
 }
 
@@ -1022,7 +1053,9 @@ void adc_conversion() {
 
     // Wait for conversion to finish
     while (GODONE);
-    unsigned char note = getNote(ADRESH, ADRESL);
+    unsigned char hResult = ADRESH;
+    unsigned char lResult = ADRESL;
+    unsigned char note = getNote(hResult, lResult);
 
     // store conversion result
     conv_result.result = note;
