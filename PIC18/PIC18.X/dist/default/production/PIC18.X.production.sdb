@@ -2,56 +2,74 @@
 [d version 1.1 ]
 [d edition pro ]
 [d chip 18F2682 ]
-"143 ../code/main.c
-[s S25 _ADC_conv 4 `i 1 result 2 0 `i 1 adc_channel 2 2 ]
-[s S100 . 1 `uc 1 RX_NINE 1 0 :1:0 
+"133 ../code/main.c
+[s S24 _ADC_conv 2 `uc 1 result 1 0 `uc 1 adc_channel 1 1 ]
+"264
+[v F10816 `(v  1 t 0 ]
+[s S115 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S106 USART 1 `uc 1 val 1 0 `S100 1 . 1 0 ]
-[s S144 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[u S121 USART 1 `uc 1 val 1 0 `S115 1 . 1 0 ]
+[s S159 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S150 USART 1 `uc 1 val 1 0 `S100 1 . 1 0 ]
+[u S165 USART 1 `uc 1 val 1 0 `S115 1 . 1 0 ]
 "8641 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2682.h
-[s S162 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[s S177 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
-[u S168 USART 1 `uc 1 val 1 0 `S100 1 . 1 0 ]
-"167 ../code/main.c
+[u S183 USART 1 `uc 1 val 1 0 `S115 1 . 1 0 ]
+"164 ../code/main.c
 [v _main `(i  1 e 2 0 ]
-"297
+"264
+[v _my_isr `I(v  1 e 0 0 ]
+"356
 [v _ToggleLeds `(v  1 e 0 0 ]
-"12 delay.c
-[v _DelayMs `(v  1 e 0 0 ]
-"137 ../code/main.c
-[v _led_array `[13]i  1 e 26 @0 ]
+"1023
+[v _adc_conversion `(v  1 e 0 0 ]
+"1083
+[v _getNote `(uc  1 e 1 0 ]
+"128
+[v _led_array `[13]i  1 e 26 @26 ]
+"131
+[v _uart_out `uc  1 e 1 @52 ]
+"133
+[v _new_note `uc  1 e 1 @53 ]
 "140
-[v _uart_out `uc  1 e 1 @40 ]
+[v _conv_result `S24  1 e 2 @1 ]
 "142
-[v _new_note `uc  1 e 1 @51 ]
+[v _chanA `[3]uc  1 e 3 @16 ]
 "143
-[v _old_note `uc  1 e 1 @50 ]
-"151
-[v _conv_result `S25  1 e 4 @34 ]
-"153
-[v _adc_num `Vuc  1 e 1 @26 ]
+[v _chanB `[3]uc  1 e 3 @19 ]
+"144
+[v _chanC `[3]uc  1 e 3 @22 ]
+"145
+[v _chanD `[3]uc  1 e 3 @7 ]
+"146
+[v _chanE `[3]uc  1 e 3 @4 ]
+"147
+[v _chanF `[3]uc  1 e 3 @13 ]
+"148
+[v _chanG `[3]uc  1 e 3 @10 ]
+"150
+[v _mode `uc  1 e 1 @3 ]
+"152
+[v _adc_num `Vuc  1 e 1 @0 ]
+"155
+[v _cur_inputs `[7]uc  1 e 7 @61 ]
 "156
-[v _cur_inputs `[7]uc  1 e 7 @27 ]
-"157
-[v _prev_inputs `[7]uc  1 e 7 @43 ]
-"159
-[v _change_val `uc  1 e 1 @41 ]
-"161
-[v _index `i  1 e 2 @38 ]
+[v _prev_inputs `[7]uc  1 e 7 @54 ]
+"158
+[v _index `i  1 e 2 @68 ]
 "20 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\legacy/ppic18f2682.h
 [v _GODONE `VNb  1 e 0 @32273 ]
 "89 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\peripheral/psupport.h
@@ -96,6 +114,8 @@
 [v _TRISC6 `Vb  1 e 0 @31910 ]
 "8247
 [v _TRISC7 `Vb  1 e 0 @31911 ]
+"8309
+[v _PIE1 `Vuc  1 e 1 @3997 ]
 "8331
 [v _PIR1 `Vuc  1 e 1 @3998 ]
 "8337
@@ -138,35 +158,53 @@
 [v _ADRESH `Vuc  1 e 1 @4036 ]
 "9270
 [v _OSCCON `Vuc  1 e 1 @4051 ]
+"9299
+[v _T0CON `Vuc  1 e 1 @4053 ]
+"9523
+[v _TMR0IP `Vb  1 e 0 @32650 ]
+"9550
+[v _INTCON `Vuc  1 e 1 @4082 ]
+"9554
+[v _TMR0IF `Vb  1 e 0 @32658 ]
+"9557
+[v _TMR0IE `Vb  1 e 0 @32661 ]
 "6 udefs.c
-[v _USART_Status `S106  1 e 1 @42 ]
-"167 ../code/main.c
+[v _USART_Status `S121  1 e 1 @25 ]
+"164 ../code/main.c
 [v _main `(i  1 e 2 0 ]
 {
-"225
-[v _hResult `uc  1 a 1 0 ]
-"226
-[v _lResult `uc  1 a 1 1 ]
-"224
-[v _uout `uc  1 a 1 2 ]
-"167
 [v _argc `i  1 p 2 0 ]
 [v _argv `*.M*.Muc  1 p 2 2 ]
-"287
-} 3
-"297
+"255
+} 0
+"264
+[v _my_isr `I(v  1 e 0 0 ]
+{
+"346
+} 0
+"356
 [v _ToggleLeds `(v  1 e 0 0 ]
 {
-"857
+"916
 } 0
-"12 delay.c
-[v _DelayMs `(v  1 e 0 0 ]
+"1023
+[v _adc_conversion `(v  1 e 0 0 ]
 {
-"20
-[v _i `uc  1 a 1 0 ]
-"24
-[v __dcnt `uc  1 a 1 1 ]
-"12
-[v _cnt `uc  1 p 1 0 ]
-"28
-} 2
+"1062
+[v _hResult `uc  1 a 1 0 ]
+"1063
+[v _lResult `uc  1 a 1 1 ]
+"1064
+[v _note `uc  1 a 1 2 ]
+"1075
+} 3
+"1083
+[v _getNote `(uc  1 e 1 0 ]
+{
+"1084
+[v _new_note `uc  1 a 1 0 ]
+"1083
+[v _hResult `uc  1 p 1 0 ]
+[v _lResult `uc  1 p 1 1 ]
+"1446
+} 1

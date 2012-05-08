@@ -16,6 +16,7 @@
 #include <htc.h>
 #include "../PIC18.X/delay.h"
 #include "../PIC18.X/usart.h"
+#include "../PIC18.X/uartVals.h"
 
 __CONFIG (1, OSC_IRCIO67);
 __CONFIG (2, WDT_OFF);
@@ -25,24 +26,6 @@ __CONFIG (5, UNPROTECT);
 __CONFIG (6, UNPROTECT);
 __CONFIG (7, UNPROTECT);
 
-/*
-/ ADC /
-#define _ADC_V5
-/ CC /
-#define _CC_V1
-/ PWM /
-#define _PWM_V1
-/ USART /
-#define _EAUSART_V4
-/ TIMERS /
-#define _TMR_V2
-/ EEPROM /
-#define _EEP_V3
-/ PORT_B /
-#define _PTB_V1
-*/
-
-
 ////////////////////////////////
 //  Function Declarations     //
 ////////////////////////////////
@@ -51,6 +34,8 @@ void ToggleLeds();
 void adc_conversion();
 void testToggle();
 unsigned char getNote (unsigned char, unsigned char);
+void play (unsigned char);
+
 //////////////////////////////////
 //  defines                     //
 //////////////////////////////////
@@ -126,9 +111,15 @@ unsigned char getNote (unsigned char, unsigned char);
 #define BAUDRATE 19200UL
 
 // Oscillator Frequency
-//#define FOSC 8000000L // 8MHz
 #define FOSC 8000000L // 8 MHZ
 #define CLK_8MHZ 0b01110010
+
+// Interrupt Defines
+#define INTCON_INIT 0b00100000
+
+// Timer0 Defines
+#define T0CON_VAL 0b11000000
+#define T0CON_16  0b10000000
 
 
 ////////////////////////////////////
@@ -140,23 +131,29 @@ int led_array[13];
 unsigned char uart_out;
 
 unsigned char new_note = 0x00;
-unsigned char old_note = 0x00;
-
 
 // Structure to hold ADC conversion information
 typedef struct _ADC_conv {
- int result;        // result of ADC conversion
- int adc_channel;   // channel converted (ie what note was played)
+ unsigned char result;        // result of ADC conversion
+ unsigned char adc_channel;   // channel converted (ie what note was played)
 }ADC_conv;
 ADC_conv conv_result;
+
+unsigned char chanA[3] = {0,0,0};
+unsigned char chanB[3] = {0,0,0};
+unsigned char chanC[3] = {0,0,0};
+unsigned char chanD[3] = {0,0,0};
+unsigned char chanE[3] = {0,0,0};
+unsigned char chanF[3] = {0,0,0};
+unsigned char chanG[3] = {0,0,0};
+
+unsigned char mode = 0x00;
 
 volatile char adc_num;  // Keeps track of which ADC channel is being used
 
 // Inputs from the sensors, if cur is not the same as prev, new sound to be played
 unsigned char cur_inputs[7];
 unsigned char prev_inputs[7];
-
-char change_val = 0;
 
 int index;
 
@@ -165,46 +162,81 @@ int index;
  */
 
 int main(int argc, char** argv) {
-    // Init Config
-    OSCCON |= 0b01110010;  //internal oscillator, 8MHz
 
-    // set up GPIO
-    TRISA = PORTA_DIR;
-    TRISB = PORTB_DIR;
-    TRISC = PORTC_DIR;
+    while (1) {
+            // Init Config
+            OSCCON |= 0b01110010;  //internal oscillator, 8MHz
 
-    // configure ADC
-    ADCON0 = ADCON0_INIT;
-    ADCON1 = ADCON1_VAL;
-    ADCON2 = ADCON2_VAL;
-    adc_num = ADCCHANA; // reset the current adc channel to 0
+            // set up GPIO
+            TRISA = PORTA_DIR;
+            TRISB = PORTB_DIR;
+            TRISC = PORTC_DIR;
+
+            // configure ADC
+            ADCON0 = ADCON0_INIT;
+            ADCON1 = ADCON1_VAL;
+            ADCON2 = ADCON2_VAL;
+            adc_num = ADCCHANA; // reset the current adc channel to 0
  
 
-    // configure interrupt
+            // configure timer0
+            //T0CON = T0CON_VAL;
+            T0CON = T0CON_16;
 
-// TODO timer interrupt for ADC conversions
+            // configure timer0 interrupt
+            INTCON = INTCON_INIT;
 
+            // configure UART Receive interrupt
+            PIE1 |= 0b00100000;     // enables UART receive interrupts
 
-//  INTCON |= 0b10000000; //all unmasked interrupts enabled; periph, overflow, external, RB port change, TMR0 ovrflw intrpts disabled
-//  INTCON2 = 0b00000000; //TODO no idea about this one
-//  INTCON3 = 0b00000000; //TODO no idea about this one
+            // UART config
+            SPBRGH  = SPBRGH_SPBRG >> 8;
+            SPBRG =  SPBRGH_SPBRG;
+            BAUDCON = 0b00001000;
+            RCSTA = 0b10010000;
+            TXSTA = 0b00100000;
 
-        // UART config
-        SPBRGH  = SPBRGH_SPBRG >> 8;
-        SPBRG =  SPBRGH_SPBRG;
-        BAUDCON = 0b00001000;
-        RCSTA = 0b10010000;
-        TXSTA = 0b00100000;
+            //LATA   -P-P----
+            LATA = 0b11111111;
+            //LATB   PNN-NN--
+            LATB = 0b10000000;
+            //LATC   --NNPPPP
+            LATC = 0b00001111;
 
-        //LATA   -P-P----
-        LATA = 0b11111111;
-        //LATB   PNN-NN--
-        LATB = 0b10000000;
-        //LATB   --NNPPPP
-        LATC = 0b00001111;
+            INTCON |= 0b10000000;   // enables interrupts
 
+        if (mode == 0) {
+            while (mode == 0);
+        }
 
-        // SAMPLE RECEIVE UART CODE: WILL NEED TO DO UART RECEIVE INTERRUPT TO CHANGE MODES
+        else if (mode == 1) {
+            // play Piano Man
+            INTCON = 0b10000000;  // turn off timer 0 interrupt
+            while (mode == 1) {
+
+            }
+        }
+
+        else if (mode == 2) {
+            // play Clocks
+            INTCON = 0b10000000;  // turn off timer 0 interrupt
+            while (mode == 2) {
+
+            }
+        }
+
+        else if (mode == 3) {
+            // Play Clare De Lune
+            INTCON = 0b10000000;  // turn off timer 0 interrupt
+            while (mode == 3) {
+
+            }
+        }
+
+        else {
+            mode = 0;
+        }
+    }            // SAMPLE RECEIVE UART CODE: WILL NEED TO DO UART RECEIVE INTERRUPT TO CHANGE MODES
 
     /*    char uout = 0x01;
         while(1) {
@@ -219,71 +251,98 @@ int main(int argc, char** argv) {
 
 
 
-        // USE FOLLOWING CODE TO CALIBRATE
-    while (1) {
-        char uout;
-        char hResult;
-        char lResult;
+    return (EXIT_SUCCESS);
+}
 
-        uout = 0xee;
-        TXREG = uout;
-        while((PIR1 & 0b00010000) == 0);
+void play(unsigned char note) {
+    TXREG = note;
+    while((PIR1 & 0b00010000) == 0);
+}
 
-        
-        ADON = 0;   // Turn off ADC
+// ISR that processes ADC data from 7 inputs in a sequential fashion
 
-        ADRESH = 0x00; // reset result registers
-        ADRESL = 0x00;
-        ADCON0 = ADCON0_CHANE;
-        // Start conversion and wait for result
-        ADON = 1;   // Turn on ADC
-        GODONE = 1; // Starts conversion
+void interrupt my_isr(void) {
+    // Disable Interrupts
+    INTCON &= 0b01111111;   // disables interrupts
 
-        // Wait for conversion to finish
-        while (GODONE);
-        hResult = ADRESH;
-        lResult = ADRESL;
-        
-        uout = hResult;
-        TXREG = uout;
-        while((PIR1 & 0b00010000) == 0);
-        uout = lResult;
-        TXREG = uout;
-        while((PIR1 & 0b00010000) == 0);
+    if (TMR0IE && TMR0IF && TMR0IP) {
+        adc_conversion ();
 
-        DelayMs(5000);
-        DelayMs(5000);
-    }
+       if (conv_result.adc_channel == ADCCHANA) {
+            if ((chanA[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
 
+            }
+            chanA[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHANB) {
+            if ((chanB[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
 
-    
+            }
+            chanB[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHANC) {
+            if ((chanC[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
 
+            }
+            chanC[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHAND) {
+            if ((chanD[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
 
+            }
+            chanD[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHANE) {
+            if ((chanE[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
 
+            }
+            chanE[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHANF) {
+            if ((chanF[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
+            }
+            chanF[0] = conv_result.result;
+        } else if (conv_result.adc_channel == ADCCHANG) {
+            if ((chanG[0] & conv_result.result) == conv_result.result) {
+                TXREG = conv_result.result;
+                while((PIR1 & 0b00010000) == 0);
+                ToggleLeds();
+            } else {
 
-    while (0) {  
-        // wait until sensor value changes 
-        while (change_val == 0) {
-            // spin
-            continue;
+            }
+            chanG[0] = conv_result.result;
         }
-
-        // once note changes, send data across UART and light LEDs
-        uart_out = cur_inputs[index];
-        TXREG = uart_out;
-        while((PIR1 & 0b00010000) == 0);
-        
-        ToggleLeds();
-
-        // Reset Change Val
-        change_val = 0;
-
+        // Clear flag for timer 0
+        TMR0IF = 0;
     }
-    
-   /*
-        testToggle(); 
-   */
-     return (EXIT_SUCCESS);
+    // UART Interrupt
+    else if (RCIF) {
+        mode = RCREG;
+        RCIF = 0;
+    }
+
+    // Reenable Interrupts
+    INTCON |= 0b10000000;   // enables interrupts
+
 }
 
 
@@ -299,7 +358,7 @@ void ToggleLeds () {
     // Look at array containing LED Info and toggle LEDs accordingly
 
     // Octave 3
-    if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
+    if (conv_result.adc_channel == 2 && conv_result.result == 0x03) {
         // Octave 3 L & R LED on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -307,7 +366,7 @@ void ToggleLeds () {
         LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x04) {
         // Octave 3 L & R LED on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -315,7 +374,7 @@ void ToggleLeds () {
         LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x05) {
         // Octave 3 L & R LED on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -323,7 +382,7 @@ void ToggleLeds () {
         LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001110;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x06) {
         // Octave 3 L & R LED on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -331,7 +390,7 @@ void ToggleLeds () {
         LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001101;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x07) {
         // Octave 3 L & R LED on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -339,7 +398,7 @@ void ToggleLeds () {
         LATB = 0b01100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x01) {
         // Octave 3 L & R LED on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -347,8 +406,8 @@ void ToggleLeds () {
         LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001011;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[12] == 1) {
-       // Octave 5 3 & R LED on; B
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x02) {
+       // Octave 3 L & R LED on; B
        //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
@@ -356,7 +415,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00000111;
 
-    } else if (led_array[4] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x0b) {
         // Octave 3 Right LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -364,7 +423,7 @@ void ToggleLeds () {
         LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[4] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x0c) {
         // Octave 3 Right LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -372,7 +431,7 @@ void ToggleLeds () {
         LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[4] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x0d) {
         // Octave 3 Right LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -380,7 +439,7 @@ void ToggleLeds () {
         LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001110;
-    } else if (led_array[4] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x16) {
         // Octave 3 Right LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -389,7 +448,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
-    } else if (led_array[4] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x17) {
         // Octave 3 Right LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -398,7 +457,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[4] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x09) {
         // Octave 3 Right LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -407,7 +466,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001011;
 
-    } else if (led_array[4] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x0a) {
         // Octave 3 Right LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -416,7 +475,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00000111;
 
-    } else if (led_array[5] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x13) {
         // Octave 3 Left LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -425,7 +484,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[5] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x14) {
         // Octave 3 Left LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -434,7 +493,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[5] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x15) {
         // Octave 3 Left LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -443,7 +502,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001110;
 
-    } else if (led_array[5] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x0e) {
         // Octave 3 Left LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -452,7 +511,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
-    } else if (led_array[5] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x0f) {
         // Octave 3 Left LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -461,7 +520,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[5] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x11) {
         // Octave 3 Left LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -470,7 +529,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001011;
 
-    } else if (led_array[5] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x12) {
         // Octave 3 Left LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -481,7 +540,7 @@ void ToggleLeds () {
     }
 
     // Octave 4
-    else if (led_array[2] == 1 && led_array[3] == 1 && led_array[6] == 1) {
+    else if (conv_result.adc_channel == 2 && conv_result.result == 0x23) {
         // Octave 4 L & R LED on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -490,7 +549,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x24) {
         // Octave 4 L & R LED on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -499,7 +558,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x25) {
         // Octave 4 L & R LED on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -508,7 +567,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001110;
 
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x26) {
         // Octave 4 L & R LED on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -516,7 +575,7 @@ void ToggleLeds () {
         LATB = 0b10001100;
         //LATB   --NNPPPP
         LATC = 0b00001101;
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x27) {
         // Octave 4 L & R LED on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -524,7 +583,7 @@ void ToggleLeds () {
         LATB = 0b00001100;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x21) {
         // Octave 4 L & R LED on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -532,7 +591,7 @@ void ToggleLeds () {
         LATB = 0b10001100;
         //LATB   --NNPPPP
         LATC = 0b00001011;
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x22) {
        // Octave 4 L & R LED on; B
        //LATA   -P-P----
         LATA = 0b11111111;
@@ -540,7 +599,7 @@ void ToggleLeds () {
         LATB = 0b10001100;
         //LATB   --NNPPPP
         LATC = 0b00000111;
-    } else if (led_array[2] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x2b) {
         // Octave 4 Right LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -549,7 +608,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[2] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x2c) {
         // Octave 4 Right LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -558,7 +617,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[2] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x2d) {
         // Octave 4 Right LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -567,7 +626,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001110;
 
-    } else if (led_array[2] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x2e) {
         // Octave 4 Right LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -576,7 +635,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
-    } else if (led_array[2] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x2f) {
         // Octave 4 Right LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -585,7 +644,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[2] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x29) {
         // Octave 4 Right LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -594,7 +653,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001011;
 
-    } else if (led_array[2] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x2a) {
         // Octave 4 Right LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -603,7 +662,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00000111;
 
-    } else if (led_array[3] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x33) {
         // Octave 4 Left LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -612,7 +671,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[3] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x34) {
         // Octave 4 Left LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -621,7 +680,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[3] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x35) {
         // Octave 4 Left LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -630,7 +689,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001110;
 
-    } else if (led_array[3] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x36) {
         // Octave 4 Left LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -639,7 +698,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
-    } else if (led_array[3] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x37) {
         // Octave 4 Left LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -648,7 +707,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[3] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x31) {
         // Octave 4 Left LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -657,7 +716,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001011;
 
-    } else if (led_array[3] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x32) {
         // Octave 4 Left LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -668,7 +727,7 @@ void ToggleLeds () {
     }
 
     // Octave 5
-    else if (led_array[0] == 1 && led_array[1] == 1 && led_array[6] == 1) {
+    else if (conv_result.adc_channel == 2 && conv_result.result == 0x43) {
         // Octave 5 L & R LED on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -677,7 +736,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00111111;
 
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x44) {
         // Octave 5 L & R LED on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -686,7 +745,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00111111;
 
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x45) {
         // Octave 5 L & R LED on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -695,7 +754,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00111110;
 
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x46) {
         // Octave 5 L & R LED on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -703,7 +762,7 @@ void ToggleLeds () {
         LATB = 0b10000000;
         //LATB   --NNPPPP
         LATC = 0b00111101;
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x47) {
         // Octave 5 L & R LED on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -711,7 +770,7 @@ void ToggleLeds () {
         LATB = 0b00000000;
         //LATB   --NNPPPP
         LATC = 0b00111111;
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x41) {
         // Octave 5 L & R LED on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -719,7 +778,7 @@ void ToggleLeds () {
         LATB = 0b10000000;
         //LATB   --NNPPPP
         LATC = 0b00111011;
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x42) {
        // Octave 5 L & R LED on; B
        //LATA   -P-P----
        LATA = 0b11111111;
@@ -728,7 +787,7 @@ void ToggleLeds () {
        //LATB   --NNPPPP
        LATC = 0b00110111;
 
-    } else if (led_array[0] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x4b) {
         // Octave 5 Right LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -737,7 +796,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011111;
 
-    } else if (led_array[0] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x4c) {
         // Octave 5 Right LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -746,7 +805,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011111;
 
-    } else if (led_array[0] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x4d) {
         // Octave 5 Right LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -755,7 +814,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011110;
 
-    } else if (led_array[0] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x4e) {
         // Octave 5 Right LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -764,7 +823,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011101;
 
-    } else if (led_array[0] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x4f) {
         // Octave 5 Right LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -773,7 +832,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011111;
 
-    } else if (led_array[0] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x49) {
         // Octave 5 Right LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -782,7 +841,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011011;
 
-    } else if (led_array[0] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x4a) {
         // Octave 5 Right LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -791,7 +850,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00010111;
 
-    } else if (led_array[1] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x53) {
         // Octave 5 Left LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -800,7 +859,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101111;
 
-    } else if (led_array[1] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x54) {
         // Octave 5 Left LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -809,7 +868,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101111;
 
-    } else if (led_array[1] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x55) {
         // Octave 5 Left LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -818,7 +877,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101110;
 
-    } else if (led_array[1] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x56) {
         // Octave 5 Left LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -827,7 +886,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101101;
 
-    } else if (led_array[1] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x57) {
         // Octave 5 Left LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -836,7 +895,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101111;
 
-    } else if (led_array[1] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x51) {
         // Octave 5 Left LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -845,7 +904,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101011;
 
-    } else if (led_array[1] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x52) {
         // Octave 5 Left LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -956,28 +1015,6 @@ void testToggle () {
     }
 }
 
-// ISR that processes ADC data from 7 inputs in a sequential fashion
-
-ISR () {
-    // TODO Disable Interrupts
-
-    adc_conversion ();
-
-    cur_inputs[conv_result.adc_channel] = conv_result.result;
-
-    if (cur_inputs[conv_result.adc_channel] != prev_inputs[conv_result.adc_channel]) {
-        change_val = 1;
-        prev_inputs[conv_result.adc_channel] = cur_inputs[conv_result.adc_channel];
-        index = conv_result.adc_channel;
-    } else {
-        change_val = 0;
-    }
-
-    // TODO Reenable Interrupts
-
-}
-
-
 //////////////////////////////////////////////
 // Function that processes ADC data from    //
 // 7 inputs in a sequential fashion         //
@@ -1022,7 +1059,9 @@ void adc_conversion() {
 
     // Wait for conversion to finish
     while (GODONE);
-    unsigned char note = getNote(ADRESH, ADRESL);
+    unsigned char hResult = ADRESH;
+    unsigned char lResult = ADRESL;
+    unsigned char note = getNote(hResult, lResult);
 
     // store conversion result
     conv_result.result = note;
@@ -1043,10 +1082,6 @@ void adc_conversion() {
 ///////////////////////////////////////////
 unsigned char getNote (unsigned char hResult, unsigned char lResult) {
     unsigned char new_note;
-    int i = 0;
-    for (i = 0; i < 13; i++) {
-        led_array[i] = 0;
-    }
 
     if (adc_num == ADCCHANA) {
         if (hResult == 0x00) {
@@ -1057,19 +1092,12 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 190 && lResult <= 210) {
                 // 5AF
                 new_note = 0x51;
-                led_array[1] = 1;
-                led_array[11] = 1;
             } else if (lResult >= 195 && lResult <= 216) {
                 // 5A
                 new_note = 0x41;
-                led_array[1] = 1;
-                led_array[11] = 1;
-                led_array[12] = 1;
             } else if (lResult >= 128 && lResult <= 154) {
                 // 5AS
                 new_note = 0x49;
-                led_array[1] = 1;
-                led_array[12] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1079,19 +1107,12 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 222 && lResult <= 252) {
                 // 4AF
                 new_note = 0x31;
-                led_array[1] = 1;
-                led_array[9] = 1;
             } else if (lResult >= 105 && lResult <= 175) {
                 // 4A
                 new_note = 0x21;
-                led_array[1] = 1;
-                led_array[9] = 1;
-                led_array[10] = 1;
             } else if (lResult >= 105 && lResult <= 148) {
                 // 4AS
                 new_note = 0x29;
-                led_array[1] = 1;
-                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1101,19 +1122,12 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 15 && lResult <= 108) {
                 // 3AF
                 new_note = 0x11;
-                led_array[1] = 1;
-                led_array[7] = 1;
             } else if (lResult >= 116 && lResult <= 183) {
                 // 3A
                 new_note = 0x01;
-                led_array[1] = 1;
-                led_array[7] = 1;
-                led_array[8] = 1;
             } else if (lResult >= 192 && lResult <= 227) {
                 // 3AS
                 new_note = 0x09;
-                led_array[1] = 1;
-                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1128,19 +1142,12 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 187 && lResult <= 213) {
                 // 5BF
                 new_note = 0x52;
-                led_array[0] = 1;
-                led_array[11] = 1;
             } else if (lResult >= 161 && lResult <= 182) {
                 // 5B
                 new_note = 0x42;
-                led_array[0] = 1;
-                led_array[11] = 1;
-                led_array[12] = 1;
             } else if (lResult >= 120 && lResult <= 150) {
                 // 5BS
                 new_note = 0x4a;
-                led_array[0] = 1;
-                led_array[12] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1150,41 +1157,27 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 206 && lResult <= 232) {
                 // 4BF
                 new_note = 0x32;
-                led_array[0] = 1;
-                led_array[9] = 1;
             } else if (lResult >= 165 && lResult <= 238) {
                 // 4B
                 new_note = 0x22;
             } else if (lResult >= 109 && lResult <= 140) {
                 // 4BS
                 new_note = 0x2a;
-                led_array[0] = 1;
-                led_array[9] = 1;
-                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
-                led_array[0] = 1;
-                led_array[10] = 1;
             }
 
         } else if (hResult == 0x03) {
             if (lResult >= 0 && lResult <= 174) {
                 // 3BF
                 new_note = 0x12;
-                led_array[0] = 1;
-                led_array[7] = 1;
             } else if (lResult >= 193 && lResult <= 210) {
                 // 3B
                 new_note = 0x02;
-                led_array[0] = 1;
-                led_array[7] = 1;
-                led_array[8] = 1;
             } else if (lResult >= 221 && lResult <= 229) {
                 // 3BS
                 new_note = 0x0a;
-                led_array[0] = 1;
-                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1199,19 +1192,12 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
            if (lResult >= 218 && lResult <= 242) {
                // 5CF
                new_note = 0x53;
-               led_array[6] = 1;
-               led_array[11] = 1;
            } else if (lResult >= 167 && lResult <= 200) {
                 // 5C
                 new_note = 0x43;
-                led_array[6] = 1;
-                led_array[11] = 1;
-                led_array[12] = 1;
            } else if (lResult >= 38 && lResult <= 160) {
                 // 5CS
                 new_note = 0x4b;
-                led_array[6] = 1;
-               led_array[12] = 1;
            } else {
                 // no note playing
                 new_note = 0x00;
@@ -1221,19 +1207,12 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 201 && lResult <= 235) {
                 // 4CF
                 new_note = 0x33;
-                led_array[6] = 1;
-                led_array[9] = 1;
             } else if (lResult >= 124 && lResult <= 183) {
                 // 4C
                 new_note = 0x23;
-                led_array[6] = 1;
-                led_array[9] = 1;
-                led_array[10] = 1;
             } else if (lResult >= 70 && lResult <= 110) {
                 // 4CS
                 new_note = 0x2b;
-                led_array[6] = 1;
-                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1243,19 +1222,12 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 60 && lResult <= 87) {
                 // 3CF
                 new_note = 0x13;
-                led_array[6] = 1;
-                led_array[7] = 1;
             } else if (lResult >= 138 && lResult <= 200) {
                 // 3C
                 new_note = 0x03;
-                led_array[6] = 1;
-                led_array[7] = 1;
-                led_array[8] = 1;
             } else if (lResult >= 212 && lResult <= 232) {
                 // 3CS
                 new_note = 0x0b;
-                led_array[6] = 1;
-                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1271,18 +1243,11 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 200 && lResult <= 230) {
                 // 5DF
                 new_note = 0x54;
-                led_array[5] = 1;
-                led_array[11] = 1;
             } else if (lResult >= 130 && lResult <= 180) {
                 // 5D
                 new_note = 0x44;
-                led_array[5] = 1;
-                led_array[11] = 1;
-                led_array[12] = 1;
             } else if (lResult >= 90 && lResult <= 120) {
                 // 5DS
-                led_array[5] = 1;
-                led_array[12] = 1;
                 new_note = 0x4c;
             } else {
                 // no note playing
@@ -1293,19 +1258,12 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 203 && lResult <= 255) {
                 // 4DF
                 new_note = 0x34;
-                led_array[5] = 1;
-                led_array[9] = 1;
             } else if (lResult >= 130 && lResult <= 167) {
                 // 4D
                 new_note = 0x24;
-                led_array[5] = 1;
-                led_array[9] = 1;
-                led_array[10] = 1;
             } else if (lResult >= 87 && lResult <= 124) {
                 // 4DS
                 new_note = 0x2c;
-                led_array[5] = 1;
-                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1315,19 +1273,12 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             if (lResult >= 60 && lResult <= 160) {
                 // 3DF
                 new_note = 0x14;
-                led_array[5] = 1;
-                led_array[7] = 1;
             } else if (lResult >= 145 && lResult <= 205) {
                 // 3D
                 new_note = 0x04;
-                led_array[5] = 1;
-                led_array[7] = 1;
-                led_array[8] = 1;
             } else if (lResult >= 227 && lResult <= 239) {
                 // 3DS
                 new_note = 0x0c;
-                led_array[5] = 1;
-                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1341,67 +1292,45 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             new_note = 0x00;
 
         } else if (hResult == 0x01) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 8 && lResult <= 69) {
                 // 5EF
                 new_note = 0x55;
-                led_array[4] = 1;
-                led_array[11] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 96 && lResult <= 210) {
                 // 5E
                 new_note = 0x45;
-                led_array[4] = 1;
-                led_array[11] = 1;
-                led_array[12] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 214 && lResult <= 227) {
                 // 5ES
                 new_note = 0x4d;
-                led_array[4] = 1;
-                led_array[12] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
             }
 
         } else if (hResult == 0x02) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 217 && lResult <= 255) {
                 // 4EF
                 new_note = 0x35;
-                led_array[4] = 1;
-                led_array[9] = 1;
-
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 154 && lResult <= 202) {
                 // 4E
                 new_note = 0x25;
-                led_array[4] = 1;
-                led_array[9] = 1;
-                led_array[10] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 115 && lResult <= 145) {
                 // 4ES
                 new_note = 0x2d;
-                led_array[4] = 1;
-                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
             }
 
         } else if (hResult == 0x03) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 227 && lResult <= 240) {
                 // 3EF
                 new_note = 0x15;
-                led_array[4] = 1;
-                led_array[7] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 180 && lResult <= 210) {
                 // 3E
                 new_note = 0x05;
-                led_array[4] = 1;
-                led_array[7] = 1;
-                led_array[8] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 90 && lResult <= 165) {
                 // 3ES
                 new_note = 0x0d;
-                led_array[4] = 1;
-                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
@@ -1415,71 +1344,49 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             new_note = 0x00;
 
         } else if (hResult == 0x01) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 148 && lResult <= 174) {
                 // 5FF
                 new_note = 0x56;
-                led_array[3] = 1;
-                led_array[11] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 89 && lResult <= 120) {
                 // 5F
                 new_note = 0x46;
-                led_array[3] = 1;
-                led_array[12] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 20 && lResult <= 72) {
                 // 5FS
                 new_note = 0x4e;
-                led_array[3] = 1;
-                led_array[11] = 1;
-                led_array[12] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
             }
 
         } else if (hResult == 0x02) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 223 && lResult <= 256) {
                 // 4FF
                 new_note = 0x36;
-                led_array[3] = 1;
-                led_array[9] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 165 && lResult <= 207) {
                 // 4F
                 new_note = 0x26;
-                led_array[3] = 1;
-                led_array[9] = 1;
-                led_array[10] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 132 && lResult <= 160) {
                 // 4FS
                 new_note = 0x2e;
-                led_array[3] = 1;
-                led_array[10] = 1;
             } else {
                // no note playing
                 new_note = 0x00;
             }
 
         } else if (hResult == 0x03) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 148 && lResult <= 174) {
                 // 3FF
                 new_note = 0x16;
-                led_array[3] = 1;
-                led_array[7] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 89 && lResult <= 120) {
                 // 3F
                 new_note = 0x06;
-                led_array[3] = 1;
-                led_array[7] = 1;
-                led_array[8] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 20 && lResult <= 72) {
                 // 3FS
                 new_note = 0x0e;
-                led_array[3] = 1;
-                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
             }
-
         }
 
     } else if (adc_num == ADCCHANG) {
@@ -1488,67 +1395,45 @@ unsigned char getNote (unsigned char hResult, unsigned char lResult) {
             new_note = 0x00;
 
         } else if (hResult == 0x01) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 87 && lResult <= 160) {
                 // 5GF
                 new_note = 0x57;
-                led_array[2] = 1;
-                led_array[11] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 175 && lResult <= 215) {
                 // 5G
                 new_note = 0x47;
-                led_array[2] = 1;
-                led_array[11] = 1;
-                led_array[12] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 224 && lResult <= 228) {
                 // 5GS
                 new_note = 0x4f;
-                led_array[2] = 1;
-                led_array[12] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
             }
 
         } else if (hResult == 0x02) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 200 && lResult <= 229) {
                 // 4GF
                 new_note = 0x37;
-                led_array[2] = 1;
-                led_array[9] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 139 && lResult <= 192) {
                 // 4G
                 new_note = 0x27;
-                led_array[2] = 1;
-                led_array[9] = 1;
-                led_array[10] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 107 && lResult <= 140) {
                 // 4GS
                 new_note = 0x2f;
-                led_array[2] = 1;
-                led_array[10] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;
             }
 
         } else if (hResult == 0x03) {
-            if (lResult >= 0x00 && lResult <= 0x00) {
+            if (lResult >= 165 && lResult <= 190) {
                 // 3GF
                 new_note = 0x17;
-                led_array[2] = 1;
-                led_array[7] = 1;
-
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 130 && lResult <= 160) {
                 // 3G
                 new_note = 0x07;
-                led_array[2] = 1;
-                led_array[7] = 1;
-                led_array[8] = 1;
-            } else if (lResult >= 0x00 && lResult <= 0x00) {
+            } else if (lResult >= 107 && lResult <= 125) {
                 // 3GS
                 new_note = 0x0f;
-                led_array[2] = 1;
-                led_array[8] = 1;
             } else {
                 // no note playing
                 new_note = 0x00;

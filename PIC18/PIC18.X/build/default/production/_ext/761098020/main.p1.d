@@ -10,6 +10,7 @@ build/default/production/_ext/761098020/main.p1:	\
 	C:\Program\ Files\ (x86)\HI-TECH\ Software\PICC-18\PRO\9.66\include\errno.h	\
 	C:\Program\ Files\ (x86)\HI-TECH\ Software\PICC-18\PRO\9.66\include\htc.h	\
 	C:\Program\ Files\ (x86)\HI-TECH\ Software\PICC-18\PRO\9.66\include\peripheral/sw_uart.h	\
+	../code/../PIC18.X/uartVals.h	\
 	C:\Program\ Files\ (x86)\HI-TECH\ Software\PICC-18\PRO\9.66\include\pic18.h	\
 	C:\Program\ Files\ (x86)\HI-TECH\ Software\PICC-18\PRO\9.66\include\peripheral/psupport.h	\
 	C:\Program\ Files\ (x86)\HI-TECH\ Software\PICC-18\PRO\9.66\include\stddef.h	\

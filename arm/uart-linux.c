@@ -28,11 +28,14 @@
 #define PLAY(FREQ) FREQ
 
 // Sound Stuff Defines
-int playNote(int); 
+int playNote(unsigned char); 
 
 
 int main(int argc, char* argv[])
 {
+   // memory map setup
+
+   // client setup
    struct sockaddr_in addr;
    struct hostent* host;
    char* tmp;
@@ -46,7 +49,7 @@ int main(int argc, char* argv[])
       fprintf(stderr, "%s: unable to resolve host\n", "128.104.180.233");
       return 1;
    }
-   port = 1222UL;
+   port = 1223UL;
    fd_sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
    if (fd_sock == -1) {
       printf("socket\n");
@@ -94,56 +97,28 @@ int main(int argc, char* argv[])
    if (tcsetattr(fd, TCSANOW, &termInfo) == -1) {
       goto error;
    }
-
-/*int count = 0;
-int i, j;
-// send stuff to server
-while (1) {
-   for (i = 0; i < 51; i++) {
-      int freq = playNote(i);
-      char buf[5];
-      snprintf(buf, 5, "%d", freq);        
-      write(fd_sock, buf,  4);
-      for (j = 0; j <9055000; j++) {
-         count += j - 3;
-      }   
-      printf("count %d\n", count);
-   }
-}
-*/
-
-/*
-// send stuff on uart
-   int i,j;
-   int count = 0;
-   while (1) {
-       for (i = 0; i < 51; i++) {
-          printf("note %d\n", i);
-      playNote(i, ptr);
-          for ( j = 0; j < 5005000; j++) {
-            // spin
-            count = j;
-            count--;
-            count+=2;
-      }
-       }
-       printf("%d\n", count);
-   }
-*/
    /* read "man select" for more advanced/event driven reading */
 
+int mode = 0;
+int cur_mode = -1;
 while (1) {
-//   write(fd, "a", 1);
-   
+   // read value from FPGA
+   char send_buffer[64];
+   // send mode across uart if different from current mode
+   if (mode != cur_mode) {
+      cur_mode = mode;
+      write(fd, send_buffer, 1);
+   }
+
    // read in from UART
    char buffer[64];
    size_t i = read(fd, buffer, 1);
-   // output note to server
-//   int freq = playNote(i);
-//   char buf[5];
-//   snprintf(buf, 5, "%d", freq);
-//   write(fd_sock, buf, 4);	
-     printf("%d\n", buffer[0]);
+   unsigned char val = buffer[0];
+   int freq = playNote(val);
+   char buf[5];
+   snprintf(buf, 5, "%d", freq);
+   write(fd_sock, buf, 4);  
+
 }
 
    close(fd);
@@ -157,7 +132,7 @@ error:
 }
 
 
-int playNote (int note) {
+int playNote (unsigned char note) {
     switch (note) {
         case UC3 :
             return PLAY(FC3);
@@ -180,6 +155,11 @@ int playNote (int note) {
         case UE3 :
             return PLAY(FE3);
             break;
+        case UE3S :
+            return PLAY(F3);
+        break;
+        case UF3F :
+        return PLAY(FE3);
         case UF3 :
             return PLAY(FF3);
             break;
@@ -210,6 +190,12 @@ int playNote (int note) {
         case UB3 :
             return PLAY(FB3);
             break;
+        case UB3S :
+            return PLAY(FC4);
+            break;
+        case UC4F :
+            return PLAY(FB3);
+            break;
         case UC4 :
             return PLAY(FC4);
             break;
@@ -229,6 +215,12 @@ int playNote (int note) {
             return PLAY(FE4F);
             break;
         case UE4 :
+            return PLAY(FE4);
+            break;
+        case UE4S :
+            return PLAY(FF4);
+            break;
+        case UF4F :
             return PLAY(FE4);
             break;
         case UF4 :
@@ -261,6 +253,12 @@ int playNote (int note) {
         case UB4 :
             return PLAY(FB4);
             break;
+        case UB4S :
+            return PLAY(FC5);
+            break;
+        case UC5F :
+            return PLAY(FB4);
+            break;
         case UC5 :
             return PLAY(FC5);
             break;
@@ -280,6 +278,12 @@ int playNote (int note) {
             return PLAY(FE5F);
             break;
         case UE5 :
+            return PLAY(FE5);
+            break;
+        case UE5S :
+            return PLAY(FF5);
+            break;
+        case UF5F :
             return PLAY(FE5);
             break;
         case UF5 :
@@ -313,8 +317,11 @@ int playNote (int note) {
             return PLAY(FB5);
             break;
         case UOFF :
-            return PLAY(0);
+            return PLAY(OFF);
             break;
+        default :
+       return PLAY(OFF);
+       break;
     }
 
 }
