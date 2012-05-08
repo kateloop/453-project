@@ -1,6 +1,6 @@
-_ToggleLeds: CODE, 5016 0 3562
-_main: CODE, 9438 0 92
-_adc_conversion: CODE, 9254 0 184
-_my_isr: CODE, 8578 0 676
+_ToggleLeds: CODE, 5016 0 3128
+_main: CODE, 9004 0 80
+_adc_conversion: CODE, 8820 0 184
+_my_isr: CODE, 8144 0 676
 _getNote: CODE, 54 0 4962
-Total: 9476
+Total: 9030

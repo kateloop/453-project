@@ -9914,7 +9914,7 @@ extern int errno;
 # 50 "../code/../PIC18.X/delay.h"
 extern void DelayMs(unsigned char);
 
-# 20 "../code/main.c"
+# 21 "../code/main.c"
 asm("\tglobal __config" "1"); asm("\t__config" "1" " equ " "0xF0FF");
 asm("\tglobal __config" "2"); asm("\t__config" "2" " equ " "0xFEFF");
 asm("\tglobal __config" "3"); asm("\t__config" "3" " equ " "0x7FFF");
@@ -9923,13 +9923,13 @@ asm("\tglobal __config" "5"); asm("\t__config" "5" " equ " "0xFFFF");
 asm("\tglobal __config" "6"); asm("\t__config" "6" " equ " "0xFFFF");
 asm("\tglobal __config" "7"); asm("\t__config" "7" " equ " "0xFFFF");
 
-# 50
+# 51
 void ToggleLeds();
 void adc_conversion();
 void testToggle();
 unsigned char getNote (unsigned char, unsigned char);
 
-# 143
+# 144
 int led_array[13];
 
 
@@ -9962,7 +9962,7 @@ char change_val = 0;
 
 int index;
 
-# 179
+# 180
 int main(int argc, char** argv) {
 
 OSCCON |= 0b01110010;
@@ -9986,7 +9986,7 @@ T0CON = 0b10000000;
 
 INTCON = 0b00100000;
 
-# 210
+
 SPBRGH = (((8000000L/19200UL)/16) - 1) >> 8;
 SPBRG = (((8000000L/19200UL)/16) - 1);
 BAUDCON = 0b00001000;
@@ -10000,28 +10000,21 @@ LATB = 0b10000000;
 
 LATC = 0b00001111;
 
-
 INTCON |= 0b10000000;
 
-# 240
-while (1) {
+# 232
+while (1);
 
-# 268
-change_val = 0;
-
-}
-
-# 275
 return (0);
 }
 
-# 286
+# 245
 void ToggleLeds () {
 
 
 
 
-if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
+if (conv_result.adc_channel == 2 && conv_result.result == 0x03) {
 
 
 LATA = 0b11101111;
@@ -10029,7 +10022,7 @@ LATA = 0b11101111;
 LATB = 0b11100000;
 
 LATC = 0b00001111;
-} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
+} else if (conv_result.adc_channel == 3 && conv_result.result == 0x04) {
 
 
 LATA = 0b10111111;
@@ -10037,7 +10030,7 @@ LATA = 0b10111111;
 LATB = 0b11100000;
 
 LATC = 0b00001111;
-} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[8] == 1) {
+} else if (conv_result.adc_channel == 4 && conv_result.result == 0x05) {
 
 
 LATA = 0b11111111;
@@ -10045,7 +10038,7 @@ LATA = 0b11111111;
 LATB = 0b11100000;
 
 LATC = 0b00001110;
-} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[9] == 1) {
+} else if (conv_result.adc_channel == 5 && conv_result.result == 0x06) {
 
 
 LATA = 0b11111111;
@@ -10053,7 +10046,7 @@ LATA = 0b11111111;
 LATB = 0b11100000;
 
 LATC = 0b00001101;
-} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[10] == 1) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x07) {
 
 
 LATA = 0b11111111;
@@ -10061,7 +10054,7 @@ LATA = 0b11111111;
 LATB = 0b01100000;
 
 LATC = 0b00001111;
-} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[11] == 1) {
+} else if (conv_result.adc_channel == 0 && conv_result.result == 0x01) {
 
 
 LATA = 0b11111111;
@@ -10069,7 +10062,7 @@ LATA = 0b11111111;
 LATB = 0b11100000;
 
 LATC = 0b00001011;
-} else if (led_array[4] == 1 && led_array[5] == 1 && led_array[12] == 1) {
+} else if (conv_result.adc_channel == 1 && conv_result.result == 0x02) {
 
 
 LATA = 0b11111111;
@@ -10078,7 +10071,7 @@ LATB = 0b11100000;
 
 LATC = 0b00000111;
 
-} else if (led_array[4] == 1 && led_array[6] == 1) {
+} else if (conv_result.adc_channel == 2 && conv_result.result == 0x0b) {
 
 
 LATA = 0b11101111;
@@ -10086,7 +10079,7 @@ LATA = 0b11101111;
 LATB = 0b11000000;
 
 LATC = 0b00001111;
-} else if (led_array[4] == 1 && led_array[7] == 1) {
+} else if (conv_result.adc_channel == 3 && conv_result.result == 0x0c) {
 
 
 LATA = 0b10111111;
@@ -10094,7 +10087,7 @@ LATA = 0b10111111;
 LATB = 0b11000000;
 
 LATC = 0b00001111;
-} else if (led_array[4] == 1 && led_array[8] == 1) {
+} else if (conv_result.adc_channel == 4 && conv_result.result == 0x0d) {
 
 
 LATA = 0b11111111;
@@ -10102,7 +10095,7 @@ LATA = 0b11111111;
 LATB = 0b11000000;
 
 LATC = 0b00001110;
-} else if (led_array[4] == 1 && led_array[9] == 1) {
+} else if (conv_result.adc_channel == 5 && conv_result.result == 0x16) {
 
 
 LATA = 0b11111111;
@@ -10111,7 +10104,7 @@ LATB = 0b11000000;
 
 LATC = 0b00001101;
 
-} else if (led_array[4] == 1 && led_array[10] == 1) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x0f) {
 
 
 LATA = 0b11111111;
@@ -10120,7 +10113,7 @@ LATB = 0b01000000;
 
 LATC = 0b00001111;
 
-} else if (led_array[4] == 1 && led_array[11] == 1) {
+} else if (conv_result.adc_channel == 0 && conv_result.result == 0x09) {
 
 
 LATA = 0b11111111;
@@ -10129,7 +10122,7 @@ LATB = 0b11000000;
 
 LATC = 0b00001011;
 
-} else if (led_array[4] == 1 && led_array[12] == 1) {
+} else if (conv_result.adc_channel == 1 && conv_result.result == 0x0a) {
 
 
 LATA = 0b11111111;
@@ -10138,7 +10131,7 @@ LATB = 0b11000000;
 
 LATC = 0b00000111;
 
-} else if (led_array[5] == 1 && led_array[6] == 1) {
+} else if (conv_result.adc_channel == 2 && conv_result.result == 0x13) {
 
 
 LATA = 0b11101111;
@@ -10147,7 +10140,7 @@ LATB = 0b10100000;
 
 LATC = 0b00001111;
 
-} else if (led_array[5] == 1 && led_array[7] == 1) {
+} else if (conv_result.adc_channel == 3 && conv_result.result == 0x14) {
 
 
 LATA = 0b10111111;
@@ -10156,7 +10149,7 @@ LATB = 0b10100000;
 
 LATC = 0b00001111;
 
-} else if (led_array[5] == 1 && led_array[8] == 1) {
+} else if (conv_result.adc_channel == 4 && conv_result.result == 0x15) {
 
 
 LATA = 0b11111111;
@@ -10165,7 +10158,7 @@ LATB = 0b10100000;
 
 LATC = 0b00001110;
 
-} else if (led_array[5] == 1 && led_array[9] == 1) {
+} else if (conv_result.adc_channel == 5 && conv_result.result == 0x0e) {
 
 
 LATA = 0b11111111;
@@ -10174,7 +10167,7 @@ LATB = 0b10100000;
 
 LATC = 0b00001101;
 
-} else if (led_array[5] == 1 && led_array[10] == 1) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x17) {
 
 
 LATA = 0b11111111;
@@ -10183,7 +10176,7 @@ LATB = 0b00100000;
 
 LATC = 0b00001111;
 
-} else if (led_array[5] == 1 && led_array[11] == 1) {
+} else if (conv_result.adc_channel == 0 && conv_result.result == 0x11) {
 
 
 LATA = 0b11111111;
@@ -10192,7 +10185,7 @@ LATB = 0b10100000;
 
 LATC = 0b00001011;
 
-} else if (led_array[5] == 1 && led_array[12] == 1) {
+} else if (conv_result.adc_channel == 1 && conv_result.result == 0x12) {
 
 
 LATA = 0b11111111;
@@ -10203,7 +10196,7 @@ LATC = 0b00000111;
 }
 
 
-else if (led_array[2] == 1 && led_array[3] == 1 && led_array[6] == 1) {
+else if (conv_result.adc_channel == 2 && conv_result.result == 0x23) {
 
 
 LATA = 0b11101111;
@@ -10212,7 +10205,7 @@ LATB = 0b10001100;
 
 LATC = 0b00001111;
 
-} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[7] == 1) {
+} else if (conv_result.adc_channel == 3 && conv_result.result == 0x24) {
 
 
 LATA = 0b10111111;
@@ -10221,7 +10214,7 @@ LATB = 0b10001100;
 
 LATC = 0b00001111;
 
-} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[8] == 1) {
+} else if (conv_result.adc_channel == 4 && conv_result.result == 0x25) {
 
 
 LATA = 0b11111111;
@@ -10230,7 +10223,7 @@ LATB = 0b10001100;
 
 LATC = 0b00001110;
 
-} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[9] == 1) {
+} else if (conv_result.adc_channel == 5 && conv_result.result == 0x26) {
 
 
 LATA = 0b11111111;
@@ -10238,7 +10231,7 @@ LATA = 0b11111111;
 LATB = 0b10001100;
 
 LATC = 0b00001101;
-} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[10] == 1) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x27) {
 
 
 LATA = 0b11111111;
@@ -10246,7 +10239,7 @@ LATA = 0b11111111;
 LATB = 0b00001100;
 
 LATC = 0b00001111;
-} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[11] == 1) {
+} else if (conv_result.adc_channel == 0 && conv_result.result == 0x21) {
 
 
 LATA = 0b11111111;
@@ -10254,7 +10247,7 @@ LATA = 0b11111111;
 LATB = 0b10001100;
 
 LATC = 0b00001011;
-} else if (led_array[2] == 1 && led_array[3] == 1 && led_array[12] == 1) {
+} else if (conv_result.adc_channel == 1 && conv_result.result == 0x22) {
 
 
 LATA = 0b11111111;
@@ -10262,7 +10255,7 @@ LATA = 0b11111111;
 LATB = 0b10001100;
 
 LATC = 0b00000111;
-} else if (led_array[2] == 1 && led_array[6] == 1) {
+} else if (conv_result.adc_channel == 2 && conv_result.result == 0x2b) {
 
 
 LATA = 0b11101111;
@@ -10271,7 +10264,7 @@ LATB = 0b10000100;
 
 LATC = 0b00001111;
 
-} else if (led_array[2] == 1 && led_array[7] == 1) {
+} else if (conv_result.adc_channel == 3 && conv_result.result == 0x2c) {
 
 
 LATA = 0b10111111;
@@ -10280,7 +10273,7 @@ LATB = 0b10000100;
 
 LATC = 0b00001111;
 
-} else if (led_array[2] == 1 && led_array[8] == 1) {
+} else if (conv_result.adc_channel == 4 && conv_result.result == 0x2d) {
 
 
 LATA = 0b11111111;
@@ -10289,7 +10282,7 @@ LATB = 0b10000100;
 
 LATC = 0b00001110;
 
-} else if (led_array[2] == 1 && led_array[9] == 1) {
+} else if (conv_result.adc_channel == 5 && conv_result.result == 0x2e) {
 
 
 LATA = 0b11111111;
@@ -10298,7 +10291,7 @@ LATB = 0b10000100;
 
 LATC = 0b00001101;
 
-} else if (led_array[2] == 1 && led_array[10] == 1) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x2f) {
 
 
 LATA = 0b11111111;
@@ -10307,7 +10300,7 @@ LATB = 0b00000100;
 
 LATC = 0b00001111;
 
-} else if (led_array[2] == 1 && led_array[11] == 1) {
+} else if (conv_result.adc_channel == 0 && conv_result.result == 0x29) {
 
 
 LATA = 0b11111111;
@@ -10316,7 +10309,7 @@ LATB = 0b10000100;
 
 LATC = 0b00001011;
 
-} else if (led_array[2] == 1 && led_array[12] == 1) {
+} else if (conv_result.adc_channel == 1 && conv_result.result == 0x2a) {
 
 
 LATA = 0b11111111;
@@ -10325,7 +10318,7 @@ LATB = 0b10000100;
 
 LATC = 0b00000111;
 
-} else if (led_array[3] == 1 && led_array[6] == 1) {
+} else if (conv_result.adc_channel == 2 && conv_result.result == 0x33) {
 
 
 LATA = 0b11101111;
@@ -10334,7 +10327,7 @@ LATB = 0b10001000;
 
 LATC = 0b00001111;
 
-} else if (led_array[3] == 1 && led_array[7] == 1) {
+} else if (conv_result.adc_channel == 3 && conv_result.result == 0x34) {
 
 
 LATA = 0b10111111;
@@ -10343,7 +10336,7 @@ LATB = 0b10001000;
 
 LATC = 0b00001111;
 
-} else if (led_array[3] == 1 && led_array[8] == 1) {
+} else if (conv_result.adc_channel == 4 && conv_result.result == 0x35) {
 
 
 LATA = 0b11111111;
@@ -10352,7 +10345,7 @@ LATB = 0b10001000;
 
 LATC = 0b00001110;
 
-} else if (led_array[3] == 1 && led_array[9] == 1) {
+} else if (conv_result.adc_channel == 5 && conv_result.result == 0x36) {
 
 
 LATA = 0b11111111;
@@ -10361,7 +10354,7 @@ LATB = 0b10001000;
 
 LATC = 0b00001101;
 
-} else if (led_array[3] == 1 && led_array[10] == 1) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x37) {
 
 
 LATA = 0b11111111;
@@ -10370,7 +10363,7 @@ LATB = 0b00001000;
 
 LATC = 0b00001111;
 
-} else if (led_array[3] == 1 && led_array[11] == 1) {
+} else if (conv_result.adc_channel == 0 && conv_result.result == 0x31) {
 
 
 LATA = 0b11111111;
@@ -10379,7 +10372,7 @@ LATB = 0b10001000;
 
 LATC = 0b00001011;
 
-} else if (led_array[3] == 1 && led_array[12] == 1) {
+} else if (conv_result.adc_channel == 1 && conv_result.result == 0x32) {
 
 
 LATA = 0b11111111;
@@ -10390,7 +10383,7 @@ LATC = 0b00000111;
 }
 
 
-else if (led_array[0] == 1 && led_array[1] == 1 && led_array[6] == 1) {
+else if (conv_result.adc_channel == 2 && conv_result.result == 0x43) {
 
 
 LATA = 0b11101111;
@@ -10399,7 +10392,7 @@ LATB = 0b10000000;
 
 LATC = 0b00111111;
 
-} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[7] == 1) {
+} else if (conv_result.adc_channel == 3 && conv_result.result == 0x44) {
 
 
 LATA = 0b10111111;
@@ -10408,7 +10401,7 @@ LATB = 0b10000000;
 
 LATC = 0b00111111;
 
-} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[8] == 1) {
+} else if (conv_result.adc_channel == 4 && conv_result.result == 0x45) {
 
 
 LATA = 0b11111111;
@@ -10417,7 +10410,7 @@ LATB = 0b10000000;
 
 LATC = 0b00111110;
 
-} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[9] == 1) {
+} else if (conv_result.adc_channel == 5 && conv_result.result == 0x46) {
 
 
 LATA = 0b11111111;
@@ -10425,7 +10418,7 @@ LATA = 0b11111111;
 LATB = 0b10000000;
 
 LATC = 0b00111101;
-} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[10] == 1) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x47) {
 
 
 LATA = 0b11111111;
@@ -10433,7 +10426,7 @@ LATA = 0b11111111;
 LATB = 0b00000000;
 
 LATC = 0b00111111;
-} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[11] == 1) {
+} else if (conv_result.adc_channel == 0 && conv_result.result == 0x41) {
 
 
 LATA = 0b11111111;
@@ -10441,7 +10434,7 @@ LATA = 0b11111111;
 LATB = 0b10000000;
 
 LATC = 0b00111011;
-} else if (led_array[0] == 1 && led_array[1] == 1 && led_array[12] == 1) {
+} else if (conv_result.adc_channel == 1 && conv_result.result == 0x42) {
 
 
 LATA = 0b11111111;
@@ -10450,7 +10443,7 @@ LATB = 0b10000000;
 
 LATC = 0b00110111;
 
-} else if (led_array[0] == 1 && led_array[6] == 1) {
+} else if (conv_result.adc_channel == 2 && conv_result.result == 0x4b) {
 
 
 LATA = 0b11101111;
@@ -10459,7 +10452,7 @@ LATB = 0b10000000;
 
 LATC = 0b00011111;
 
-} else if (led_array[0] == 1 && led_array[7] == 1) {
+} else if (conv_result.adc_channel == 3 && conv_result.result == 0x4c) {
 
 
 LATA = 0b10111111;
@@ -10468,7 +10461,7 @@ LATB = 0b10000000;
 
 LATC = 0b00011111;
 
-} else if (led_array[0] == 1 && led_array[8] == 1) {
+} else if (conv_result.adc_channel == 4 && conv_result.result == 0x4d) {
 
 
 LATA = 0b11111111;
@@ -10477,7 +10470,7 @@ LATB = 0b10000000;
 
 LATC = 0b00011110;
 
-} else if (led_array[0] == 1 && led_array[9] == 1) {
+} else if (conv_result.adc_channel == 5 && conv_result.result == 0x4e) {
 
 
 LATA = 0b11111111;
@@ -10486,7 +10479,7 @@ LATB = 0b10000000;
 
 LATC = 0b00011101;
 
-} else if (led_array[0] == 1 && led_array[10] == 1) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x4f) {
 
 
 LATA = 0b11111111;
@@ -10495,7 +10488,7 @@ LATB = 0b00000000;
 
 LATC = 0b00011111;
 
-} else if (led_array[0] == 1 && led_array[11] == 1) {
+} else if (conv_result.adc_channel == 0 && conv_result.result == 0x49) {
 
 
 LATA = 0b11111111;
@@ -10504,7 +10497,7 @@ LATB = 0b10000000;
 
 LATC = 0b00011011;
 
-} else if (led_array[0] == 1 && led_array[12] == 1) {
+} else if (conv_result.adc_channel == 1 && conv_result.result == 0x4a) {
 
 
 LATA = 0b11111111;
@@ -10513,7 +10506,7 @@ LATB = 0b10000000;
 
 LATC = 0b00010111;
 
-} else if (led_array[1] == 1 && led_array[6] == 1) {
+} else if (conv_result.adc_channel == 2 && conv_result.result == 0x53) {
 
 
 LATA = 0b11101111;
@@ -10522,7 +10515,7 @@ LATB = 0b10000000;
 
 LATC = 0b00101111;
 
-} else if (led_array[1] == 1 && led_array[7] == 1) {
+} else if (conv_result.adc_channel == 3 && conv_result.result == 0x54) {
 
 
 LATA = 0b10111111;
@@ -10531,7 +10524,7 @@ LATB = 0b10000000;
 
 LATC = 0b00101111;
 
-} else if (led_array[1] == 1 && led_array[8] == 1) {
+} else if (conv_result.adc_channel == 4 && conv_result.result == 0x55) {
 
 
 LATA = 0b11111111;
@@ -10540,7 +10533,7 @@ LATB = 0b10000000;
 
 LATC = 0b00101110;
 
-} else if (led_array[1] == 1 && led_array[9] == 1) {
+} else if (conv_result.adc_channel == 5 && conv_result.result == 0x56) {
 
 
 LATA = 0b11111111;
@@ -10549,7 +10542,7 @@ LATB = 0b10000000;
 
 LATC = 0b00101101;
 
-} else if (led_array[1] == 1 && led_array[10] == 1) {
+} else if (conv_result.adc_channel == 6 && conv_result.result == 0x57) {
 
 
 LATA = 0b11111111;
@@ -10558,7 +10551,7 @@ LATB = 0b00000000;
 
 LATC = 0b00101111;
 
-} else if (led_array[1] == 1 && led_array[11] == 1) {
+} else if (conv_result.adc_channel == 0 && conv_result.result == 0x51) {
 
 
 LATA = 0b11111111;
@@ -10567,7 +10560,7 @@ LATB = 0b10000000;
 
 LATC = 0b00101011;
 
-} else if (led_array[1] == 1 && led_array[12] == 1) {
+} else if (conv_result.adc_channel == 1 && conv_result.result == 0x52) {
 
 
 LATA = 0b11111111;
@@ -10581,7 +10574,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 855
+# 814
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10756,7 +10749,7 @@ INTCON |= 0b10000000;
 
 }
 
-# 1035
+# 994
 void adc_conversion() {
 
 ADON = 0;
@@ -10811,7 +10804,7 @@ adc_num = 0;
 }
 }
 
-# 1095
+# 1054
 unsigned char getNote (unsigned char hResult, unsigned char lResult) {
 unsigned char new_note;
 

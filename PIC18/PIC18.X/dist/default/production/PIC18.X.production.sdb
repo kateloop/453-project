@@ -2,9 +2,9 @@
 [d version 1.1 ]
 [d edition pro ]
 [d chip 18F2682 ]
-"148 ../code/main.c
+"149 ../code/main.c
 [s S24 _ADC_conv 2 `uc 1 result 1 0 `uc 1 adc_channel 1 1 ]
-"950
+"909
 [v F10831 `(v  1 t 0 ]
 [s S109 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
@@ -28,47 +28,47 @@
 `uc 1 fill 1 0 :4:4 
 ]
 [u S177 USART 1 `uc 1 val 1 0 `S109 1 . 1 0 ]
-"179 ../code/main.c
+"180 ../code/main.c
 [v _main `(i  1 e 2 0 ]
-"286
+"245
 [v _ToggleLeds `(v  1 e 0 0 ]
-"950
+"909
 [v _my_isr `I(v  1 e 0 0 ]
-"1035
+"994
 [v _adc_conversion `(v  1 e 0 0 ]
-"1095
+"1054
 [v _getNote `(uc  1 e 1 0 ]
-"143
-[v _led_array `[13]i  1 e 26 @1 ]
-"146
-[v _uart_out `uc  1 e 1 @53 ]
-"148
-[v _new_note `uc  1 e 1 @52 ]
-"155
-[v _conv_result `S24  1 e 2 @27 ]
-"157
-[v _chanA `[3]uc  1 e 3 @42 ]
+"144
+[v _led_array `[13]i  1 e 26 @28 ]
+"147
+[v _uart_out `uc  1 e 1 @26 ]
+"149
+[v _new_note `uc  1 e 1 @27 ]
+"156
+[v _conv_result `S24  1 e 2 @0 ]
 "158
-[v _chanB `[3]uc  1 e 3 @45 ]
+[v _chanA `[3]uc  1 e 3 @15 ]
 "159
-[v _chanC `[3]uc  1 e 3 @48 ]
+[v _chanB `[3]uc  1 e 3 @18 ]
 "160
-[v _chanD `[3]uc  1 e 3 @39 ]
+[v _chanC `[3]uc  1 e 3 @21 ]
 "161
-[v _chanE `[3]uc  1 e 3 @30 ]
+[v _chanD `[3]uc  1 e 3 @6 ]
 "162
-[v _chanF `[3]uc  1 e 3 @33 ]
+[v _chanE `[3]uc  1 e 3 @3 ]
 "163
-[v _chanG `[3]uc  1 e 3 @36 ]
-"165
-[v _adc_num `Vuc  1 e 1 @29 ]
-"168
-[v _cur_inputs `[7]uc  1 e 7 @54 ]
+[v _chanF `[3]uc  1 e 3 @12 ]
+"164
+[v _chanG `[3]uc  1 e 3 @9 ]
+"166
+[v _adc_num `Vuc  1 e 1 @2 ]
 "169
-[v _prev_inputs `[7]uc  1 e 7 @61 ]
-"171
-[v _change_val `uc  1 e 1 @0 ]
-"173
+[v _cur_inputs `[7]uc  1 e 7 @61 ]
+"170
+[v _prev_inputs `[7]uc  1 e 7 @54 ]
+"172
+[v _change_val `uc  1 e 1 @25 ]
+"174
 [v _index `i  1 e 2 @68 ]
 "20 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\legacy/ppic18f2682.h
 [v _GODONE `VNb  1 e 0 @32273 ]
@@ -167,42 +167,42 @@
 "9557
 [v _TMR0IE `Vb  1 e 0 @32661 ]
 "6 udefs.c
-[v _USART_Status `S115  1 e 1 @51 ]
-"179 ../code/main.c
+[v _USART_Status `S115  1 e 1 @24 ]
+"180 ../code/main.c
 [v _main `(i  1 e 2 0 ]
 {
 [v _argc `i  1 p 2 0 ]
 [v _argv `*.M*.Muc  1 p 2 2 ]
-"276
+"235
 } 0
-"950
+"909
 [v _my_isr `I(v  1 e 0 0 ]
 {
-"1027
+"986
 } 0
-"286
+"245
 [v _ToggleLeds `(v  1 e 0 0 ]
 {
-"846
+"805
 } 0
-"1035
+"994
 [v _adc_conversion `(v  1 e 0 0 ]
 {
-"1074
+"1033
 [v _hResult `uc  1 a 1 0 ]
-"1075
+"1034
 [v _lResult `uc  1 a 1 1 ]
-"1076
+"1035
 [v _note `uc  1 a 1 2 ]
-"1087
+"1046
 } 3
-"1095
+"1054
 [v _getNote `(uc  1 e 1 0 ]
 {
-"1096
+"1055
 [v _new_note `uc  1 a 1 0 ]
-"1095
+"1054
 [v _hResult `uc  1 p 1 0 ]
 [v _lResult `uc  1 p 1 1 ]
-"1458
+"1417
 } 1

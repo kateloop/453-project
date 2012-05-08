@@ -16,6 +16,7 @@
 #include <htc.h>
 #include "../PIC18.X/delay.h"
 #include "../PIC18.X/usart.h"
+#include "../PIC18.X/uartVals.h"
 
 __CONFIG (1, OSC_IRCIO67);
 __CONFIG (2, WDT_OFF);
@@ -246,7 +247,7 @@ void ToggleLeds () {
     // Look at array containing LED Info and toggle LEDs accordingly
 
     // Octave 3
-    if (led_array[4] == 1 && led_array[5] == 1 && led_array[6] == 1) {
+    if (conv_result.adc_channel == 2 && conv_result.result == 0x03) {
         // Octave 3 L & R LED on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -254,7 +255,7 @@ void ToggleLeds () {
         LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x04) {
         // Octave 3 L & R LED on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -262,7 +263,7 @@ void ToggleLeds () {
         LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x05) {
         // Octave 3 L & R LED on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -270,7 +271,7 @@ void ToggleLeds () {
         LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001110;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x06) {
         // Octave 3 L & R LED on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -278,7 +279,7 @@ void ToggleLeds () {
         LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001101;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x07) {
         // Octave 3 L & R LED on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -286,7 +287,7 @@ void ToggleLeds () {
         LATB = 0b01100000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x01) {
         // Octave 3 L & R LED on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -294,8 +295,8 @@ void ToggleLeds () {
         LATB = 0b11100000;
         //LATB   --NNPPPP
         LATC = 0b00001011;
-    } else if (led_array[4] == 1 && led_array[5] == 1 && led_array[12] == 1) {
-       // Octave 5 3 & R LED on; B
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x02) {
+       // Octave 3 L & R LED on; B
        //LATA   -P-P----
         LATA = 0b11111111;
         //LATB   PNN-NN--
@@ -303,7 +304,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00000111;
 
-    } else if (led_array[4] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x0b) {
         // Octave 3 Right LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -311,7 +312,7 @@ void ToggleLeds () {
         LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[4] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x0c) {
         // Octave 3 Right LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -319,7 +320,7 @@ void ToggleLeds () {
         LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[4] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x0d) {
         // Octave 3 Right LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -327,7 +328,7 @@ void ToggleLeds () {
         LATB = 0b11000000;
         //LATB   --NNPPPP
         LATC = 0b00001110;
-    } else if (led_array[4] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x16) {
         // Octave 3 Right LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -336,7 +337,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
-    } else if (led_array[4] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x0f) {
         // Octave 3 Right LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -345,7 +346,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[4] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x09) {
         // Octave 3 Right LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -354,7 +355,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001011;
 
-    } else if (led_array[4] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x0a) {
         // Octave 3 Right LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -363,7 +364,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00000111;
 
-    } else if (led_array[5] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x13) {
         // Octave 3 Left LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -372,7 +373,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[5] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x14) {
         // Octave 3 Left LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -381,7 +382,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[5] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x15) {
         // Octave 3 Left LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -390,7 +391,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001110;
 
-    } else if (led_array[5] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x0e) {
         // Octave 3 Left LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -399,7 +400,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
-    } else if (led_array[5] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x17) {
         // Octave 3 Left LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -408,7 +409,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[5] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x11) {
         // Octave 3 Left LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -417,7 +418,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001011;
 
-    } else if (led_array[5] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x12) {
         // Octave 3 Left LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -428,7 +429,7 @@ void ToggleLeds () {
     }
 
     // Octave 4
-    else if (led_array[2] == 1 && led_array[3] == 1 && led_array[6] == 1) {
+    else if (conv_result.adc_channel == 2 && conv_result.result == 0x23) {
         // Octave 4 L & R LED on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -437,7 +438,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x24) {
         // Octave 4 L & R LED on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -446,7 +447,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x25) {
         // Octave 4 L & R LED on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -455,7 +456,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001110;
 
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x26) {
         // Octave 4 L & R LED on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -463,7 +464,7 @@ void ToggleLeds () {
         LATB = 0b10001100;
         //LATB   --NNPPPP
         LATC = 0b00001101;
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x27) {
         // Octave 4 L & R LED on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -471,7 +472,7 @@ void ToggleLeds () {
         LATB = 0b00001100;
         //LATB   --NNPPPP
         LATC = 0b00001111;
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x21) {
         // Octave 4 L & R LED on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -479,7 +480,7 @@ void ToggleLeds () {
         LATB = 0b10001100;
         //LATB   --NNPPPP
         LATC = 0b00001011;
-    } else if (led_array[2] == 1 && led_array[3] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x22) {
        // Octave 4 L & R LED on; B
        //LATA   -P-P----
         LATA = 0b11111111;
@@ -487,7 +488,7 @@ void ToggleLeds () {
         LATB = 0b10001100;
         //LATB   --NNPPPP
         LATC = 0b00000111;
-    } else if (led_array[2] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x2b) {
         // Octave 4 Right LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -496,7 +497,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[2] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x2c) {
         // Octave 4 Right LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -505,7 +506,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[2] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x2d) {
         // Octave 4 Right LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -514,7 +515,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001110;
 
-    } else if (led_array[2] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x2e) {
         // Octave 4 Right LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -523,7 +524,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
-    } else if (led_array[2] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x2f) {
         // Octave 4 Right LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -532,7 +533,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[2] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x29) {
         // Octave 4 Right LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -541,7 +542,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001011;
 
-    } else if (led_array[2] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x2a) {
         // Octave 4 Right LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -550,7 +551,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00000111;
 
-    } else if (led_array[3] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x33) {
         // Octave 4 Left LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -559,7 +560,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[3] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x34) {
         // Octave 4 Left LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -568,7 +569,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[3] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x35) {
         // Octave 4 Left LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -577,7 +578,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001110;
 
-    } else if (led_array[3] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x36) {
         // Octave 4 Left LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -586,7 +587,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001101;
 
-    } else if (led_array[3] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x37) {
         // Octave 4 Left LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -595,7 +596,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001111;
 
-    } else if (led_array[3] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x31) {
         // Octave 4 Left LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -604,7 +605,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00001011;
 
-    } else if (led_array[3] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x32) {
         // Octave 4 Left LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -615,7 +616,7 @@ void ToggleLeds () {
     }
 
     // Octave 5
-    else if (led_array[0] == 1 && led_array[1] == 1 && led_array[6] == 1) {
+    else if (conv_result.adc_channel == 2 && conv_result.result == 0x43) {
         // Octave 5 L & R LED on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -624,7 +625,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00111111;
 
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x44) {
         // Octave 5 L & R LED on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -633,7 +634,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00111111;
 
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x45) {
         // Octave 5 L & R LED on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -642,7 +643,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00111110;
 
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x46) {
         // Octave 5 L & R LED on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -650,7 +651,7 @@ void ToggleLeds () {
         LATB = 0b10000000;
         //LATB   --NNPPPP
         LATC = 0b00111101;
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x47) {
         // Octave 5 L & R LED on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -658,7 +659,7 @@ void ToggleLeds () {
         LATB = 0b00000000;
         //LATB   --NNPPPP
         LATC = 0b00111111;
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x41) {
         // Octave 5 L & R LED on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -666,7 +667,7 @@ void ToggleLeds () {
         LATB = 0b10000000;
         //LATB   --NNPPPP
         LATC = 0b00111011;
-    } else if (led_array[0] == 1 && led_array[1] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x42) {
        // Octave 5 L & R LED on; B
        //LATA   -P-P----
        LATA = 0b11111111;
@@ -675,7 +676,7 @@ void ToggleLeds () {
        //LATB   --NNPPPP
        LATC = 0b00110111;
 
-    } else if (led_array[0] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x4b) {
         // Octave 5 Right LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -684,7 +685,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011111;
 
-    } else if (led_array[0] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x4c) {
         // Octave 5 Right LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -693,7 +694,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011111;
 
-    } else if (led_array[0] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x4d) {
         // Octave 5 Right LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -702,7 +703,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011110;
 
-    } else if (led_array[0] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x4e) {
         // Octave 5 Right LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -711,7 +712,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011101;
 
-    } else if (led_array[0] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x4f) {
         // Octave 5 Right LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -720,7 +721,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011111;
 
-    } else if (led_array[0] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x49) {
         // Octave 5 Right LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -729,7 +730,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00011011;
 
-    } else if (led_array[0] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x4a) {
         // Octave 5 Right LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -738,7 +739,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00010111;
 
-    } else if (led_array[1] == 1 && led_array[6] == 1) {
+    } else if (conv_result.adc_channel == 2 && conv_result.result == 0x53) {
         // Octave 5 Left LED is on; C
         //LATA   -P-P----
         LATA = 0b11101111;
@@ -747,7 +748,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101111;
 
-    } else if (led_array[1] == 1 && led_array[7] == 1) {
+    } else if (conv_result.adc_channel == 3 && conv_result.result == 0x54) {
         // Octave 5 Left LED is on; D
         //LATA   -P-P----
         LATA = 0b10111111;
@@ -756,7 +757,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101111;
 
-    } else if (led_array[1] == 1 && led_array[8] == 1) {
+    } else if (conv_result.adc_channel == 4 && conv_result.result == 0x55) {
         // Octave 5 Left LED is on; E
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -765,7 +766,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101110;
 
-    } else if (led_array[1] == 1 && led_array[9] == 1) {
+    } else if (conv_result.adc_channel == 5 && conv_result.result == 0x56) {
         // Octave 5 Left LED is on; F
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -774,7 +775,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101101;
 
-    } else if (led_array[1] == 1 && led_array[10] == 1) {
+    } else if (conv_result.adc_channel == 6 && conv_result.result == 0x57) {
         // Octave 5 Left LED is on; G
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -783,7 +784,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101111;
 
-    } else if (led_array[1] == 1 && led_array[11] == 1) {
+    } else if (conv_result.adc_channel == 0 && conv_result.result == 0x51) {
         // Octave 5 Left LED is on; A
         //LATA   -P-P----
         LATA = 0b11111111;
@@ -792,7 +793,7 @@ void ToggleLeds () {
         //LATB   --NNPPPP
         LATC = 0b00101011;
 
-    } else if (led_array[1] == 1 && led_array[12] == 1) {
+    } else if (conv_result.adc_channel == 1 && conv_result.result == 0x52) {
         // Octave 5 Left LED is on; B
         //LATA   -P-P----
         LATA = 0b11111111;
