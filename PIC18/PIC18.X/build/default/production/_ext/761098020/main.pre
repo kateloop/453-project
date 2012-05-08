@@ -9998,21 +9998,39 @@ INTCON |= 0b10000000;
 # 276
 while (1) {
 
+int l = 0;
+int all_zero = 1;
+for (l = 0; l < sizeof(cur_inputs); l++) {
+if (cur_inputs[l] != 0) {
+all_zero = 0;
+}
+}
+if (all_zero) {
+uart_out = 0x00;
+TXREG = uart_out;
+while((PIR1 & 0b00010000) == 0);
+}
+
 while (change_val == 0) {
 
 continue;
 }
 
-# 292
+
+uart_out = cur_inputs[index];
+TXREG = uart_out;
+while((PIR1 & 0b00010000) == 0);
+
+# 305
 change_val = 0;
 
 }
 
-# 299
+# 312
 return (0);
 }
 
-# 310
+# 323
 void ToggleLeds () {
 
 
@@ -10578,7 +10596,7 @@ LATC = 0b00100111;
 
 void testToggle () {
 
-# 879
+# 892
 for (int i = 0; i < 7; i++) {
 for (int j = 0; j < sizeof(led_array); j++) {
 led_array[j] = 0;
@@ -10687,22 +10705,14 @@ if (cur_inputs[conv_result.adc_channel] != prev_inputs[conv_result.adc_channel])
 change_val = 1;
 prev_inputs[conv_result.adc_channel] = cur_inputs[conv_result.adc_channel];
 index = conv_result.adc_channel;
+
+
+
 } else {
 change_val = 0;
 }
 
-uart_out = conv_result.result;
-TXREG = uart_out;
-while((PIR1 & 0b00010000) == 0);
-uart_out = conv_result.adc_channel;
-TXREG = uart_out;
-while((PIR1 & 0b00010000) == 0);
-uart_out = conv_result.result;
-TXREG = uart_out;
-while((PIR1 & 0b00010000) == 0);
-
-
-
+# 1019
 TMR0IF = 0;
 }
 
@@ -10711,7 +10721,7 @@ INTCON |= 0b10000000;
 
 }
 
-# 1017
+# 1033
 void adc_conversion() {
 
 ADON = 0;
@@ -10766,7 +10776,7 @@ adc_num = 0;
 }
 }
 
-# 1077
+# 1093
 unsigned char getNote (unsigned char hResult, unsigned char lResult) {
 unsigned char new_note;
 int i = 0;

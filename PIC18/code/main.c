@@ -274,16 +274,29 @@ int main(int argc, char** argv) {
 
 
     while (1) {
-        // wait until sensor value changes 
+        // wait until sensor value changes
+        int l = 0;
+        int all_zero = 1;
+        for (l = 0; l < sizeof(cur_inputs); l++) {
+            if (cur_inputs[l] != 0) {
+                all_zero = 0;
+            }
+        }
+        if (all_zero) {
+            uart_out = 0x00;
+            TXREG = uart_out;
+            while((PIR1 & 0b00010000) == 0);
+        }
+
         while (change_val == 0) {
             // spin
             continue;
         }
 
         // once note changes, send data across UART and light LEDs
-      //  uart_out = cur_inputs[index];
-      //  TXREG = uart_out;
-      //  while((PIR1 & 0b00010000) == 0);
+        uart_out = cur_inputs[index];
+        TXREG = uart_out;
+        while((PIR1 & 0b00010000) == 0);
 
      //   ToggleLeds();
 
@@ -978,17 +991,36 @@ void interrupt my_isr(void) {
     if (TMR0IE && TMR0IF && TMR0IP) {
         adc_conversion ();
 
+        if (conv_result.adc_channel == ADCCHANA) {
+
+        } else if (conv_result.adc_channel == ADCCHANB) {
+
+        } else if (conv_result.adc_channel == ADCCHANC) {
+
+        } else if (conv_result.adc_channel == ADCCHAND) {
+
+        } else if (conv_result.adc_channel == ADCCHANE) {
+
+        } else if (conv_result.adc_channel == ADCCHANF) {
+
+        } else if (conv_result.adc_channel == ADCCHANG) {
+            
+        }
+
         cur_inputs[conv_result.adc_channel] = conv_result.result;
 
         if (cur_inputs[conv_result.adc_channel] != prev_inputs[conv_result.adc_channel]) {
             change_val = 1;
             prev_inputs[conv_result.adc_channel] = cur_inputs[conv_result.adc_channel];
             index = conv_result.adc_channel;
+        //    uart_out = conv_result.result;
+        //    TXREG = uart_out;
+        //    while((PIR1 & 0b00010000) == 0);
         } else {
             change_val = 0;
         }
 
-        uart_out = conv_result.result;
+       /* uart_out = conv_result.result;
         TXREG = uart_out;
         while((PIR1 & 0b00010000) == 0);
         uart_out = conv_result.adc_channel;
@@ -996,7 +1028,7 @@ void interrupt my_isr(void) {
         while((PIR1 & 0b00010000) == 0);
         uart_out = conv_result.result;
         TXREG = uart_out;
-        while((PIR1 & 0b00010000) == 0);
+        while((PIR1 & 0b00010000) == 0);*/
 
 
         // Clear flag for timer 0

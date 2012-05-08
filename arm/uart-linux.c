@@ -138,17 +138,17 @@ while (1) {
    // read in from UART
    char buffer[64];
    size_t i = read(fd, buffer, 1);
-   unsigned char result  = buffer[0];
-   i = read(fd, buffer, 1);
-   unsigned char sensor = buffer[0];
-   i = read(fd, buffer, 1);
+   //unsigned char result  = buffer[0];
+   //i = read(fd, buffer, 1);
+   //unsigned char sensor = buffer[0];
+   //i = read(fd, buffer, 1);
    // output note to server
    unsigned char val = buffer[0];
    int freq = playNote(val);
    char buf[5];
    snprintf(buf, 5, "%d", freq);
    write(fd_sock, buf, 4);	
-   printf("Sensor %d: Exp: %x Act: %x Freq: %x\n", sensor, result, val, freq);
+   printf("Val: %x Freq: %d\n", val, freq);
 }
 
    close(fd);
@@ -320,9 +320,9 @@ int playNote (unsigned char note) {
         case UOFF :
             return PLAY(0);
             break;
-       // default :
-	 //   return PLAY(0);
-	 //   break;
+        default :
+	   return PLAY(0);
+	   break;
     }
 
 }
