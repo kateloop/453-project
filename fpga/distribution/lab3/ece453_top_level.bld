@@ -3,18 +3,18 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
 Command Line: C:\Xilinx\12.4\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe -filter
 iseconfig/filter.filter -intstyle ise -dd _ngo -nt timestamp -uc
-C:/vmware-shared/Lab5_Dan&Liu/Lab5_Dan&Liu/lab3/lab3/distribution/ece453_TLL5000
-_spring2012.ucf -p xc3s1500-fg676-4 ece453_top_level.ngc ece453_top_level.ngd
+C:/vmware-shared/dak-project/453-project/fpga/distribution/ece453_TLL5000_spring
+2012.ucf -p xc3s1500-fg676-4 ece453_top_level.ngc ece453_top_level.ngd
 
 Reading NGO file
-"C:/vmware-shared/Lab5_Dan&Liu/Lab5_Dan&Liu/lab3/lab3/distribution/lab3/ece453_t
-op_level.ngc" ...
+"C:/vmware-shared/dak-project/453-project/fpga/distribution/lab3/ece453_top_leve
+l.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
 Annotating constraints to design from ucf file
-"C:/vmware-shared/Lab5_Dan&Liu/Lab5_Dan&Liu/lab3/lab3/distribution/ece453_TLL500
-0_spring2012.ucf" ...
+"C:/vmware-shared/dak-project/453-project/fpga/distribution/ece453_TLL5000_sprin
+g2012.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
 Done...
@@ -32,7 +32,7 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 141704 kilobytes
+Total memory usage is 140680 kilobytes
 
 Writing NGD file "ece453_top_level.ngd" ...
 Total REAL time to NGDBUILD completion:  2 sec

@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-
+//
 module lab1( input [31:0] data_in, output [31:0] data_out, input [7:0] SW, output [7:0] LED, input [23:0] address, input CLK, RST, AS, RS, WS, input [3:0] BE, input [15:0] ACC_PORT_PIN, output reg [15:0] ACC_PORT_PIN_OUT);
 
 	reg [31:0] count, scratch1, scratch2, scratch3, scratch4, read, io_direction, io_write, io_read, RandomNumber;

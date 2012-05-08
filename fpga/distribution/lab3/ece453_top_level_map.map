@@ -10,7 +10,7 @@ Target Device  : xc3s1500
 Target Package : fg676
 Target Speed   : -4
 Mapper Version : spartan3 -- $Revision: 1.52.76.2 $
-Mapped Date    : Mon May 07 15:44:11 2012
+Mapped Date    : Mon May 07 22:59:04 2012
 
 Mapping design into LUTs...
 WARNING:MapLib:701 - Signal PS2_MOUSE_CLK connected to top level port
