@@ -83,7 +83,7 @@ int main(int argc, char* argv[])
       fprintf(stderr, "%s: unable to resolve host\n", "128.104.180.233");
       return 1;
    }
-   port = 1223UL;
+   port = 1224UL;
    fd_sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
    if (fd_sock == -1) {
       printf("socket\n");

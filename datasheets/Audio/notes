@@ -1,3 +1,0 @@
-Sample Rate: 48 kHz (set bit clock to 48 kHz)
-BIT_CLK Freq = 12.288 MHz
-	These are the same values listed in the datasheet for the codec chip used in the verilog code we have
